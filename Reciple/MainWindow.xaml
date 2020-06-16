@@ -16,6 +16,7 @@
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
         <Style x:Key="BorderControl" TargetType="Border">
@@ -49,6 +50,9 @@
                 From="-220,0,0,0"
                 To="0,0,0,0"
                 Duration="0:0:0.2" />
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridMain" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5" />
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="sbHideLeftMenu">
             <ThicknessAnimation
@@ -57,6 +61,9 @@
                 From="0,0,0,0"
                 To="-220,0,0,0"
                 Duration="0:0:0.2" />
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridMain" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="100" />
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
     <Grid>
