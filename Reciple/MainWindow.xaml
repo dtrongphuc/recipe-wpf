@@ -7,7 +7,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="HomeScreen"
-    Width="1280"
+    Width="1100"
     Height="700"
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="{DynamicResource MaterialDesignFont}"
@@ -41,38 +41,60 @@
             <Setter Property="Width" Value="110" />
             <Setter Property="Height" Value="110" />
         </Style>
+
+        <Storyboard x:Key="sbShowLeftMenu">
+            <ThicknessAnimation
+                DecelerationRatio=".9"
+                Storyboard.TargetProperty="Margin"
+                From="-220,0,0,0"
+                To="0,0,0,0"
+                Duration="0:0:0.2" />
+        </Storyboard>
+        <Storyboard x:Key="sbHideLeftMenu">
+            <ThicknessAnimation
+                AccelerationRatio=".9"
+                Storyboard.TargetProperty="Margin"
+                From="0,0,0,0"
+                To="-220,0,0,0"
+                Duration="0:0:0.2" />
+        </Storyboard>
     </Window.Resources>
-    <Grid Background="#FFFFFF">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="8*" />
-        </Grid.ColumnDefinitions>
-        <!--  Menu bên trái  -->
-        <Grid
-            Grid.Column="0"
-            Margin="0"
-            Background="#CEE7E6">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="70" />
-                <RowDefinition Height="60" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-            </Grid.RowDefinitions>
+    <Grid>
+        <StackPanel
+            Name="Menu"
+            Width="220"
+            Margin="-220,0,0,0"
+            HorizontalAlignment="Left"
+            Panel.ZIndex="10"
+            Background="#FFF2FDFF">
+            <Button
+                Name="btnMenuHide"
+                Margin="0,8,0,0"
+                HorizontalAlignment="Right"
+                Background="#00000000"
+                BorderBrush="Transparent"
+                BorderThickness="0"
+                Click="btnHideMenu_Click"
+                Foreground="#FF3C3C3C">
+                <materialDesign:PackIcon
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Kind="ArrowLeft">
+                    <materialDesign:PackIcon.LayoutTransform>
+                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2" />
+                    </materialDesign:PackIcon.LayoutTransform>
+                </materialDesign:PackIcon>
+            </Button>
             <Border
-                Grid.Row="0"
-                Grid.Column="0"
+                Margin="0,0,0,12"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 BorderBrush="Azure">
                 <Label Content="LOGO" FontSize="20" />
             </Border>
             <Border
-                Grid.Row="1"
                 Height="34"
-                Margin="60,0"
+                Margin="16,0,16,12"
                 VerticalAlignment="Center"
                 Background="#3B9691"
                 BorderBrush="Transparent"
@@ -83,38 +105,43 @@
                     Background="Transparent"
                     BorderBrush="Transparent"
                     BorderThickness="0"
-                    Content="Sign-up/Login In"
+                    Content="Sign-up / Login In"
+                    FontSize="16"
                     FontWeight="Bold"
                     Foreground="#fff" />
             </Border>
             <Label
-                Grid.Row="2"
+                Padding="0,6,0,6"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="Home" />
+                Content="Home"
+                FontSize="16" />
             <Label
-                Grid.Row="3"
+                Padding="0,6,0,6"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="Danh Mục" />
+                Content="Danh Mục"
+                FontSize="16" />
             <Label
-                Grid.Row="4"
+                Padding="0,6,0,6"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="Món ăn nhiều đề cử" />
+                Content="Món ăn nhiều đề cử"
+                FontSize="16" />
             <Label
-                Grid.Row="5"
+                Padding="0,6,0,6"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="Liên Hệ" />
+                Content="Liên Hệ"
+                FontSize="16" />
             <Label
-                Grid.Row="6"
+                Padding="0,6,0,6"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
-                Content="Góp ý" />
-        </Grid>
-        <!--  Ket thuc Menu Trái  -->
-        <Grid Grid.Column="1">
+                Content="Góp ý"
+                FontSize="16" />
+        </StackPanel>
+        <Grid x:Name="GridMain">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="3*" />
@@ -123,26 +150,51 @@
             </Grid.RowDefinitions>
             <DockPanel
                 Grid.Row="0"
-                Margin="20,0,20,0"
+                Margin="10,0,20,0"
                 LastChildFill="True">
-                <Grid Width="124" DockPanel.Dock="Right">
+                <Grid DockPanel.Dock="Right">
                     <Button
-                        Width="100"
+                        Width="56"
                         Height="40"
-                        materialDesign:ButtonAssist.CornerRadius="20"
+                        materialDesign:ButtonAssist.CornerRadius="4"
                         Background="#fff"
+                        BorderBrush="#999"
+                        BorderThickness="1"
                         Foreground="#000"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         ToolTip="MaterialDesignRaisedDarkButton with Round Corners">
-                        <TextBlock Text="Search" />
+                        <materialDesign:PackIcon Kind="Magnify">
+                            <materialDesign:PackIcon.LayoutTransform>
+                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.4" ScaleY="1.4" />
+                            </materialDesign:PackIcon.LayoutTransform>
+                        </materialDesign:PackIcon>
                     </Button>
                 </Grid>
+                <Button
+                    Name="btnMenuShow"
+                    Background="#00000000"
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
+                    Click="btnShowMenu_Click"
+                    DockPanel.Dock="Left"
+                    Foreground="#FF3C3C3C">
+                    <materialDesign:PackIcon
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Kind="Menu">
+                        <materialDesign:PackIcon.LayoutTransform>
+                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2" />
+                        </materialDesign:PackIcon.LayoutTransform>
+                    </materialDesign:PackIcon>
+                </Button>
+
                 <Border
-                    Margin="0,0,20,0"
+                    Margin="10,0,10,0"
                     VerticalAlignment="Center"
                     BorderBrush="#999999"
                     BorderThickness="1"
-                    CornerRadius="20">
+                    CornerRadius="6">
                     <TextBox
                         Height="40"
                         Padding="40,0,0,0"
