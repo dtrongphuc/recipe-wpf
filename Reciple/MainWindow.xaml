@@ -86,7 +86,7 @@
                 <materialDesign:PackIcon
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Kind="ArrowLeft">
+                    Kind="Backburger">
                     <materialDesign:PackIcon.LayoutTransform>
                         <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2" />
                     </materialDesign:PackIcon.LayoutTransform>
