@@ -11,6 +11,7 @@
     Height="700"
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="{DynamicResource MaterialDesignFont}"
+    Loaded="Window_Loaded"
     TextElement.FontSize="13"
     TextElement.FontWeight="Regular"
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -213,7 +214,7 @@
                     FontSize="28"
                     FontWeight="Black"
                     Foreground="Black" />
-                <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal">
                     <Button
                         HorizontalAlignment="Right"
                         Background="#54DEDEDE"

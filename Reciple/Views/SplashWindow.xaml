@@ -11,18 +11,17 @@
     mc:Ignorable="d">
     <Canvas>
         <CheckBox
-            Canvas.Left="16"
-            Canvas.Top="15"
+            Canvas.Left="25"
+            Canvas.Top="16"
             Click="CheckBox_Click"
-            Content="tắt hiển thị thông báo này" />
+            Content="tắt Hiển thị thông báo" />
         <Button
-            Name="Okbutton"
-            Canvas.Left="55"
-            Canvas.Top="44"
-            Width="79"
-            Height="27"
-            Click="Okbutton_Click"
-            Content="Close"
-            IsDefault="True" />
+            Name="OKButton"
+            Canvas.Left="54"
+            Canvas.Top="49"
+            Width="83"
+            Height="30"
+            Click="OKButton_Click"
+            Content="Close" />
     </Canvas>
 </Window>

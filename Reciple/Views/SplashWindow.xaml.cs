@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace Reciple.Views
 {
@@ -24,14 +25,17 @@ namespace Reciple.Views
             InitializeComponent();
         }
 
-        private void Okbutton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
-
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["ShowSplash"].Value = "false";
+            config.Save(ConfigurationSaveMode.Modified);
         }
+
+        private void OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
     }
 }

@@ -184,10 +184,10 @@
                         Canvas.Top="17"
                         Width="201"
                         Orientation="Horizontal">
-                        <Image
+                        <!--<Image
                             Width="17"
                             Height="19"
-                            Source="Images/add-list.png" />
+                            Source="Images/add-list.png" />-->
                         <TextBlock
                             Padding="15,0,0,0"
                             FontSize="15"

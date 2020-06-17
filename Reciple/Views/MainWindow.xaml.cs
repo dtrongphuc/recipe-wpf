@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Configuration;
+
 namespace Reciple
 {
     /// <summary>
@@ -58,7 +59,7 @@ namespace Reciple
             var config = ConfigurationManager.AppSettings["ShowSplash"];
             if (config.ToLower() == "true")
             {
-                var screen = new SplashWindow();
+                var screen = new Views.SplashWindow();
                 screen.ShowDialog();
             }
             this.Show();
