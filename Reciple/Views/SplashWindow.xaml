@@ -1,0 +1,28 @@
+﻿<Window
+    x:Class="Reciple.SplashWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Reciple"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SplashWindow"
+    Width="200"
+    Height="120"
+    mc:Ignorable="d">
+    <Canvas>
+        <CheckBox
+            Canvas.Left="16"
+            Canvas.Top="15"
+            Click="CheckBox_Click"
+            Content="tắt hiển thị thông báo này" />
+        <Button
+            Name="Okbutton"
+            Canvas.Left="55"
+            Canvas.Top="44"
+            Width="79"
+            Height="27"
+            Click="Okbutton_Click"
+            Content="Close"
+            IsDefault="True" />
+    </Canvas>
+</Window>
