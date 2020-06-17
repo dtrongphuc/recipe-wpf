@@ -7,12 +7,10 @@ D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\bin\Debug\MaterialDesignColors.pdb
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\bin\Debug\MaterialDesignThemes.Wpf.pdb
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\bin\Debug\MaterialDesignThemes.Wpf.xml
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.csprojAssemblyReference.cache
-D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\MainWindow.g.cs
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\App.g.cs
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple_MarkupCompile.cache
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple_MarkupCompile.lref
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\App.baml
-D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\MainWindow.baml
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.g.resources
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.Properties.Resources.resources
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.csproj.GenerateResource.cache
@@ -23,3 +21,5 @@ D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.pdb
 C:\Users\PC\Desktop\Phú\C#\New folder\reciple-wpf\Reciple\bin\Debug\Reciple.exe.config
 C:\Users\PC\Desktop\Phú\C#\New folder\reciple-wpf\Reciple\obj\Debug\Reciple.exe
 C:\Users\PC\Desktop\Phú\C#\New folder\reciple-wpf\Reciple\obj\Debug\Reciple.pdb
+D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Views\MainWindow.g.cs
+D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Views\MainWindow.baml
