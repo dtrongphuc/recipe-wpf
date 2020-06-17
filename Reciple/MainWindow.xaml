@@ -200,7 +200,8 @@
                     Content="Your favorite cuisines"
                     DockPanel.Dock="Top"
                     FontSize="28"
-                    FontWeight="Black" />
+                    FontWeight="Black"
+                    Foreground="Red"/>
                 <StackPanel
                     HorizontalAlignment="Center"
                     DockPanel.Dock="Bottom"

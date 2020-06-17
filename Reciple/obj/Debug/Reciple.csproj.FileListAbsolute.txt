@@ -20,3 +20,6 @@ D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.csproj.CoreCompileInputs.c
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.csproj.CopyComplete
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.exe
 D:\HK2-2\LT\LTW\PJ1\Reciple\Reciple\obj\Debug\Reciple.pdb
+C:\Users\PC\Desktop\Phú\C#\New folder\reciple-wpf\Reciple\bin\Debug\Reciple.exe.config
+C:\Users\PC\Desktop\Phú\C#\New folder\reciple-wpf\Reciple\obj\Debug\Reciple.exe
+C:\Users\PC\Desktop\Phú\C#\New folder\reciple-wpf\Reciple\obj\Debug\Reciple.pdb
