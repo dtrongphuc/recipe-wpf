@@ -208,7 +208,7 @@
                     DockPanel.Dock="Top"
                     FontSize="28"
                     FontWeight="Black"
-                    Foreground="Red"/>
+                    Foreground="Black"/>
                 <StackPanel
                     HorizontalAlignment="Center"
                     DockPanel.Dock="Bottom"
