@@ -51,5 +51,32 @@ namespace Reciple
                 btnShow.Visibility = System.Windows.Visibility.Visible;
             }
         }
+
+        private int _currentElement = 0;
+        private void btnNextFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentElement < 2)
+            {
+                _currentElement++;
+                AnimateCarousel();
+            }
+        }
+
+        private void btnPrevFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentElement > 0)
+            {
+                _currentElement--;
+                AnimateCarousel();
+            }
+        }
+
+        private void AnimateCarousel()
+        {
+            Storyboard storyboard = (this.Resources["CarouselStoryboard"] as Storyboard);
+            DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
+            animation.To = -172 * _currentElement;
+            storyboard.Begin();
+        }
     }
 }

@@ -64,6 +64,10 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="100" />
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+
+        <Storyboard x:Key="CarouselStoryboard">
+            <DoubleAnimation Storyboard.TargetName="CarouselTransform" Storyboard.TargetProperty="X" />
+        </Storyboard>
     </Window.Resources>
     <Grid>
         <Grid
@@ -209,44 +213,54 @@
                     FontSize="28"
                     FontWeight="Black"
                     Foreground="Black" />
-                <StackPanel
-                    HorizontalAlignment="Center"
-                    DockPanel.Dock="Bottom"
-                    Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" >
                     <Button
+                        HorizontalAlignment="Right"
                         Background="#54DEDEDE"
+                        Click="btnPrevFavorite_Click"
                         Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="MaterialDesignIconButton">
                         <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronLeft" />
                     </Button>
 
-                    <Ellipse Style="{StaticResource CircleFavorite}">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <Ellipse Style="{StaticResource CircleFavorite}">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <Ellipse Style="{StaticResource CircleFavorite}">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <Ellipse Style="{StaticResource CircleFavorite}">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                        </Ellipse.Fill>
-                    </Ellipse>
-                    <Ellipse Style="{StaticResource CircleFavorite}">
-                        <Ellipse.Fill>
-                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                        </Ellipse.Fill>
-                    </Ellipse>
+                    <StackPanel
+                        Name="Carousel"
+                        HorizontalAlignment="Center"
+                        DockPanel.Dock="Bottom"
+                        Orientation="Horizontal">
+                        <StackPanel.RenderTransform>
+                            <TranslateTransform x:Name="CarouselTransform" />
+                        </StackPanel.RenderTransform>
+
+                        <Ellipse Style="{StaticResource CircleFavorite}">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Style="{StaticResource CircleFavorite}">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Style="{StaticResource CircleFavorite}">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Style="{StaticResource CircleFavorite}">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Style="{StaticResource CircleFavorite}">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </StackPanel>
                     <Button
                         Background="#54DEDEDE"
+                        Click="btnNextFavorite_Click"
                         Style="{StaticResource MaterialDesignIconButton}"
                         ToolTip="MaterialDesignIconButton">
                         <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronRight" />
