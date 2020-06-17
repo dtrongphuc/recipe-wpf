@@ -1,12 +1,221 @@
-﻿<Window x:Class="Reciple.Views.DetailsWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Reciple.Views"
-        mc:Ignorable="d"
-        Title="DetailsWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+﻿<Window
+    x:Class="Reciple.DetailsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Reciple"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="DetailsWindow"
+    Width="1100"
+    Height="700"
+    mc:Ignorable="d">
+    <Canvas>
+        <Grid Width="1094" Height="670">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="8*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <!--<StackPanel Grid.Column="0" Grid.Row="1">
+                <TextBlock Text="Cheese and Herb Mini Sweet Peppers"></TextBlock>
+                <TextBlock Text="BETTER HOME ANH GARDENS"></TextBlock>
+                <TextBlock Text="Desniege Joseph: Pretty good! Added to a cheese plate and guests e... Read More"
+
+                           >
+
+                </TextBlock>
+            </StackPanel>-->
+
+            <Grid
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Margin="0,67,0.2,0.2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="124*" />
+                    <RowDefinition Height="26*" />
+                    <RowDefinition Height="26*" />
+                    <RowDefinition Height="85*" />
+                    <RowDefinition Height="189*" />
+                    <RowDefinition Height="86*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    Margin="0,0,0,1"
+                    Padding="35,0,35,0"
+                    FontSize="40"
+                    FontWeight="Bold"
+                    Text="Cheese and Herb Mini Sweet Peppers"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="1"
+                    Margin="0,1,0,0.4"
+                    Padding="35,0,0,0"
+                    FontWeight="Bold"
+                    Foreground="#bab7b6"
+                    Text="BETTER HOME ANH GARDENS" />
+
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Margin="36,26,396,0"
+                    Orientation="Horizontal">
+                    <Image Width="15" Source="Images/star-color.png" />
+                    <Image
+                        Width="15"
+                        Margin="2,0,0,0"
+                        Source="Images/star-color.png" />
+                    <Image
+                        Width="15"
+                        Margin="2,0,0,0"
+                        Source="Images/star-color.png" />
+                    <Image
+                        Width="15"
+                        Margin="2,0,0,0"
+                        Source="Images/star-color.png" />
+                    <Image
+                        Width="15"
+                        Margin="2,0,0,0"
+                        Source="Images/star.png" />
+                    <TextBlock
+                        Padding="10,0,0,0"
+                        FontSize="18"
+                        Foreground="#ffab45"
+                        Text="(3)" />
+                </StackPanel>
+
+                <TextBlock
+                    Grid.Row="3"
+                    Margin="0,4,0,7.8"
+                    Padding="35,0,35,0"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Text="Desniege Joseph: Pretty good! Added to a cheese plate and guests e... Read More"
+                    TextWrapping="Wrap" />
+
+                <Grid
+                    Grid.Row="4"
+                    Grid.RowSpan="2"
+                    Margin="39,0.2,57,86">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="#c7c7c7" BorderThickness="0,0,0.5,0">
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="120"
+                                FontWeight="Light"
+                                Text="4"
+                                TextAlignment="Center" />
+                            <TextBlock Text="Ingredients" TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border
+                        Grid.Column="1"
+                        BorderBrush="#c7c7c7"
+                        BorderThickness="0,0,0.5,0">
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="120"
+                                FontWeight="Light"
+                                Text="30"
+                                TextAlignment="Center" />
+                            <TextBlock Text="Minutes" TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel Grid.Column="2">
+                        <TextBlock
+                            FontSize="120"
+                            FontWeight="Light"
+                            Text="70"
+                            TextAlignment="Center" />
+                        <TextBlock Text="Kalories" TextAlignment="Center" />
+                    </StackPanel>
+                </Grid>
+
+
+                <Canvas Grid.Row="5" Margin="0,3.4,0,83">
+                    <Button
+                        x:Name="btnBack"
+                        Canvas.Left="37"
+                        Canvas.Top="6"
+                        Width="177"
+                        Height="44">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border Background="#2fbdb6" CornerRadius="10">
+                                    <TextBlock
+                                        Height="40"
+                                        Padding="8"
+                                        HorizontalAlignment="Center"
+                                        FontSize="18"
+                                        Foreground="White"
+                                        Text="Read Derections" />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Canvas Background="LightGray">
+                        <Ellipse
+                            Canvas.Left="247"
+                            Canvas.Top="6"
+                            Width="45"
+                            Height="45"
+                            Fill="#ff9054"
+                            Stroke="#FF0000FF"
+                            StrokeThickness="0" />
+                        <TextBlock
+                            Canvas.Left="259"
+                            Canvas.Top="20"
+                            Text="Yum" />
+                    </Canvas>
+
+                    <StackPanel
+                        Canvas.Left="328"
+                        Canvas.Top="17"
+                        Width="201"
+                        Orientation="Horizontal">
+                        <Image
+                            Width="17"
+                            Height="19"
+                            Source="Images/add-list.png" />
+                        <TextBlock
+                            Padding="15,0,0,0"
+                            FontSize="15"
+                            FontWeight="Medium"
+                            Text="Add to Meal Planner" />
+                    </StackPanel>
+                </Canvas>
+            </Grid>
+
+            <Border
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Margin="547,9.8,38.4,24.2"
+                CornerRadius="20">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Resource/Images/image.jpg" Stretch="Fill" />
+                </Border.Background>
+            </Border>
+
+        </Grid>
+
+        <!--<StackPanel Orientation="Horizontal">
+            <StackPanel Width="550" Height="700">
+
+            </StackPanel>
+            <Border Width="550" Height="700">
+                <Image Source="Images/image.jpg"></Image>
+            </Border>
+        </StackPanel>-->
+    </Canvas>
 </Window>
