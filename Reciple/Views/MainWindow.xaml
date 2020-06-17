@@ -222,27 +222,27 @@
 
                     <Ellipse Style="{StaticResource CircleFavorite}">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Images/american.jpg" />
+                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
                         </Ellipse.Fill>
                     </Ellipse>
                     <Ellipse Style="{StaticResource CircleFavorite}">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Images/american.jpg" />
+                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
                         </Ellipse.Fill>
                     </Ellipse>
                     <Ellipse Style="{StaticResource CircleFavorite}">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Images/american.jpg" />
+                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
                         </Ellipse.Fill>
                     </Ellipse>
                     <Ellipse Style="{StaticResource CircleFavorite}">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Images/american.jpg" />
+                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
                         </Ellipse.Fill>
                     </Ellipse>
                     <Ellipse Style="{StaticResource CircleFavorite}">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Images/american.jpg" />
+                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
                         </Ellipse.Fill>
                     </Ellipse>
                     <Button
@@ -281,7 +281,7 @@
                             <Image
                                 Width="220"
                                 Height="220"
-                                Source="Images/image.jpg"
+                                Source="/Resource/Images/image.jpg"
                                 Stretch="UniformToFill" />
                             <TextBlock
                                 Grid.Row="1"
@@ -329,7 +329,7 @@
                             <Image
                                 Width="220"
                                 Height="220"
-                                Source="Images/image.jpg"
+                                Source="/Resource/Images/image.jpg"
                                 Stretch="UniformToFill" />
                             <TextBlock
                                 Grid.Row="1"
@@ -377,7 +377,7 @@
                             <Image
                                 Width="220"
                                 Height="220"
-                                Source="Images/image.jpg"
+                                Source="/Resource/Images/image.jpg"
                                 Stretch="UniformToFill" />
                             <TextBlock
                                 Grid.Row="1"
@@ -425,7 +425,7 @@
                             <Image
                                 Width="220"
                                 Height="220"
-                                Source="Images/image.jpg"
+                                Source="/Resource/Images/image.jpg"
                                 Stretch="UniformToFill" />
                             <TextBlock
                                 Grid.Row="1"
