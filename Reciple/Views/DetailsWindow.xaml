@@ -1,9 +1,9 @@
 ﻿<Window
-    x:Class="Reciple.DetailsWindow"
+    x:Class="Reciple.Views.DetailsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Reciple"
+    xmlns:local="clr-namespace:Reciple.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="DetailsWindow"
     Width="1100"
@@ -58,7 +58,7 @@
                     Foreground="#bab7b6"
                     Text="BETTER HOME ANH GARDENS" />
 
-                <StackPanel
+                <!--<StackPanel
                     Grid.Row="1"
                     Grid.RowSpan="2"
                     Margin="36,26,396,0"
@@ -85,7 +85,7 @@
                         FontSize="18"
                         Foreground="#ffab45"
                         Text="(3)" />
-                </StackPanel>
+                </StackPanel>-->
 
                 <TextBlock
                     Grid.Row="3"

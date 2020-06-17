@@ -23,5 +23,15 @@ namespace Reciple.Views
         {
             InitializeComponent();
         }
+
+        private void Okbutton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
