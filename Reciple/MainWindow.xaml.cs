@@ -35,7 +35,7 @@ namespace Reciple
             ShowHideMenu("sbHideLeftMenu", btnMenuHide, btnMenuShow, Menu);
         }
 
-        private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, StackPanel pnl)
+        private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, DockPanel pnl)
         {
             Storyboard sb = Resources[Storyboard] as Storyboard;
             sb.Begin(pnl);

@@ -36,11 +36,10 @@
             <Setter Property="Width" Value="32" />
             <Setter Property="Height" Value="32" />
         </Style>
-        <Style x:Key="BorderFavorite" TargetType="Border">
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="CornerRadius" Value="50" />
-            <Setter Property="Width" Value="110" />
-            <Setter Property="Height" Value="110" />
+        <Style x:Key="CircleFavorite" TargetType="Ellipse">
+            <Setter Property="Width" Value="108" />
+            <Setter Property="Height" Value="108" />
+            <Setter Property="Margin" Value="32,0,32,0" />
         </Style>
 
         <Storyboard x:Key="sbShowLeftMenu">
@@ -67,87 +66,74 @@
         </Storyboard>
     </Window.Resources>
     <Grid>
-        <StackPanel
+        <DockPanel
             Name="Menu"
             Width="220"
             Margin="-220,0,0,0"
             HorizontalAlignment="Left"
             Panel.ZIndex="10"
-            Background="#FFF2FDFF">
+            Background="#FFF2FDFF"
+            LastChildFill="True">
             <Button
                 Name="btnMenuHide"
-                Margin="0,8,0,0"
+                Margin="0,15,0,0"
                 HorizontalAlignment="Right"
                 Background="#00000000"
                 BorderBrush="Transparent"
                 BorderThickness="0"
                 Click="btnHideMenu_Click"
+                DockPanel.Dock="Top"
                 Foreground="#FF3C3C3C">
                 <materialDesign:PackIcon
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Kind="Backburger">
                     <materialDesign:PackIcon.LayoutTransform>
-                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2" />
+                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="3" ScaleY="3" />
                     </materialDesign:PackIcon.LayoutTransform>
                 </materialDesign:PackIcon>
             </Button>
-            <Border
-                Margin="0,0,0,12"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                BorderBrush="Azure">
-                <Label Content="LOGO" FontSize="20" />
-            </Border>
-            <Border
-                Height="34"
-                Margin="16,0,16,12"
-                VerticalAlignment="Center"
-                Background="#3B9691"
-                BorderBrush="Transparent"
-                BorderThickness="1"
-                CornerRadius="14">
-                <Button
+
+            <StackPanel Margin="0,20,0,20" DockPanel.Dock="Top">
+                <Label
+                    Padding="0,12,0,12"
                     HorizontalContentAlignment="Center"
-                    Background="Transparent"
-                    BorderBrush="Transparent"
-                    BorderThickness="0"
-                    Content="Sign-up / Login In"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    Foreground="#fff" />
-            </Border>
-            <Label
-                Padding="0,6,0,6"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Content="Home"
-                FontSize="16" />
-            <Label
-                Padding="0,6,0,6"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Content="Danh Mục"
-                FontSize="16" />
-            <Label
-                Padding="0,6,0,6"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Content="Món ăn nhiều đề cử"
-                FontSize="16" />
-            <Label
-                Padding="0,6,0,6"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Content="Liên Hệ"
-                FontSize="16" />
-            <Label
-                Padding="0,6,0,6"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Content="Góp ý"
-                FontSize="16" />
-        </StackPanel>
+                    VerticalContentAlignment="Center"
+                    Content="Home"
+                    FontSize="20" />
+                <Label
+                    Padding="0,12,0,12"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Danh Mục"
+                    FontSize="20" />
+                <Label
+                    Padding="0,12,0,12"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Món ăn nhiều đề cử"
+                    FontSize="20" />
+
+            </StackPanel>
+            <StackPanel
+                Margin="0,10,0,20"
+                VerticalAlignment="Bottom"
+                DockPanel.Dock="Bottom">
+                <Label
+                    Padding="0,12,0,12"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Liên Hệ"
+                    FontSize="20" />
+                <Label
+                    Padding="0,12,0,12"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Góp ý"
+                    FontSize="20" />
+            </StackPanel>
+
+        </DockPanel>
         <Grid x:Name="GridMain">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
@@ -157,15 +143,15 @@
             </Grid.RowDefinitions>
             <DockPanel
                 Grid.Row="0"
-                Margin="10,0,20,0"
+                Margin="10,0,26,0"
                 LastChildFill="True">
                 <Grid DockPanel.Dock="Right">
                     <Button
                         Width="56"
-                        Height="40"
+                        Height="44"
                         materialDesign:ButtonAssist.CornerRadius="4"
                         Background="#fff"
-                        BorderBrush="#999"
+                        BorderBrush="#000"
                         BorderThickness="1"
                         Foreground="#000"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
@@ -191,29 +177,23 @@
                         VerticalAlignment="Center"
                         Kind="Menu">
                         <materialDesign:PackIcon.LayoutTransform>
-                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2" />
+                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="3" ScaleY="3" />
                         </materialDesign:PackIcon.LayoutTransform>
                     </materialDesign:PackIcon>
                 </Button>
-
-                <Border
-                    Margin="10,0,10,0"
-                    VerticalAlignment="Center"
-                    BorderBrush="#999999"
-                    BorderThickness="1"
-                    CornerRadius="6">
-                    <TextBox
-                        Height="40"
-                        Padding="40,0,0,0"
-                        HorizontalContentAlignment="Left"
-                        VerticalContentAlignment="Center"
-                        Background="Transparent"
-                        BorderThickness="0"
-                        FontSize="24"
-                        Text="Search..." />
-                </Border>
+                <TextBox
+                    Height="44"
+                    Margin="16,0,16,0"
+                    materialDesign:ColorZoneAssist.Foreground="#000"
+                    materialDesign:HintAssist.Foreground="#000"
+                    materialDesign:HintAssist.Hint="Search"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="16"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#000"
+                    FontSize="16"
+                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" />
             </DockPanel>
 
+            <!--  FAVORITE  -->
             <DockPanel Grid.Row="1">
                 <Label
                     HorizontalAlignment="Center"
@@ -232,37 +212,31 @@
                         <materialDesign:PackIcon Kind="ChevronLeft" />
                     </Button>
 
-                    <Border Margin="32,0,32,0" Style="{StaticResource BorderFavorite}">
-                        <Image
-                            Width="108"
-                            Height="108"
-                            Source="Images/american.jpg" />
-                    </Border>
-                    <Border Margin="32,0,32,0" Style="{StaticResource BorderFavorite}">
-                        <Image
-                            Width="108"
-                            Height="108"
-                            Source="Images/american.jpg" />
-                    </Border>
-                    <Border Margin="32,0,32,0" Style="{StaticResource BorderFavorite}">
-                        <Image
-                            Width="108"
-                            Height="108"
-                            Source="Images/american.jpg" />
-                    </Border>
-                    <Border Margin="32,0,32,0" Style="{StaticResource BorderFavorite}">
-                        <Image
-                            Width="108"
-                            Height="108"
-                            Source="Images/american.jpg" />
-                    </Border>
-                    <Border Margin="32,0,32,0" Style="{StaticResource BorderFavorite}">
-                        <Image
-                            Width="108"
-                            Height="108"
-                            Source="Images/american.jpg" />
-                    </Border>
-
+                    <Ellipse Style="{StaticResource CircleFavorite}">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images/american.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Style="{StaticResource CircleFavorite}">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images/american.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Style="{StaticResource CircleFavorite}">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images/american.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Style="{StaticResource CircleFavorite}">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images/american.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Style="{StaticResource CircleFavorite}">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images/american.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
                     <Button
                         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
                         Style="{StaticResource MaterialDesignIconButton}"
@@ -271,6 +245,7 @@
                     </Button>
                 </StackPanel>
             </DockPanel>
+
             <Grid
                 Grid.Row="2"
                 Grid.Column="1"
@@ -281,29 +256,6 @@
                     <ColumnDefinition Width="2.5*" />
                     <ColumnDefinition Width="2.5*" />
                 </Grid.ColumnDefinitions>
-
-                <!--<Border Width="220" Grid.Column="0" Grid.Row="0"
-                        Height="340"
-                        Padding="1,0,0,0"
-                        BorderBrush="#999999"
-                        BorderThickness="0"
-                        Background="#FFFFFF"
-                        CornerRadius="25">
-                    <Grid Width="220" Height="340" Margin="-1, 0, 0, 0">
-                        <Grid.RowDefinitions>
-                           <RowDefinition Height="220"></RowDefinition>
-                           <RowDefinition Height="52"></RowDefinition>
-                           <RowDefinition Height="20"></RowDefinition>
-                        </Grid.RowDefinitions>
-                           <Border Grid.Column="0" Grid.Row="0" BorderThickness="0" CornerRadius="25">
-                                <Border.Background>
-                                    <ImageBrush ImageSource="Images/image.jpg"></ImageBrush>
-                                </Border.Background>
-                           </Border>
-                         <TextBlock Text="Honey Cookies" Grid.Column="0" Grid.Row="01" FontSize="20" Padding="5,15,0,0"></TextBlock>
-                        <TextBlock Text="The SemiSweet Sisters" Grid.Column="0" Grid.Row="02" FontSize="18" Padding="5,0,0,0"></TextBlock>
-                    </Grid>
-                </Border>-->
                 <materialDesign:Card
                     Grid.Column="0"
                     Width="220"
@@ -334,7 +286,8 @@
                             Text="The SemiSweet Sisters" />
                         <Button
                             Grid.Row="2"
-                            Width="30"
+                            Width="32"
+                            Height="32"
                             Margin="8"
                             Padding="2,0,2,0"
                             HorizontalAlignment="Right"
@@ -352,7 +305,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="220" />
                             <RowDefinition Height="52" />
-                            <RowDefinition Height="40" />
+                            <RowDefinition Height="50" />
                         </Grid.RowDefinitions>
                         <Image
                             Width="220"
@@ -367,14 +320,15 @@
                             Text="Honey Cookies"
                             TextWrapping="Wrap" />
                         <TextBlock
-                            Grid.Row="02"
+                            Grid.Row="2"
                             Grid.Column="0"
                             Padding="5,0,0,0"
                             FontSize="14"
                             Text="The SemiSweet Sisters" />
                         <Button
                             Grid.Row="2"
-                            Width="30"
+                            Width="32"
+                            Height="32"
                             Margin="8"
                             Padding="2,0,2,0"
                             HorizontalAlignment="Right"
@@ -414,7 +368,8 @@
                             Text="The SemiSweet Sisters" />
                         <Button
                             Grid.Row="2"
-                            Width="30"
+                            Width="32"
+                            Height="32"
                             Margin="8"
                             Padding="2,0,2,0"
                             HorizontalAlignment="Right"
@@ -454,7 +409,8 @@
                             Text="The SemiSweet Sisters" />
                         <Button
                             Grid.Row="2"
-                            Width="30"
+                            Width="32"
+                            Height="32"
                             Margin="8"
                             Padding="2,0,2,0"
                             HorizontalAlignment="Right"
@@ -464,57 +420,6 @@
                         </Button>
                     </Grid>
                 </materialDesign:Card>
-
-                <!--<TextBlock Grid.Column="1" Grid.Row="0" Padding="18,0,0,0">
-                         <Grid Width="220">
-                             <Grid.RowDefinitions>
-                                <RowDefinition Height="220"></RowDefinition>
-                                <RowDefinition Height="65"></RowDefinition>
-                                <RowDefinition Height="65"></RowDefinition>
-                             </Grid.RowDefinitions>
-                               <Border Grid.Column="0" Grid.Row="0" CornerRadius="25" BorderThickness="0">
-                                 <Border.Background>
-                                     <ImageBrush ImageSource="Images/image.jpg"></ImageBrush>
-                                 </Border.Background>
-                             </Border>
-                              <TextBlock Grid.Column="0" Grid.Row="01" FontSize="20" Padding="0,25,0,0">Honey Cookies</TextBlock>
-                             <TextBlock Grid.Column="0" Grid.Row="02" FontSize="18" Padding="5,0,0,0">The SemiSweet Sisters</TextBlock>
-                         </Grid>
-                     </TextBlock>
-
-                     <TextBlock Grid.Column="2" Grid.Row="0" Padding="18,0,0,0">
-                         <Grid Width="220">
-                             <Grid.RowDefinitions>
-                                <RowDefinition Height="220"></RowDefinition>
-                                <RowDefinition Height="65"></RowDefinition>
-                                <RowDefinition Height="65"></RowDefinition>
-                             </Grid.RowDefinitions>
-                               <Border Grid.Column="0" Grid.Row="0" CornerRadius="25" BorderThickness="0">
-                                 <Border.Background>
-                                     <ImageBrush ImageSource="Images/image.jpg"></ImageBrush>
-                                 </Border.Background>
-                             </Border>
-                              <TextBlock Grid.Column="0" Grid.Row="01" FontSize="20" Padding="0,25,0,0">Honey Cookies</TextBlock>
-                             <TextBlock Grid.Column="0" Grid.Row="02" FontSize="18" Padding="5,0,0,0">The SemiSweet Sisters</TextBlock>
-                         </Grid>
-                     </TextBlock>
-
-                     <TextBlock Grid.Column="3" Grid.Row="0" Padding="15,0,0,0">
-                         <Grid Width="220">
-                             <Grid.RowDefinitions>
-                                <RowDefinition Height="220"></RowDefinition>
-                                <RowDefinition Height="65"></RowDefinition>
-                                <RowDefinition Height="65"></RowDefinition>
-                             </Grid.RowDefinitions>
-                              <Border Grid.Column="0" Grid.Row="0" CornerRadius="25" BorderThickness="0">
-                                 <Border.Background>
-                                     <ImageBrush ImageSource="Images/image.jpg"></ImageBrush>
-                                 </Border.Background>
-                             </Border>
-                              <TextBlock Grid.Column="0" Grid.Row="01" FontSize="20" Padding="0,25,0,0" TextWrapping="Wrap">Honey Cookies</TextBlock>
-                             <TextBlock Grid.Column="0" Grid.Row="02" FontSize="18" Padding="5,0,0,0" TextWrapping="Wrap">The SemiSweet Sisters</TextBlock>
-                         </Grid>
-                     </TextBlock>-->
             </Grid>
         </Grid>
     </Grid>
