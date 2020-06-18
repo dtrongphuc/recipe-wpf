@@ -236,7 +236,6 @@
                 <Grid x:Name="GridMain">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="3*" />
-                        <RowDefinition Height="5.5*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <!--  FAVORITE  -->
@@ -354,12 +353,14 @@
                             </Grid.ColumnDefinitions>
                             <Button
                                 Grid.Column="0"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -367,8 +368,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
@@ -402,12 +404,14 @@
                             </Button>
                             <Button
                                 Grid.Column="1"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -415,8 +419,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
@@ -450,12 +455,14 @@
                             </Button>
                             <Button
                                 Grid.Column="2"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -463,8 +470,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
@@ -498,12 +506,14 @@
                             </Button>
                             <Button
                                 Grid.Column="3"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -511,8 +521,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
@@ -554,12 +565,14 @@
                             </Grid.ColumnDefinitions>
                             <Button
                                 Grid.Column="0"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -567,8 +580,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
@@ -602,12 +616,14 @@
                             </Button>
                             <Button
                                 Grid.Column="1"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -615,8 +631,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
@@ -650,12 +667,14 @@
                             </Button>
                             <Button
                                 Grid.Column="2"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -663,8 +682,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
@@ -698,12 +718,14 @@
                             </Button>
                             <Button
                                 Grid.Column="3"
-                                Width="226"
                                 Height="330"
                                 Padding="0"
                                 Background="Transparent"
                                 BorderThickness="0">
-                                <materialDesign:Card>
+                                <materialDesign:Card
+                                    Width="220"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                    materialDesign:ShadowAssist.ShadowEdges="Bottom, Right">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -711,8 +733,9 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Width="220"
                                             Height="220"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
