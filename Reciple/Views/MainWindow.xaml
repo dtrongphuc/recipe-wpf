@@ -233,10 +233,13 @@
                         <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronLeft" />
                     </Button>
 
-                    <Grid Width="860" ClipToBounds="True">
+                    <ScrollViewer
+                        Width="860"
+                        ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                        ScrollViewer.VerticalScrollBarVisibility="Hidden">
                         <StackPanel
                             Name="Carousel"
-                            Width="1000"
+                            Width="10000"
                             VerticalAlignment="Center"
                             Panel.ZIndex="10"
                             Orientation="Horizontal">
@@ -299,7 +302,7 @@
                                 </Ellipse.Fill>
                             </Ellipse>
                         </StackPanel>
-                    </Grid>
+                    </ScrollViewer>
 
                     <Button
                         Margin="0,0,0,0"
