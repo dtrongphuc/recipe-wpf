@@ -25,15 +25,16 @@ namespace Reciple.Views
             InitializeComponent();
         }
 
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["ShowSplash"].Value = "false";
-            config.Save(ConfigurationSaveMode.Modified);
-        }
+       
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
+            if (checkboxdisplay.IsChecked == true)
+            {
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["ShowSplash"].Value = "false";
+                config.Save(ConfigurationSaveMode.Modified);
+            }
             DialogResult = true;
         }
 
