@@ -178,6 +178,7 @@
     <Resource Include="Resource\Images\Details\gachiennuocmam1.jpg" />
     <Resource Include="Resource\Images\Details\camuchienxu1.jpg" />
     <Resource Include="Resource\Images\Details\boxienchienvungtoi1.jpg" />
+    <Resource Include="icon.ico" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
