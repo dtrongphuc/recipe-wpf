@@ -1,24 +1,23 @@
-﻿<Window
-    x:Class="Reciple.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Reciple"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="HomeScreen"
-    Width="1100"
-    Height="700"
-    Background="{DynamicResource MaterialDesignPaper}"
-    FontFamily="{DynamicResource MaterialDesignFont}"
-    Loaded="Window_Loaded"
-    TextElement.FontSize="13"
-    TextElement.FontWeight="Regular"
-    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-    TextOptions.TextFormattingMode="Ideal"
-    TextOptions.TextRenderingMode="Auto"
-    WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
+﻿<Window x:Class="Recipe.Views.SearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Recipe.Views" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="SearchWindow"
+        Width="1100"
+        Height="700"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Loaded="Window_Loaded"
+        TextElement.FontSize="13"
+        TextElement.FontWeight="Regular"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        WindowStartupLocation="CenterScreen"
+        >
     <Window.Resources>
         <Style x:Key="BorderControl" TargetType="Border">
             <Setter Property="BorderThickness" Value="2" />
@@ -91,6 +90,7 @@
             </DoubleAnimation>
         </Storyboard>
     </Window.Resources>
+
     <Grid>
         <!--  LEFT MENU  -->
         <Grid
@@ -175,16 +175,17 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="32.8" />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <DockPanel
                 Grid.Row="0"
                 Background="#F75C03"
-                LastChildFill="True">
+                LastChildFill="True" Margin="0,0,-0.4,0">
                 <Grid DockPanel.Dock="Right">
                     <Button
                         Width="56"
-                        Height="40"
+                        Height="38"
                         Margin="0,0,26,0"
                         materialDesign:ButtonAssist.CornerRadius="4"
                         Background="#fff"
@@ -219,9 +220,9 @@
                     </materialDesign:PackIcon>
                 </Button>
                 <TextBox
-                    Height="40"
+                    Height="38"
                     Margin="16,0,16,0"
-                    Padding="0,0,0,0"
+                    Padding="0,-2,0,0"
                     VerticalContentAlignment="Bottom"
                     materialDesign:HintAssist.Background="#fff"
                     materialDesign:HintAssist.Foreground="#000"
@@ -232,117 +233,24 @@
                     FontSize="14"
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" />
             </DockPanel>
-            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+
+            <TextBlock Grid.Row="1" 
+                       Text="35.690 công thức nấu ăn được đề xuất"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       TextAlignment="center"
+                       Padding="0,15,0,0"
+                       >
+
+            </TextBlock>
+
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Margin="0,0.2,-0.4,0.4">
                 <Grid x:Name="GridMain">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="5.5*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <!--  FAVORITE  -->
-                    <DockPanel Grid.Row="0">
-                        <Label
-                            Margin="0,20,0,20"
-                            HorizontalAlignment="Center"
-                            Content="Your favorite cuisines"
-                            DockPanel.Dock="Top"
-                            FontSize="28"
-                            FontWeight="Black"
-                            Foreground="Black" />
-                        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button
-                                Margin="30,0,0,0"
-                                Background="#54DEDEDE"
-                                Click="btnPrevFavorite_Click"
-                                DockPanel.Dock="Left"
-                                Style="{StaticResource MaterialDesignIconButton}"
-                                ToolTip="MaterialDesignIconButton">
-                                <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronLeft" />
-                            </Button>
-
-                            <ScrollViewer
-                                Width="860"
-                                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                                ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                                <StackPanel
-                                    Name="Carousel"
-                                    Width="10000"
-                                    VerticalAlignment="Center"
-                                    Panel.ZIndex="10"
-                                    Orientation="Horizontal">
-                                    <StackPanel.RenderTransform>
-                                        <TranslateTransform x:Name="CarouselTransform" />
-                                    </StackPanel.RenderTransform>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                    <Ellipse Style="{StaticResource CircleFavorite}">
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-                                </StackPanel>
-                            </ScrollViewer>
-
-                            <Button
-                                Margin="0,0,0,0"
-                                VerticalAlignment="Center"
-                                Background="#54DEDEDE"
-                                Click="btnNextFavorite_Click"
-                                DockPanel.Dock="Right"
-                                Style="{StaticResource MaterialDesignIconButton}"
-                                ToolTip="MaterialDesignIconButton">
-                                <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronRight" />
-                            </Button>
-                        </DockPanel>
-                    </DockPanel>
 
                     <StackPanel Grid.Row="1" Margin="0,20,0,0">
                         <Grid Height="340">

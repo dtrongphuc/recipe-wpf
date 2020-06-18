@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Configuration;
 
-namespace Reciple.Views
+namespace Recipe.Views
 {
     /// <summary>
     /// Interaction logic for SplashWindow.xaml
