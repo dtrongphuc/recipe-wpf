@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Configuration;
 
 namespace Reciple
 {
@@ -50,6 +51,18 @@ namespace Reciple
                 btnHide.Visibility = System.Windows.Visibility.Hidden;
                 btnShow.Visibility = System.Windows.Visibility.Visible;
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var config = ConfigurationManager.AppSettings["ShowSplash"];
+            if (config.ToLower() == "true")
+            {
+                var screen = new Views.SplashWindow();
+                screen.ShowDialog();
+            }
+            this.Show();
         }
 
         private int _currentElement = 0;
