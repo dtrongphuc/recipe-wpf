@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +23,6 @@ namespace Recipe.Views
         {
             InitializeComponent();
         }
-
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
             ShowHideMenu("sbShowLeftMenu", btnMenuHide, btnMenuShow, Menu);
@@ -51,45 +48,6 @@ namespace Recipe.Views
                 btnHide.Visibility = System.Windows.Visibility.Hidden;
                 btnShow.Visibility = System.Windows.Visibility.Visible;
             }
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            var config = ConfigurationManager.AppSettings["ShowSplash"];
-            if (config.ToLower() == "true")
-            {
-                var screen = new Views.SplashWindow();
-                screen.ShowDialog();
-            }
-            this.Show();
-        }
-
-        private int _currentElement = 0;
-        private void btnNextFavorite_Click(object sender, RoutedEventArgs e)
-        {
-            if (_currentElement < 10)
-            {
-                _currentElement++;
-                AnimateCarousel();
-            }
-        }
-
-        private void btnPrevFavorite_Click(object sender, RoutedEventArgs e)
-        {
-            if (_currentElement > 0)
-            {
-                _currentElement--;
-                AnimateCarousel();
-            }
-        }
-
-        private void AnimateCarousel()
-        {
-            Storyboard storyboard = (this.Resources["CarouselStoryboard"] as Storyboard);
-            DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
-            animation.To = -172 * _currentElement;
-            storyboard.Begin();
         }
     }
 }
