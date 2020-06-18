@@ -184,7 +184,7 @@
                 <Grid DockPanel.Dock="Right">
                     <Button
                         Width="56"
-                        Height="38"
+                        Height="40"
                         Margin="0,0,26,0"
                         materialDesign:ButtonAssist.CornerRadius="4"
                         Background="#fff"
@@ -219,9 +219,9 @@
                     </materialDesign:PackIcon>
                 </Button>
                 <TextBox
-                    Height="38"
+                    Height="40"
                     Margin="16,0,16,0"
-                    Padding="0,-2,0,0"
+                    Padding="0,0,0,0"
                     VerticalContentAlignment="Bottom"
                     materialDesign:HintAssist.Background="#fff"
                     materialDesign:HintAssist.Foreground="#000"
