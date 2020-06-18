@@ -10,7 +10,7 @@ namespace Reciple.Module
 {
     class Connection
     {
-        public static string cn_string = "";
+        public static string cn_string = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DaTaDirectory|\QLMonAn.mdf;Integrated Security=True";
         DataTable dt;
 
         /// <summary>
