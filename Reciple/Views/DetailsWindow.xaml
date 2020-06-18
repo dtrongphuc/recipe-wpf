@@ -1,9 +1,9 @@
 ﻿<Window
-    x:Class="Reciple.Views.DetailsWindow"
+    x:Class="Recipe.Views.DetailsWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Reciple.Views"
+    xmlns:local="clr-namespace:Recipe.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="DetailsWindow"
     Width="1100"

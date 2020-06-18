@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Configuration;
 
-namespace Reciple
+namespace Recipe
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

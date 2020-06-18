@@ -14,7 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Reciple.Views
+namespace Recipe.Views
 {
     /// <summary>
     /// Interaction logic for SearchWindow.xaml
