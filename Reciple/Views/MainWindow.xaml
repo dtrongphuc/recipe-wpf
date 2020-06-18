@@ -51,8 +51,15 @@
                 To="0,0,0,0"
                 Duration="0:0:0.2" />
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridMain" Storyboard.TargetProperty="(UIElement.Opacity)">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseIn" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Modal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.08" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="sbHideLeftMenu">
             <ThicknessAnimation
@@ -62,8 +69,15 @@
                 To="-250,0,0,0"
                 Duration="0:0:0.2" />
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridMain" Storyboard.TargetProperty="(UIElement.Opacity)">
-                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="100" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.14" Value="100">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuadraticEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Modal" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.08" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
 
         <Storyboard x:Key="CarouselStoryboard">
@@ -78,12 +92,17 @@
         </Storyboard>
     </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="659*" />
+            <RowDefinition Height="11*" />
+        </Grid.RowDefinitions>
         <Grid
             Name="Menu"
+            Grid.RowSpan="2"
             Width="250"
             Margin="-250,0,0,0"
             HorizontalAlignment="Left"
-            Panel.ZIndex="10"
+            Panel.ZIndex="100"
             Background="#FFF">
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3">
                 <DockPanel LastChildFill="True">
@@ -149,7 +168,13 @@
                 </DockPanel>
             </materialDesign:Card>
         </Grid>
-        <Grid x:Name="GridMain">
+        <Grid
+            x:Name="Modal"
+            Grid.RowSpan="2"
+            Panel.ZIndex="90"
+            Background="#7F000000"
+            Visibility="Hidden" />
+        <Grid x:Name="GridMain" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
                 <RowDefinition Height="3*" />
