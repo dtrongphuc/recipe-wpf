@@ -364,7 +364,7 @@
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
+                                            <RowDefinition Height="54" />
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
@@ -375,29 +375,35 @@
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
-                                            Margin="8,24,8,0"
+                                            Margin="8,16,8,0"
                                             FontSize="16"
                                             FontWeight="Bold"
                                             Foreground="#FF3E3E3E"
                                             Text="Honey Cookies"
                                             TextWrapping="Wrap" />
                                         <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
+                                            Grid.Row="2"
+                                            Width="160"
                                             Padding="5,0,0,0"
+                                            HorizontalAlignment="Left"
                                             FontSize="14"
                                             Foreground="#FF3E3E3E"
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
@@ -441,14 +447,19 @@
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
@@ -484,7 +495,7 @@
                                             Text="Honey Cookies"
                                             TextWrapping="Wrap" />
                                         <TextBlock
-                                            Grid.Row="02"
+                                            Grid.Row="2"
                                             Grid.Column="0"
                                             Padding="5,0,0,0"
                                             FontSize="14"
@@ -492,14 +503,19 @@
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
@@ -535,7 +551,7 @@
                                             Text="Honey Cookies"
                                             TextWrapping="Wrap" />
                                         <TextBlock
-                                            Grid.Row="02"
+                                            Grid.Row="2"
                                             Grid.Column="0"
                                             Padding="5,0,0,0"
                                             FontSize="14"
@@ -543,14 +559,19 @@
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
@@ -594,7 +615,7 @@
                                             Text="Honey Cookies"
                                             TextWrapping="Wrap" />
                                         <TextBlock
-                                            Grid.Row="02"
+                                            Grid.Row="2"
                                             Grid.Column="0"
                                             Padding="5,0,0,0"
                                             FontSize="14"
@@ -602,14 +623,19 @@
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
@@ -645,7 +671,7 @@
                                             Text="Honey Cookies"
                                             TextWrapping="Wrap" />
                                         <TextBlock
-                                            Grid.Row="02"
+                                            Grid.Row="2"
                                             Grid.Column="0"
                                             Padding="5,0,0,0"
                                             FontSize="14"
@@ -653,14 +679,19 @@
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
@@ -696,7 +727,7 @@
                                             Text="Honey Cookies"
                                             TextWrapping="Wrap" />
                                         <TextBlock
-                                            Grid.Row="02"
+                                            Grid.Row="2"
                                             Grid.Column="0"
                                             Padding="5,0,0,0"
                                             FontSize="14"
@@ -704,14 +735,19 @@
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
@@ -747,7 +783,7 @@
                                             Text="Honey Cookies"
                                             TextWrapping="Wrap" />
                                         <TextBlock
-                                            Grid.Row="02"
+                                            Grid.Row="2"
                                             Grid.Column="0"
                                             Padding="5,0,0,0"
                                             FontSize="14"
@@ -755,14 +791,19 @@
                                             Text="The SemiSweet Sisters" />
                                         <Button
                                             Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
+                                            Width="24"
+                                            Height="24"
                                             Margin="8"
-                                            Padding="2,0,2,0"
                                             HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
                                             materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
+                                            Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                            ToolTip="MaterialDesignIconForegroundButton">
+                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon.LayoutTransform>
+                                                    <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                </materialDesign:PackIcon.LayoutTransform>
+                                            </materialDesign:PackIcon>
                                         </Button>
                                     </Grid>
                                 </materialDesign:Card>
