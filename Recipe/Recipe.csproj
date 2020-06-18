@@ -52,6 +52,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialDesignColors, Version=1.2.6.1513, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.6\lib\net45\MaterialDesignColors.dll</HintPath>
@@ -171,6 +174,7 @@
     <Resource Include="Resource\Images\Details\megaxaomuop4.jpg" />
     <Resource Include="Resource\Images\Details\megaxaomuop5.jpg" />
     <Resource Include="Resource\Images\Details\megaxaomuop6.jpg" />
+    <Resource Include="icon.ico" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
