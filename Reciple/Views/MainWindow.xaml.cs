@@ -68,7 +68,7 @@ namespace Reciple
         private int _currentElement = 0;
         private void btnNextFavorite_Click(object sender, RoutedEventArgs e)
         {
-            if (_currentElement < 2)
+            if (_currentElement < 10)
             {
                 _currentElement++;
                 AnimateCarousel();
