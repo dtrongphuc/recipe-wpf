@@ -8,13 +8,16 @@
     Title="SplashWindow"
     Width="200"
     Height="120"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Canvas>
         <CheckBox
             Canvas.Left="25"
             Canvas.Top="16"
-            Click="CheckBox_Click"
-            Content="tắt Hiển thị thông báo" />
+           
+            Content="tắt Hiển thị thông báo" 
+            Name="checkboxdisplay"
+            />
         <Button
             Name="OKButton"
             Canvas.Left="54"
