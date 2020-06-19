@@ -240,18 +240,29 @@
                             VerticalContentAlignment="Center"
                             Content="Home"
                             FontSize="20" />
+                        <Border
+                            Height="1"
+                            Margin="10,0"
+                            BorderBrush="#FFD1D1D1"
+                            BorderThickness="1" />
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Danh Mục"
                             FontSize="20" />
+                        <Border
+                            Height="1"
+                            Margin="10,0"
+                            BorderBrush="#FFD1D1D1"
+                            BorderThickness="1" />
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Món ăn nhiều đề cử"
                             FontSize="20" />
+
 
                     </StackPanel>
                     <StackPanel
@@ -264,6 +275,11 @@
                             VerticalContentAlignment="Center"
                             Content="Liên Hệ"
                             FontSize="20" />
+                        <Border
+                            Height="1"
+                            Margin="10,0"
+                            BorderBrush="#FFD1D1D1"
+                            BorderThickness="1" />
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
@@ -344,7 +360,7 @@
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" />
             </DockPanel>
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <Grid x:Name="GridMain" Background="#F4F4F4">
+                <Grid x:Name="GridMain" Background="#FFF3F3F3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="240" />
                         <RowDefinition Height="50" />
