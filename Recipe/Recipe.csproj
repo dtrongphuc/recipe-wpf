@@ -159,26 +159,6 @@
     <Resource Include="Resource\Images\Details\star.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\Details\boxaothapcam.jpg" />
-    <Resource Include="Resource\Images\boxienchienvungtoi1.jpg" />
-    <Resource Include="Resource\Images\camuchienxu1.jpg" />
-    <Resource Include="Resource\Images\Details\camuchienxu2.jpg" />
-    <Resource Include="Resource\Images\Details\camuchienxu3.jpg" />
-    <Resource Include="Resource\Images\Details\camuchienxu4.jpg" />
-    <Resource Include="Resource\Images\Details\camuchienxu5.jpg" />
-    <Resource Include="Resource\Images\gachiennuocmam1.jpg" />
-    <Resource Include="Resource\Images\Details\gachiennuocmam2.jpg" />
-    <Resource Include="Resource\Images\megaxaomuop1.jpg" />
-    <Resource Include="Resource\Images\Details\megaxaomuop2.jpg" />
-    <Resource Include="Resource\Images\Details\megaxaomuop3.jpg" />
-    <Resource Include="Resource\Images\Details\megaxaomuop4.jpg" />
-    <Resource Include="Resource\Images\Details\megaxaomuop5.jpg" />
-    <Resource Include="Resource\Images\Details\megaxaomuop6.jpg" />
-    <Resource Include="Resource\Images\Details\megaxaomuop1.jpg" />
-    <Resource Include="Resource\Images\Details\gachiennuocmam1.jpg" />
-    <Resource Include="Resource\Images\Details\camuchienxu1.jpg" />
-    <Resource Include="Resource\Images\Details\boxienchienvungtoi1.jpg" />
-    <Resource Include="icon.ico" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
