@@ -162,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Images\cakho.jpg" />
+    <Resource Include="icon.ico" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
