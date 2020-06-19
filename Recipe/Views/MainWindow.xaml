@@ -18,7 +18,8 @@
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+   >
     <Window.Resources>
         <Style x:Key="BorderControl" TargetType="Border">
             <Setter Property="BorderThickness" Value="2" />

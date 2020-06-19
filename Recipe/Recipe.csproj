@@ -84,6 +84,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Connection.cs" />
+    <Compile Include="Model\Get_ListObject.cs" />
+    <Compile Include="Model\PaginationObject.cs" />
     <Compile Include="Model\SanPham.cs" />
     <Compile Include="Views\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
