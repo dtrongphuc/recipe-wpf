@@ -66,7 +66,7 @@ namespace Recipe
                 screen.ShowDialog();
             }
             this.Show();
-
+            Products.ItemsSource = _list;
 
 
         }

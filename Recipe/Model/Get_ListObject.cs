@@ -36,7 +36,7 @@ namespace Recipe.Model
                 sp.luotxem = (int)row["LuotXem"];
                 sp.yeuthich = (bool)row["yeuThich"];
                 sp.mota = row["MoTa"].ToString();
-                sp.anhdaidien = row["AnhDaiDien"].ToString();
+                sp.anhdaidien = "/" + row["AnhDaiDien"].ToString();
                 sp.nguyenlieu = row["NguyenLieu"].ToString();
                 sp.sothanhphan = (int)row["SoThanhPhan"];
                 sp.thoigian = row["ThoiGian"].ToString();
