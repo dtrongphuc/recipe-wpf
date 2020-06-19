@@ -16,7 +16,7 @@ namespace Reciple.Model
         public string mota { get; set; }
         public string anhdaidien { get; set; }
         public string nguyenlieu { get; set; }
-        public int sothanhphan { get; set}
+        public int sothanhphan { get; set; }
         public string thoigian { get; set; }
 
         public SanPham()
@@ -47,6 +47,10 @@ namespace Reciple.Model
             sothanhphan = _spthanhphan;
         }
 
+        public void Find(string id)
+        {
+
+        }
 
         
 

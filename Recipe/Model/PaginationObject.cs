@@ -11,10 +11,10 @@ namespace Recipe.Model
 {
     public class PaginationObject
     {
-        private int Sum_record { get; set; }
-        private int currpage { get; set; }
+        public static int Sum_record { get; set; }
+        public static int currpage { get; set; }
         public static  int record1page = 8;
-        public List<SanPham> listsp { get; set; }
+        public static  List<SanPham> listsp { get; set; }
         
 
         public PaginationObject()

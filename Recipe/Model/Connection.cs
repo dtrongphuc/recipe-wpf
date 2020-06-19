@@ -10,15 +10,16 @@ namespace Recipe.Modle
 {
     public static class Connection
     {
-        public static string cn_string = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DaTaDirectory|\QLMonAn.mdf;Integrated Security=True";
-       
-      
+        public static string cn_string = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DaTaDirectory|\SQL\QLMonAn.mdf;Integrated Security=True";
+
+
         /// <summary>
         /// tạo kết nối với database
         /// </summary>
         /// <returns></returns>
         public static SqlConnection Get_Connection()
         {
+
             SqlConnection cn_connection = new SqlConnection(cn_string);
             if (cn_connection.State != ConnectionState.Open)
                 cn_connection.Open();

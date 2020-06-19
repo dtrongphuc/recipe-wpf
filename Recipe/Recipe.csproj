@@ -183,10 +183,10 @@
     <Resource Include="Resource\Images\Product\BL_Com_Chien_4.jpg" />
     <Resource Include="Resource\Images\Product\BL_Com_Chien_5.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SQL\QLMonAn_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>QLMonAn.mdf</DependentUpon>
     </Content>
     <Content Include="SQL\Query.sql" />

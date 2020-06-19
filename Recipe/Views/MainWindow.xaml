@@ -375,7 +375,6 @@
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/cakho.jpg"
                                             Stretch="UniformToFill"
-                                            HorizontalAlignment="Center"
                                             VerticalAlignment="Center" />
                                         <TextBlock
                                             Grid.Row="1"
