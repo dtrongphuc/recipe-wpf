@@ -161,6 +161,7 @@
     <Resource Include="Resource\Images\Details\star.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\Images\cakho.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
