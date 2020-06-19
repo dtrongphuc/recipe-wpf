@@ -162,6 +162,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Images\cakho.jpg" />
+    <Resource Include="Resource\Images\Product\Avatar_So_Lua_Xao.jpg" />
+    <Resource Include="Resource\Images\Product\BL_So_Lua_Xao_1.jpg" />
+    <Resource Include="Resource\Images\Product\BL_So_Lua_Xao_2.jpg" />
+    <Resource Include="Resource\Images\Product\BL_So_Lua_Xao_3.jpg" />
+    <Resource Include="Resource\Images\Product\BL_So_Lua_Xao_4.jpg" />
+    <Resource Include="Resource\Images\Product\BL_So_Lua_Xao_5.jpg" />
+    <Resource Include="Resource\Images\Product\Avatar_Rau_Muong_Xao_Toi.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Rau_Muong_Xao_Toi_1.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Rau_Muong_Xao_Toi_2.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Rau_Muong_Xao_Toi_3.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Rau_Muong_Xao_Toi_4.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Rau_Muong_Xao_Toi_5.jpg" />
+    <Resource Include="Resource\Images\Product\Avatar_Com_Chien.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Com_Chien_1.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Com_Chien_2.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Com_Chien_3.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Com_Chien_4.jpg" />
+    <Resource Include="Resource\Images\Product\BL_Com_Chien_5.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

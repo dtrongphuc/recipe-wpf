@@ -368,11 +368,13 @@
                                             <RowDefinition Height="40" />
                                         </Grid.RowDefinitions>
                                         <Image
-                                            Height="220"
+                                            Height="210"
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/cakho.jpg"
-                                            Stretch="UniformToFill" />
+                                            Stretch="UniformToFill"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center" />
                                         <TextBlock
                                             Grid.Row="1"
                                             Margin="8,16,8,0"
