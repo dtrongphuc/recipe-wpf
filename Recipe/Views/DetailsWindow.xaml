@@ -4,189 +4,127 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Recipe.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="DetailsWindow"
     Width="1100"
     Height="700"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid Width="1094" Height="670">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="8*" />
-            <RowDefinition Height="1*" />
-        </Grid.RowDefinitions>
-
-
-        <Grid
-            Grid.RowSpan="2"
-            Grid.Column="0"
-            Margin="0,67,0.2,0.2">
+    <ScrollViewer>
+        <Grid Margin="24,0,24,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="124*" />
-                <RowDefinition Height="26*" />
-                <RowDefinition Height="26*" />
-                <RowDefinition Height="85*" />
-                <RowDefinition Height="189*" />
-                <RowDefinition Height="86*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBlock
-                Grid.Row="0"
-                Margin="0,0,0,1"
-                Padding="35,0,35,0"
-                FontSize="40"
-                FontWeight="Bold"
-                Text="Cheese and Herb Mini Sweet Peppers"
-                TextWrapping="Wrap" />
-            <TextBlock
-                Grid.Row="1"
-                Margin="0,1,0,0.4"
-                Padding="35,0,0,0"
-                FontWeight="Bold"
-                Foreground="#bab7b6"
-                Text="BETTER HOME ANH GARDENS" />
+            <Grid Grid.Column="0" Margin="0,67,0.2,0.2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="189" />
+                    <RowDefinition Height="86" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Margin="0,40,0,0">
+                    <TextBlock
+                        Height="124"
+                        Padding="35,0,35,0"
+                        FontSize="40"
+                        FontWeight="Bold"
+                        Text="Chỗ này tên món ăn"
+                        TextWrapping="Wrap" />
+                    <Label
+                        Height="40"
+                        Padding="35,0,0,0"
+                        VerticalContentAlignment="Center"
+                        Content="CHỖ NÀY ĐẶT DANH MỤC"
+                        FontWeight="Bold"
+                        Foreground="#bab7b6" />
+                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <Label
+                            Padding="35,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalContentAlignment="Center"
+                            Content="Lượt xem: " />
+                        <Label
+                            VerticalContentAlignment="Center"
+                            Content="123"
+                            Foreground="#FF6C6C6C" />
+                    </StackPanel>
 
-                <StackPanel
+                    <Expander
+                        Height="Auto"
+                        Margin="10,14,0,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        Background="#fff"
+                        Header="Một vài thông tin"
+                        IsExpanded="False">
+                        <StackPanel
+                            Margin="24,8,24,16"
+                            Orientation="Vertical"
+                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                            <TextBlock Text="Your Content" />
+                            <TextBlock
+                                Opacity=".68"
+                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+
+                <Grid
                     Grid.Row="1"
                     Grid.RowSpan="2"
-                    Margin="36,26,396,0"
-                    Orientation="Horizontal">
-                    <Image Width="15" Source="/Resource/Images-details/star-color.png" />
-                    <Image
-                        Width="15"
-                        Margin="2,0,0,0"
-                        Source="/Resource/Images-details/star-color.png"/>
-                    <Image
-                        Width="15"
-                        Margin="2,0,0,0"
-                        Source="/Resource/Images-details/star-color.png" />
-                    <Image
-                        Width="15"
-                        Margin="2,0,0,0"
-                        Source="/Resource/Images-details/star-color.png" />
-                    <Image
-                        Width="15"
-                        Margin="5,0,0,0"
-                        Source="/Resource/Images-details/star.png" />
-                    <TextBlock
-                        Padding="10,0,0,0"
-                        FontSize="18"
-                        Foreground="#ffab45"
-                        Text="(3)" />
-                </StackPanel>
+                    Margin="35,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
 
-            <TextBlock
-                Grid.Row="3"
-                Margin="0,4,0,7.8"
-                Padding="35,0,35,0"
-                FontSize="20"
-                FontWeight="Medium"
-                Text="Desniege Joseph: Pretty good! Added to a cheese plate and guests e... Read More"
-                TextWrapping="Wrap" />
+                    <Border BorderBrush="#c7c7c7" BorderThickness="0,0,0.5,0">
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="120"
+                                FontWeight="Light"
+                                Text="4"
+                                TextAlignment="Center" />
+                            <TextBlock Text="Ingredients" TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
 
-            <Grid
-                Grid.Row="4"
-                Grid.RowSpan="2"
-                Margin="39,0.2,57,86">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
-
-                <Border BorderBrush="#c7c7c7" BorderThickness="0,0,0.5,0">
-                    <StackPanel>
-                        <TextBlock
-                            FontSize="120"
-                            FontWeight="Light"
-                            Text="4"
-                            TextAlignment="Center" />
-                        <TextBlock Text="Ingredients" TextAlignment="Center" />
-                    </StackPanel>
-                </Border>
-
-                <Border
-                    Grid.Column="1"
-                    BorderBrush="#c7c7c7"
-                    BorderThickness="0,0,0.5,0">
-                    <StackPanel>
-                        <TextBlock
-                            FontSize="120"
-                            FontWeight="Light"
-                            Text="30"
-                            TextAlignment="Center" />
-                        <TextBlock Text="Minutes" TextAlignment="Center" />
-                    </StackPanel>
-                </Border>
-
-                <StackPanel Grid.Column="2">
-                    <TextBlock
-                        FontSize="120"
-                        FontWeight="Light"
-                        Text="70"
-                        TextAlignment="Center" />
-                    <TextBlock Text="Kalories" TextAlignment="Center" />
-                </StackPanel>
-            </Grid>
-
-
-            <Canvas Grid.Row="5" Margin="0,3.4,0,83">
+                    <Border
+                        Grid.Column="1"
+                        BorderBrush="#c7c7c7"
+                        BorderThickness="0,0,0.5,0">
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="120"
+                                FontWeight="Light"
+                                Text="30"
+                                TextAlignment="Center" />
+                            <TextBlock Text="Minutes" TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
                 <Button
-                    x:Name="btnBack"
-                    Canvas.Left="37"
-                    Canvas.Top="6"
-                    Width="177"
-                    Height="44">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <Border Background="#2fbdb6" CornerRadius="10">
-                                <TextBlock
-                                    Height="40"
-                                    Padding="8"
-                                    HorizontalAlignment="Center"
-                                    FontSize="18"
-                                    Foreground="White"
-                                    Text="Read Derections" />
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
+                    Grid.Row="2"
+                    Width="24"
+                    Height="24"
+                    Margin="8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    ToolTip="MaterialDesignIconForegroundButton">
+                    <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                        <materialDesign:PackIcon.LayoutTransform>
+                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                        </materialDesign:PackIcon.LayoutTransform>
+                    </materialDesign:PackIcon>
                 </Button>
-
-                <Canvas Background="LightGray">
-                    <Ellipse
-                        Canvas.Left="247"
-                        Canvas.Top="6"
-                        Width="45"
-                        Height="45"
-                        Fill="#ff9054"
-                        Stroke="#FF0000FF"
-                        StrokeThickness="0" />
-                    <TextBlock
-                        Canvas.Left="259"
-                        Canvas.Top="20"
-                        Text="Yum" />
-                </Canvas>
-
-                <StackPanel
-                    Canvas.Left="328"
-                    Canvas.Top="17"
-                    Width="201"
-                    Orientation="Horizontal">
-                    <!--<Image
-                            Width="17"
-                            Height="19"
-                            Source="Images/add-list.png" />-->
-                    <TextBlock
-                        Padding="15,0,0,0"
-                        FontSize="15"
-                        FontWeight="Medium"
-                        Text="Add to Meal Planner" />
-                </StackPanel>
-            </Canvas>
-        </Grid>
+            </Grid>
 
             <Border
                 Grid.Row="1"
@@ -198,5 +136,7 @@
                 </Border.Background>
             </Border>
 
-    </Grid>
+        </Grid>
+
+    </ScrollViewer>
 </Window>
