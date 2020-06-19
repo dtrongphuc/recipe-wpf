@@ -44,6 +44,7 @@
             <Setter Property="Height" Value="108" />
             <Setter Property="Margin" Value="32,0,32,0" />
         </Style>
+        <!--  SCROLLBAR  -->
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
             <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
             <Setter Property="Foreground" Value="LightGray" />
@@ -361,8 +362,9 @@
                         <DockPanel>
                             <Canvas>
                                 <Image
-                                    Width="60"
-                                    Height="100"
+                                    Width="82"
+                                    Height="125"
+                                    VerticalAlignment="Top"
                                     Source="/Resource/Images/strawberry-grain.png" />
                                 <Image
                                     Canvas.Left="885"
@@ -370,10 +372,11 @@
                                     Height="110"
                                     Source="/Resource/Images/img-fruit-bowl.png" />
                                 <Image
-                                    Canvas.Left="987"
+                                    Canvas.Left="980"
                                     Canvas.Top="55"
                                     Width="58"
                                     Height="55"
+                                    RenderTransformOrigin="0.5,0.5"
                                     Source="/Resource/Images/img-strawberry.png" />
                             </Canvas>
                             <Label
@@ -384,9 +387,12 @@
                                 FontSize="28"
                                 FontWeight="Black"
                                 Foreground="Black" />
-                            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <DockPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                DockPanel.Dock="Bottom">
                                 <Button
-                                    Margin="30,0,0,0"
+                                    Margin="0,0,30,0"
                                     Background="#54DEDEDE"
                                     Click="btnPrevFavorite_Click"
                                     DockPanel.Dock="Left"
@@ -467,7 +473,7 @@
                                 </ScrollViewer>
 
                                 <Button
-                                    Margin="0,0,0,0"
+                                    Margin="30,0,0,0"
                                     VerticalAlignment="Center"
                                     Background="#54DEDEDE"
                                     Click="btnNextFavorite_Click"

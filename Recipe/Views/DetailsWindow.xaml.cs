@@ -53,7 +53,7 @@ namespace Recipe.Views
         {
             Storyboard storyboard = (this.Resources["CarouselStoryboard"] as Storyboard);
             DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
-            animation.To = -540 * _currentElement;
+            animation.To = -600 * _currentElement;
             storyboard.Begin();
         }
     }

@@ -22,209 +22,366 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+            <Setter Property="Foreground" Value="LightGray" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Width" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid
+                            x:Name="GridRoot"
+                            Width="10"
+                            Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.00001*" />
+                            </Grid.RowDefinitions>
+
+                            <Track
+                                x:Name="PART_Track"
+                                Grid.Row="0"
+                                Focusable="false"
+                                IsDirectionReversed="true">
+                                <Track.Thumb>
+                                    <Thumb
+                                        x:Name="Thumb"
+                                        Background="{TemplateBinding Foreground}"
+                                        Style="{DynamicResource ScrollThumbs}" />
+                                </Track.Thumb>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton
+                                        x:Name="PageUp"
+                                        Command="ScrollBar.PageDownCommand"
+                                        Focusable="false"
+                                        Opacity="0" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton
+                                        x:Name="PageDown"
+                                        Command="ScrollBar.PageUpCommand"
+                                        Focusable="false"
+                                        Opacity="0" />
+                                </Track.DecreaseRepeatButton>
+                            </Track>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Thumb" Property="Background" Value="{DynamicResource ButtonSelectBrush}" />
+                            </Trigger>
+                            <Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+                                <Setter TargetName="Thumb" Property="Background" Value="{DynamicResource DarkBrush}" />
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                            </Trigger>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90" />
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Width" Value="Auto" />
+                                <Setter Property="Height" Value="12" />
+                                <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                                <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                                <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Grid x:Name="Grid">
+                            <Rectangle
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Fill="Transparent" />
+                            <Border
+                                x:Name="Rectangle1"
+                                Width="Auto"
+                                Height="Auto"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="8" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Tag" Value="Horizontal">
+                                <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                                <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
-    <ScrollViewer>
-        <!--<Grid Margin="24,0,24,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="1*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Column="0" Margin="0,40,0,0">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <Grid Margin="24,0,24,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="200" />
-                    <RowDefinition Height="100" />
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Margin="0,40,0,0">
-                    <DockPanel>
-                        <StackPanel DockPanel.Dock="Top">
-                            <TextBlock
-                                Height="124"
-                                Padding="35,0,35,0"
-                                FontSize="40"
-                                FontWeight="Bold"
-                                Text="Chỗ này tên món ăn"
-                                TextWrapping="Wrap" />
-                            <Label
-                                Height="40"
-                                Padding="35,0,0,0"
-                                VerticalContentAlignment="Center"
-                                Content="CHỖ NÀY ĐẶT DANH MỤC"
-                                FontWeight="Bold"
-                                Foreground="#bab7b6" />
-                            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                                <Label
-                                    Padding="35,0,0,0"
-                                    HorizontalAlignment="Left"
-                                    VerticalContentAlignment="Center"
-                                    Content="Lượt xem: " />
-                                <Label
-                                    VerticalContentAlignment="Center"
-                                    Content="123"
-                                    Foreground="#FF6C6C6C" />
-                            </StackPanel>
-                        </StackPanel>
-                    </DockPanel>
-                    <Expander
-                        Height="Auto"
-                        Margin="10,14,0,0"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Top"
-                        Background="#fff"
-                        Header="Một vài thông tin"
-                        IsExpanded="False">
-                        <StackPanel
-                            Margin="24,8,24,16"
-                            Orientation="Vertical"
-                            TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
-                            <TextBlock Text="Your Content" />
-                            <TextBlock
-                                Opacity=".68"
-                                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                                TextWrapping="Wrap" />
-                        </StackPanel>
-                    </Expander>
-                </StackPanel>
-
-                <Grid
-                    Grid.Row="1"
-                    Grid.RowSpan="2"
-                    Margin="35,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="0,40,0,0">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="200" />
+                        <RowDefinition Height="150" />
                     </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Margin="0,40,0,0">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Top">
+                                <TextBlock
+                                    Height="124"
+                                    Padding="35,0,35,0"
+                                    FontSize="40"
+                                    FontWeight="Bold"
+                                    Text="Chỗ này tên món ăn"
+                                    TextWrapping="Wrap" />
+                                <Label
+                                    Height="40"
+                                    Padding="35,0,0,0"
+                                    VerticalContentAlignment="Center"
+                                    Content="CHỖ NÀY ĐẶT DANH MỤC"
+                                    FontWeight="Bold"
+                                    Foreground="#bab7b6" />
+                                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                    <Label
+                                        Padding="35,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalContentAlignment="Center"
+                                        Content="Lượt xem: " />
+                                    <Label
+                                        VerticalContentAlignment="Center"
+                                        Content="123"
+                                        Foreground="#FF6C6C6C" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DockPanel>
+                        <Expander
+                            Height="Auto"
+                            Margin="10,14,0,0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Background="#fff"
+                            Header="Một vài thông tin"
+                            IsExpanded="False">
+                            <StackPanel
+                                Margin="24,8,24,16"
+                                Orientation="Vertical"
+                                TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                                <TextBlock Text="Your Content" />
+                                <TextBlock
+                                    Opacity=".68"
+                                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
 
-                    <Border
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        BorderBrush="#c7c7c7"
-                        BorderThickness="0,0,0.5,0">
-                        <StackPanel>
-                            <TextBlock
-                                FontSize="120"
-                                FontWeight="Light"
-                                Text="4"
-                                TextAlignment="Center" />
-                            <TextBlock Text="Ingredients" TextAlignment="Center" />
-                        </StackPanel>
-                    </Border>
+                    <Grid
+                        Grid.Row="1"
+                        Grid.RowSpan="2"
+                        Margin="35,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                        </Grid.RowDefinitions>
 
+                        <Border
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            BorderBrush="#c7c7c7"
+                            BorderThickness="0,0,0.5,0">
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="120"
+                                    FontWeight="Light"
+                                    Text="4"
+                                    TextAlignment="Center" />
+                                <TextBlock Text="Ingredients" TextAlignment="Center" />
+                            </StackPanel>
+                        </Border>
+
+                        <Border
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BorderBrush="#c7c7c7"
+                            BorderThickness="0,0,0.5,0">
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="120"
+                                    FontWeight="Light"
+                                    Text="30"
+                                    TextAlignment="Center" />
+                                <TextBlock Text="Minutes" TextAlignment="Center" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Row="2" Width="250">
+                        <Button
+                            Height="50"
+                            materialDesign:ButtonAssist.CornerRadius="10"
+                            Background="#F75C03"
+                            Foreground="#fff"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            ToolTip="MaterialDesignRaisedButton with Round Corners">
+                            <TextBlock Text="Thêm vào món ăn yêu thích" />
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <DockPanel Grid.Column="1" Margin="0,40,0,0">
                     <Border
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        BorderBrush="#c7c7c7"
-                        BorderThickness="0,0,0.5,0">
-                        <StackPanel>
-                            <TextBlock
-                                FontSize="120"
-                                FontWeight="Light"
-                                Text="30"
-                                TextAlignment="Center" />
-                            <TextBlock Text="Minutes" TextAlignment="Center" />
-                        </StackPanel>
+                        Width="460"
+                        Height="500"
+                        Margin="0"
+                        CornerRadius="20"
+                        DockPanel.Dock="Top">
+                        <Border.Background>
+                            <ImageBrush
+                                ImageSource="/Resource/Images/cakho.jpg"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Stretch="UniformToFill" />
+                        </Border.Background>
                     </Border>
-                </Grid>
-                <Grid Grid.Row="2" Width="250">
-                    <Button
-                        Height="50"
-                        materialDesign:ButtonAssist.CornerRadius="10"
-                        Background="#F75C03"
-                        Foreground="#fff"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
-                        ToolTip="MaterialDesignRaisedButton with Round Corners">
-                        <TextBlock Text="Thêm vào món ăn yêu thích" />
-                    </Button>
-                </Grid>
+                </DockPanel>
             </Grid>
 
-            <DockPanel Grid.Column="1">
-                <Border
-                    Width="460"
-                    Height="500"
-                    Margin="0"
-                    CornerRadius="20"
-                    DockPanel.Dock="Top">
-                    <Border.Background>
-                        <ImageBrush
-                            ImageSource="/Resource/Images/cakho.jpg"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Stretch="UniformToFill" />
-                    </Border.Background>
-                </Border>
+            <DockPanel HorizontalAlignment="Center">
+                <Button
+                    Margin="0,0,30,0"
+                    Background="#FFE4E4E4"
+                    Click="btnPrevFavorite_Click"
+                    DockPanel.Dock="Left"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
+                    <materialDesign:PackIcon Kind="ChevronLeft" />
+                </Button>
+                <ScrollViewer
+                    Width="600"
+                    HorizontalAlignment="Center"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <StackPanel
+                        Name="Carousel"
+                        Width="10000"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <StackPanel.RenderTransform>
+                            <TranslateTransform x:Name="CarouselTransform" />
+                        </StackPanel.RenderTransform>
+                        <ItemsControl>
+                            <ItemsPresenter />
+                        </ItemsControl>
+                        <Border Width="600" Height="420">
+                            <Border.Background>
+                                <ImageBrush
+                                    ImageSource="/Resource/Images/cakho.jpg"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Stretch="UniformToFill" />
+                            </Border.Background>
+                        </Border>
+                        <Border Width="600" Height="420">
+                            <Border.Background>
+                                <ImageBrush
+                                    ImageSource="/Resource/Images/cakho.jpg"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Stretch="UniformToFill" />
+                            </Border.Background>
+                        </Border>
+                        <Border Width="600" Height="420">
+                            <Border.Background>
+                                <ImageBrush
+                                    ImageSource="/Resource/Images/cakho.jpg"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Stretch="UniformToFill" />
+                            </Border.Background>
+                        </Border>
+                        <Border Width="600" Height="420">
+                            <Border.Background>
+                                <ImageBrush
+                                    ImageSource="/Resource/Images/cakho.jpg"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Stretch="UniformToFill" />
+                            </Border.Background>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+                <Button
+                    Margin="30,0,0,0"
+                    Background="#FFE4E4E4"
+                    Click="btnNextFavorite_Click"
+                    DockPanel.Dock="Right"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}">
+                    <materialDesign:PackIcon Kind="ChevronRight" />
+                </Button>
             </DockPanel>
-        </Grid>-->
-
-        <DockPanel HorizontalAlignment="Center">
-            <Button
-                Margin="0,0,30,0"
-                Background="#FFE4E4E4"
-                Click="btnPrevFavorite_Click"
-                DockPanel.Dock="Left"
-                Style="{StaticResource MaterialDesignIconForegroundButton}">
-                <materialDesign:PackIcon Kind="ChevronLeft" />
-            </Button>
-            <ScrollViewer
-                Width="540"
-                HorizontalAlignment="Center"
-                ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                <StackPanel
-                    Name="Carousel"
-                    Width="10000"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <StackPanel.RenderTransform>
-                        <TranslateTransform x:Name="CarouselTransform" />
-                    </StackPanel.RenderTransform>
-                    <Border Width="540" Height="360">
-                        <Border.Background>
-                            <ImageBrush
-                                ImageSource="/Resource/Images/cakho.jpg"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Stretch="UniformToFill" />
-                        </Border.Background>
-                    </Border>
-                    <Border Width="540" Height="360">
-                        <Border.Background>
-                            <ImageBrush
-                                ImageSource="/Resource/Images/cakho.jpg"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Stretch="UniformToFill" />
-                        </Border.Background>
-                    </Border>
-                    <Border Width="540" Height="360">
-                        <Border.Background>
-                            <ImageBrush
-                                ImageSource="/Resource/Images/cakho.jpg"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Stretch="UniformToFill" />
-                        </Border.Background>
-                    </Border>
-                    <Border Width="540" Height="360">
-                        <Border.Background>
-                            <ImageBrush
-                                ImageSource="/Resource/Images/cakho.jpg"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Stretch="UniformToFill" />
-                        </Border.Background>
-                    </Border>
+            <StackPanel Width="800" Margin="0,20,0,0">
+                <!--  INGREDIENTS  -->
+                <Label
+                    Content="Nguyên liệu"
+                    FontSize="30"
+                    FontWeight="ExtraBold" />
+                <StackPanel Margin="30,12,0,0">
+                    <StackPanel Margin="0,10" Orientation="Horizontal">
+                        <materialDesign:PackIcon
+                            VerticalAlignment="Center"
+                            Foreground="#F75C03"
+                            Kind="PlusCircleOutline">
+                            <materialDesign:PackIcon.LayoutTransform>
+                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.2" ScaleY="1.2" />
+                            </materialDesign:PackIcon.LayoutTransform>
+                        </materialDesign:PackIcon>
+                        <TextBlock
+                            Margin="6,0,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="75 milliliters prosecco" />
+                    </StackPanel>
                 </StackPanel>
-            </ScrollViewer>
-            <Button
-                Margin="30,0,0,0"
-                Background="#FFE4E4E4"
-                Click="btnNextFavorite_Click"
-                DockPanel.Dock="Right"
-                Style="{StaticResource MaterialDesignIconForegroundButton}">
-                <materialDesign:PackIcon Kind="ChevronRight" />
-            </Button>
-        </DockPanel>
+
+                <!--  STEPS  -->
+                <Label
+                    Content="Các bước thực hiện"
+                    FontSize="30"
+                    FontWeight="ExtraBold" />
+                <StackPanel Margin="30,12,0,0">
+                    <StackPanel Margin="0,10" Orientation="Vertical">
+                        <Label
+                            HorizontalContentAlignment="Left"
+                            Content="Bước 1:"
+                            FontSize="20"
+                            FontWeight="SemiBold" />
+                        <TextBlock
+                            Margin="6,12,0,0"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="75 milliliters prosecco" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </ScrollViewer>
 </Window>
