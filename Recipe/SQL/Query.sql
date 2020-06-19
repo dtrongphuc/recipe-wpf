@@ -40,5 +40,7 @@ alter table dbo.SanPham add constraint FK_SanPham_DanhMuc foreign key (MADM) ref
 alter table dbo.HinhAnh add constraint FK_HinhAnh_SanPham foreign key (MaSP) references dbo.SanPham(MaSP) 
 alter table dbo.CTSP add constraint FK_CTSP_SanPham foreign key (MaSP) references dbo.SanPham(MaSP) 
 
-alter table CTSP drop constraint FK_CTSP_SanPham
+alter table SanPham drop constraint FK_SanPham_DanhMuc
 drop table CTSP
+
+

@@ -371,7 +371,7 @@
                                             Height="220"
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
-                                            Source="/Resource/Images/image.jpg"
+                                            Source="/Resource/Images/cakho.jpg"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
