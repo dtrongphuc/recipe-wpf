@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Recipe.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="DetailsWindow"
     Width="1100"
@@ -54,7 +55,7 @@
 
                     <Expander
                         Height="Auto"
-                        Margin="10,0,0,0"
+                        Margin="10,14,0,0"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Top"
                         Background="#fff"
@@ -76,9 +77,8 @@
                 <Grid
                     Grid.Row="1"
                     Grid.RowSpan="2"
-                    Margin="39,0.2,57,86">
+                    Margin="35,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
@@ -107,71 +107,23 @@
                             <TextBlock Text="Minutes" TextAlignment="Center" />
                         </StackPanel>
                     </Border>
-
-                    <StackPanel Grid.Column="2">
-                        <TextBlock
-                            FontSize="120"
-                            FontWeight="Light"
-                            Text="70"
-                            TextAlignment="Center" />
-                        <TextBlock Text="Kalories" TextAlignment="Center" />
-                    </StackPanel>
                 </Grid>
-
-
-                <Canvas Grid.Row="2" Margin="0,3.4,0,83">
-                    <Button
-                        x:Name="btnBack"
-                        Canvas.Left="37"
-                        Canvas.Top="6"
-                        Width="177"
-                        Height="44">
-                        <Button.Template>
-                            <ControlTemplate>
-                                <Border Background="#2fbdb6" CornerRadius="10">
-                                    <TextBlock
-                                        Height="40"
-                                        Padding="8"
-                                        HorizontalAlignment="Center"
-                                        FontSize="18"
-                                        Foreground="White"
-                                        Text="Read Derections" />
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-
-                    <Canvas Background="LightGray">
-                        <Ellipse
-                            Canvas.Left="247"
-                            Canvas.Top="6"
-                            Width="45"
-                            Height="45"
-                            Fill="#ff9054"
-                            Stroke="#FF0000FF"
-                            StrokeThickness="0" />
-                        <TextBlock
-                            Canvas.Left="259"
-                            Canvas.Top="20"
-                            Text="Yum" />
-                    </Canvas>
-
-                    <StackPanel
-                        Canvas.Left="328"
-                        Canvas.Top="17"
-                        Width="201"
-                        Orientation="Horizontal">
-                        <Image
-                            Width="17"
-                            Height="19"
-                            Source="/Resource/Images/Details/add-list.png" />
-                        <TextBlock
-                            Padding="15,0,0,0"
-                            FontSize="15"
-                            FontWeight="Medium"
-                            Text="Add to Meal Planner" />
-                    </StackPanel>
-                </Canvas>
+                <Button
+                    Grid.Row="2"
+                    Width="24"
+                    Height="24"
+                    Margin="8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                    ToolTip="MaterialDesignIconForegroundButton">
+                    <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                        <materialDesign:PackIcon.LayoutTransform>
+                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                        </materialDesign:PackIcon.LayoutTransform>
+                    </materialDesign:PackIcon>
+                </Button>
             </Grid>
 
             <Border
