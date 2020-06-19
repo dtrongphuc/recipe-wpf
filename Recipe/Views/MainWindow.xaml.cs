@@ -55,7 +55,6 @@ namespace Recipe
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
             var config = ConfigurationManager.AppSettings["ShowSplash"];
             if (config.ToLower() == "true")
             {
