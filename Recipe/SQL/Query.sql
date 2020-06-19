@@ -1,6 +1,6 @@
 ﻿Create table DanhMuc
 (
-	MADM int not null identity(1,1) primary key,
+	MaDM int not null identity(1,1) primary key,
 	TenDM nvarchar(30),
 )
 
@@ -8,13 +8,15 @@ Create table SanPham
 (
 	MaSP int not null identity primary key,
 	MADM int,
-	TenSp varchar(30),
-	Video nvarchar(Max),
+	TenSp nvarchar(50),
+	Video varchar(Max),
 	LuotXem int,
 	yeuThich bit,
 	MoTa nvarchar(Max),
 	AnhDaiDien varchar(max),
-	NguyenLieu nvarchar(max)
+	NguyenLieu nvarchar(max),
+	SoThanhPhan int,
+	ThoiGian nvarchar(10)
 )
 
 create table HinhAnh
@@ -29,6 +31,9 @@ create table CTSP
 	MaSP int,
 	STT int,
 	Buoclam nvarchar(max)
+
+	constraint PK_CTSP
+	primary key (MaSp,STT)
 )
 
 alter table dbo.SanPham add constraint FK_SanPham_DanhMuc foreign key (MADM) references dbo.DanhMuc(MADM) 
