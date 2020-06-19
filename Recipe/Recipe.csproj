@@ -86,6 +86,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Connection.cs" />
+    <Compile Include="Model\Get_ListObject.cs" />
+    <Compile Include="Model\PaginationObject.cs" />
     <Compile Include="Model\SanPham.cs" />
     <Compile Include="Views\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
@@ -216,10 +218,10 @@
     <Resource Include="Resource\Images\Product\BL_CaChienXu_3.jpg" />
     <Resource Include="Resource\Images\Product\BL_CaChienXu_4.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="SQL\QLMonAn_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>QLMonAn.mdf</DependentUpon>
     </Content>
     <Content Include="SQL\Query.sql" />

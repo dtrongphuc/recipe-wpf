@@ -13,6 +13,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Configuration;
+using Reciple.Model;
+using Recipe.Model;
 
 namespace Recipe
 {
@@ -55,6 +57,8 @@ namespace Recipe
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            List<SanPham> _list = PaginationObject.GetSPPagination(1);
+
             var config = ConfigurationManager.AppSettings["ShowSplash"];
             if (config.ToLower() == "true")
             {
@@ -62,6 +66,9 @@ namespace Recipe
                 screen.ShowDialog();
             }
             this.Show();
+            Products.ItemsSource = _list;
+
+
         }
 
         private int _currentElement = 0;
@@ -90,5 +97,7 @@ namespace Recipe
             animation.To = -172 * _currentElement;
             storyboard.Begin();
         }
+
+       
     }
 }
