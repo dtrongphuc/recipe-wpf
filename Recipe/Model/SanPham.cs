@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace Reciple.Model
 {
-    class SanPham
+    public class SanPham
     {
-        private string masp { get; set; }
-        private string tensp { get; set; }
-        private string video { get; set; }
-        private int luotxem { get; set; }
-        private bool yeuthich { get; set; }
-        private string mota { get; set; }
-        private string anhdaidien { get; set; }
-        private string nguyenlieu { get; set; }
+        public string masp { get; set; }
+        public string tensp { get; set; }
+        public string video { get; set; }
+        public int luotxem { get; set; }
+        public bool yeuthich { get; set; }
+        public string mota { get; set; }
+        public string anhdaidien { get; set; }
+        public string nguyenlieu { get; set; }
+        public int sothanhphan { get; set}
+        public string thoigian { get; set; }
 
         public SanPham()
         {
@@ -27,9 +29,11 @@ namespace Reciple.Model
             mota = "";
             anhdaidien = "";
             nguyenlieu = "";
+            sothanhphan = 0;
+            thoigian = "";
         }
 
-        public SanPham(string _masp, string _tensp, string _video,int _luotxem,bool _yeuthich,string _mota, string _anhdaidien,string _nguyenlieu)
+        public SanPham(string _masp, string _tensp, string _video,int _luotxem,bool _yeuthich,string _mota, string _anhdaidien,string _nguyenlieu,int _spthanhphan,string _thoigian)
         {
             masp = _masp;
             tensp = _tensp;
@@ -39,6 +43,8 @@ namespace Reciple.Model
             mota = _mota;
             anhdaidien = _anhdaidien;
             nguyenlieu = _nguyenlieu;
+            thoigian = thoigian;
+            sothanhphan = _spthanhphan;
         }
 
 
