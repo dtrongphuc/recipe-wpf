@@ -369,6 +369,7 @@
                                         </Grid.RowDefinitions>
                                         <Image
                                             Height="220"
+                                            HorizontalAlignment="Center"
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/cakho.jpg"
@@ -429,6 +430,7 @@
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
+                                            HorizontalAlignment="Center"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
@@ -485,6 +487,7 @@
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
+                                            HorizontalAlignment="Center"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
@@ -541,6 +544,7 @@
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
+                                            HorizontalAlignment="Center"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
@@ -605,6 +609,7 @@
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
+                                            HorizontalAlignment="Center"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
@@ -661,6 +666,7 @@
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
+                                            HorizontalAlignment="Center"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
@@ -717,6 +723,7 @@
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
+                                            HorizontalAlignment="Center"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
@@ -773,6 +780,7 @@
                                             RenderOptions.BitmapScalingMode="HighQuality"
                                             RenderTransformOrigin="0.5 0.5"
                                             Source="/Resource/Images/image.jpg"
+                                            HorizontalAlignment="Center"
                                             Stretch="UniformToFill" />
                                         <TextBlock
                                             Grid.Row="1"
