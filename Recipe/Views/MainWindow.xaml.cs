@@ -13,7 +13,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Configuration;
-using Reciple.Model;
 using Recipe.Model;
 
 namespace Recipe
@@ -67,8 +66,6 @@ namespace Recipe
             }
             this.Show();
             Products.ItemsSource = _list;
-
-
         }
 
         private int _currentElement = 0;
@@ -97,7 +94,5 @@ namespace Recipe
             animation.To = -172 * _currentElement;
             storyboard.Begin();
         }
-
-       
     }
 }

@@ -12,9 +12,165 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using Recipe.Model;
 
 namespace Recipe.Views
 {
+    public class VisualTreeHelpers
+    {
+        /// <summary>
+        /// Returns the first ancester of specified type
+        /// </summary>
+        public static T FindAncestor<T>(DependencyObject current)
+        where T : DependencyObject
+        {
+            current = VisualTreeHelper.GetParent(current);
+
+            while (current != null)
+            {
+                if (current is T)
+                {
+                    return (T)current;
+                }
+                current = VisualTreeHelper.GetParent(current);
+            };
+            return null;
+        }
+
+        /// <summary>
+        /// Returns a specific ancester of an object
+        /// </summary>
+        public static T FindAncestor<T>(DependencyObject current, T lookupItem)
+        where T : DependencyObject
+        {
+            while (current != null)
+            {
+                if (current is T && current == lookupItem)
+                {
+                    return (T)current;
+                }
+                current = VisualTreeHelper.GetParent(current);
+            };
+            return null;
+        }
+
+        /// <summary>
+        /// Finds an ancestor object by name and type
+        /// </summary>
+        public static T FindAncestor<T>(DependencyObject current, string parentName)
+        where T : DependencyObject
+        {
+            while (current != null)
+            {
+                if (!string.IsNullOrEmpty(parentName))
+                {
+                    var frameworkElement = current as FrameworkElement;
+                    if (current is T && frameworkElement != null && frameworkElement.Name == parentName)
+                    {
+                        return (T)current;
+                    }
+                }
+                else if (current is T)
+                {
+                    return (T)current;
+                }
+                current = VisualTreeHelper.GetParent(current);
+            };
+
+            return null;
+
+        }
+
+        /// <summary>
+        /// Looks for a child control within a parent by name
+        /// </summary>
+        public static T FindChild<T>(DependencyObject parent, string childName)
+        where T : DependencyObject
+        {
+            // Confirm parent and childName are valid.
+            if (parent == null) return null;
+
+            T foundChild = null;
+
+            int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < childrenCount; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                // If the child is not of the request child type child
+                T childType = child as T;
+                if (childType == null)
+                {
+                    // recursively drill down the tree
+                    foundChild = FindChild<T>(child, childName);
+
+                    // If the child is found, break so we do not overwrite the found child.
+                    if (foundChild != null) break;
+                }
+                else if (!string.IsNullOrEmpty(childName))
+                {
+                    var frameworkElement = child as FrameworkElement;
+                    // If the child's name is set for search
+                    if (frameworkElement != null && frameworkElement.Name == childName)
+                    {
+                        // if the child's name is of the request name
+                        foundChild = (T)child;
+                        break;
+                    }
+                    else
+                    {
+                        // recursively drill down the tree
+                        foundChild = FindChild<T>(child, childName);
+
+                        // If the child is found, break so we do not overwrite the found child.
+                        if (foundChild != null) break;
+                    }
+                }
+                else
+                {
+                    // child element found.
+                    foundChild = (T)child;
+                    break;
+                }
+            }
+
+            return foundChild;
+        }
+
+        /// <summary>
+        /// Looks for a child control within a parent by type
+        /// </summary>
+        public static T FindChild<T>(DependencyObject parent)
+            where T : DependencyObject
+        {
+            // Confirm parent is valid.
+            if (parent == null) return null;
+
+            T foundChild = null;
+
+            int childrenCount = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < childrenCount; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, i);
+                // If the child is not of the request child type child
+                T childType = child as T;
+                if (childType == null)
+                {
+                    // recursively drill down the tree
+                    foundChild = FindChild<T>(child);
+
+                    // If the child is found, break so we do not overwrite the found child.
+                    if (foundChild != null) break;
+                }
+                else
+                {
+                    // child element found.
+                    foundChild = (T)child;
+                    break;
+                }
+            }
+            return foundChild;
+        }
+    }
     /// <summary>
     /// Interaction logic for DetailsWindow.xaml
     /// </summary>
@@ -25,13 +181,36 @@ namespace Recipe.Views
             InitializeComponent();
         }
 
-        private int _currentElement = 0;
-        private void intervalAnimation()
+        private Panel GetItemsPanel(DependencyObject itemsControl)
         {
-            
+            ItemsPresenter itemsPresenter = GetVisualChild<ItemsPresenter>(itemsControl);
+            Panel itemsPanel = VisualTreeHelper.GetChild(itemsPresenter, 0) as Panel;
+            return itemsPanel;
         }
 
-        private void btnNextFavorite_Click(object sender, RoutedEventArgs e)
+        private static T GetVisualChild<T>(DependencyObject parent) where T : Visual
+        {
+            T child = default(T);
+
+            int numVisuals = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < numVisuals; i++)
+            {
+                Visual v = (Visual)VisualTreeHelper.GetChild(parent, i);
+                child = v as T;
+                if (child == null)
+                {
+                    child = GetVisualChild<T>(v);
+                }
+                if (child != null)
+                {
+                    break;
+                }
+            }
+            return child;
+        }
+
+        private int _currentElement = 0;
+        private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement < 10)
             {
@@ -40,7 +219,7 @@ namespace Recipe.Views
             }
         }
 
-        private void btnPrevFavorite_Click(object sender, RoutedEventArgs e)
+        private void btnPrev_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement > 0)
             {
@@ -51,10 +230,18 @@ namespace Recipe.Views
 
         private void AnimateCarousel()
         {
+            var carousel = VisualTreeHelpers.FindChild<StackPanel>(ProductDetail, "Carousel");
             Storyboard storyboard = (this.Resources["CarouselStoryboard"] as Storyboard);
             DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
-            animation.To = -600 * _currentElement;
+            Storyboard.SetTarget(animation, carousel);
+            animation.To = -550 * _currentElement;
             storyboard.Begin();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<SanPham> _list = PaginationObject.GetSPPagination(1);
+            ProductDetail.ItemsSource = _list;
         }
     }
 }
