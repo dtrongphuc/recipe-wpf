@@ -417,8 +417,8 @@
                                 VerticalAlignment="Center"
                                 DockPanel.Dock="Bottom">
                                 <Button
-                                    Margin="0,30,30,0"
-                                    VerticalAlignment="Top"
+                                    Margin="0,0,30,0"
+                                    VerticalAlignment="Center"
                                     Background="#54DEDEDE"
                                     Click="btnPrevFavorite_Click"
                                     DockPanel.Dock="Left"
@@ -439,23 +439,38 @@
                                         <StackPanel.RenderTransform>
                                             <TranslateTransform x:Name="CarouselTransform" />
                                         </StackPanel.RenderTransform>
-                                        <StackPanel MouseLeftButtonDown="">
-                                            <Ellipse Style="{StaticResource CircleFavorite}">
+                                        <StackPanel>
+                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
                                                 <Ellipse.Fill>
                                                     <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
                                                 </Ellipse.Fill>
                                             </Ellipse>
-                                            <TextBlock
-                                                Width="140"
-                                                Height="58"
-                                                Margin="0,4,0,0"
-                                                Padding="4"
-                                                FontSize="16"
-                                                Text="Tên món ăn Tên món ăn Tên món ăn Tên món ăn Tên món ăn Tên món ăn"
-                                                TextAlignment="Center"
-                                                TextTrimming="CharacterEllipsis"
-                                                TextWrapping="Wrap" />
                                         </StackPanel>
+                                        <StackPanel>
+                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </StackPanel>
+
+                                        <StackPanel>
+                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </StackPanel>
+
+
+                                        <StackPanel>
+                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </StackPanel>
+
 
                                     </StackPanel>
                                 </ScrollViewer>
