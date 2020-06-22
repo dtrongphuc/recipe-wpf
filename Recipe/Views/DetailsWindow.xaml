@@ -151,7 +151,7 @@
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel>
-            <!--<Grid Margin="24,0,24,0">
+            <Grid Margin="24,0,24,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="1*" />
@@ -286,7 +286,7 @@
                         </Border.Background>
                     </Border>
                 </DockPanel>
-            </Grid>-->
+            </Grid>
 
 
             <DockPanel Margin="24,0" HorizontalAlignment="Center">

@@ -370,9 +370,9 @@
             </Border>
 
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <Grid x:Name="GridMain" Background="#F0F2F5">
+                <Grid x:Name="GridMain" Background="#F8F8F8">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="240" />
+                        <RowDefinition Height="280" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <!--  FAVORITE  -->
@@ -417,7 +417,8 @@
                                 VerticalAlignment="Center"
                                 DockPanel.Dock="Bottom">
                                 <Button
-                                    Margin="0,0,30,0"
+                                    Margin="0,30,30,0"
+                                    VerticalAlignment="Top"
                                     Background="#54DEDEDE"
                                     Click="btnPrevFavorite_Click"
                                     DockPanel.Dock="Left"
@@ -438,61 +439,24 @@
                                         <StackPanel.RenderTransform>
                                             <TranslateTransform x:Name="CarouselTransform" />
                                         </StackPanel.RenderTransform>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
-                                        <Ellipse Style="{StaticResource CircleFavorite}">
-                                            <Ellipse.Fill>
-                                                <ImageBrush ImageSource="/Resource/Images/american.jpg" />
-                                            </Ellipse.Fill>
-                                        </Ellipse>
+                                        <StackPanel MouseLeftButtonDown="">
+                                            <Ellipse Style="{StaticResource CircleFavorite}">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                            <TextBlock
+                                                Width="140"
+                                                Height="58"
+                                                Margin="0,4,0,0"
+                                                Padding="4"
+                                                FontSize="16"
+                                                Text="Tên món ăn Tên món ăn Tên món ăn Tên món ăn Tên món ăn Tên món ăn"
+                                                TextAlignment="Center"
+                                                TextTrimming="CharacterEllipsis"
+                                                TextWrapping="Wrap" />
+                                        </StackPanel>
+
                                     </StackPanel>
                                 </ScrollViewer>
 
@@ -564,10 +528,12 @@
                                             Padding="0"
                                             Background="Transparent"
                                             BorderThickness="0"
+                                            ClipToBounds="True"
                                             Style="{StaticResource MaterialDesignRaisedAccentButton}">
                                             <materialDesign:Card
                                                 Width="220"
-                                                materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                                Padding="-1,0"
+                                                materialDesign:ShadowAssist.ShadowDepth="Depth2"
                                                 materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
                                                 UniformCornerRadius="4">
                                                 <Grid>
