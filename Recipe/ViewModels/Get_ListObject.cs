@@ -22,7 +22,9 @@ namespace Recipe.Model
         {
            
             List<SanPham> _list = new List<SanPham>();
-            string sql = $"SELECT *  FROM dbo.SANPHAM AS SP ORDER BY masp OFFSET  { curr }  ROWS FETCH NEXT  { recode1trang} ROWS ONLY";
+
+           
+            string sql = $" SELECT sp.*,TenDM FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM ORDER BY masp OFFSET  { curr}  ROWS FETCH NEXT  { recode1trang} ROWS ONLY";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
             {
@@ -37,6 +39,35 @@ namespace Recipe.Model
                 sp.nguyenlieu = row["NguyenLieu"].ToString();
                 sp.sothanhphan = (int)row["SoThanhPhan"];
                 sp.thoigian = row["ThoiGian"].ToString();
+                //sp.TenDM = row["TenDM"].ToString();
+                _list.Add(sp);
+            }
+            return _list;
+        }
+
+
+        public static List<SanPham> Get_AllSPLike()
+        {
+
+            List<SanPham> _list = new List<SanPham>();
+
+
+            string sql = "SELECT sp.*,TenDM  FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM where yeuThich=1";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                SanPham sp = new SanPham();
+                sp.masp = row["MaSP"].ToString();
+                sp.tensp = row["TenSp"].ToString();
+                sp.video = row["Video"].ToString();
+                sp.luotxem = (int)row["LuotXem"];
+                sp.yeuthich = (bool)row["yeuThich"];
+                sp.mota = row["MoTa"].ToString();
+                sp.anhdaidien = "/" + row["AnhDaiDien"].ToString();
+                sp.nguyenlieu = row["NguyenLieu"].ToString();
+                sp.sothanhphan = (int)row["SoThanhPhan"];
+                sp.thoigian = row["ThoiGian"].ToString();
+                sp.TenDM = row["TenDM"].ToString();
                 _list.Add(sp);
             }
             return _list;

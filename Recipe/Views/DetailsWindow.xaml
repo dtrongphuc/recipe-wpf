@@ -117,7 +117,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -273,6 +272,7 @@
 
                 <DockPanel Grid.Column="1" Margin="0,40,0,0">
                     <Border
+                        Name="Avatar"
                         Width="460"
                         Height="500"
                         Margin="0"
@@ -280,7 +280,7 @@
                         DockPanel.Dock="Top">
                         <Border.Background>
                             <ImageBrush
-                                ImageSource="/Resource/Images/cakho.jpg"
+                                ImageSource="{Binding Converter={StaticResource pathConverter}}"
                                 RenderOptions.BitmapScalingMode="HighQuality"
                                 Stretch="UniformToFill" />
                         </Border.Background>
@@ -323,9 +323,9 @@
                             <Border Width="550" Height="300">
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="{Binding hinhanh, Converter={StaticResource pathConverter}}"
+                                        ImageSource="{Binding Path=., Converter={StaticResource pathConverter}}"
                                         RenderOptions.BitmapScalingMode="HighQuality"
-                                        Stretch="UniformToFill" />
+                                        Stretch="Fill" />
                                 </Border.Background>
                             </Border>
                         </DataTemplate>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Recipe.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,22 @@ namespace Recipe.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SanPham sp = new SanPham();
+            ////set dữ liệu liên quan den san pham vào đây.
+
+
+
+
+            ////kết thúc set dữ liệu.
+            sp.Add();
+            DetailSP dtsp = new DetailSP();
+            ////set dữ liệu liên quan den chi tiet san pham ( bao gom so thu tu, buoc lam, hinh anh tung buoc lam )
+            ////tao ra 3 list 
+
+            ////ket thuc set du lieu
+            dtsp.Add();
 
         }
     }

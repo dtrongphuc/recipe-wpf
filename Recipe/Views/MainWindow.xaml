@@ -22,23 +22,6 @@
     mc:Ignorable="d">
     <Window.Resources>
         <e:RelativeToAbsoluteConverter x:Key="pathConverter" />
-        <Style x:Key="BorderControl" TargetType="Border">
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="BorderBrush" Value="#000" />
-            <Setter Property="CornerRadius" Value="50" />
-            <Setter Property="Width" Value="32" />
-            <Setter Property="Height" Value="32" />
-        </Style>
-        <Style x:Key="ControlBtn" TargetType="Button">
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="FontWeight" Value="UltraBold" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Width" Value="32" />
-            <Setter Property="Height" Value="32" />
-        </Style>
         <Style x:Key="CircleFavorite" TargetType="Ellipse">
             <Setter Property="Width" Value="108" />
             <Setter Property="Height" Value="108" />
@@ -50,6 +33,22 @@
                     <Setter Property="Foreground" Value="#3A9691" />
                 </Trigger>
             </Style.Triggers>
+        </Style>
+        <Style x:Key="ListViewStyle" TargetType="ListView">
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <StackPanel
+                            Name="Carousel"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <StackPanel.RenderTransform>
+                                <TranslateTransform x:Name="CarouselTransfromFavorite" />
+                            </StackPanel.RenderTransform>
+                        </StackPanel>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <!--  SCROLLBAR  -->
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
@@ -208,7 +207,20 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
+        <Storyboard x:Key="OnSearch" />
+        <Storyboard x:Key="CarouselStoryboardFavorite">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Duration="0:0:0.4">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource OnSearch}" />
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <!--  LEFT MENU  -->
         <Grid
@@ -325,6 +337,7 @@
                             Background="#fff"
                             BorderBrush="#000"
                             BorderThickness="1"
+                            Click="BtnSearch_Click"
                             Foreground="#000"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             ToolTip="Tìm kiếm">
@@ -354,6 +367,7 @@
                         </materialDesign:PackIcon>
                     </Button>
                     <TextBox
+                        x:Name="SearchBox"
                         Height="40"
                         Margin="16,0,16,0"
                         Padding="0,0,0,0"
@@ -427,7 +441,38 @@
                                     <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronLeft" />
                                 </Button>
 
-                                <ScrollViewer
+                                <ListView
+                                    Name="FavoriteCarousel"
+                                    Width="860"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                    Style="{StaticResource ListViewStyle}">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListViewItem}">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                        <ContentPresenter />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Cursor="Hand">
+                                                <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
+                                                    </Ellipse.Fill>
+                                                </Ellipse>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+
+                                <!--<ScrollViewer
                                     Width="860"
                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                                     ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -447,34 +492,8 @@
                                                 </Ellipse.Fill>
                                             </Ellipse>
                                         </StackPanel>
-
-                                        <StackPanel Cursor="Hand">
-                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-                                        </StackPanel>
-
-                                        <StackPanel Cursor="Hand">
-                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-                                        </StackPanel>
-
-                                        <StackPanel Cursor="Hand">
-                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-                                        </StackPanel>
-
-
                                     </StackPanel>
-                                </ScrollViewer>
+                                </ScrollViewer>-->
 
                                 <Button
                                     Margin="30,0,0,0"
@@ -607,7 +626,7 @@
                                                         HorizontalAlignment="Left"
                                                         FontSize="14"
                                                         Foreground="#FF646464"
-                                                        Text="{Binding mota}"
+                                                        Text="{Binding TenDM}"
                                                         TextTrimming="CharacterEllipsis"
                                                         TextWrapping="Wrap" />
                                                     <Label
@@ -628,6 +647,7 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                             <StackPanel
+                                x:Name="Pagination"
                                 Grid.Row="2"
                                 Margin="0,0,26,0"
                                 HorizontalAlignment="Right"

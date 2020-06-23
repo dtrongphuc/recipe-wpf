@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Recipe.Modle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Recipe.Model
     public class SanPham
     {
         public string masp { get; set; }
+        public string MaDM { get; set; }
         public string tensp { get; set; }
         public string video { get; set; }
         public int luotxem { get; set; }
@@ -18,7 +20,7 @@ namespace Recipe.Model
         public string nguyenlieu { get; set; }
         public int sothanhphan { get; set; }
         public string thoigian { get; set; }
-
+        public string TenDM { get; set; }
         public SanPham()
         {
             masp = "";
@@ -31,9 +33,10 @@ namespace Recipe.Model
             nguyenlieu = "";
             sothanhphan = 0;
             thoigian = "";
+            TenDM = "";
         }
 
-        public SanPham(string _masp, string _tensp, string _video,int _luotxem,bool _yeuthich,string _mota, string _anhdaidien,string _nguyenlieu,int _spthanhphan,string _thoigian)
+        public SanPham(string _masp,string _tendm, string _tensp, string _video,int _luotxem,bool _yeuthich,string _mota, string _anhdaidien,string _nguyenlieu,int _spthanhphan,string _thoigian)
         {
             masp = _masp;
             tensp = _tensp;
@@ -45,6 +48,7 @@ namespace Recipe.Model
             nguyenlieu = _nguyenlieu;
             thoigian = thoigian;
             sothanhphan = _spthanhphan;
+            TenDM = _tendm;
         }
 
         public void Find(string id)
@@ -52,7 +56,12 @@ namespace Recipe.Model
 
         }
 
-        
+        public void Add ()
+        {
+           string sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{tensp}', '{this.video}',{this.luotxem}, {this.yeuthich}, N'{mota}', '{anhdaidien}',N'{nguyenlieu}', {sothanhphan}, {thoigian}),";
+           Connection.Execute_SQL(sql);
+
+        }
 
     }
 }
