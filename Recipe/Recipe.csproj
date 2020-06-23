@@ -87,6 +87,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
     <Compile Include="Model\Connection.cs" />
+    <Compile Include="Model\DetailSP.cs" />
     <Compile Include="ViewModels\Get_ListObject.cs" />
     <Compile Include="Model\PaginationObject.cs" />
     <Compile Include="Model\SanPham.cs" />
