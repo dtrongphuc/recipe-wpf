@@ -125,13 +125,18 @@ namespace Recipe
                 // Tìm kiếm danh sách với keyword tương ứng
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
-                //this.Pagination.Visibility = Visibility.Hidden;
+                //
+                
                 var keyword = SearchBox.Text;
                 List<SanPham> sp = new List<SanPham>();
-                int lastindex = 
-                sp = Get_ListObject.Get_AllSP();
-                var subnet =
-
+                int lastindex = Get_ListObject.Get_CountALLSP();
+                _list = Get_ListObject.Get_AllSP(1,lastindex);
+                var subnet = _list.Where(i => i.tensp.Contains(keyword));
+                if (_list.Count < 8)
+                {
+                    this.Pagination.Visibility = Visibility.Hidden;
+                }
+                Products.ItemsSource = subnet;
             }
         }
 

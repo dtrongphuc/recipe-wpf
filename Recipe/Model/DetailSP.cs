@@ -51,9 +51,9 @@ namespace Recipe.Model
         {
             string sql = "SELECT IDENT_CURRENT('{SanPham}') as LastID";
             masp = Connection.GetCount_Data(sql).ToString(); 
-            for (int  i= 0; i <= STT.Count(); i++)
+            for (int  i= 1; i <= STT.Count(); i++)
             {
-                sql = $"INSERT INTO CTSP VALUES ({masp}, {i+1}, N'{buoclam[i]}')";
+                sql = $"INSERT INTO CTSP VALUES ({masp}, {i}, N'{buoclam[i]}')";
                 Connection.Execute_SQL(sql);
                 sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i]}')";
                 Connection.Execute_SQL(sql);
