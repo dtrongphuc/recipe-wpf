@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Recipe.Model
 {
-    class DetailSP
+    public class DetailSP
     {
         public List<string> STT { get; set; }
         public List<string> buoclam { get; set; }
