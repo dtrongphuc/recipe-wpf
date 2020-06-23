@@ -208,7 +208,13 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
+        <Storyboard x:Key="OnSearch" />
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource OnSearch}" />
+        </EventTrigger>
+    </Window.Triggers>
     <Grid>
         <!--  LEFT MENU  -->
         <Grid
@@ -325,6 +331,7 @@
                             Background="#fff"
                             BorderBrush="#000"
                             BorderThickness="1"
+                            Click="BtnSearch_Click"
                             Foreground="#000"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             ToolTip="Tìm kiếm">
@@ -354,6 +361,7 @@
                         </materialDesign:PackIcon>
                     </Button>
                     <TextBox
+                        x:Name="SearchBox"
                         Height="40"
                         Margin="16,0,16,0"
                         Padding="0,0,0,0"
@@ -628,6 +636,7 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                             <StackPanel
+                                x:Name="Pagination"
                                 Grid.Row="2"
                                 Margin="0,0,26,0"
                                 HorizontalAlignment="Right"
