@@ -57,14 +57,9 @@ namespace Recipe.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //DetailSP dtsp = new DetailSP();
-            //dtsp.Find("1");
-            //DetailSP _list = dtsp;
-            //ImageCarousel.DataContext = _list;
-            //DetailSP dtsp = new DetailSP();
-            //dtsp.Find("1");
-            //DetailSP _list = dtsp;
-            //ImageCarousel.ItemsSource = _list;
+            DetailSP dtsp = new DetailSP();
+            dtsp.Find("1");
+            ImageCarousel.ItemsSource = dtsp.hinhanh;
         }
     }
 }

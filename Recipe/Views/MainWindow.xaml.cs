@@ -22,6 +22,7 @@ namespace Recipe
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<SanPham> _list = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace Recipe
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            List<SanPham> _list = PaginationObject.GetSPPagination(1);
+            _list = PaginationObject.GetSPPagination(1);
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
             if (config.ToLower() == "true")
@@ -105,6 +106,23 @@ namespace Recipe
             var selected = sp.DataContext;
             SanPham a = (SanPham)selected;
             Console.WriteLine(a.masp);
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            string value = SearchBox.Text;
+            // Khi rỗng trả về toàn bộ danh sách món ăn
+            if(value == "")
+            {
+                Products.ItemsSource = _list;
+            } 
+            else
+            {
+                // Tìm kiếm danh sách với keyword tương ứng
+                //Products.ItemsSource = null;
+                // Nếu không có kết quả thì ẩn phân trang
+                //this.Pagination.Visibility = Visibility.Hidden;
+            }
         }
     }
 }
