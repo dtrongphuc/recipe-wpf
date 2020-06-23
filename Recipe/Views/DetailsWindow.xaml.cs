@@ -47,7 +47,7 @@ namespace Recipe.Views
 
         private void AnimateCarousel()
         {
-            var carousel = VisualTreeHelpers.FindChild<StackPanel>(ProductDetail, "Carousel");
+            var carousel = VisualTreeHelpers.FindChild<StackPanel>(ImageCarousel, "Carousel");
             Storyboard storyboard = (this.Resources["CarouselStoryboard"] as Storyboard);
             DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
             Storyboard.SetTarget(animation, carousel);
@@ -57,8 +57,10 @@ namespace Recipe.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            List<SanPham> _list = PaginationObject.GetSPPagination(1);
-            ProductDetail.ItemsSource = _list;
+            DetailSP dtsp = new DetailSP();
+            dtsp.Find("1");
+            DetailSP _list = dtsp;
+            ImageCarousel.ItemsSource = _list;
         }
     }
 }

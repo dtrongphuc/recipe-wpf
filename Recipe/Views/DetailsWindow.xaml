@@ -301,7 +301,7 @@
                     <materialDesign:PackIcon Kind="ChevronLeft" />
                 </Button>
                 <ListView
-                    x:Name="ProductDetail"
+                    Name="ImageCarousel"
                     Width="550"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -323,7 +323,7 @@
                             <Border Width="550" Height="300">
                                 <Border.Background>
                                     <ImageBrush
-                                        ImageSource="{Binding anhdaidien, Converter={StaticResource pathConverter}}"
+                                        ImageSource="{Binding hinhanh, Converter={StaticResource pathConverter}}"
                                         RenderOptions.BitmapScalingMode="HighQuality"
                                         Stretch="UniformToFill" />
                                 </Border.Background>
