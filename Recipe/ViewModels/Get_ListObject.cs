@@ -90,7 +90,7 @@ namespace Recipe.Model
         public static List<SanPham> Get_SPInDM(string id)
         {
             List<SanPham> _list = new List<SanPham>();
-            string sql = $"select * from SanPham where MADM={id}";
+            string sql = $"select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM={id}";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
             {

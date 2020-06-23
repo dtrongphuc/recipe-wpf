@@ -208,4 +208,4 @@ select * from SanPham where yeuThich=1
 
 select * from danhMuc
 
-select * from SanPham where MADM=1
+select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM=1
