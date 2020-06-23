@@ -32,7 +32,6 @@ namespace Recipe.Views
 
 
 
-
             ////kết thúc set dữ liệu.
             sp.Add();
             DetailSP dtsp = new DetailSP();
