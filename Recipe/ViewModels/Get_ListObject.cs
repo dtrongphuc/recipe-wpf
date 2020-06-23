@@ -39,7 +39,7 @@ namespace Recipe.Model
                 sp.nguyenlieu = row["NguyenLieu"].ToString();
                 sp.sothanhphan = (int)row["SoThanhPhan"];
                 sp.thoigian = row["ThoiGian"].ToString();
-                //sp.TenDM = row["TenDM"].ToString();
+                sp.TenDM = row["TenDM"].ToString();
                 _list.Add(sp);
             }
             return _list;

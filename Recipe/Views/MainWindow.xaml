@@ -34,22 +34,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style x:Key="ListViewStyle" TargetType="ListView">
-            <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <StackPanel
-                            Name="Carousel"
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                            <StackPanel.RenderTransform>
-                                <TranslateTransform x:Name="CarouselTransfromFavorite" />
-                            </StackPanel.RenderTransform>
-                        </StackPanel>
-                    </ItemsPanelTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <!--  SCROLLBAR  -->
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
             <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
@@ -207,7 +191,9 @@
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
+
         <Storyboard x:Key="OnSearch" />
+
         <Storyboard x:Key="CarouselStoryboardFavorite">
             <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Duration="0:0:0.4">
                 <DoubleAnimation.EasingFunction>
@@ -444,9 +430,21 @@
                                 <ListView
                                     Name="FavoriteCarousel"
                                     Width="860"
+                                    Height="160"
                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                                    Style="{StaticResource ListViewStyle}">
+                                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel
+                                                Name="Carousel"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <StackPanel.RenderTransform>
+                                                    <TranslateTransform x:Name="CarouselTransfromFavorite" />
+                                                </StackPanel.RenderTransform>
+                                            </StackPanel>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
                                     <ListView.ItemContainerStyle>
                                         <Style TargetType="{x:Type ListViewItem}">
                                             <Setter Property="Background" Value="Transparent" />
@@ -462,9 +460,9 @@
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Cursor="Hand">
-                                                <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
+                                                <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="{Binding tensp}">
                                                     <Ellipse.Fill>
-                                                        <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
+                                                        <ImageBrush ImageSource="{Binding anhdaidien, Converter={StaticResource pathConverter}}" Stretch="UniformToFill" />
                                                     </Ellipse.Fill>
                                                 </Ellipse>
                                             </StackPanel>
