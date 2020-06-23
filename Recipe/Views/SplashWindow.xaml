@@ -6,17 +6,21 @@
     xmlns:local="clr-namespace:Recipe.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="SplashWindow"
-    Width="200"
-    Height="120"
+    Width="385.72"
+    Height="246.194"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Canvas>
+    <Grid>
+        <TextBlock Text="1 2333e3edwwd" 
+                   FontSize="18" Margin="49,35,38.2,89.8"
+                   ></TextBlock>
+        
         <CheckBox
-            Canvas.Left="25"
-            Canvas.Top="16"
+            Canvas.Left="27"
+            Canvas.Top="15"
            
-            Content="tắt Hiển thị thông báo" 
-            Name="checkboxdisplay"
+            Content="Tắt hiển thị thông báo" 
+            Name="checkboxdisplay" Margin="120,111,38,36.6"
             />
         <Button
             Name="OKButton"
@@ -25,6 +29,6 @@
             Width="83"
             Height="30"
             Click="OKButton_Click"
-            Content="Close" />
-    </Canvas>
+            Content="Close" Margin="154,166,139,20.6" />
+    </Grid>
 </Window>

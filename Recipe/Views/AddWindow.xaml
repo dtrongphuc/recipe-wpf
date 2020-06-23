@@ -4,20 +4,149 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recipe.Views"
+        xmlns:e="clr-namespace:Recipe.Converter"
         mc:Ignorable="d"
-        Title="AddWindow" Height="700" Width="1100" Loaded="Window_Loaded">
+        Title="AddWindow" Height="700" Width="1100">
+    <Window.Resources>
+        <e:RelativeToAbsoluteConverter x:Key="pathConverter" />
+    </Window.Resources>
+
     <Grid>
         <ScrollViewer>
             <StackPanel Width="806">
                 <Button Height="265" 
                         Background="#d4d4d4"
                         BorderThickness="0">
-                    <StackPanel>
-                        
-                        <TextBlock FontSize="30" FontWeight="Heavy" Foreground="#8a8a8a" Text="Bạn đã đăng hình món mình nấu ở đây chưa?"/>
+                    <StackPanel Height="169">
+                        <Image Source="/Resource/Images/Icons/camera.png" Width="70" ></Image>
+                        <TextBlock FontSize="30" FontWeight="Heavy" Foreground="#8a8a8a" Margin="0,20,0,0" Text="Bạn đã đăng hình món mình nấu ở đây chưa?"/>
                         <TextBlock FontSize="18" Foreground="#8a8a8a" TextAlignment="Center" Text="Truyền cảm hứng nấu món của bạn đến mọi người nào!"/>
                     </StackPanel>
                 </Button>
+
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,8">
+                    <Image Source="/Resource/Images/Icons/Nhap.png" Width="15"></Image>
+                    <TextBlock Text=" Món Nháp"></TextBlock>
+                </StackPanel>
+
+                <TextBox BorderThickness="0" Background="#d4d4d4" Text="Bạn nấu gì hôm nay?" FontSize="30" FontWeight="Heavy" Foreground="#8a8a8a" Margin="10,0,0.4,0" 
+                         Height="60"
+                         Padding="10,0,0,0"></TextBox>
+
+
+                <TextBox Padding="10,0,0,0"
+                         BorderThickness="0" Background="#d4d4d4" Text="Bạn nấu món này vào dịp nào?" FontSize="20" 
+                         FontWeight="Medium" Foreground="#8a8a8a" Margin="10,10,0.4,0" Height="53"></TextBox>
+
+
+                <StackPanel Margin="10,10,0.4,0"
+                            Height="55"
+                            Orientation="Horizontal">
+                    <TextBlock Text="Thời gian nấu" 
+                               FontSize="20" 
+                               Margin="15,15,0,0"
+                               
+                               />
+
+                    <TextBox    Margin="150,0,0,0.2"
+                                Width="509"
+                                Text="1 tiếng 30 phút" 
+                                FontSize="20"
+                                FontWeight="Medium"
+                                Background="#d4d4d4"
+                                Foreground="#8a8a8a"
+                                BorderThickness="0"
+                                Padding="10,0,0,0"/>
+
+                </StackPanel>
+
+                <TextBlock Text="Nguyên Liệu"
+                           FontSize="25"
+                           FontWeight="Heavy"
+                           Foreground="#303030"
+                           Margin="0,15,0,0"/>
+
+                <StackPanel Margin="10,5,0.4,0" >
+
+                    <TextBox Text="Bạn dùng nguyên liệu gì?" 
+                             FontSize="20"
+                             FontWeight="Medium"
+                             Foreground="#8a8a8a"
+                             Height="43" 
+                             Background="#d4d4d4"
+                             BorderThickness="0" 
+                             Margin="9,0,0,0"
+                             Padding="10,0,0,0"
+                             />
+
+                </StackPanel>
+
+                <Button Margin="18,10,624.4,0" 
+                        Height="44"
+                         Background="Snow"
+                        BorderThickness="0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resource/Images/Icons/add.png" 
+                               Width="15"/>
+                        <TextBlock Text="Nguyên liệu"
+                                   FontSize="18"
+                                   Padding="15,0,0,0"
+                                   />
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock Text="Các Bước" 
+                           FontSize="35"
+                           FontWeight="Bold"
+                           Margin="0,20,0,0"/>
+
+
+                <StackPanel Margin="18,10,0.4,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Margin="0,0,0,0" >
+                            <Ellipse
+                                 Fill="Black"
+                                 Height="35"
+                                 Width="35"
+                                 StrokeThickness="0" 
+                                 Margin="15,0,17,14.6"
+                                 
+                                 />
+                            <TextBlock Text="1"
+                                       FontSize="20"
+                                       Foreground="White" 
+                                       TextAlignment="Center" 
+                                       Margin="19,4,19.2,18.6"
+                                       VerticalAlignment="Center"
+                                       ></TextBlock>
+                        </Grid>
+
+                        <TextBox Text="Bạn đã làm các bước thế nào?" 
+                                 FontSize="15"
+                                 Foreground="#8a8a8a"
+                                 Width="738"
+                                 Background="#d4d4d4"
+                                 BorderThickness="0" 
+                                 Padding="10,0,0,0" Height="50"></TextBox>
+                    </StackPanel>
+
+                    <Button Margin="0,10,641,0" 
+                            Height="44"
+                            Background="Snow"
+                            BorderThickness="0" >
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resource/Images/Icons/add.png" 
+                               Width="15"/>
+                            <TextBlock Text="Bước Làm"
+                                   FontSize="18"
+                                   Padding="15,0,0,0" Width="149"
+                                   />
+
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
             </StackPanel>
         </ScrollViewer>
     </Grid>
