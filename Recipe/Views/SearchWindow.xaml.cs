@@ -49,5 +49,10 @@ namespace Recipe.Views
                 btnShow.Visibility = System.Windows.Visibility.Visible;
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
