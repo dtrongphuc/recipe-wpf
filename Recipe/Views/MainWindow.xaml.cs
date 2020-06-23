@@ -23,6 +23,7 @@ namespace Recipe
     public partial class MainWindow : Window
     {
         List<SanPham> _list = null;
+        int FavoriteCount = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -69,14 +70,15 @@ namespace Recipe
 
             //mon ăn yêu thich.
             List<SanPham> _listLike = Get_ListObject.Get_AllSPLike();
-
+            FavoriteCount = _listLike.Count;
+            FavoriteCarousel.ItemsSource = _listLike;
             Products.ItemsSource = _list;
         }
 
         private int _currentElement = 0;
         private void BtnNextFavorite_Click(object sender, RoutedEventArgs e)
         {
-            if (_currentElement < 10)
+            if (_currentElement < FavoriteCount - 5)
             {
                 _currentElement++;
                 AnimateCarousel();
@@ -94,8 +96,10 @@ namespace Recipe
 
         private void AnimateCarousel()
         {
-            Storyboard storyboard = (this.Resources["CarouselStoryboard"] as Storyboard);
+            var carousel = VisualTreeHelpers.FindChild<StackPanel>(FavoriteCarousel, "Carousel");
+            Storyboard storyboard = (this.Resources["CarouselStoryboardFavorite"] as Storyboard);
             DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
+            Storyboard.SetTarget(animation, carousel);
             animation.To = -172 * _currentElement;
             storyboard.Begin();
         }
@@ -119,7 +123,7 @@ namespace Recipe
             else
             {
                 // Tìm kiếm danh sách với keyword tương ứng
-                //Products.ItemsSource = null;
+                // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
                 //this.Pagination.Visibility = Visibility.Hidden;
             }
