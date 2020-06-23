@@ -1,4 +1,6 @@
-﻿using System.Configuration;
+﻿using Recipe.Model;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +54,8 @@ namespace Recipe.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            List<SanPham> _list = Get_ListObject.Get_SPInDM("1");
+            ProductsSearch.ItemsSource = _list;
         }
     }
 }
