@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recipe.Views"
         mc:Ignorable="d"
-        Title="AddWindow" Height="700" Width="1100">
+        Title="AddWindow" Height="700" Width="1100" Loaded="Window_Loaded">
     <Grid>
         <ScrollViewer>
             <StackPanel Width="806">

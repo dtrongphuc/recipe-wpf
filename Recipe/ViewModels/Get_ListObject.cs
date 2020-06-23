@@ -52,7 +52,7 @@ namespace Recipe.Model
             List<SanPham> _list = new List<SanPham>();
 
 
-            string sql = $" select * from SanPham where yeuThich=1";
+            string sql = "SELECT sp.*,TenDM  FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM where yeuThich=1";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
             {

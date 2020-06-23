@@ -10,6 +10,7 @@ namespace Recipe.Model
 {
     class DetailSP
     {
+        public string masp { get; set; }
         public List<string> STT { get; set; }
         public List<string> buoclam { get; set; }
         public List<string> hinhanh { get; set; }
@@ -34,7 +35,7 @@ namespace Recipe.Model
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
             {
-                
+                masp = row["MaSP"].ToString();
                 STT.Add(row["STT"].ToString());
                 buoclam.Add(row["Buoclam"].ToString());
             }
@@ -44,6 +45,21 @@ namespace Recipe.Model
             {
                 this.hinhanh.Add(row2["HinhAnh"].ToString());
             }
+        }
+
+        public void Add()
+        {
+            string sql = "SELECT IDENT_CURRENT('{SanPham}') as LastID";
+            masp = Connection.GetCount_Data(sql).ToString(); 
+            for (int  i= 0; i <= STT.Count(); i++)
+            {
+                sql = $"INSERT INTO CTSP VALUES ({masp}, {i+1}, N'{buoclam[i]}')";
+                Connection.Execute_SQL(sql);
+                sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i]}')";
+                Connection.Execute_SQL(sql);
+            }
+
+            
         }
     }
 }

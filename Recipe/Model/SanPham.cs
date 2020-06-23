@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Recipe.Modle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Recipe.Model
     public class SanPham
     {
         public string masp { get; set; }
+        public string MaDM { get; set; }
         public string tensp { get; set; }
         public string video { get; set; }
         public int luotxem { get; set; }
@@ -54,7 +56,12 @@ namespace Recipe.Model
 
         }
 
-        
+        public void Add ()
+        {
+           string sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{tensp}', '{this.video}',{this.luotxem}, {this.yeuthich}, N'{mota}', '{anhdaidien}',N'{nguyenlieu}', {sothanhphan}, {thoigian}),";
+           Connection.Execute_SQL(sql);
+
+        }
 
     }
 }
