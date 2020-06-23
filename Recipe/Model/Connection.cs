@@ -54,7 +54,7 @@ namespace Recipe.Modle
         }
 
         /// <summary>
-        /// hàm chuyên để đếm số lượng
+        /// hàm xu ly tra về 1 dữ liệu
         /// </summary>
         /// <param name="sql"> câu truy vấn query</param>
         /// <returns></returns>
