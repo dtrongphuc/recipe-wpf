@@ -65,6 +65,10 @@ namespace Recipe
                 screen.ShowDialog();
             }
             this.Show();
+
+            //mon ăn yêu thich.
+            List<SanPham> _listLike = Get_ListObject.Get_AllSPLike();
+
             Products.ItemsSource = _list;
         }
 

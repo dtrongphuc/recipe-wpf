@@ -607,7 +607,7 @@
                                                         HorizontalAlignment="Left"
                                                         FontSize="14"
                                                         Foreground="#FF646464"
-                                                        Text="{Binding mota}"
+                                                        Text="{Binding TenDM}"
                                                         TextTrimming="CharacterEllipsis"
                                                         TextWrapping="Wrap" />
                                                     <Label
