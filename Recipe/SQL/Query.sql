@@ -201,3 +201,7 @@ GO
 
 SELECT * FROM CTSP WHERE MaSP=1 ORDER BY STT
 select * from HinhAnh where MaSP=1
+
+SELECT sp.*,TenDM  FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM ORDER BY masp OFFSET  0  ROWS FETCH NEXT  8 ROWS ONLY
+
+select * from SanPham where yeuThich=1
