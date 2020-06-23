@@ -27,14 +27,14 @@ namespace Recipe
             InitializeComponent();
         }
 
-        private void btnShowMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnShowMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbShowLeftMenu", btnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbShowLeftMenu", BtnMenuHide, btnMenuShow, Menu);
         }
 
-        private void btnHideMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnHideMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbHideLeftMenu", btnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, btnMenuShow, Menu);
         }
 
         private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, Grid pnl)
@@ -69,7 +69,7 @@ namespace Recipe
         }
 
         private int _currentElement = 0;
-        private void btnNextFavorite_Click(object sender, RoutedEventArgs e)
+        private void BtnNextFavorite_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement < 10)
             {
@@ -78,7 +78,7 @@ namespace Recipe
             }
         }
 
-        private void btnPrevFavorite_Click(object sender, RoutedEventArgs e)
+        private void BtnPrevFavorite_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement > 0)
             {
@@ -93,6 +93,14 @@ namespace Recipe
             DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
             animation.To = -172 * _currentElement;
             storyboard.Begin();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button sp = (Button)sender;
+            var selected = sp.DataContext;
+            SanPham a = (SanPham)selected;
+            Console.WriteLine(a.masp);
         }
     }
 }
