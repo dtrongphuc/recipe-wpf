@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:Recipe"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     StartupUri="/Views/SearchWindow.xaml">
+    StartupUri="/Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

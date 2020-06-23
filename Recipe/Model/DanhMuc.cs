@@ -10,5 +10,13 @@ namespace Recipe.Model
     {
         public string MaDM { get; set; }
        
+        public string TenDM { get; set; }
+
+        public DanhMuc()
+        {
+            MaDM = "";
+            TenDM = "";
+        }
+        
     }
 }

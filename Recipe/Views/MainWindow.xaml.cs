@@ -128,5 +128,13 @@ namespace Recipe
                 //this.Pagination.Visibility = Visibility.Hidden;
             }
         }
+
+      
+
+        private void DanhMuc_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // trả về danh sách các danh mục.
+            List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
+        }
     }
 }

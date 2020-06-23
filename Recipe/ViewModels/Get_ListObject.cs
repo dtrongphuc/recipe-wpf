@@ -72,5 +72,43 @@ namespace Recipe.Model
             }
             return _list;
         }
+
+        public static List<DanhMuc> Get_AllDM()
+        {
+            List<DanhMuc> list = new List<DanhMuc>();
+            string sql = "select * from danhMuc";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach(DataRow row in dt.Rows)
+            {
+                DanhMuc dm = new DanhMuc();
+                dm.MaDM = row["MaDM"].ToString();
+                dm.TenDM = row["TenDM"].ToString();
+            }
+            return list;
+        }
+
+        public static List<SanPham> Get_SPInDM(string id)
+        {
+            List<SanPham> _list = new List<SanPham>();
+            string sql = $"select * from SanPham where MADM={id}";
+            DataTable dt = Connection.GetALL_Data(sql);
+            foreach(DataRow row in dt.Rows)
+            {
+                SanPham sp = new SanPham();
+                sp.masp = row["MaSP"].ToString();
+                sp.tensp = row["TenSp"].ToString();
+                sp.video = row["Video"].ToString();
+                sp.luotxem = (int)row["LuotXem"];
+                sp.yeuthich = (bool)row["yeuThich"];
+                sp.mota = row["MoTa"].ToString();
+                sp.anhdaidien = "/" + row["AnhDaiDien"].ToString();
+                sp.nguyenlieu = row["NguyenLieu"].ToString();
+                sp.sothanhphan = (int)row["SoThanhPhan"];
+                sp.thoigian = row["ThoiGian"].ToString();
+                sp.TenDM = row["TenDM"].ToString();
+                _list.Add(sp);
+            }
+            return _list;
+        }
     }
 }
