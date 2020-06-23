@@ -54,7 +54,8 @@ namespace Recipe.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //List<SanPham> _list=Get_ListObject
+            List<SanPham> _list = Get_ListObject.Get_SPInDM("1");
+            ProductsSearch.ItemsSource = _list;
         }
     }
 }

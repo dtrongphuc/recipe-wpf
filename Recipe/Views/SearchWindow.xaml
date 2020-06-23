@@ -670,7 +670,7 @@
                         UniformCornerRadius="4">
 
                 <ListView
-                         Name="Products"
+                         Name="ProductsSearch"
                          
                          HorizontalAlignment="Center"
                          ScrollViewer.CanContentScroll="False"
