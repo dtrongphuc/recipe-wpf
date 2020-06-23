@@ -126,7 +126,21 @@ namespace Recipe
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
                 //this.Pagination.Visibility = Visibility.Hidden;
+                var keyword = SearchBox.Text;
+                List<SanPham> sp = new List<SanPham>();
+                int lastindex = 
+                sp = Get_ListObject.Get_AllSP();
+                var subnet =
+
             }
+        }
+
+      
+
+        private void DanhMuc_MouseEnter(object sender, MouseEventArgs e)
+        {
+            // trả về danh sách các danh mục.
+            List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
         }
     }
 }

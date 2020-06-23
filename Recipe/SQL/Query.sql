@@ -205,3 +205,7 @@ select * from HinhAnh where MaSP=1
 SELECT sp.*,TenDM  FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM where yeuThich=1
 
 select * from SanPham where yeuThich=1
+
+select * from danhMuc
+
+select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM=1
