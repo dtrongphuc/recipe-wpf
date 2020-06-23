@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reciple.Model
+namespace Recipe.Model
 {
     public class SanPham
     {

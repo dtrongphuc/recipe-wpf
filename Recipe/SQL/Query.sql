@@ -199,3 +199,5 @@ INSERT INTO SanPham VALUES
 							N'2 quả Mướp đắng bỏ ruột cắt khoan tròn vừa ăn - 2 lạng Thịt lợn xay nhỏ - 3 tai Mọc nhĩ, ngâm nở thái nhỏ vụn - 3 cái Nấm hương ngâm thái nhỏ vụn - nửa thanh Đậu - Gia vị, mắm, muối, tiêu, hành tùy khẩu vị - Nấm kim châm nửa gói rửa sạch thái làm 5 cho nhỏ - Hành lá bằm nhỏ cả phần trắng và phần lá xanh', 7, 60)
 GO
 
+SELECT * FROM CTSP WHERE MaSP=1 ORDER BY STT
+select * from HinhAnh where MaSP=1

@@ -87,6 +87,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\RelativeToAbsoluteConverter.cs" />
     <Compile Include="Model\Connection.cs" />
+    <Compile Include="Model\DetailSP.cs" />
     <Compile Include="ViewModels\Get_ListObject.cs" />
     <Compile Include="Model\PaginationObject.cs" />
     <Compile Include="Model\SanPham.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Views\SplashWindow.xaml.cs">
       <DependentUpon>SplashWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VirtualTreeHelper.cs" />
     <Page Include="Views\DetailsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

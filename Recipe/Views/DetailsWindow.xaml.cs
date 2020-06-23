@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using Recipe.Model;
 
 namespace Recipe.Views
 {
@@ -26,12 +27,7 @@ namespace Recipe.Views
         }
 
         private int _currentElement = 0;
-        private void intervalAnimation()
-        {
-            
-        }
-
-        private void btnNextFavorite_Click(object sender, RoutedEventArgs e)
+        private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement < 10)
             {
@@ -40,7 +36,7 @@ namespace Recipe.Views
             }
         }
 
-        private void btnPrevFavorite_Click(object sender, RoutedEventArgs e)
+        private void btnPrev_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement > 0)
             {
@@ -51,10 +47,20 @@ namespace Recipe.Views
 
         private void AnimateCarousel()
         {
+            var carousel = VisualTreeHelpers.FindChild<StackPanel>(ImageCarousel, "Carousel");
             Storyboard storyboard = (this.Resources["CarouselStoryboard"] as Storyboard);
             DoubleAnimation animation = storyboard.Children.First() as DoubleAnimation;
-            animation.To = -600 * _currentElement;
+            Storyboard.SetTarget(animation, carousel);
+            animation.To = -550 * _currentElement;
             storyboard.Begin();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            DetailSP dtsp = new DetailSP();
+            dtsp.Find("1");
+            DetailSP _list = dtsp;
+            ImageCarousel.ItemsSource = _list;
         }
     }
 }

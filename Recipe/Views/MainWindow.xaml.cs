@@ -13,7 +13,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Configuration;
-using Reciple.Model;
 using Recipe.Model;
 
 namespace Recipe
@@ -28,14 +27,14 @@ namespace Recipe
             InitializeComponent();
         }
 
-        private void btnShowMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnShowMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbShowLeftMenu", btnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbShowLeftMenu", BtnMenuHide, btnMenuShow, Menu);
         }
 
-        private void btnHideMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnHideMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbHideLeftMenu", btnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, btnMenuShow, Menu);
         }
 
         private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, Grid pnl)
@@ -67,12 +66,10 @@ namespace Recipe
             }
             this.Show();
             Products.ItemsSource = _list;
-
-
         }
 
         private int _currentElement = 0;
-        private void btnNextFavorite_Click(object sender, RoutedEventArgs e)
+        private void BtnNextFavorite_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement < 10)
             {
@@ -81,7 +78,7 @@ namespace Recipe
             }
         }
 
-        private void btnPrevFavorite_Click(object sender, RoutedEventArgs e)
+        private void BtnPrevFavorite_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement > 0)
             {
@@ -98,6 +95,12 @@ namespace Recipe
             storyboard.Begin();
         }
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button sp = (Button)sender;
+            var selected = sp.DataContext;
+            SanPham a = (SanPham)selected;
+            Console.WriteLine(a.masp);
+        }
     }
 }
