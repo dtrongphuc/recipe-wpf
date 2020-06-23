@@ -221,13 +221,13 @@
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3">
                 <DockPanel LastChildFill="True">
                     <Button
-                        Name="btnMenuHide"
+                        Name="BtnMenuHide"
                         Margin="0,15,0,0"
                         HorizontalAlignment="Right"
                         Background="#00000000"
                         BorderBrush="Transparent"
                         BorderThickness="0"
-                        Click="btnHideMenu_Click"
+                        Click="BtnHideMenu_Click"
                         DockPanel.Dock="Top"
                         Foreground="#F75C03">
                         <materialDesign:PackIcon
@@ -340,7 +340,7 @@
                         Background="#00000000"
                         BorderBrush="Transparent"
                         BorderThickness="0"
-                        Click="btnShowMenu_Click"
+                        Click="BtnShowMenu_Click"
                         DockPanel.Dock="Left"
                         Foreground="#FFF">
                         <materialDesign:PackIcon
@@ -420,9 +420,10 @@
                                     Margin="0,0,30,0"
                                     VerticalAlignment="Center"
                                     Background="#54DEDEDE"
-                                    Click="btnPrevFavorite_Click"
+                                    Click="BtnPrevFavorite_Click"
                                     DockPanel.Dock="Left"
-                                    Style="{StaticResource MaterialDesignIconButton}">
+                                    Style="{StaticResource MaterialDesignIconButton}"
+                                    ToolTip="Prev">
                                     <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronLeft" />
                                 </Button>
 
@@ -439,14 +440,7 @@
                                         <StackPanel.RenderTransform>
                                             <TranslateTransform x:Name="CarouselTransform" />
                                         </StackPanel.RenderTransform>
-                                        <StackPanel>
-                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-                                        </StackPanel>
-                                        <StackPanel>
+                                        <StackPanel Cursor="Hand">
                                             <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
                                                 <Ellipse.Fill>
                                                     <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
@@ -454,7 +448,7 @@
                                             </Ellipse>
                                         </StackPanel>
 
-                                        <StackPanel>
+                                        <StackPanel Cursor="Hand">
                                             <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
                                                 <Ellipse.Fill>
                                                     <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
@@ -462,8 +456,15 @@
                                             </Ellipse>
                                         </StackPanel>
 
+                                        <StackPanel Cursor="Hand">
+                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+                                        </StackPanel>
 
-                                        <StackPanel>
+                                        <StackPanel Cursor="Hand">
                                             <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
                                                 <Ellipse.Fill>
                                                     <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
@@ -479,9 +480,10 @@
                                     Margin="30,0,0,0"
                                     VerticalAlignment="Center"
                                     Background="#54DEDEDE"
-                                    Click="btnNextFavorite_Click"
+                                    Click="BtnNextFavorite_Click"
                                     DockPanel.Dock="Right"
-                                    Style="{StaticResource MaterialDesignIconButton}">
+                                    Style="{StaticResource MaterialDesignIconButton}"
+                                    ToolTip="Next">
                                     <materialDesign:PackIcon Foreground="#FF272727" Kind="ChevronRight" />
                                 </Button>
                             </DockPanel>
@@ -496,6 +498,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50" />
                                 <RowDefinition Height="*" />
+                                <RowDefinition Height="40" />
                             </Grid.RowDefinitions>
                             <Label
                                 Grid.Row="0"
@@ -537,12 +540,14 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <Button
+                                            x:Name="item"
                                             Width="240"
                                             Height="360"
                                             Margin="4,10"
                                             Padding="0"
                                             Background="Transparent"
                                             BorderThickness="0"
+                                            Click="Button_Click"
                                             ClipToBounds="True"
                                             Style="{StaticResource MaterialDesignRaisedAccentButton}">
                                             <materialDesign:Card
@@ -622,6 +627,79 @@
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
+                            <StackPanel
+                                Grid.Row="2"
+                                Margin="0,0,26,0"
+                                HorizontalAlignment="Right"
+                                Orientation="Horizontal">
+                                <Button
+                                    Width="80"
+                                    Height="30"
+                                    Padding="0"
+                                    VerticalContentAlignment="Center"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                    Background="Gainsboro"
+                                    BorderThickness="0"
+                                    ToolTip="Previous Page">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="MenuLeft" />
+                                        <TextBlock Text="Prev" />
+                                    </StackPanel>
+                                </Button>
+                                <StackPanel
+                                    Height="30"
+                                    Margin="4,0"
+                                    Orientation="Horizontal">
+                                    <Button
+                                        Width="30"
+                                        Padding="0"
+                                        VerticalContentAlignment="Center"
+                                        materialDesign:ButtonAssist.CornerRadius="0"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                        Background="Gainsboro"
+                                        BorderThickness="0"
+                                        ToolTip="Previous">
+                                        <TextBlock Text="1" />
+                                    </Button>
+                                    <Button
+                                        Width="30"
+                                        Padding="0"
+                                        VerticalContentAlignment="Center"
+                                        materialDesign:ButtonAssist.CornerRadius="0"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                        Background="#F75C03"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        ToolTip="Previous">
+                                        <TextBlock Text="2" />
+                                    </Button>
+                                    <Button
+                                        Width="30"
+                                        Padding="0"
+                                        VerticalContentAlignment="Center"
+                                        materialDesign:ButtonAssist.CornerRadius="0"
+                                        materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                        Background="Gainsboro"
+                                        BorderThickness="0"
+                                        ToolTip="Previous">
+                                        <TextBlock Text="3" />
+                                    </Button>
+                                </StackPanel>
+                                <Button
+                                    Width="80"
+                                    Height="30"
+                                    Padding="0"
+                                    VerticalContentAlignment="Center"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                    Background="Gainsboro"
+                                    BorderThickness="0"
+                                    ToolTip="Next Page">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Next" />
+                                        <materialDesign:PackIcon Kind="MenuRight" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
                         </Grid>
                     </materialDesign:Card>
                 </Grid>
