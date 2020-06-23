@@ -25,7 +25,10 @@ namespace Recipe.Views
             InitializeComponent();
         }
 
-       
+        //var _content = new string[]
+        //{
+
+        //};
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {

@@ -359,6 +359,9 @@
     <Resource Include="Resource\Images\img-strawberry.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resource\Images\Icons\camera.png" />
+    <Resource Include="Resource\Images\Icons\Nhap.png" />
+    <Resource Include="Resource\Images\Icons\add.png" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
