@@ -60,6 +60,10 @@ namespace Recipe.Views
             //DetailSP dtsp = new DetailSP();
             //dtsp.Find("1");
             //DetailSP _list = dtsp;
+            //ImageCarousel.DataContext = _list;
+            //DetailSP dtsp = new DetailSP();
+            //dtsp.Find("1");
+            //DetailSP _list = dtsp;
             //ImageCarousel.ItemsSource = _list;
         }
     }
