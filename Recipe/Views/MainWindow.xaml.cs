@@ -59,6 +59,7 @@ namespace Recipe
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _list = PaginationObject.GetSPPagination(1);
+            List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
             if (config.ToLower() == "true")
@@ -125,7 +126,7 @@ namespace Recipe
                 // Tìm kiếm danh sách với keyword tương ứng
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
-                //
+                
                 
                 var keyword = SearchBox.Text;
                 List<SanPham> sp = new List<SanPham>();

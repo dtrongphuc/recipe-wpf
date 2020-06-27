@@ -83,6 +83,7 @@ namespace Recipe.Model
                 DanhMuc dm = new DanhMuc();
                 dm.MaDM = row["MaDM"].ToString();
                 dm.TenDM = row["TenDM"].ToString();
+                list.Add(dm);
             }
             return list;
         }
