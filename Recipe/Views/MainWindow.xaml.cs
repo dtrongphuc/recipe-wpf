@@ -126,11 +126,11 @@ namespace Recipe
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
                 //this.Pagination.Visibility = Visibility.Hidden;
-                var keyword = SearchBox.Text;
-                List<SanPham> sp = new List<SanPham>();
-                int lastindex = 
-                sp = Get_ListObject.Get_AllSP();
-                var subnet =
+                //var keyword = SearchBox.Text;
+                //List<SanPham> sp = new List<SanPham>();
+                //int lastindex = 
+                //sp = Get_ListObject.Get_AllSP();
+                //var subnet =
 
             }
         }
@@ -141,6 +141,11 @@ namespace Recipe
         {
             // trả về danh sách các danh mục.
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var value = a.Text;
         }
     }
 }

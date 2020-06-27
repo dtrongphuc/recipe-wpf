@@ -1,4 +1,5 @@
-﻿using Recipe.Model;
+﻿using Microsoft.Win32;
+using Recipe.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,79 @@ namespace Recipe.Views
             ////ket thuc set du lieu
             dtsp.Add();
 
+        }
+
+        private void BtnAddIngredientsField_Click(object sender, RoutedEventArgs e)
+        {
+            Style style = this.FindResource("ingredientBox") as Style;
+            var newTextbox = new TextBox();
+            newTextbox.Style = style;
+            //Ingredients.Children.Add(newTextbox);
+        }
+
+        private int _currentStep = 1;
+        private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
+        {
+            Style GridStyle = this.FindResource("leftCount") as Style;
+            Style EllipseStyle = this.FindResource("circleIcon") as Style;
+            Style CountStyle = this.FindResource("countNumber") as Style;
+            Style stepBoxStyle = this.FindResource("stepBox") as Style;
+            Style ImageAddStyle = this.FindResource("imageAddStep") as Style;
+
+            var newGrid = new Grid();
+            var newEllipse = new Ellipse();
+            var newLabel = new Label();
+            var newTextBox = new TextBox();
+            var newDockPanel = new DockPanel();
+            var newStackPanel = new StackPanel();
+            var newBorderImage = new Border();
+
+            newGrid.Style = GridStyle;
+            newEllipse.Style = EllipseStyle;
+            newLabel.Style = CountStyle;
+            newTextBox.Style = stepBoxStyle;
+            newBorderImage.Style = ImageAddStyle;
+
+            newLabel.Content = ++_currentStep;
+            newBorderImage.MouseLeftButtonDown += AddStepImage_Click;
+
+            newGrid.Children.Add(newEllipse);
+            newGrid.Children.Add(newLabel);
+            newStackPanel.Children.Add(newTextBox);
+            newStackPanel.Children.Add(newBorderImage);
+            newDockPanel.Children.Add(newGrid);
+            newDockPanel.Children.Add(newStackPanel);
+
+            Steps.Children.Add(newDockPanel);
+        }
+
+        string _avatarfile = "";
+        private void BtnAddAvatar(object sender, RoutedEventArgs e)
+        {
+            var screen = new OpenFileDialog();
+            if (screen.ShowDialog() == true)
+            {
+                _avatarfile = screen.FileName;
+                var bitmap = new BitmapImage(new Uri(_avatarfile, UriKind.Absolute));
+                AvatarImage.Visibility = Visibility.Hidden;
+                Header.Visibility = Visibility.Hidden;
+                AddAvatar.ImageSource = bitmap;
+            }
+        }
+
+        string _stepImage = "";
+        private void AddStepImage_Click(object sender, MouseButtonEventArgs e)
+        {
+            var element = e.Source as FrameworkElement;
+            var es = (Border)element;
+            var screen = new OpenFileDialog();
+            if (screen.ShowDialog() == true)
+            {
+                _stepImage = screen.FileName;
+                var ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(_stepImage, UriKind.Absolute));
+                es.Background = ib;
+            }
         }
     }
 }
