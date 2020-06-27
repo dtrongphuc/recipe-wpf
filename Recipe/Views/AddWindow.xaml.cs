@@ -147,8 +147,15 @@ namespace Recipe.Views
             // Nguyên liệu được thêm vào _ingredientList
             List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
             foreach(var element in childrenOfIngredients) {
-                _ingredientList.Add(element.Text);
+                _ingredientList.Add(element.Text);               
             }
+
+            //them vao
+            SanPham sp = new SanPham();
+            sp.anhdaidien = _avatarFile;
+            sp.tensp = ProductName.Text;
+
+
             //Các bước làm được thêm vào _stepList
             List<TextBox> childrenOfSteps = AllChildren(Steps);
             foreach (var element in childrenOfSteps)
