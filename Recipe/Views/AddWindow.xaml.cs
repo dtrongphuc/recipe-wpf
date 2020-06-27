@@ -145,24 +145,38 @@ namespace Recipe.Views
             // Danh mục: Categories.SelectedItem; (xem lại)
             // Thời gian nấu: Time.Text
             // Nguyên liệu được thêm vào _ingredientList
-            List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
-            foreach(var element in childrenOfIngredients) {
-                _ingredientList.Add(element.Text);               
-            }
+           
 
-            //them vao
+            //them vao chổ sp
             SanPham sp = new SanPham();
             sp.anhdaidien = _avatarFile;
             sp.tensp = ProductName.Text;
-
-
+            sp.mota = ProductIntro.Text;
+            sp.MaDM = Categories.SelectedIndex.ToString();
+            sp.thoigian = Time.Text;
+            List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
+            foreach (var element in childrenOfIngredients)
+            {
+                sp.nguyenlieu +=element.Text +"\n";
+            }
+            sp.sothanhphan = childrenOfIngredients.Count;
             //Các bước làm được thêm vào _stepList
             List<TextBox> childrenOfSteps = AllChildren(Steps);
+            DetailSP ctsp = new DetailSP();
+            
             foreach (var element in childrenOfSteps)
             {
                 _stepList.Add(element.Text);
             }
+
+            for(int i=1;i<=childrenOfSteps.Count;i++)
+            {
+                ctsp.STT.Add(i.ToString());
+                ctsp.buoclam.Add(childrenOfSteps[i - 1].Text);
+            }
             // List ảnh các bước làm _stepImageList
+            ctsp.hinhanh = _stepImageList;
+                
         }
     }
 }
