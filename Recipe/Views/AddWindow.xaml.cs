@@ -27,10 +27,15 @@ namespace Recipe.Views
             InitializeComponent();
         }
 
+        private List<string> _categoryList = new List<string>();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
-            Categories.ItemsSource = listDM;
+            foreach(var element in listDM)
+            {
+                _categoryList.Add(element.TenDM);
+            }
+            Categories.ItemsSource = _categoryList;
 
             //SanPham sp = new SanPham();
             //////set dữ liệu liên quan den san pham vào đây.
@@ -146,6 +151,8 @@ namespace Recipe.Views
             // Tên món ăn: ProductName.Text
             // Mô tả: ProductIntro.Text
             // Danh mục: Categories.SelectedItem; (xem lại)
+            var index = Categories.SelectedIndex;
+            var SelectedItem = _categoryList[index];
             // Thời gian nấu: Time.Text
             // Nguyên liệu được thêm vào _ingredientList
             List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
