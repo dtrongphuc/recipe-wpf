@@ -125,7 +125,7 @@ namespace Recipe
                 // Tìm kiếm danh sách với keyword tương ứng
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
-                //
+                
                 
                 var keyword = SearchBox.Text;
                 List<SanPham> sp = new List<SanPham>();
