@@ -10,6 +10,7 @@
     Title="AddWindow"
     Width="1100"
     Height="700"
+    Loaded="Window_Loaded"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
@@ -143,7 +144,7 @@
                     Padding="10,0,0,0"
                     VerticalAlignment="Center"
                     materialDesign:HintAssist.Foreground="#F75C03"
-                    materialDesign:HintAssist.Hint="Bạn nấu món này vào dịp nào?"
+                    materialDesign:HintAssist.Hint="Một vài mô tả về món ăn?"
                     materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
                     Background="#d4d4d4"
                     BorderThickness="0"
@@ -164,14 +165,8 @@
                         materialDesign:HintAssist.Foreground="#F75C03"
                         materialDesign:HintAssist.Hint="Danh mục"
                         materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
-                        FontSize="20">
-                        <ComboBoxItem>
-                            Món xào
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            Món chiên
-                        </ComboBoxItem>
-                    </ComboBox>
+                        FontSize="20"
+                        ItemsSource="{Binding}" />
 
                     <Border
                         Width="1"
