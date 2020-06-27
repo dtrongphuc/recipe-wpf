@@ -10,6 +10,7 @@
     Title="AddWindow"
     Width="1100"
     Height="700"
+    Loaded="Window_Loaded"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
@@ -165,12 +166,7 @@
                         materialDesign:HintAssist.Hint="Danh mục"
                         materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
                         FontSize="20">
-                        <ComboBoxItem>
-                            Món xào
-                        </ComboBoxItem>
-                        <ComboBoxItem>
-                            Món chiên
-                        </ComboBoxItem>
+                        <ComboBoxItem Content="{Binding}" />
                     </ComboBox>
 
                     <Border

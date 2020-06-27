@@ -29,19 +29,22 @@ namespace Recipe.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SanPham sp = new SanPham();
-            ////set dữ liệu liên quan den san pham vào đây.
+            List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
+            Categories.ItemsSource = listDM;
+
+            //SanPham sp = new SanPham();
+            //////set dữ liệu liên quan den san pham vào đây.
 
 
 
-            ////kết thúc set dữ liệu.
-            sp.Add();
-            DetailSP dtsp = new DetailSP();
-            ////set dữ liệu liên quan den chi tiet san pham ( bao gom so thu tu, buoc lam, hinh anh tung buoc lam )
-            ////tao ra 3 list 
+            //////kết thúc set dữ liệu.
+            //sp.Add();
+            //DetailSP dtsp = new DetailSP();
+            //////set dữ liệu liên quan den chi tiet san pham ( bao gom so thu tu, buoc lam, hinh anh tung buoc lam )
+            //////tao ra 3 list 
 
-            ////ket thuc set du lieu
-            dtsp.Add();
+            //////ket thuc set du lieu
+            //dtsp.Add();
 
         }
 
