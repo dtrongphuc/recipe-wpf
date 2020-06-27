@@ -2,6 +2,7 @@
 using Recipe.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,12 +45,28 @@ namespace Recipe.Views
 
         }
 
+        private List<TextBox> AllChildren(DependencyObject parent)
+        {
+            var list = new List<TextBox> { };
+            for (int count = 0; count < VisualTreeHelper.GetChildrenCount(parent); count++)
+            {
+                var child = VisualTreeHelper.GetChild(parent, count);
+                if (child is TextBox)
+                {
+                    list.Add(child as TextBox);
+                }
+                list.AddRange(AllChildren(child));
+            }
+            return list;
+        }
+
+        List<string> _ingredientList = new List<string>();
         private void BtnAddIngredientsField_Click(object sender, RoutedEventArgs e)
         {
             Style style = this.FindResource("ingredientBox") as Style;
             var newTextbox = new TextBox();
             newTextbox.Style = style;
-            //Ingredients.Children.Add(newTextbox);
+            Ingredients.Children.Add(newTextbox);
         }
 
         private int _currentStep = 1;
@@ -88,14 +105,14 @@ namespace Recipe.Views
             Steps.Children.Add(newDockPanel);
         }
 
-        string _avatarfile = "";
+        string _avatarFile = "";
         private void BtnAddAvatar(object sender, RoutedEventArgs e)
         {
             var screen = new OpenFileDialog();
             if (screen.ShowDialog() == true)
             {
-                _avatarfile = screen.FileName;
-                var bitmap = new BitmapImage(new Uri(_avatarfile, UriKind.Absolute));
+                _avatarFile = screen.FileName;
+                var bitmap = new BitmapImage(new Uri(_avatarFile, UriKind.Absolute));
                 AvatarImage.Visibility = Visibility.Hidden;
                 Header.Visibility = Visibility.Hidden;
                 AddAvatar.ImageSource = bitmap;
@@ -103,6 +120,8 @@ namespace Recipe.Views
         }
 
         string _stepImage = "";
+        List<string> _stepImageList = new List<string>();
+        List<string> _stepList = new List<string>();
         private void AddStepImage_Click(object sender, MouseButtonEventArgs e)
         {
             var element = e.Source as FrameworkElement;
@@ -115,6 +134,28 @@ namespace Recipe.Views
                 ib.ImageSource = new BitmapImage(new Uri(_stepImage, UriKind.Absolute));
                 es.Background = ib;
             }
+            _stepImageList.Add(_stepImage);
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            // Ảnh đại diện: _avatarFile
+            // Tên món ăn: ProductName.Text
+            // Mô tả: ProductIntro.Text
+            // Danh mục: Categories.SelectedItem; (xem lại)
+            // Thời gian nấu: Time.Text
+            // Nguyên liệu được thêm vào _ingredientList
+            List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
+            foreach(var element in childrenOfIngredients) {
+                _ingredientList.Add(element.Text);
+            }
+            //Các bước làm được thêm vào _stepList
+            List<TextBox> childrenOfSteps = AllChildren(Steps);
+            foreach (var element in childrenOfSteps)
+            {
+                _stepList.Add(element.Text);
+            }
+            // List ảnh các bước làm _stepImageList
         }
     }
 }
