@@ -147,5 +147,10 @@ namespace Recipe
             // trả về danh sách các danh mục.
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var value = a.Text;
+        }
     }
 }

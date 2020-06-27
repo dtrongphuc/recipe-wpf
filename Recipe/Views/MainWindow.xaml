@@ -688,8 +688,9 @@
                                         Background="#F75C03"
                                         BorderBrush="Transparent"
                                         BorderThickness="0"
+                                        Click="Button_Click_1"
                                         ToolTip="Previous">
-                                        <TextBlock Text="2" />
+                                        <TextBlock x:Name="a" Text="2" />
                                     </Button>
                                     <Button
                                         Width="30"
