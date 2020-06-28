@@ -38,7 +38,7 @@ namespace Recipe.Model
 
         public PaginationObject()
         {
-            Sum_record = 100;
+            Sum_record = 0;
             CurrentPage = 1;
             listsp = new List<SanPham>();
         }
@@ -46,8 +46,8 @@ namespace Recipe.Model
         public List<SanPham> GetSPPagination(int _curr)
         {
             CurrentPage = _curr;
-            //Sum_record = Get_ListObject.Get_CountALLSP();
-            PaginationHanding();
+            Sum_record = Get_ListObject.Get_CountALLSP();
+            CalculateTotalPage();
             int sotranghienhanh = (CurrentPage - 1) * PaginationObject.record1page;
             listsp = Get_ListObject.Get_AllSP(sotranghienhanh, record1page);
             return listsp;
@@ -83,7 +83,7 @@ namespace Recipe.Model
             return Numbers;
         }
 
-        public void PaginationHanding()
+        public void CalculateTotalPage()
         {
             double num = (1.0*Sum_record / record1page);
             double ToltalPageTemp = Math.Ceiling(num);
