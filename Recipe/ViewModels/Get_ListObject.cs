@@ -28,6 +28,22 @@ namespace Recipe.Model
             }
         }
 
+        private BindingList<SanPham> _listlike { get; set; } = new BindingList<SanPham>();
+
+        public BindingList<SanPham> ListLike
+        {
+            get
+            {
+                return _listlike;
+            }
+            set
+            {
+                _listlike = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("ListLike"));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static int Get_CountALLSP()
@@ -62,11 +78,8 @@ namespace Recipe.Model
         }
 
 
-        public static List<SanPham> Get_AllSPLike()
+        public BindingList<SanPham> Get_AllSPLike()
         {
-
-            List<SanPham> _list = new List<SanPham>();
-
 
             string sql = "SELECT sp.*,TenDM  FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM where yeuThich=1";
             DataTable dt = Connection.GetALL_Data(sql);
@@ -84,9 +97,9 @@ namespace Recipe.Model
                 sp.SoThanhPhan = (int)row["SoThanhPhan"];
                 sp.ThoiGian = row["ThoiGian"].ToString();
                 sp.TenDM = row["TenDM"].ToString();
-                _list.Add(sp);
+                ListLike.Add(sp);
             }
-            return _list;
+            return ListLike;
         }
 
         public static List<DanhMuc> Get_AllDM()
