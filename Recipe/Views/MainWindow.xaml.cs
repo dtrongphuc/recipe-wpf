@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Configuration;
 using Recipe.Model;
-using Recipe.ViewModels;
 using Recipe.Views;
 
 namespace Recipe
@@ -60,7 +59,9 @@ namespace Recipe
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _list = PaginationObject.GetSPPagination(1);
+            PaginationObject Pages = new PaginationObject();
+
+            _list = Pages.GetSPPagination(1);
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
@@ -152,11 +153,10 @@ namespace Recipe
         }
 
         // Pagination
-        PaginationControl pageCtr = new PaginationControl();
         
         private void PaginationHanding()
         {
-            pageCtr.CurrentPage = 1;
+            
         }
 
         private void OnPageNumber_Click(object sender, RoutedEventArgs e)
