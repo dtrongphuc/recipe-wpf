@@ -194,6 +194,7 @@
                         Background="#fff"
                         BorderBrush="#000"
                         BorderThickness="1"
+                        Click="BtnSearch_Click_1"
                         Foreground="#000"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         ToolTip="MaterialDesignRaisedDarkButton with Round Corners">
@@ -223,6 +224,7 @@
                     </materialDesign:PackIcon>
                 </Button>
                 <TextBox
+                    x:Name="SearchBox_1"
                     Height="38"
                     Margin="16,0,16,0"
                     Padding="0,-2,0,0"
@@ -247,431 +249,16 @@
 
             </TextBlock>
 
-            <!--<ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Margin="0,0.2,-0.4,0.4">-->
-            <!--<Grid x:Name="GridMain">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="3*" />
-                        <RowDefinition Height="5.5*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <StackPanel Grid.Row="1" Margin="0,20,0,0">
-                        <Grid Height="340">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                            </Grid.ColumnDefinitions>
-                            <Button
-                                Grid.Column="0"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                            <Button
-                                Grid.Column="1"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                            <Button
-                                Grid.Column="2"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                            <Button
-                                Grid.Column="3"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                        </Grid>
-                        <Grid Height="340">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                            </Grid.ColumnDefinitions>
-                            <Button
-                                Grid.Column="0"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                            <Button
-                                Grid.Column="1"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                            <Button
-                                Grid.Column="2"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                            <Button
-                                Grid.Column="3"
-                                Width="226"
-                                Height="330"
-                                Padding="0"
-                                Background="Transparent"
-                                BorderThickness="0">
-                                <materialDesign:Card>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="220" />
-                                            <RowDefinition Height="52" />
-                                            <RowDefinition Height="40" />
-                                        </Grid.RowDefinitions>
-                                        <Image
-                                            Width="220"
-                                            Height="220"
-                                            Source="/Resource/Images/image.jpg"
-                                            Stretch="UniformToFill" />
-                                        <TextBlock
-                                            Grid.Row="1"
-                                            Margin="8,24,8,0"
-                                            FontSize="16"
-                                            FontWeight="Bold"
-                                            Foreground="#FF3E3E3E"
-                                            Text="Honey Cookies"
-                                            TextWrapping="Wrap" />
-                                        <TextBlock
-                                            Grid.Row="02"
-                                            Grid.Column="0"
-                                            Padding="5,0,0,0"
-                                            FontSize="14"
-                                            Foreground="#FF3E3E3E"
-                                            Text="The SemiSweet Sisters" />
-                                        <Button
-                                            Grid.Row="2"
-                                            Width="32"
-                                            Height="32"
-                                            Margin="8"
-                                            Padding="2,0,2,0"
-                                            HorizontalAlignment="Right"
-                                            materialDesign:RippleAssist.IsCentered="True"
-                                            Style="{StaticResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Foreground="Red" Kind="Heart" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:Card>
-                            </Button>
-                        </Grid>
-                    </StackPanel>
-                </Grid>-->
-
-
             <!--</ScrollViewer>-->
-
-            <materialDesign:Card
+            <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+                <materialDesign:Card
                         Grid.Row="2"
                         Grid.Column="0"
                         Margin="26,0,26,30"
                         Padding="0,10"
                         UniformCornerRadius="4">
-
                 <ListView
-                         Name="ProductsSearch"
-                         
+                         Name="ProductsSearch_1"                         
                          HorizontalAlignment="Center"
                          ScrollViewer.CanContentScroll="False"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -701,22 +288,22 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Button
-                                            x:Name="item"
-                                            Width="240"
-                                            Height="360"
-                                            Margin="4,10"
-                                            Padding="0"
-                                            Background="Transparent"
-                                            BorderThickness="0"
-                                           
-                                            ClipToBounds="True"
-                                            Style="{StaticResource MaterialDesignRaisedAccentButton}">
+                                        x:Name="item"
+                                        Width="240"
+                                        Height="360"
+                                        Margin="4,10"
+                                        Padding="0"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                
+                                ClipToBounds="True"
+                                Style="{StaticResource MaterialDesignRaisedAccentButton}">
                                 <materialDesign:Card
-                                                Width="220"
-                                                Padding="-1,0"
-                                                materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                                                materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
-                                                UniformCornerRadius="4">
+                                         Width="220"
+                                         Padding="-1,0"
+                                         materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                         materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
+                                         UniformCornerRadius="4">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="220" />
@@ -792,7 +379,7 @@
 
 
             </materialDesign:Card>
-
+            </ScrollViewer>
         </Grid>
         <!--  HEADER  -->
     </Grid>
