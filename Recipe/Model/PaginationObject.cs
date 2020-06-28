@@ -49,24 +49,39 @@ namespace Recipe.Model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-       
-        
+        private BindingList<SanPham> _list { get; set; }
+
+        public BindingList<SanPham> List
+        {
+            get
+            {
+                return _list;
+            }
+            set
+            {
+                _list = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("List"));
+            }
+        }
 
         public PaginationObject()
         {
             Sum_record = 0;
             CurrentPage = 1;
-            listsp = new BindingList<SanPham>();
+            List = new BindingList<SanPham>();
         }
 
+        Get_ListObject GetCtrl = new Get_ListObject();
         public BindingList<SanPham> GetSPPagination(int _curr)
         {
             CurrentPage = _curr;
             Sum_record = Get_ListObject.Get_CountALLSP();
             CalculateTotalPage();
             int sotranghienhanh = (CurrentPage - 1) * PaginationObject.record1page;
-            listsp = Get_ListObject.Get_AllSP(sotranghienhanh, record1page);
-            return listsp;
+            List = GetCtrl.Get_AllSP(sotranghienhanh, record1page);
+            //listsp = Get_ListObject.Get_AllSP(sotranghienhanh, record1page);
+            return List;
         }
 
         public List<int> GetPaginaitonNumbers()
