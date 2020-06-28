@@ -135,6 +135,18 @@ namespace Recipe
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
             var detailScreen = new DetailsWindow(product);
+            this.Hide();
+            detailScreen.ShowDialog();
+            this.Show();
+        }
+
+        private void BtnFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            var btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            product.YeuThich = !product.YeuThich;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -146,14 +158,6 @@ namespace Recipe
                 var screen = new SearchWindow(value);
                 screen.ShowDialog();
             
-        }
-
-      
-
-        private void DanhMuc_MouseEnter(object sender, MouseEventArgs e)
-        {
-            // trả về danh sách các danh mục.
-            List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
         }
 
         // Pagination
@@ -201,6 +205,20 @@ namespace Recipe
         {
             Pages.CurrentPage = Pages.ToltalPage;
             UpdatePagination();
+        }
+
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (sender is ListBox && !e.Handled)
+            {
+                e.Handled = true;
+                var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta);
+                eventArg.RoutedEvent = UIElement.MouseWheelEvent;
+                eventArg.Source = sender;
+                var parent = ((Control)sender).Parent as UIElement;
+                parent.RaiseEvent(eventArg);
+            }
         }
 
         private void themmonan_Click(object sender, MouseButtonEventArgs e)
