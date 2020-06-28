@@ -153,15 +153,18 @@ namespace Recipe
                 
                 
                 var keyword = SearchBox.Text;
-                List<SanPham> sp = new List<SanPham>();
+                BindingList<SanPham> sp = new BindingList<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
-                //_list = Get_ListObject.Get_AllSP(1,lastindex);
-                var subnet = _list.Where(i => i.TenSP.Contains(keyword));
+                Get_ListObject page = new Get_ListObject();
+                sp = page.Get_AllSP(1,lastindex);
+                var subnet = sp.Where(i => i.TenSP.Contains(keyword));
+                
                 if (_list.Count < 8)
                 {
                     this.Pagination.Visibility = Visibility.Hidden;
                 }
-                Products.ItemsSource = subnet;
+                var screen = new SearchWindow(subnet);
+                screen.ShowDialog();
             }
         }
 
@@ -179,6 +182,7 @@ namespace Recipe
             SetStylePagination();
             _list = Pages.GetSPPagination(Pages.CurrentPage);
             PaginationNumber.ItemsSource = PageStyleList;
+            Products.ItemsSource = _list;
         }
 
         private void OnPageNumber_Click(object sender, RoutedEventArgs e)
@@ -217,6 +221,15 @@ namespace Recipe
         {
             Pages.CurrentPage = Pages.ToltalPage;
             UpdatePagination();
+        }
+
+        private void themmonan_Click(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new AddWindow();
+            if (screen.ShowDialog() == true)
+            {
+                Console.Write("1");
+            }
         }
     }
 }
