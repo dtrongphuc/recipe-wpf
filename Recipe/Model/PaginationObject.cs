@@ -33,17 +33,17 @@ namespace Recipe.Model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public static  List<SanPham> listsp { get; set; }
+        public static BindingList<SanPham> listsp { get; set; }
         
 
         public PaginationObject()
         {
             Sum_record = 0;
             CurrentPage = 1;
-            listsp = new List<SanPham>();
+            listsp = new BindingList<SanPham>();
         }
 
-        public List<SanPham> GetSPPagination(int _curr)
+        public BindingList<SanPham> GetSPPagination(int _curr)
         {
             CurrentPage = _curr;
             Sum_record = Get_ListObject.Get_CountALLSP();
@@ -86,8 +86,8 @@ namespace Recipe.Model
         public void CalculateTotalPage()
         {
             double num = (1.0*Sum_record / record1page);
-            double ToltalPageTemp = Math.Ceiling(num);
-            ToltalPage = (int)ToltalPageTemp; // Tính tổng số trang
+            double ToltalPageTemp = Math.Ceiling(num); // Tính tổng số trang và làm tròn lên
+            ToltalPage = (int)ToltalPageTemp;
         }
     }
 }

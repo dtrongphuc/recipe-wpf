@@ -25,7 +25,7 @@ namespace Recipe
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<SanPham> _list = null;
+        BindingList<SanPham> _list = null;
         int FavoriteCount = 0;
         public MainWindow()
         {
@@ -177,6 +177,7 @@ namespace Recipe
         private void UpdatePagination()
         {
             SetStylePagination();
+            _list = Pages.GetSPPagination(Pages.CurrentPage);
             PaginationNumber.ItemsSource = PageStyleList;
         }
 

@@ -686,7 +686,7 @@
                                     Background="Gainsboro"
                                     BorderThickness="0"
                                     Click="OnFirstPage_Click"
-                                    ToolTip="Previous Page">
+                                    ToolTip="First page">
                                     <Border Width="14" Height="14">
                                         <Border.Background>
                                             <ImageBrush ImageSource="/Resource/Images/Icons/arrow-end-left.png" RenderOptions.BitmapScalingMode="HighQuality" />
@@ -758,7 +758,7 @@
                                     Background="Gainsboro"
                                     BorderThickness="0"
                                     Click="OnLastPage_Click"
-                                    ToolTip="Previous Page">
+                                    ToolTip="Last page">
                                     <Border Width="14" Height="14">
                                         <Border.Background>
                                             <ImageBrush ImageSource="/Resource/Images/Icons/arrow-end-right.png" RenderOptions.BitmapScalingMode="HighQuality" />
