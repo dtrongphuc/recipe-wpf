@@ -113,21 +113,23 @@ namespace Recipe.Views
             Steps.Children.Add(newDockPanel);
         }
 
-        string _avatarFile = "";
+        string _avatarName = "";
         private void BtnAddAvatar(object sender, RoutedEventArgs e)
         {
             var screen = new OpenFileDialog();
             if (screen.ShowDialog() == true)
             {
-                _avatarFile = screen.FileName;
-                var bitmap = new BitmapImage(new Uri(_avatarFile, UriKind.Relative));
+                string file = screen.FileName;
+                var info = new FileInfo(file);
+                _avatarName = info.Name;
+                var bitmap = new BitmapImage(new Uri(file, UriKind.Absolute));
                 AvatarImage.Visibility = Visibility.Hidden;
                 Header.Visibility = Visibility.Hidden;
                 AddAvatar.ImageSource = bitmap;
             }
         }
 
-        string _stepImage = "";
+        string _stepImageName = "";
         List<string> _stepImageList = new List<string>();
         List<string> _stepList = new List<string>();
         private void AddStepImage_Click(object sender, MouseButtonEventArgs e)
@@ -137,12 +139,14 @@ namespace Recipe.Views
             var screen = new OpenFileDialog();
             if (screen.ShowDialog() == true)
             {
-                _stepImage = screen.FileName;
+                string file = screen.FileName;
+                var info = new FileInfo(file);
+                _stepImageName = info.Name;
                 var ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(_stepImage, UriKind.Relative));
+                ib.ImageSource = new BitmapImage(new Uri(_stepImageName, UriKind.Absolute));
                 es.Background = ib;
             }
-            _stepImageList.Add(_stepImage);
+            _stepImageList.Add(_stepImageName);
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -159,7 +163,7 @@ namespace Recipe.Views
 
             //them vao chổ sp
             SanPham sp = new SanPham();
-            sp.anhdaidien = _avatarFile;
+            sp.anhdaidien = _avatarName;
             sp.tensp = ProductName.Text;
             sp.mota = ProductIntro.Text;
             sp.MaDM =(Categories.SelectedIndex +1).ToString();
