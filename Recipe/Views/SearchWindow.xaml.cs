@@ -23,16 +23,46 @@ namespace Recipe.Views
     public partial class SearchWindow : Window
     {
         public IEnumerable<SanPham> list;
-
-        public SearchWindow(IEnumerable<SanPham> _list)
+        public string keyword { get; set; }
+        public SearchWindow(string _keyword)
         {
             InitializeComponent();
-            list = _list;
+            keyword = _keyword;
         }
+
+        public IEnumerable<SanPham> search_keyword(string keyword)
+        {
+            IEnumerable<SanPham> subnets = null;
+            //lấy tất cả các sản phẩm
+            BindingList<SanPham> sp = new BindingList<SanPham>();
+            int lastindex = Get_ListObject.Get_CountALLSP();
+            Get_ListObject page = new Get_ListObject();
+            sp = page.Get_AllSP(1, lastindex);
+
+            if (keyword == "")
+            {
+                ProductsSearch.ItemsSource = sp;
+            }
+            else
+            {
+                // Tìm kiếm danh sách với keyword tương ứng
+                // Products.ItemsSource = null;
+                // Nếu không có kết quả thì ẩn phân trang 
+                subnets = sp.Where(i => i.TenSP.Contains(keyword));
+
+                ///phan trang
+                //if (sp.Count < 8)
+                //{
+                //    this.Pagination.Visibility = Visibility.Hidden;
+                //}               
+            }
+            return subnets;
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
-            ProductsSearch_1.ItemsSource = list;
+            ProductsSearch.ItemsSource = list;
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
