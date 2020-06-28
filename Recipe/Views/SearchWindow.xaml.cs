@@ -93,31 +93,25 @@ namespace Recipe.Views
 
         BindingList<SanPham> _list = new BindingList<SanPham>();
         
-        private void BtnSearch_Click_1(object sender, RoutedEventArgs e)
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string value = SearchBox_1.Text;
+            var keyword = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
-            if (value == "")
+            if (keyword == "")
             {
-                ProductsSearch_1.ItemsSource = _list;
+                ProductsSearch.ItemsSource = _list;
             }
             else
             {
                 // Tìm kiếm danh sách với keyword tương ứng
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
-                var keyword = SearchBox_1.Text;
                 BindingList<SanPham> sp = new BindingList<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
                 Get_ListObject page = new Get_ListObject();
                 sp = page.Get_AllSP(1, lastindex);
                 var subnet = sp.Where(i => i.TenSP.Contains(keyword));
-
-                var screen = new SearchWindow(subnet);
-                screen.ShowDialog();
             }
         }
-
-       
     }
 }
