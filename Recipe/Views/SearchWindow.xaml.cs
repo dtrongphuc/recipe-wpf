@@ -1,5 +1,6 @@
 ﻿using Recipe.Model;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,11 @@ namespace Recipe.Views
     /// </summary>
     public partial class SearchWindow : Window
     {
-        public SearchWindow(List subnet)
+        public IEnumerable<SanPham> list;
+        public SearchWindow(IEnumerable<SanPham> _list)
         {
             InitializeComponent();
+            list = _list;
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -55,7 +58,8 @@ namespace Recipe.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             List<SanPham> _list = Get_ListObject.Get_SPInDM("1");
-            ProductsSearch.ItemsSource = _list;
+            ProductsSearch.ItemsSource = list;
+            
         }
     }
 }

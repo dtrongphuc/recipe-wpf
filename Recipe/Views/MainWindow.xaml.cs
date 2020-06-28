@@ -62,7 +62,7 @@ namespace Recipe
         PaginationObject Pages = new PaginationObject();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _list = Pages.GetSPPagination(2);
+            _list = Pages.GetSPPagination(Pages.CurrentPage);
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
@@ -155,8 +155,10 @@ namespace Recipe
                 var keyword = SearchBox.Text;
                 BindingList<SanPham> sp = new BindingList<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
-                //_list = Get_ListObject.Get_AllSP(1,lastindex);
-                var subnet = _list.Where(i => i.TenSP.Contains(keyword));
+                Get_ListObject page = new Get_ListObject();
+                sp = page.Get_AllSP(1,lastindex);
+                var subnet = sp.Where(i => i.TenSP.Contains(keyword));
+                
                 if (_list.Count < 8)
                 {
                     this.Pagination.Visibility = Visibility.Hidden;
