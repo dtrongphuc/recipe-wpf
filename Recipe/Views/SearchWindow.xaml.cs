@@ -61,10 +61,8 @@ namespace Recipe.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //danh muc
-            //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
-
-            ProductsSearch.ItemsSource = search_keyword(keyword);
+            List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
+            ProductsSearch.ItemsSource = list;
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -93,6 +91,33 @@ namespace Recipe.Views
             }
         }
 
-      
+        BindingList<SanPham> _list = new BindingList<SanPham>();
+        
+        private void BtnSearch_Click_1(object sender, RoutedEventArgs e)
+        {
+            string value = SearchBox_1.Text;
+            // Khi rỗng trả về toàn bộ danh sách món ăn
+            if (value == "")
+            {
+                ProductsSearch_1.ItemsSource = _list;
+            }
+            else
+            {
+                // Tìm kiếm danh sách với keyword tương ứng
+                // Products.ItemsSource = null;
+                // Nếu không có kết quả thì ẩn phân trang
+                var keyword = SearchBox_1.Text;
+                BindingList<SanPham> sp = new BindingList<SanPham>();
+                int lastindex = Get_ListObject.Get_CountALLSP();
+                Get_ListObject page = new Get_ListObject();
+                sp = page.Get_AllSP(1, lastindex);
+                var subnet = sp.Where(i => i.TenSP.Contains(keyword));
+
+                var screen = new SearchWindow(subnet);
+                screen.ShowDialog();
+            }
+        }
+
+       
     }
 }
