@@ -120,7 +120,7 @@ namespace Recipe.Views
             if (screen.ShowDialog() == true)
             {
                 _avatarFile = screen.FileName;
-                var bitmap = new BitmapImage(new Uri(_avatarFile, UriKind.Absolute));
+                var bitmap = new BitmapImage(new Uri(_avatarFile, UriKind.Relative));
                 AvatarImage.Visibility = Visibility.Hidden;
                 Header.Visibility = Visibility.Hidden;
                 AddAvatar.ImageSource = bitmap;
@@ -139,7 +139,7 @@ namespace Recipe.Views
             {
                 _stepImage = screen.FileName;
                 var ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(_stepImage, UriKind.Absolute));
+                ib.ImageSource = new BitmapImage(new Uri(_stepImage, UriKind.Relative));
                 es.Background = ib;
             }
             _stepImageList.Add(_stepImage);
@@ -155,24 +155,42 @@ namespace Recipe.Views
             var SelectedItem = _categoryList[index];
             // Thời gian nấu: Time.Text
             // Nguyên liệu được thêm vào _ingredientList
-            List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
-            foreach(var element in childrenOfIngredients) {
-                _ingredientList.Add(element.Text);               
-            }
+           
 
-            //them vao
+            //them vao chổ sp
             SanPham sp = new SanPham();
             sp.anhdaidien = _avatarFile;
             sp.tensp = ProductName.Text;
-
-
+            sp.mota = ProductIntro.Text;
+            sp.MaDM =(Categories.SelectedIndex +1).ToString();
+            sp.thoigian = Time.Text;
+            List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
+            foreach (var element in childrenOfIngredients)
+            {
+                sp.nguyenlieu +=element.Text +"\n";
+            }
+            sp.sothanhphan = childrenOfIngredients.Count;
+            //thêm đối tượng sp vào database
+            sp.Add();
             //Các bước làm được thêm vào _stepList
             List<TextBox> childrenOfSteps = AllChildren(Steps);
+            DetailSP ctsp = new DetailSP();
+            
             foreach (var element in childrenOfSteps)
             {
                 _stepList.Add(element.Text);
             }
+
+            for(int i=1;i<=childrenOfSteps.Count;i++)
+            {
+                ctsp.STT.Add(i.ToString());
+                ctsp.buoclam.Add(childrenOfSteps[i - 1].Text);
+            }
             // List ảnh các bước làm _stepImageList
+            ctsp.hinhanh = _stepImageList;
+
+            //thêm ctsp vào database
+            ctsp.Add();
         }
     }
 }

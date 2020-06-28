@@ -154,7 +154,6 @@ GO
 
 
 -- thêm dữ liệu cho món xào
-
 INSERT INTO SanPham VALUES 
 							--(1, N'Sò lụa xào sa tế tỏi', N'https://www.youtube.com/watch?v=ofJHMtUcg4k',
 							--55, 1, NULL, N'Resource/Images/Product/So_Lua_Xao.jpg', 
@@ -209,3 +208,5 @@ select * from SanPham where yeuThich=1
 select * from danhMuc
 
 select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM=1
+
+I--NSERT INTO SanPham VALUES (1, N'ma1', '',0, False, N'mota', 'C:\\Users\\PC\\Desktop\\Phú\\C#\\biding list\\ListBook\\Images\\book8.jpg',N'nl1\nnl2\nnl3\n', 3, 12h)
