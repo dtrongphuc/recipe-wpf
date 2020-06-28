@@ -28,6 +28,11 @@ namespace Recipe.Views
             InitializeComponent();
             list = _list;
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
+            ProductsSearch.ItemsSource = list;
+        }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
             ShowHideMenu("sbShowLeftMenu", btnMenuHide, btnMenuShow, Menu);
@@ -55,11 +60,6 @@ namespace Recipe.Views
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            List<SanPham> _list = Get_ListObject.Get_SPInDM("1");
-            ProductsSearch.ItemsSource = list;
-            
-        }
+      
     }
 }

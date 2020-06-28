@@ -164,6 +164,7 @@ namespace Recipe
                     this.Pagination.Visibility = Visibility.Hidden;
                 }
                 var screen = new SearchWindow(subnet);
+                screen.ShowDialog();
             }
         }
 
