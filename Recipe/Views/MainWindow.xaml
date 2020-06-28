@@ -488,7 +488,7 @@
                                             <StackPanel Cursor="Hand">
                                                 <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="{Binding tensp}">
                                                     <Ellipse.Fill>
-                                                        <ImageBrush ImageSource="{Binding anhdaidien, Converter={StaticResource pathConverter}}" Stretch="UniformToFill" />
+                                                        <ImageBrush ImageSource="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}" Stretch="UniformToFill" />
                                                     </Ellipse.Fill>
                                                 </Ellipse>
                                             </StackPanel>
@@ -610,7 +610,7 @@
                                                         HorizontalAlignment="Center"
                                                         RenderOptions.BitmapScalingMode="HighQuality"
                                                         RenderTransformOrigin="0.5 0.5"
-                                                        Source="{Binding anhdaidien, Converter={StaticResource pathConverter}}"
+                                                        Source="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}"
                                                         Stretch="UniformToFill" />
                                                     <TextBlock
                                                         Grid.Row="1"
@@ -622,7 +622,7 @@
                                                         FontSize="16"
                                                         FontWeight="Bold"
                                                         Foreground="#FF3E3E3E"
-                                                        Text="{Binding tensp}"
+                                                        Text="{Binding TenSP}"
                                                         TextTrimming="CharacterEllipsis"
                                                         TextWrapping="Wrap" />
                                                     <Button
@@ -661,7 +661,7 @@
                                                         HorizontalAlignment="Right"
                                                         VerticalAlignment="Center"
                                                         HorizontalContentAlignment="Right"
-                                                        Content="{Binding luotxem}"
+                                                        Content="{Binding LuotXem}"
                                                         FontSize="12"
                                                         Foreground="#919191" />
                                                 </Grid>

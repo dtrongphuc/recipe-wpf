@@ -163,17 +163,17 @@ namespace Recipe.Views
 
             //them vao chổ sp
             SanPham sp = new SanPham();
-            sp.anhdaidien = _avatarName;
-            sp.tensp = ProductName.Text;
-            sp.mota = ProductIntro.Text;
+            sp.AnhDaiDien = _avatarName;
+            sp.TenSP = ProductName.Text;
+            sp.MoTa = ProductIntro.Text;
             sp.MaDM =(Categories.SelectedIndex +1).ToString();
-            sp.thoigian = Time.Text;
+            sp.ThoiGian = Time.Text;
             List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
             foreach (var element in childrenOfIngredients)
             {
-                sp.nguyenlieu +=element.Text +"\n";
+                sp.NguyenLieu += element.Text +"\n";
             }
-            sp.sothanhphan = childrenOfIngredients.Count;
+            sp.SoThanhPhan = childrenOfIngredients.Count;
             //thêm đối tượng sp vào database
             sp.Add();
             //Các bước làm được thêm vào _stepList

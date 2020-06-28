@@ -1,55 +1,189 @@
 ﻿using Recipe.Modle;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Recipe.Model
 {
-    public class SanPham
+    public class SanPham:INotifyPropertyChanged
     {
-        public string masp { get; set; }
-        public string MaDM { get; set; }
-        public string tensp { get; set; }
-        public string video { get; set; }
-        public int luotxem { get; set; }
-        public bool yeuthich { get; set; }
-        public string mota { get; set; }
-        public string anhdaidien { get; set; }
-        public string nguyenlieu { get; set; }
-        public int sothanhphan { get; set; }
-        public string thoigian { get; set; }
-        public string TenDM { get; set; }
+        private string _masp;
+        public string MaSP
+        {
+            get { return _masp; }
+            set
+            {
+                _masp = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("MaSP"));
+            }
+        }
+
+        private string _madm;
+        public string MaDM
+        {
+            get { return _madm; }
+            set
+            {
+                _madm = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("MaDM"));
+            }
+        }
+
+        private string _tensp;
+        public string TenSP
+        {
+            get { return _tensp; }
+            set
+            {
+                _tensp = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("TenSP"));
+            }
+        }
+
+        private string _video;
+        public string Video
+        {
+            get { return _video; }
+            set
+            {
+                _video = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("Video"));
+            }
+        }
+
+        private int _luotxem;
+        public int LuotXem
+        {
+            get { return _luotxem; }
+            set
+            {
+                _luotxem = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("Luotxem"));
+            }
+        }
+
+        private bool _yeuthich;
+        public bool YeuThich
+        {
+            get { return _yeuthich; }
+            set
+            {
+                _yeuthich = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("YeuThich"));
+            }
+        }
+
+        private string _mota;
+        public string MoTa
+        {
+            get { return _mota; }
+            set
+            {
+                _mota = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("MoTa"));
+            }
+        }
+
+        private string _anhdaidien;
+        public string AnhDaiDien
+        {
+            get { return _anhdaidien; }
+            set
+            {
+                _anhdaidien = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("AnhDaiDien"));
+            }
+        }
+
+        private string _nguyenlieu;
+        public string NguyenLieu
+        {
+            get { return _nguyenlieu; }
+            set
+            {
+                _nguyenlieu = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("NguyenLieu"));
+            }
+        }
+
+        private int _sothanhphan;
+        public int SoThanhPhan
+        {
+            get { return _sothanhphan; }
+            set
+            {
+                _sothanhphan = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("SoThanhPhan"));
+            }
+        }
+
+        private string _thoigian;
+        public string ThoiGian
+        {
+            get { return _thoigian; }
+            set
+            {
+                _thoigian = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("ThoiGian"));
+            }
+        }
+
+        private string _tendm;
+        public string TenDM
+        {
+            get { return _tendm; }
+            set
+            {
+                _tendm = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("TenDM"));
+            }
+        }
         public SanPham()
         {
-            masp = "";
-            tensp = "";
-            video = "";
-            luotxem = 0;
-            yeuthich = false;
-            mota = "";
-            anhdaidien = "";
-            nguyenlieu = "";
-            sothanhphan = 0;
-            thoigian = "";
+            MaSP = "";
+            TenSP = "";
+            Video = "";
+            LuotXem = 0;
+            YeuThich = false;
+            MoTa = "";
+            AnhDaiDien = "";
+            NguyenLieu = "";
+            SoThanhPhan = 0;
+            ThoiGian = "";
             TenDM = "";
         }
 
-        public SanPham(string _masp,string _tendm, string _tensp, string _video,int _luotxem,bool _yeuthich,string _mota, string _anhdaidien,string _nguyenlieu,int _spthanhphan,string _thoigian)
+        public SanPham(string masp,string tendm, string tensp, string video,int luotxem,bool yeuthich,string mota, string anhdaidien,string nguyenlieu,int sothanhphan,string thoigian)
         {
-            masp = _masp;
-            tensp = _tensp;
-            video = _video;
-            luotxem = _luotxem;
-            yeuthich = _yeuthich;
-            mota = _mota;
-            anhdaidien = _anhdaidien;
-            nguyenlieu = _nguyenlieu;
-            thoigian = thoigian;
-            sothanhphan = _spthanhphan;
+            MaSP = masp;
+            TenSP = tensp;
+            Video = video;
+            LuotXem = luotxem;
+            YeuThich = yeuthich;
+            MoTa = mota;
+            AnhDaiDien = anhdaidien;
+            NguyenLieu = nguyenlieu;
+            ThoiGian = thoigian;
+            SoThanhPhan = sothanhphan;
             TenDM = _tendm;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void Find(string id)
         {
@@ -59,10 +193,10 @@ namespace Recipe.Model
         public void Add ()
         {
             string sql;
-            if (yeuthich==true)
-               sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{tensp}', '{this.video}',{this.luotxem}, 1, N'{mota}', '{anhdaidien}',N'{nguyenlieu}', {sothanhphan}, '{thoigian}')";
+            if (YeuThich==true)
+               sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{TenSP}', '{this.Video}',{this.LuotXem}, 1, N'{MoTa}', '{AnhDaiDien}',N'{NguyenLieu}', {SoThanhPhan}, '{ThoiGian}')";
             else
-                sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{tensp}', '{this.video}',{this.luotxem}, 0, N'{mota}', '{anhdaidien}',N'{nguyenlieu}', {sothanhphan}, '{thoigian}')";
+                sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{TenSP}', '{this.Video}',{this.LuotXem}, 0, N'{MoTa}', '{AnhDaiDien}',N'{NguyenLieu}', {SoThanhPhan}, '{ThoiGian}')";
             Connection.Execute_SQL(sql);
 
         }
