@@ -49,8 +49,8 @@ namespace Recipe.Model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-      
-
+        public static BindingList<SanPham> listsp { get; set; }
+        
 
         public PaginationObject()
         {

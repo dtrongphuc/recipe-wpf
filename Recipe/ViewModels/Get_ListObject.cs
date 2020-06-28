@@ -30,16 +30,16 @@ namespace Recipe.Model
             foreach (DataRow row in dt.Rows)
             {
                 SanPham sp = new SanPham();
-                sp.masp = row["MaSP"].ToString();
-                sp.tensp = row["TenSp"].ToString();
-                sp.video = row["Video"].ToString();
-                sp.luotxem = (int)row["LuotXem"];
-                sp.yeuthich = (bool)row["yeuThich"];
-                sp.mota = row["MoTa"].ToString();
-                sp.anhdaidien = "/" + row["AnhDaiDien"].ToString();
-                sp.nguyenlieu = row["NguyenLieu"].ToString();
-                sp.sothanhphan = (int)row["SoThanhPhan"];
-                sp.thoigian = row["ThoiGian"].ToString();
+                sp.MaSP = row["MaSP"].ToString();
+                sp.TenSP = row["TenSp"].ToString();
+                sp.Video = row["Video"].ToString();
+                sp.LuotXem = (int)row["LuotXem"];
+                sp.YeuThich = (bool)row["yeuThich"];
+                sp.MoTa = row["MoTa"].ToString();
+                sp.AnhDaiDien = "/" + row["AnhDaiDien"].ToString();
+                sp.NguyenLieu = row["NguyenLieu"].ToString();
+                sp.SoThanhPhan = (int)row["SoThanhPhan"];
+                sp.ThoiGian = row["ThoiGian"].ToString();
                 sp.TenDM = row["TenDM"].ToString();
                 _list.Add(sp);
             }
@@ -58,16 +58,16 @@ namespace Recipe.Model
             foreach (DataRow row in dt.Rows)
             {
                 SanPham sp = new SanPham();
-                sp.masp = row["MaSP"].ToString();
-                sp.tensp = row["TenSp"].ToString();
-                sp.video = row["Video"].ToString();
-                sp.luotxem = (int)row["LuotXem"];
-                sp.yeuthich = (bool)row["yeuThich"];
-                sp.mota = row["MoTa"].ToString();
-                sp.anhdaidien = "/" + row["AnhDaiDien"].ToString();
-                sp.nguyenlieu = row["NguyenLieu"].ToString();
-                sp.sothanhphan = (int)row["SoThanhPhan"];
-                sp.thoigian = row["ThoiGian"].ToString();
+                sp.MaSP = row["MaSP"].ToString();
+                sp.TenSP = row["TenSp"].ToString();
+                sp.Video = row["Video"].ToString();
+                sp.LuotXem = (int)row["LuotXem"];
+                sp.YeuThich = (bool)row["yeuThich"];
+                sp.MoTa = row["MoTa"].ToString();
+                sp.AnhDaiDien = "/" + row["AnhDaiDien"].ToString();
+                sp.NguyenLieu = row["NguyenLieu"].ToString();
+                sp.SoThanhPhan = (int)row["SoThanhPhan"];
+                sp.ThoiGian = row["ThoiGian"].ToString();
                 sp.TenDM = row["TenDM"].ToString();
                 _list.Add(sp);
             }
@@ -97,16 +97,16 @@ namespace Recipe.Model
             foreach(DataRow row in dt.Rows)
             {
                 SanPham sp = new SanPham();
-                sp.masp = row["MaSP"].ToString();
-                sp.tensp = row["TenSp"].ToString();
-                sp.video = row["Video"].ToString();
-                sp.luotxem = (int)row["LuotXem"];
-                sp.yeuthich = (bool)row["yeuThich"];
-                sp.mota = row["MoTa"].ToString();
-                sp.anhdaidien = "/" + row["AnhDaiDien"].ToString();
-                sp.nguyenlieu = row["NguyenLieu"].ToString();
-                sp.sothanhphan = (int)row["SoThanhPhan"];
-                sp.thoigian = row["ThoiGian"].ToString();
+                sp.MaSP = row["MaSP"].ToString();
+                sp.TenSP = row["TenSp"].ToString();
+                sp.Video = row["Video"].ToString();
+                sp.LuotXem = (int)row["LuotXem"];
+                sp.YeuThich = (bool)row["yeuThich"];
+                sp.MoTa = row["MoTa"].ToString();
+                sp.AnhDaiDien = "/" + row["AnhDaiDien"].ToString();
+                sp.NguyenLieu = row["NguyenLieu"].ToString();
+                sp.SoThanhPhan = (int)row["SoThanhPhan"];
+                sp.ThoiGian = row["ThoiGian"].ToString();
                 sp.TenDM = row["TenDM"].ToString();
                 _list.Add(sp);
             }

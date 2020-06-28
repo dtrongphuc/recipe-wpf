@@ -25,7 +25,7 @@ namespace Recipe
     /// </summary>
     public partial class MainWindow : Window
     {
-        public BindingList<SanPham> _list = null;
+        BindingList<SanPham> _list = new BindingList<SanPham>();
         int FavoriteCount = 0;
         public MainWindow()
         {
@@ -156,7 +156,7 @@ namespace Recipe
                 List<SanPham> sp = new List<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
                 _list = Get_ListObject.Get_AllSP(1,lastindex);
-                var subnet = _list.Where(i => i.tensp.Contains(keyword));
+                var subnet = _list.Where(i => i.TenSP.Contains(keyword));
                 if (_list.Count < 8)
                 {
                     this.Pagination.Visibility = Visibility.Hidden;
