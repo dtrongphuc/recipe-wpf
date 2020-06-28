@@ -62,7 +62,7 @@ namespace Recipe
         PaginationObject Pages = new PaginationObject();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _list = Pages.GetSPPagination(Pages.CurrentPage);
+            _list = Pages.GetSPPagination(2);
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
@@ -153,7 +153,7 @@ namespace Recipe
                 
                 
                 var keyword = SearchBox.Text;
-                List<SanPham> sp = new List<SanPham>();
+                BindingList<SanPham> sp = new BindingList<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
                 _list = Get_ListObject.Get_AllSP(1,lastindex);
                 var subnet = _list.Where(i => i.TenSP.Contains(keyword));
@@ -161,7 +161,7 @@ namespace Recipe
                 {
                     this.Pagination.Visibility = Visibility.Hidden;
                 }
-                Products.ItemsSource = subnet;
+                var screen = new SearchWindow(subnet);
             }
         }
 
@@ -179,7 +179,7 @@ namespace Recipe
             SetStylePagination();
             _list = Pages.GetSPPagination(Pages.CurrentPage);
             PaginationNumber.ItemsSource = PageStyleList;
-            
+            Products.ItemsSource = _list;
         }
 
         private void OnPageNumber_Click(object sender, RoutedEventArgs e)

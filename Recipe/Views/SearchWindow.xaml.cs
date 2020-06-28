@@ -21,7 +21,7 @@ namespace Recipe.Views
     /// </summary>
     public partial class SearchWindow : Window
     {
-        public SearchWindow()
+        public SearchWindow(List subnet)
         {
             InitializeComponent();
         }
