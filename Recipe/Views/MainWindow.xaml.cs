@@ -25,7 +25,7 @@ namespace Recipe
     /// </summary>
     public partial class MainWindow : Window
     {
-        BindingList<SanPham> _list = null;
+        public BindingList<SanPham> _list = null;
         int FavoriteCount = 0;
         public MainWindow()
         {
@@ -62,7 +62,7 @@ namespace Recipe
         PaginationObject Pages = new PaginationObject();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _list = Pages.GetSPPagination(1);
+            _list = Pages.GetSPPagination(Pages.CurrentPage);
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
@@ -179,6 +179,7 @@ namespace Recipe
             SetStylePagination();
             _list = Pages.GetSPPagination(Pages.CurrentPage);
             PaginationNumber.ItemsSource = PageStyleList;
+            
         }
 
         private void OnPageNumber_Click(object sender, RoutedEventArgs e)

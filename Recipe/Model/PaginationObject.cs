@@ -14,9 +14,7 @@ namespace Recipe.Model
         private int _currentPage;
         public int CurrentPage
         {
-            get {
-                return _currentPage;
-            } set
+            get { return _currentPage; } set
             {
                 _currentPage = value;
                 PropertyChanged?.Invoke(
@@ -26,17 +24,33 @@ namespace Recipe.Model
         public static int record1page = 8;
 
         private int _totalpage = 0;
-        public int ToltalPage { get { return _totalpage; } set {
+        public int ToltalPage
+        {
+            get { return _totalpage; }
+            set
+            {
                 _totalpage = value;
                 PropertyChanged?.Invoke(
                     this, new PropertyChangedEventArgs("TotalPage"));
-            } 
+            }
+        }
+        private BindingList<SanPham> _listsp;
+
+        public  BindingList<SanPham> listsp
+        {
+            get { return _listsp; }
+            set
+            {
+                _listsp = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("listsp"));
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public static  List<SanPham> listsp { get; set; }
-        
+      
+
 
         public PaginationObject()
         {
@@ -53,6 +67,43 @@ namespace Recipe.Model
             int sotranghienhanh = (CurrentPage - 1) * PaginationObject.record1page;
             listsp = Get_ListObject.Get_AllSP(sotranghienhanh, record1page);
             return listsp;
+        }
+
+        public List<int> GetPaginaitonNumbers()
+        {
+            List<int> Numbers = new List<int>();
+            int j = 2;
+            if (ToltalPage - CurrentPage < 2)
+            {
+                j = 5 - (ToltalPage - CurrentPage) - 1;
+            }
+            for (int i = j; i > 0; --i)
+            {
+                if (CurrentPage > i)
+                {
+                    Numbers.Add(CurrentPage - i);
+                }
+            }
+            j = 5 - Numbers.Count;
+            if (ToltalPage - CurrentPage <= 2)
+            {
+                j = (ToltalPage - CurrentPage) + 1;
+            }
+            for (int i = 0; i < j; ++i)
+            {
+                if (CurrentPage <= ToltalPage)
+                {
+                    Numbers.Add(CurrentPage + i);
+                }
+            }
+            return Numbers;
+        }
+
+        public void CalculateTotalPage()
+        {
+            double num = (1.0 * Sum_record / record1page);
+            double ToltalPageTemp = Math.Ceiling(num); // Tính tổng số trang và làm tròn lên
+            ToltalPage = (int)ToltalPageTemp;
         }
     }
 }
