@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,8 +75,11 @@ namespace Recipe.Modle
         public static void Execute_SQL(string sql)
         {
             SqlConnection cn_connection = Get_Connection();
-            SqlCommand cmd_Command = new SqlCommand(sql, cn_connection);
-            cmd_Command.ExecuteNonQuery();
+            using (SqlCommand cmd_Command = new SqlCommand(sql, cn_connection))
+            {
+
+                cmd_Command.ExecuteNonQuery();
+            }
             Close_Connection();
         }
 

@@ -53,9 +53,9 @@ namespace Recipe.Model
             masp = Connection.GetCount_Data(sql).ToString(); 
             for (int  i= 1; i <= STT.Count(); i++)
             {
-                sql = $"INSERT INTO CTSP VALUES ({masp}, {i}, N'{buoclam[i]}')";
+                sql = $"INSERT INTO CTSP VALUES ({masp}, {i}, N'{buoclam[i-1]}')";
                 Connection.Execute_SQL(sql);
-                sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i]}')";
+                sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i-1]}')";
                 Connection.Execute_SQL(sql);
             }
 

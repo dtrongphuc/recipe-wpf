@@ -1,5 +1,6 @@
 ﻿using Recipe.Model;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,49 @@ namespace Recipe.Views
     /// </summary>
     public partial class SearchWindow : Window
     {
-        public SearchWindow()
+        public IEnumerable<SanPham> list;
+        public string keyword { get; set; }
+        public SearchWindow(string _keyword)
         {
             InitializeComponent();
+            keyword = _keyword;
+        }
+
+        public IEnumerable<SanPham> search_keyword(string keyword)
+        {
+            IEnumerable<SanPham> subnets = null;
+            //lấy tất cả các sản phẩm
+            BindingList<SanPham> sp = new BindingList<SanPham>();
+            int lastindex = Get_ListObject.Get_CountALLSP();
+            Get_ListObject page = new Get_ListObject();
+            sp = page.Get_AllSP(1, lastindex);
+
+            if (keyword == "")
+            {
+                ProductsSearch.ItemsSource = sp;
+            }
+            else
+            {
+                // Tìm kiếm danh sách với keyword tương ứng
+                // Products.ItemsSource = null;
+                // Nếu không có kết quả thì ẩn phân trang 
+                subnets = sp.Where(i => i.TenSP.Contains(keyword));
+
+                ///phan trang
+                //if (sp.Count < 8)
+                //{
+                //    this.Pagination.Visibility = Visibility.Hidden;
+                //}               
+            }
+            return subnets;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //danh muc
+            //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
+
+            ProductsSearch.ItemsSource = search_keyword(keyword);
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -52,10 +93,6 @@ namespace Recipe.Views
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            List<SanPham> _list = Get_ListObject.Get_SPInDM("1");
-            ProductsSearch.ItemsSource = _list;
-        }
+      
     }
 }

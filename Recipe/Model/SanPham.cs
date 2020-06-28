@@ -192,11 +192,8 @@ namespace Recipe.Model
 
         public void Add ()
         {
-            string sql;
-            if (YeuThich==true)
-               sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{TenSP}', '{this.Video}',{this.LuotXem}, 1, N'{MoTa}', '{AnhDaiDien}',N'{NguyenLieu}', {SoThanhPhan}, '{ThoiGian}')";
-            else
-                sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{TenSP}', '{this.Video}',{this.LuotXem}, 0, N'{MoTa}', '{AnhDaiDien}',N'{NguyenLieu}', {SoThanhPhan}, '{ThoiGian}')";
+            string sql;        
+            sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{_tensp}', '{this._video}',{this._luotxem}, 0, N'{_mota}', '{_anhdaidien}',N'{_nguyenlieu}', {_sothanhphan}, '{_thoigian}')";
             Connection.Execute_SQL(sql);
 
         }

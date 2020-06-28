@@ -67,6 +67,10 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server Compact Edition\v4.0\Desktop\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -366,6 +370,7 @@
     <Resource Include="Resource\Images\Icons\add.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-left.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-right.png" />
+    <Resource Include="Resource\Images\backgroud.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

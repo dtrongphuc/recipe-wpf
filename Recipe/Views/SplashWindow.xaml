@@ -9,26 +9,49 @@
     Width="385.72"
     Height="246.194"
     WindowStartupLocation="CenterScreen"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Loaded="Window_Loaded">
     <Grid>
-        <TextBlock Text="1 2333e3edwwd" 
-                   FontSize="18" Margin="49,35,38.2,89.8"
-                   ></TextBlock>
-        
-        <CheckBox
-            Canvas.Left="27"
-            Canvas.Top="15"
-           
-            Content="Tắt hiển thị thông báo" 
-            Name="checkboxdisplay" Margin="120,111,38,36.6"
-            />
-        <Button
-            Name="OKButton"
-            Canvas.Left="54"
-            Canvas.Top="49"
-            Width="83"
-            Height="30"
-            Click="OKButton_Click"
-            Content="Close" Margin="154,166,139,20.6" />
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource="/Resource/Images/backgroud.jpg"/>
+               
+            </Border.Background>
+
+            <StackPanel>
+                <TextBlock Name="ContentWellcome"
+                           Text="{Binding}"
+                           FontSize="20"
+                           FontWeight="Light"
+                           TextAlignment="Center" 
+                           TextWrapping="Wrap"
+                           Margin="89,50,91.2,0" 
+                           Height="95" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0.599"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.523"/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <CheckBox           
+                           Content="Tắt hiển thị thông báo" 
+                           x:Name="checkboxdisplay" 
+                           Margin="110,0,96.2,0" 
+                           Height="24"
+                           />
+                <Button
+                           x:Name="OKButton"
+                           Width="83"
+                           Height="30"
+                           Click="OKButton_Click"
+                           Content="Close"
+                            Margin="0,0,0,0"
+                            />
+            </StackPanel>
+        </Border>
+
     </Grid>
 </Window>

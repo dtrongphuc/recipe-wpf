@@ -30,6 +30,17 @@ namespace Recipe.Views
 
         //};
 
+        List<string> _content = new List<string>()
+        {
+            //"Mỗi ngày một món ăn cho gia đình thêm vui ^^",
+            //"Nhớ cẩn thận khi nấu nướng nhé các chị nhà ta!!",
+            //"Gia đình là trên hết <3",
+            //"Thử làm nội trợ một ngày đi nào các anh -.-",
+            "Nhớ đeo khẩu trang khi ra ngoài trong mùa Covid - 19 nhé!!",
+            "Món của vợ là nhất 😋"
+
+        };
+
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
             if (checkboxdisplay.IsChecked == true)
@@ -39,6 +50,12 @@ namespace Recipe.Views
                 config.Save(ConfigurationSaveMode.Modified);
             }
             DialogResult = true;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Random _rng = new Random();
+            ContentWellcome.DataContext = _content[(_rng.Next(0, _content.Count - 1))];
         }
 
     }

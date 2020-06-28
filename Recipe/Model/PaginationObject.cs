@@ -8,27 +8,43 @@ using Recipe.Model;
 
 namespace Recipe.Model
 {
-    public class PaginationObject:INotifyPropertyChanged
+    public class PaginationObject : INotifyPropertyChanged
     {
         public static int Sum_record { get; set; }
         private int _currentPage;
         public int CurrentPage
         {
-            get => _currentPage; set
+            get { return _currentPage; } set
             {
                 _currentPage = value;
                 PropertyChanged?.Invoke(
                     this, new PropertyChangedEventArgs("CurrentPage"));
             }
-        }
+            }
         public static int record1page = 8;
 
         private int _totalpage = 0;
-        public int ToltalPage { get { return _totalpage; } set {
+        public int ToltalPage
+        {
+            get { return _totalpage; }
+            set
+            {
                 _totalpage = value;
                 PropertyChanged?.Invoke(
                     this, new PropertyChangedEventArgs("TotalPage"));
-            } 
+            }
+        }
+        private BindingList<SanPham> _listsp;
+
+        public  BindingList<SanPham> listsp
+        {
+            get { return _listsp; }
+            set
+            {
+                _listsp = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("listsp"));
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -78,13 +94,13 @@ namespace Recipe.Model
             }
             for (int i = j; i > 0; --i)
             {
-                if(CurrentPage > i)
+                if (CurrentPage > i)
                 {
                     Numbers.Add(CurrentPage - i);
                 }
             }
             j = 5 - Numbers.Count;
-            if(ToltalPage - CurrentPage <= 2)
+            if (ToltalPage - CurrentPage <= 2)
             {
                 j = (ToltalPage - CurrentPage) + 1;
             }
@@ -100,7 +116,7 @@ namespace Recipe.Model
 
         public void CalculateTotalPage()
         {
-            double num = (1.0*Sum_record / record1page);
+            double num = (1.0 * Sum_record / record1page);
             double ToltalPageTemp = Math.Ceiling(num); // Tính tổng số trang và làm tròn lên
             ToltalPage = (int)ToltalPageTemp;
         }
