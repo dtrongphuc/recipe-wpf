@@ -683,7 +683,25 @@
                                 HorizontalAlignment="Right"
                                 Orientation="Horizontal">
                                 <Button
-                                    Width="80"
+                                    Width="44"
+                                    Height="30"
+                                    Margin="0,0,8,0"
+                                    Padding="0"
+                                    VerticalContentAlignment="Center"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                    Background="Gainsboro"
+                                    BorderThickness="0"
+                                    Click="OnFirstPage_Click"
+                                    ToolTip="First page">
+                                    <Border Width="14" Height="14">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Resource/Images/Icons/arrow-end-left.png" RenderOptions.BitmapScalingMode="HighQuality" />
+                                        </Border.Background>
+                                    </Border>
+                                </Button>
+
+                                <Button
+                                    Width="30"
                                     Height="30"
                                     Padding="0"
                                     VerticalContentAlignment="Center"
@@ -693,39 +711,33 @@
                                     Click="OnPrePage_Click"
                                     ToolTip="Previous Page">
                                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                        <materialDesign:PackIcon Kind="MenuLeft" />
-                                        <TextBlock Text="Prev" />
+                                        <materialDesign:PackIcon Kind="MenuLeft">
+                                            <materialDesign:PackIcon.LayoutTransform>
+                                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.4" ScaleY="1.4" />
+                                            </materialDesign:PackIcon.LayoutTransform>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
                                 </Button>
-                                <StackPanel
-                                    Height="30"
-                                    Margin="4,0"
-                                    Orientation="Horizontal">
-                                    <Button
-                                        Click="OnPageNumber_Click"
-                                        Content="1"
-                                        Style="{StaticResource PaginationStyleSelected}"
-                                        ToolTip="Previous" />
-                                    <Button
-                                        Click="OnPageNumber_Click"
-                                        Content="2"
-                                        Style="{StaticResource PaginationStyle}" />
-                                    <Button
-                                        Click="OnPageNumber_Click"
-                                        Content="3"
-                                        Style="{StaticResource PaginationStyle}" />
-                                    <Button
-                                        Click="OnPageNumber_Click"
-                                        Content="4"
-                                        Style="{StaticResource PaginationStyle}" />
-
-                                    <Button
-                                        Click="OnPageNumber_Click"
-                                        Content="5"
-                                        Style="{StaticResource PaginationStyle}" />
-                                </StackPanel>
+                                <ItemsControl x:Name="PaginationNumber">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel
+                                                Height="30"
+                                                Margin="4,0"
+                                                Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Button
+                                                Click="OnPageNumber_Click"
+                                                Content="{Binding Number}"
+                                                Style="{Binding PageBtnStyle}" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
                                 <Button
-                                    Width="80"
+                                    Width="30"
                                     Height="30"
                                     Padding="0"
                                     VerticalContentAlignment="Center"
@@ -735,9 +747,29 @@
                                     Click="OnNextPage_Click"
                                     ToolTip="Next Page">
                                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                        <TextBlock Text="Next" />
-                                        <materialDesign:PackIcon Kind="MenuRight" />
+                                        <materialDesign:PackIcon Kind="MenuRight">
+                                            <materialDesign:PackIcon.LayoutTransform>
+                                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.4" ScaleY="1.4" />
+                                            </materialDesign:PackIcon.LayoutTransform>
+                                        </materialDesign:PackIcon>
                                     </StackPanel>
+                                </Button>
+                                <Button
+                                    Width="44"
+                                    Height="30"
+                                    Margin="8,0,0,0"
+                                    Padding="0"
+                                    VerticalContentAlignment="Center"
+                                    materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                    Background="Gainsboro"
+                                    BorderThickness="0"
+                                    Click="OnLastPage_Click"
+                                    ToolTip="Last page">
+                                    <Border Width="14" Height="14">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Resource/Images/Icons/arrow-end-right.png" RenderOptions.BitmapScalingMode="HighQuality" />
+                                        </Border.Background>
+                                    </Border>
                                 </Button>
                             </StackPanel>
                         </Grid>

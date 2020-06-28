@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Recipe.Modle;
+using System.ComponentModel;
 
 namespace Recipe.Model
 {
@@ -18,10 +19,10 @@ namespace Recipe.Model
             return id;
         }
 
-        public static List<SanPham> Get_AllSP(int curr, int recode1trang)
+        public static BindingList<SanPham> Get_AllSP(int curr, int recode1trang)
         {
-           
-            List<SanPham> _list = new List<SanPham>();
+
+            BindingList<SanPham> _list = new BindingList<SanPham>();
 
            
             string sql = $" SELECT sp.*,TenDM FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM ORDER BY masp OFFSET  { curr}  ROWS FETCH NEXT  { recode1trang} ROWS ONLY";

@@ -15,6 +15,8 @@ using System.Windows.Media.Animation;
 using System.Configuration;
 using Recipe.Model;
 using Recipe.Views;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Recipe
 {
@@ -23,7 +25,7 @@ namespace Recipe
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<SanPham> _list = null;
+        BindingList<SanPham> _list = null;
         int FavoriteCount = 0;
         public MainWindow()
         {
@@ -57,10 +59,9 @@ namespace Recipe
             }
         }
 
+        PaginationObject Pages = new PaginationObject();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            PaginationObject Pages = new PaginationObject();
-
             _list = Pages.GetSPPagination(1);
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
@@ -77,6 +78,26 @@ namespace Recipe
             FavoriteCount = _listLike.Count;
             FavoriteCarousel.ItemsSource = _listLike;
             Products.ItemsSource = _list;
+            SetStylePagination();
+            PaginationNumber.ItemsSource = PageStyleList;
+        }
+
+        List<PaginationStyle> PageStyleList;
+        private void SetStylePagination()
+        {
+            List<int> PageNumbers = Pages.GetPaginaitonNumbers();
+            PageStyleList = new List<PaginationStyle>();
+            Style defaultStyle = this.FindResource("PaginationStyle") as Style;
+            Style selectedStyle = this.FindResource("PaginationStyleSelected") as Style;
+            foreach (var number in PageNumbers)
+            {
+                Style myStyle = defaultStyle;
+                if (number == Pages.CurrentPage)
+                {
+                    myStyle = selectedStyle;
+                }
+                PageStyleList.Add(new PaginationStyle() { Number = number, PageBtnStyle = myStyle });
+            }
         }
 
         private int _currentElement = 0;
@@ -153,26 +174,49 @@ namespace Recipe
         }
 
         // Pagination
-        
-        private void PaginationHanding()
+        private void UpdatePagination()
         {
-            
+            SetStylePagination();
+            _list = Pages.GetSPPagination(Pages.CurrentPage);
+            PaginationNumber.ItemsSource = PageStyleList;
         }
 
         private void OnPageNumber_Click(object sender, RoutedEventArgs e)
         {
             var Btn = (Button)sender;
+            Pages.CurrentPage = (int)Btn.Content;
+            UpdatePagination();
         }
 
 
         private void OnPrePage_Click(object sender, RoutedEventArgs e)
         {
-
+            if(Pages.CurrentPage > 1)
+            {
+                Pages.CurrentPage--;
+                UpdatePagination();
+            }
         }
 
         private void OnNextPage_Click(object sender, RoutedEventArgs e)
         {
+            if (Pages.CurrentPage < Pages.ToltalPage)
+            {
+                Pages.CurrentPage++;
+                UpdatePagination();
+            }
+        }
 
+        private void OnFirstPage_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.CurrentPage = 1;
+            UpdatePagination();
+        }
+
+        private void OnLastPage_Click(object sender, RoutedEventArgs e)
+        {
+            Pages.CurrentPage = Pages.ToltalPage;
+            UpdatePagination();
         }
 
         private void themmonan_Click(object sender, MouseButtonEventArgs e)
