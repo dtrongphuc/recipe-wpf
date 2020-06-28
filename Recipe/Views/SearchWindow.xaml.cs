@@ -97,14 +97,12 @@ namespace Recipe.Views
 
         BindingList<SanPham> _list = new BindingList<SanPham>();
         
-        private void BtnSearch_Click_1(object sender, RoutedEventArgs e)
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string value = SearchBox_1.Text;
+            var keyword = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
             ProductsSearch_1.ItemsSource = search_keyword(value);
 
         }
-
-       
     }
 }
