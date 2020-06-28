@@ -141,31 +141,11 @@ namespace Recipe
         {
             string value = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
-            if(value == "")
-            {
-                Products.ItemsSource = _list;
-            } 
-            else
-            {
-                // Tìm kiếm danh sách với keyword tương ứng
-                // Products.ItemsSource = null;
-                // Nếu không có kết quả thì ẩn phân trang
-                
-                
-                var keyword = SearchBox.Text;
-                BindingList<SanPham> sp = new BindingList<SanPham>();
-                int lastindex = Get_ListObject.Get_CountALLSP();
-                Get_ListObject page = new Get_ListObject();
-                sp = page.Get_AllSP(1,lastindex);
-                var subnet = sp.Where(i => i.TenSP.Contains(keyword));
-                
-                if (_list.Count < 8)
-                {
-                    this.Pagination.Visibility = Visibility.Hidden;
-                }
-                var screen = new SearchWindow(subnet);
+           
+           
+                var screen = new SearchWindow(value);
                 screen.ShowDialog();
-            }
+            
         }
 
       

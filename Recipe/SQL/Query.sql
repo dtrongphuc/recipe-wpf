@@ -1,4 +1,7 @@
-﻿Create table DanhMuc
+﻿create table DanhMuc
+create table SanPham
+
+Create table DanhMuc
 (
 	MaDM int not null identity(1,1) primary key,
 	TenDM nvarchar(30),
@@ -16,7 +19,7 @@ Create table SanPham
 	AnhDaiDien varchar(max),
 	NguyenLieu nvarchar(max),
 	SoThanhPhan int,
-	ThoiGian nvarchar(10)
+	ThoiGian int
 )
 
 create table HinhAnh
@@ -40,8 +43,7 @@ alter table dbo.SanPham add constraint FK_SanPham_DanhMuc foreign key (MADM) ref
 alter table dbo.HinhAnh add constraint FK_HinhAnh_SanPham foreign key (MaSP) references dbo.SanPham(MaSP) 
 alter table dbo.CTSP add constraint FK_CTSP_SanPham foreign key (MaSP) references dbo.SanPham(MaSP) 
 
-alter table SanPham drop constraint FK_SanPham_DanhMuc
-drop table CTSP
+
 
 
 
@@ -51,6 +53,8 @@ INSERT INTO DanhMuc VALUES  ("Món Xào"),
 							("Món Kho"), 
 							("Món Canh")
 GO
+
+
 
 INSERT INTO CTSP VALUES 
 --(1, 1, N'Ngâm sò ra thau rửa nhiều lần cho sạch, chuẩn bị các nguyên liệu phụ sau đó.'),
@@ -211,3 +215,5 @@ select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MA
 
 --NSERT INTO SanPham VALUES (1, N'ma1', '',0, False, N'mota', 'C:\\Users\\PC\\Desktop\\Phú\\C#\\biding list\\ListBook\\Images\\book8.jpg',N'nl1\nnl2\nnl3\n', 3, 12h)
 select *from sanpham
+
+update sanpham set MADM
