@@ -120,7 +120,7 @@ namespace Recipe.Views
             if (screen.ShowDialog() == true)
             {
                 _avatarFile = screen.FileName;
-                var bitmap = new BitmapImage(new Uri(_avatarFile, UriKind.Absolute));
+                var bitmap = new BitmapImage(new Uri(_avatarFile, UriKind.Relative));
                 AvatarImage.Visibility = Visibility.Hidden;
                 Header.Visibility = Visibility.Hidden;
                 AddAvatar.ImageSource = bitmap;
@@ -139,7 +139,7 @@ namespace Recipe.Views
             {
                 _stepImage = screen.FileName;
                 var ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(_stepImage, UriKind.Absolute));
+                ib.ImageSource = new BitmapImage(new Uri(_stepImage, UriKind.Relative));
                 es.Background = ib;
             }
             _stepImageList.Add(_stepImage);
@@ -162,7 +162,7 @@ namespace Recipe.Views
             sp.anhdaidien = _avatarFile;
             sp.tensp = ProductName.Text;
             sp.mota = ProductIntro.Text;
-            sp.MaDM = Categories.SelectedIndex.ToString();
+            sp.MaDM =(Categories.SelectedIndex +1).ToString();
             sp.thoigian = Time.Text;
             List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
             foreach (var element in childrenOfIngredients)
@@ -170,6 +170,8 @@ namespace Recipe.Views
                 sp.nguyenlieu +=element.Text +"\n";
             }
             sp.sothanhphan = childrenOfIngredients.Count;
+            //thêm đối tượng sp vào database
+            sp.Add();
             //Các bước làm được thêm vào _stepList
             List<TextBox> childrenOfSteps = AllChildren(Steps);
             DetailSP ctsp = new DetailSP();
@@ -186,7 +188,9 @@ namespace Recipe.Views
             }
             // List ảnh các bước làm _stepImageList
             ctsp.hinhanh = _stepImageList;
-                
+
+            //thêm ctsp vào database
+            ctsp.Add();
         }
     }
 }
