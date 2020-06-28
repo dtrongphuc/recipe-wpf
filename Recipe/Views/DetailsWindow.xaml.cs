@@ -21,9 +21,11 @@ namespace Recipe.Views
     /// </summary>
     public partial class DetailsWindow : Window
     {
-        public DetailsWindow()
+        private SanPham _myproduct { get; set; }
+        public DetailsWindow(SanPham product)
         {
             InitializeComponent();
+            _myproduct = product;
         }
 
         private int _currentElement = 0;

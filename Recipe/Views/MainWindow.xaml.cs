@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Configuration;
 using Recipe.Model;
+using Recipe.ViewModels;
+using Recipe.Views;
 
 namespace Recipe
 {
@@ -105,12 +107,12 @@ namespace Recipe
             storyboard.Begin();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnProduct_Click(object sender, RoutedEventArgs e)
         {
-            Button sp = (Button)sender;
-            var selected = sp.DataContext;
-            SanPham a = (SanPham)selected;
-            Console.WriteLine(a.masp);
+            Button btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            var detailScreen = new DetailsWindow(product);
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
@@ -149,9 +151,28 @@ namespace Recipe
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        // Pagination
+        PaginationControl pageCtr = new PaginationControl();
+        
+        private void PaginationHanding()
         {
-            var value = a.Text;
+            pageCtr.CurrentPage = 1;
+        }
+
+        private void OnPageNumber_Click(object sender, RoutedEventArgs e)
+        {
+            var Btn = (Button)sender;
+        }
+
+
+        private void OnPrePage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnNextPage_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
