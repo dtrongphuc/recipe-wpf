@@ -89,6 +89,7 @@
     <Compile Include="Model\Connection.cs" />
     <Compile Include="Model\DanhMuc.cs" />
     <Compile Include="Model\DetailSP.cs" />
+    <Compile Include="Model\PaginationStyle.cs" />
     <Compile Include="ViewModels\Get_ListObject.cs" />
     <Compile Include="Model\PaginationObject.cs" />
     <Compile Include="Model\SanPham.cs" />
@@ -363,6 +364,8 @@
     <Resource Include="Resource\Images\Icons\camera.png" />
     <Resource Include="Resource\Images\Icons\Nhap.png" />
     <Resource Include="Resource\Images\Icons\add.png" />
+    <Resource Include="Resource\Images\Icons\arrow-end-left.png" />
+    <Resource Include="Resource\Images\Icons\arrow-end-right.png" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
