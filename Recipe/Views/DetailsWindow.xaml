@@ -148,8 +148,11 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel>
+    <ScrollViewer
+        Padding="0,0,0,40"
+        Background="#fff"
+        VerticalScrollBarVisibility="Auto">
+        <StackPanel x:Name="Detail">
             <Grid Margin="24,0,24,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
@@ -158,7 +161,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Grid Grid.Column="0" Margin="0,40,0,0">
+                <Grid Grid.Column="0" Margin="0,30,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="200" />
@@ -168,17 +171,19 @@
                         <DockPanel>
                             <StackPanel DockPanel.Dock="Top">
                                 <TextBlock
+                                    x:Name="ProductName"
                                     Height="124"
                                     Padding="35,0,35,0"
                                     FontSize="40"
                                     FontWeight="Bold"
-                                    Text="Chỗ này tên món ăn"
+                                    Text="{Binding TenSP}"
                                     TextWrapping="Wrap" />
                                 <Label
+                                    Name="Category"
                                     Height="40"
                                     Padding="35,0,0,0"
                                     VerticalContentAlignment="Center"
-                                    Content="CHỖ NÀY ĐẶT DANH MỤC"
+                                    Content="{Binding TenDM}"
                                     FontWeight="Bold"
                                     Foreground="#bab7b6" />
                                 <StackPanel Grid.Row="2" Orientation="Horizontal">
@@ -189,7 +194,7 @@
                                         Content="Lượt xem: " />
                                     <Label
                                         VerticalContentAlignment="Center"
-                                        Content="123"
+                                        Content="{Binding LuotXem}"
                                         Foreground="#FF6C6C6C" />
                                 </StackPanel>
                             </StackPanel>
@@ -206,10 +211,10 @@
                                 Margin="24,8,24,16"
                                 Orientation="Vertical"
                                 TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
-                                <TextBlock Text="Your Content" />
+                                <TextBlock Text="{Binding TenSP}" />
                                 <TextBlock
                                     Opacity=".68"
-                                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                    Text="{Binding MoTa}"
                                     TextWrapping="Wrap" />
                             </StackPanel>
                         </Expander>
@@ -236,9 +241,9 @@
                                 <TextBlock
                                     FontSize="120"
                                     FontWeight="Light"
-                                    Text="4"
+                                    Text="{Binding SoThanhPhan}"
                                     TextAlignment="Center" />
-                                <TextBlock Text="Ingredients" TextAlignment="Center" />
+                                <TextBlock Text="Thành phần" TextAlignment="Center" />
                             </StackPanel>
                         </Border>
 
@@ -251,9 +256,9 @@
                                 <TextBlock
                                     FontSize="120"
                                     FontWeight="Light"
-                                    Text="30"
+                                    Text="{Binding ThoiGian}"
                                     TextAlignment="Center" />
-                                <TextBlock Text="Minutes" TextAlignment="Center" />
+                                <TextBlock Text="Phút" TextAlignment="Center" />
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -262,6 +267,7 @@
                             Height="50"
                             materialDesign:ButtonAssist.CornerRadius="10"
                             Background="#F75C03"
+                            Click="BtnFavorite_Click"
                             Foreground="#fff"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             ToolTip="MaterialDesignRaisedButton with Round Corners">
@@ -280,7 +286,7 @@
                         DockPanel.Dock="Top">
                         <Border.Background>
                             <ImageBrush
-                                ImageSource="{Binding Converter={StaticResource pathConverter}}"
+                                ImageSource="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}"
                                 RenderOptions.BitmapScalingMode="HighQuality"
                                 Stretch="UniformToFill" />
                         </Border.Background>
@@ -303,7 +309,8 @@
                 <ListView
                     Name="ImageCarousel"
                     Width="550"
-                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
                     Style="{StaticResource ListViewStyle}">
                     <ListView.ItemContainerStyle>
@@ -348,43 +355,111 @@
                     Content="Nguyên liệu"
                     FontSize="30"
                     FontWeight="ExtraBold" />
-                <StackPanel Margin="30,12,0,0">
-                    <StackPanel Margin="0,10" Orientation="Horizontal">
-                        <materialDesign:PackIcon
-                            VerticalAlignment="Center"
-                            Foreground="#F75C03"
-                            Kind="PlusCircleOutline">
-                            <materialDesign:PackIcon.LayoutTransform>
-                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.2" ScaleY="1.2" />
-                            </materialDesign:PackIcon.LayoutTransform>
-                        </materialDesign:PackIcon>
-                        <TextBlock
-                            Margin="6,0,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="16"
-                            Text="75 milliliters prosecco" />
-                    </StackPanel>
-                </StackPanel>
+                <ListView
+                    Name="Ingredients"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="30,12,0,0" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.Template>
+                        <ControlTemplate>
+                            <ItemsPresenter />
+                        </ControlTemplate>
+                    </ListView.Template>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,10" Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    VerticalAlignment="Center"
+                                    Foreground="#F75C03"
+                                    Kind="PlusCircleOutline">
+                                    <materialDesign:PackIcon.LayoutTransform>
+                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.2" ScaleY="1.2" />
+                                    </materialDesign:PackIcon.LayoutTransform>
+                                </materialDesign:PackIcon>
+                                <TextBlock
+                                    Margin="6,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Text="{Binding}"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <!--  STEPS  -->
                 <Label
                     Content="Các bước thực hiện"
                     FontSize="30"
                     FontWeight="ExtraBold" />
-                <StackPanel Margin="30,12,0,0">
-                    <StackPanel Margin="0,10" Orientation="Vertical">
-                        <Label
-                            HorizontalContentAlignment="Left"
-                            Content="Bước 1:"
-                            FontSize="20"
-                            FontWeight="SemiBold" />
-                        <TextBlock
-                            Margin="6,12,0,0"
-                            VerticalAlignment="Center"
-                            FontSize="16"
-                            Text="75 milliliters prosecco" />
-                    </StackPanel>
-                </StackPanel>
+
+                <ListView
+                    Name="Steps"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="30,12,0,0" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.Template>
+                        <ControlTemplate>
+                            <ItemsPresenter />
+                        </ControlTemplate>
+                    </ListView.Template>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListViewItem}">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,10" Orientation="Vertical">
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Label
+                                        HorizontalContentAlignment="Left"
+                                        Content="Bước"
+                                        FontSize="20"
+                                        FontWeight="SemiBold" />
+                                    <Label
+                                        VerticalAlignment="Center"
+                                        Content="{Binding}"
+                                        FontSize="20"
+                                        FontWeight="SemiBold" />
+                                </StackPanel>
+                                <TextBlock
+                                    Margin="6,12,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    Text="{Binding}"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

@@ -144,6 +144,17 @@
             </Setter>
         </Style>
         <Style
+            x:Key="FavoriteBtn"
+            BasedOn="{StaticResource MaterialDesignIconForegroundButton}"
+            TargetType="Button">
+            <Setter Property="Foreground" Value="#FF979797" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding YeuThich}" Value="True">
+                    <Setter Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style
             x:Key="PaginationStyle"
             BasedOn="{StaticResource MaterialDesignFlatAccentBgButton}"
             TargetType="Button">
@@ -457,7 +468,9 @@
                                     Name="FavoriteCarousel"
                                     Width="860"
                                     Height="160"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                    materialDesign:ScrollViewerAssist.ShowSeparators="True"
+                                    PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                     ScrollViewer.VerticalScrollBarVisibility="Disabled">
                                     <ListView.ItemsPanel>
                                         <ItemsPanelTemplate>
@@ -486,7 +499,7 @@
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Cursor="Hand">
-                                                <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="{Binding tensp}">
+                                                <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="{Binding TenSP}">
                                                     <Ellipse.Fill>
                                                         <ImageBrush ImageSource="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}" Stretch="UniformToFill" />
                                                     </Ellipse.Fill>
@@ -495,29 +508,6 @@
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
-
-                                <!--<ScrollViewer
-                                    Width="860"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                                    ScrollViewer.VerticalScrollBarVisibility="Hidden">
-                                    <StackPanel
-                                        Name="Carousel"
-                                        Width="10000"
-                                        VerticalAlignment="Center"
-                                        Panel.ZIndex="10"
-                                        Orientation="Horizontal">
-                                        <StackPanel.RenderTransform>
-                                            <TranslateTransform x:Name="CarouselTransform" />
-                                        </StackPanel.RenderTransform>
-                                        <StackPanel Cursor="Hand">
-                                            <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="aaaaa">
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="/Resource/Images/cakho.jpg" Stretch="UniformToFill" />
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </ScrollViewer>-->
 
                                 <Button
                                     Margin="30,0,0,0"
@@ -588,6 +578,7 @@
                                             Height="360"
                                             Margin="4,10"
                                             Padding="0"
+                                            Panel.ZIndex="99"
                                             Background="Transparent"
                                             BorderThickness="0"
                                             Click="BtnProduct_Click"
@@ -632,10 +623,12 @@
                                                         Margin="8"
                                                         HorizontalAlignment="Right"
                                                         VerticalAlignment="Center"
+                                                        Panel.ZIndex="100"
                                                         materialDesign:RippleAssist.IsCentered="True"
-                                                        Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                        Click="BtnFavorite_Click"
+                                                        Style="{StaticResource FavoriteBtn}"
                                                         ToolTip="MaterialDesignIconForegroundButton">
-                                                        <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                        <materialDesign:PackIcon Kind="Heart">
                                                             <materialDesign:PackIcon.LayoutTransform>
                                                                 <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
                                                             </materialDesign:PackIcon.LayoutTransform>
