@@ -209,4 +209,5 @@ select * from danhMuc
 
 select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM=1
 
-I--NSERT INTO SanPham VALUES (1, N'ma1', '',0, False, N'mota', 'C:\\Users\\PC\\Desktop\\Phú\\C#\\biding list\\ListBook\\Images\\book8.jpg',N'nl1\nnl2\nnl3\n', 3, 12h)
+--NSERT INTO SanPham VALUES (1, N'ma1', '',0, False, N'mota', 'C:\\Users\\PC\\Desktop\\Phú\\C#\\biding list\\ListBook\\Images\\book8.jpg',N'nl1\nnl2\nnl3\n', 3, 12h)
+select *from sanpham

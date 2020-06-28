@@ -58,11 +58,8 @@ namespace Recipe.Model
 
         public void Add ()
         {
-            string sql;
-            if (yeuthich==true)
-               sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{tensp}', '{this.video}',{this.luotxem}, 1, N'{mota}', '{anhdaidien}',N'{nguyenlieu}', {sothanhphan}, '{thoigian}')";
-            else
-                sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{tensp}', '{this.video}',{this.luotxem}, 0, N'{mota}', '{anhdaidien}',N'{nguyenlieu}', {sothanhphan}, '{thoigian}')";
+            string sql;        
+            sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{tensp}', '{this.video}',{this.luotxem}, 0, N'{mota}', '{anhdaidien}',N'{nguyenlieu}', {sothanhphan}, '{thoigian}')";
             Connection.Execute_SQL(sql);
 
         }

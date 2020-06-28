@@ -4,29 +4,34 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Recipe.Modle;
+using Recipe.Model;
 
 namespace Recipe.Model
 {
-    public class PaginationObject:INotifyPropertyChanged
+    public class PaginationObject : INotifyPropertyChanged
     {
         public static int Sum_record { get; set; }
         private int _currentPage;
         public int CurrentPage
         {
-            get => _currentPage; set
+            get {
+                return _currentPage;
+            } set
             {
                 _currentPage = value;
                 PropertyChanged?.Invoke(
                     this, new PropertyChangedEventArgs("CurrentPage"));
             }
-        }
+            }
         public static int record1page = 8;
+
+        private int _totalpage = 0;
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public static  List<SanPham> listsp { get; set; }
-        
+        public static List<SanPham> listsp { get; set; }
+
 
         public PaginationObject()
         {
@@ -42,6 +47,11 @@ namespace Recipe.Model
             int sotranghienhanh = (CurrentPage - 1) * PaginationObject.record1page;
             listsp = Get_ListObject.Get_AllSP(sotranghienhanh, record1page);
             return listsp;
+        }
+
+        public void PaginationHanding()
+        {
+
         }
     }
 }

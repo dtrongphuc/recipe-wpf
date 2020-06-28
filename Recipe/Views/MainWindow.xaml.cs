@@ -174,5 +174,14 @@ namespace Recipe
         {
 
         }
+
+        private void themmonan_Click(object sender, MouseButtonEventArgs e)
+        {
+            var screen = new AddWindow();
+            if (screen.ShowDialog() == true)
+            {
+                Console.Write("1");
+            }
+        }
     }
 }

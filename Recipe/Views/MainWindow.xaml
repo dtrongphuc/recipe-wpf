@@ -293,7 +293,13 @@
                             VerticalContentAlignment="Center"
                             Content="Món ăn nhiều đề cử"
                             FontSize="20" />
-
+                        <Label
+                            Padding="0,12,0,12"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="Thêm Món ăn"
+                            FontSize="20" 
+                            MouseLeftButtonDown="themmonan_Click"/>
 
                     </StackPanel>
                     <StackPanel
