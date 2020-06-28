@@ -26,7 +26,12 @@ namespace Recipe
     public partial class MainWindow : Window
     {
         BindingList<SanPham> _list = new BindingList<SanPham>();
+        BindingList<SanPham> _listLike = new BindingList<SanPham>();
+
+        Get_ListObject GetControl = new Get_ListObject();
+
         int FavoriteCount = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -74,7 +79,7 @@ namespace Recipe
             this.Show();
 
             //mon ăn yêu thich.
-            List<SanPham> _listLike = Get_ListObject.Get_AllSPLike();
+            _listLike = GetControl.Get_AllSPLike();
             FavoriteCount = _listLike.Count;
             FavoriteCarousel.ItemsSource = _listLike;
             Products.ItemsSource = _list;
@@ -147,6 +152,7 @@ namespace Recipe
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
             product.YeuThich = !product.YeuThich;
+            FavoriteCount = _listLike.Count;
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
