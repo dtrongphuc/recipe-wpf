@@ -6,11 +6,29 @@ using System.Threading.Tasks;
 using System.Data;
 using Recipe.Modle;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Recipe.Model
 {
-     public static class Get_ListObject
+     public class Get_ListObject : INotifyPropertyChanged
     {
+        private BindingList<SanPham> _list { get; set; } = new BindingList<SanPham>();
+
+        public BindingList<SanPham> List
+        {
+            get
+            {
+                return _list;
+            }
+            set
+            {
+                _list = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("List"));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public static int Get_CountALLSP()
         {          
@@ -19,12 +37,9 @@ namespace Recipe.Model
             return id;
         }
 
-        public static BindingList<SanPham> Get_AllSP(int curr, int recode1trang)
+        public BindingList<SanPham> Get_AllSP(int curr, int recode1trang)
         {
-
-            BindingList<SanPham> _list = new BindingList<SanPham>();
-
-           
+            List.Clear();
             string sql = $" SELECT sp.*,TenDM FROM SANPHAM AS SP join DanhMuc as dm on dm.MaDM = sp.MADM ORDER BY masp OFFSET  { curr}  ROWS FETCH NEXT  { recode1trang} ROWS ONLY";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach (DataRow row in dt.Rows)
@@ -41,9 +56,9 @@ namespace Recipe.Model
                 sp.SoThanhPhan = (int)row["SoThanhPhan"];
                 sp.ThoiGian = row["ThoiGian"].ToString();
                 sp.TenDM = row["TenDM"].ToString();
-                _list.Add(sp);
+                List.Add(sp);
             }
-            return _list;
+            return List;
         }
 
 

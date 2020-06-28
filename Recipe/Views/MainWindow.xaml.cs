@@ -155,7 +155,7 @@ namespace Recipe
                 var keyword = SearchBox.Text;
                 List<SanPham> sp = new List<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
-                _list = Get_ListObject.Get_AllSP(1,lastindex);
+                //_list = Get_ListObject.Get_AllSP(1,lastindex);
                 var subnet = _list.Where(i => i.TenSP.Contains(keyword));
                 if (_list.Count < 8)
                 {
