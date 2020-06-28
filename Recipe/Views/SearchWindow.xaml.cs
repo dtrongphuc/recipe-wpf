@@ -41,7 +41,7 @@ namespace Recipe.Views
 
             if (keyword == "")
             {
-                ProductsSearch_1.ItemsSource = sp;
+                ProductsSearch.ItemsSource = sp;
             }
             else
             {
@@ -66,7 +66,7 @@ namespace Recipe.Views
             //soluong san pham được tìm thấy
             int soluong = search_keyword(keyword).Count<SanPham>();
             //binding 
-            ProductsSearch_1.ItemsSource = search_keyword(keyword);
+            ProductsSearch.ItemsSource = search_keyword(keyword);
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -101,7 +101,7 @@ namespace Recipe.Views
         {
             var keyword = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
-            ProductsSearch_1.ItemsSource = search_keyword(value);
+            ProductsSearch.ItemsSource = search_keyword(keyword);
 
         }
     }

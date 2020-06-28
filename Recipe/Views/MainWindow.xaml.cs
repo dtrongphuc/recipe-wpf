@@ -159,8 +159,10 @@ namespace Recipe
         {
             string value = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
+            this.Hide();
             var screen = new SearchWindow(value);
             screen.ShowDialog();
+            this.Show();
         }
 
         // Pagination
