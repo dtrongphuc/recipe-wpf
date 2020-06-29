@@ -377,6 +377,7 @@
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Focusable" Value="false" />
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type ListViewItem}">
@@ -384,6 +385,7 @@
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
+
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>

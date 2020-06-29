@@ -153,12 +153,12 @@ namespace Recipe
             SanPham product = (SanPham)selected;
             if(product.YeuThich == 1)
             {
+                _listLike.Remove(_listLike.Where(i => i.MaSP == product.MaSP).Single());
                 product.YeuThich = 0;
-                _listLike.Remove(product);
             } else
             {
                 product.YeuThich = 1;
-                _listLike.Add(product);
+                _listLike.Insert(0, product);
             }
             FavoriteCount = _listLike.Count;
         }
