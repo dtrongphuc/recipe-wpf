@@ -153,7 +153,7 @@ namespace Recipe
             SanPham product = (SanPham)selected;
             if(product.YeuThich ==1)
                 product.YeuThich = 0;
-            if (product.YeuThich == 0)
+            else 
                 product.YeuThich = 1;
             FavoriteCount = _listLike.Count;
         }
