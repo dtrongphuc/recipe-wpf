@@ -521,7 +521,7 @@ INSERT INTO HinhAnh VALUES
 
 update CTSP set Buoclam=
 
-select * from CTSP
+select * from SanPham
 
 delete CTSP where masp=22
 GO
