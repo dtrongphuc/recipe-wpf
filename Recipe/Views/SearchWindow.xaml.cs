@@ -23,6 +23,7 @@ namespace Recipe.Views
     public partial class SearchWindow : Window
     {
         public IEnumerable<SanPham> list;
+
         public string keyword { get; set; }
 
         public SearchWindow(string _keyword)
@@ -102,12 +103,39 @@ namespace Recipe.Views
             else
             {
                 // Tìm kiếm danh sách với keyword tương ứng
-                // Products.ItemsSource = null;
-                // Nếu không có kết quả thì ẩn phân trang            
                 ProductsSearch.ItemsSource = search_keyword(keyword);
             } 
+        }
 
+        private void BtnProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            var detailScreen = new DetailsWindow(product);
+            this.Hide();
+            detailScreen.ShowDialog();
+            this.Show();
+        }
+
+        private void BtnFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            var btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            if (product.YeuThich == 1)
+            {
+                MainWindow._listLike.Remove(MainWindow._listLike.Where(i => i.MaSP == product.MaSP).Single());
+                product.YeuThich = 0;
             }
+            else
+            {
+                product.YeuThich = 1;
+                MainWindow._listLike.Insert(0, product);
+            }
+            product.Edit();
+            MainWindow.FavoriteCount = MainWindow._listLike.Count;
         }
     
 }

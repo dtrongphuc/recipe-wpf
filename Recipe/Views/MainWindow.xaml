@@ -633,7 +633,7 @@
                                                         materialDesign:RippleAssist.IsCentered="True"
                                                         Click="BtnFavorite_Click"
                                                         Style="{StaticResource FavoriteBtn}"
-                                                        ToolTip="MaterialDesignIconForegroundButton">
+                                                        ToolTip="Yêu thích">
                                                         <materialDesign:PackIcon Kind="Heart">
                                                             <materialDesign:PackIcon.LayoutTransform>
                                                                 <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
