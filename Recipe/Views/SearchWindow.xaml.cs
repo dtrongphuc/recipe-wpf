@@ -23,6 +23,7 @@ namespace Recipe.Views
     public partial class SearchWindow : Window
     {
         public IEnumerable<SanPham> list;
+
         public string keyword { get; set; }
 
         public SearchWindow(string _keyword)
@@ -46,7 +47,7 @@ namespace Recipe.Views
             }
             else
             {
-                subnets = sp.Where(i => i.TenSP.Contains(keyword));
+                subnets = sp.Where(i => i.TenSP.ToLower().Contains(keyword.ToLower()));
             }
             return subnets;
         }
@@ -56,11 +57,11 @@ namespace Recipe.Views
             /// danh sách danh muc hiện tại chua dùng tới
             //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
             //soluong san pham được tìm thấy
-           
-            int soluong = search_keyword(keyword).Count<SanPham>();
+            list = search_keyword(keyword);
+            int soluong = list.Count();
             //binding 
-            ProductsSearch.ItemsSource = search_keyword(keyword);
-            Quality.Text = soluong + " Công Thức Nấu Ăn ĐƯợc Tìm Thấy";
+            ProductsSearch.ItemsSource = list;
+            Quality.Text = soluong + " Công Thức Nấu Ăn Được Tìm Thấy";
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -89,26 +90,50 @@ namespace Recipe.Views
             }
         }
 
-        BindingList<SanPham> _list = new BindingList<SanPham>();
+       
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             keyword = SearchBox.Text;
-            // Khi rỗng trả về toàn bộ danh sách món ăn
-            if (keyword == "")
+            list = search_keyword(keyword);
+            int soluong = list.Count();
+            // Tìm kiếm danh sách với keyword tương ứng
+            ProductsSearch.ItemsSource = list;
+            Quality.Text = soluong + " Công Thức Nấu Ăn Được Tìm Thấy";
+        }
+
+        private void BtnProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            var detailScreen = new DetailsWindow(product);
+            this.Hide();
+            detailScreen.ShowDialog();
+            this.Show();
+        }
+
+        private void BtnFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            var btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            if (product.YeuThich == 1)
             {
-                ProductsSearch.ItemsSource = _list;
+                MainWindow._listLike.Remove(MainWindow._listLike.Where(i => i.MaSP == product.MaSP).Single());
+                product.YeuThich = 0;
             }
             else
             {
-                // Tìm kiếm danh sách với keyword tương ứng
-                // Products.ItemsSource = null;
-                // Nếu không có kết quả thì ẩn phân trang            
-                ProductsSearch.ItemsSource = search_keyword(keyword);
-            } 
-
-            
+                product.YeuThich = 1;
+                MainWindow._listLike.Insert(0, product);
+            }
+            product.Edit();
+            MainWindow.FavoriteCount = MainWindow._listLike.Count;
         }
 
+            }
+        }
     }
 }

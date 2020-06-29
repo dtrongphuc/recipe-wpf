@@ -26,11 +26,11 @@ namespace Recipe
     public partial class MainWindow : Window
     {
         BindingList<SanPham> _list = new BindingList<SanPham>();
-        BindingList<SanPham> _listLike;
+        public static BindingList<SanPham> _listLike;
 
         Get_ListObject GetControl = new Get_ListObject();
 
-        int FavoriteCount = 0;
+        public static int FavoriteCount = 0;
 
         public MainWindow()
         {
@@ -153,13 +153,14 @@ namespace Recipe
             SanPham product = (SanPham)selected;
             if(product.YeuThich == 1)
             {
+                _listLike.Remove(_listLike.Where(i => i.MaSP == product.MaSP).Single());
                 product.YeuThich = 0;
-                _listLike.Remove(product);
             } else
             {
                 product.YeuThich = 1;
-                _listLike.Add(product);
+                _listLike.Insert(0, product);
             }
+            product.Edit();
             FavoriteCount = _listLike.Count;
         }
 
