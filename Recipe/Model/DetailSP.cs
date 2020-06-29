@@ -47,19 +47,19 @@ namespace Recipe.Model
             }
         }
 
-        //public void Add()
-        //{
-        //    string sql = "SELECT IDENT_CURRENT('{SanPham}') as LastID";
-        //    masp = Connection.GetCount_Data(sql).ToString();
-        //    for (int i = 1; i <= STT.Count(); i++)
-        //    {
-        //        sql = $"INSERT INTO CTSP VALUES ({masp}, {i}, N'{buoclam[i - 1]}')";
-        //        Connection.Execute_SQL(sql);
-        //        sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i - 1]}')";
-        //        Connection.Execute_SQL(sql);
-        //    }
+        public void Add()
+        {
+            string sql = "select  count(MaSP) from SanPham";
+            masp = Connection.GetCount_Data(sql).ToString();
+            for (int i = 1; i <= stepdo.Count(); i++)
+            {
+                sql = $"INSERT INTO CTSP VALUES ({masp}, {i}, N'{stepdo[i - 1].Do}')";
+                Connection.Execute_SQL(sql);
+                sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i - 1]}')";
+                Connection.Execute_SQL(sql);
+            }
 
 
-        //}
+        }
     }
 }

@@ -173,27 +173,28 @@ namespace Recipe.Views
                 sp.NguyenLieu += element.Text +"\n";
             }
             sp.SoThanhPhan = childrenOfIngredients.Count;
-            //thêm đối tượng sp vào database
+            ///thêm đối tượng sp vào database
             sp.Add();
 
 
-            //Các bước làm được thêm vào _stepList
-            //List<TextBox> childrenOfSteps = AllChildren(Steps);
-            //DetailSP ctsp = new DetailSP();
-            
-            
-            //for (int i = 1; i <= childrenOfSteps.Count; i++)
-            //{
-            //    StepDo stp = new StepDo();
-            //    stp.stepdo.Add(i.ToString());
-            //    ctsp.buoclam.Add(childrenOfSteps[i - 1].Text);
-            //}
-            ////// List ảnh các bước làm _stepImageList
-            //ctsp.hinhanh = _stepImageList;
+            ///Các bước làm được thêm vào _stepList
+            List<TextBox> childrenOfSteps = AllChildren(Steps);
+            DetailSP ctsp = new DetailSP();
 
-            //////thêm ctsp vào database
-            //ctsp.Add();
-            //DialogResult = true;
+
+            for (int i = 1; i <= childrenOfSteps.Count; i++)
+            {
+                StepDo stp = new StepDo();
+                stp.step=(i.ToString());
+                stp.Do=(childrenOfSteps[i - 1].Text);
+                ctsp.stepdo.Add(stp);
+            }
+            //// List ảnh các bước làm _stepImageList
+            ctsp.hinhanh = _stepImageList;
+
+            ////thêm ctsp vào database
+            ctsp.Add();
+            DialogResult = true;
         }
     }
 }
