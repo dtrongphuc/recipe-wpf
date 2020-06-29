@@ -247,7 +247,8 @@
                 FontSize="15"
                 FontWeight="Medium"
                 Text="35.690 công thức nấu ăn được đề xuất"
-                TextAlignment="center" />
+                TextAlignment="center" 
+                Name="Quality"/>
 
             <!--</ScrollViewer>-->
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">

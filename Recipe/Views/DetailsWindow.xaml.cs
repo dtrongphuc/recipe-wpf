@@ -78,7 +78,7 @@ namespace Recipe.Views
             sp.Find(_myproduct.MaSP);
             ImageCarousel.ItemsSource = sp.hinhanh;
             Ingredients.ItemsSource = GetIngredients();
-            Steps.ItemsSource = sp.buoclam;
+            
         }
 
         private List<string> GetIngredients()

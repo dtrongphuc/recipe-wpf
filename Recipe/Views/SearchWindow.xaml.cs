@@ -48,6 +48,7 @@ namespace Recipe.Views
                 // Tìm kiếm danh sách với keyword tương ứng
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang 
+               
                 subnets = sp.Where(i => i.TenSP.Contains(keyword));
 
                 ///phan trang
@@ -64,9 +65,11 @@ namespace Recipe.Views
             /// danh sách danh muc hiện tại chua dùng tới
             //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
             //soluong san pham được tìm thấy
+           
             int soluong = search_keyword(keyword).Count<SanPham>();
             //binding 
             ProductsSearch.ItemsSource = search_keyword(keyword);
+            Quality.Text = soluong + " Công Thức Nấu Ăn ĐƯợc Tìm Thấy";
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -96,27 +99,28 @@ namespace Recipe.Views
         }
 
         BindingList<SanPham> _list = new BindingList<SanPham>();
-        
+
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string value = SearchBox_1.Text;
+            string value = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
             if (value == "")
             {
-                ProductsSearch_1.ItemsSource = _list;
+                ProductsSearch.ItemsSource = _list;
             }
             else
             {
                 // Tìm kiếm danh sách với keyword tương ứng
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang
-                var keyword = SearchBox_1.Text;
+                var keyword = SearchBox.Text;
                 BindingList<SanPham> sp = new BindingList<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
                 Get_ListObject page = new Get_ListObject();
                 sp = page.Get_AllSP(1, lastindex);
                 var subnet = sp.Where(i => i.TenSP.Contains(keyword));
 
+            }
         }
     }
 }
