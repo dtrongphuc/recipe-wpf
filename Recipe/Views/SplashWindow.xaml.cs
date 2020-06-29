@@ -39,7 +39,6 @@ namespace Recipe.Views
             "Nhớ đeo khẩu trang khi ra ngoài trong mùa Covid - 19 nhé!!",
             "Món của vợ là nhất 😋",
             "Vào chia sẻ món nhà mình với mọi người nào <3",
-            ""
         };
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
