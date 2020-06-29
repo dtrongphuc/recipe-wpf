@@ -414,10 +414,64 @@ VALUES
 	
 GO
 
+INSERT INTO SanPham
+VALUES
+	(1, N'Ngồng tỏi xào tôm khô', 'https://www.youtube.com/watch?v=eusgvL51NaY',
+			1065, 0, N'Cứ đến hẹn lại lên,Bếp Nhà Choi UnSu hôm nay này xin gửi đến anh chị em món ngồng tỏi xào tôm khô',
+			'Resource/Images/Product/Avatar_NgongToiXaoTom.jpg',
+			N'150g ngồng tỏi \n 50g tôm khô \n Giá Vị \n 1thìa nước tương \n 1thìa tỏi băm \n 2 thìa nước đường \n 3 thìa tương ớt \n 1 thìa dầu ớt \n 1 thìa dầu vừng \n 1thìa vừng', 10, 40),
+	
+--22
+(1, N'Miến rong xào thập cẩm', 'https://www.youtube.com/watch?v=L7I87jqw0LI',
+		1065, 0, N'Đã bao lâu bạn chưa ăn lại món này? Hôm nay mình sử dụng Miến Hàn Quốc để làm món ăn này. Miến Hàn Quốc làm theo kiểu Hàn còn có tên là Miến trộn Hàn Quốc Japchae. Có thể sử dụng Miến dong để làm món ăn này và có thể theo cách làm món Miến Xào Cật mà hôm trước Vành Khuyên đã chia sẻ để cho Miến không bị dính chùm sau khi xào.',
+		'Resource/Images/Product/Avatar_MienXao.jpg',
+		N'150 gr miến rong \n 200 gr giá đỗ \n 2 k hành \n Gia vị hạt nêm, nước mắm dầu hào hạt tiêu mì chính', 4, 30)
 
-select * from SanPham
+GO
+
+INSERT INTO HinhAnh
+VALUES
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_1.jpg'),
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_2.jpg'),
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_3.jpg'),
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_4.jpg'),
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_5.jpg'), 
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_6.jpg'),
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_7.jpg'),
+	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_8.jpg'),
+	
+	(24, 'Resource/Images/Product/BL_MienXao_1.jpg'),
+	(24, 'Resource/Images/Product/BL_MienXao_2.jpg'),
+	(24, 'Resource/Images/Product/BL_MienXao_3.jpg'),
+	(24, 'Resource/Images/Product/BL_MienXao_4.jpg')
+GO
+
+INSERT INTO CTSP --cac bước làm
+VALUES
+	(23, 1, N'Ngồng tỏi xào tôm khô Nguyên Liệu _ 150g ngồng tỏi _ 50g tôm khô Giá Vị _ 1thìa nước tương _ 1thìa tỏi băm _  2 thìa nước đường _ 3 thìa tương ớt _  1 thìa dầu ớt (có thể thay bằng dầu ăn) _Trộn tất cả gia vị đã ghi ở trên lại với nhau (Bát Gia Vị) Giá vị cho vào cuối cùng _  1 thìa dầu vừng _ 1thìa vừng'),
+	(23, 2, N'Tôm khô cho vào bát nước ngâm 2~3phút,rồi vớt ra rửa lại 1~2 lần cho sạch bụi và cát. Để tôm vào giá cho khô ráo nước'),
+	(23, 3, N'Ngồng tỏi rửa sạch, xắt dài 2~3cm.'),
+	(23, 4, N'Đun nồi nước sôi cho vào 1thìa muối'),
+	(23, 5, N'Tiếp đến cho Ngồng tỏi vào luộc 3phút tính từ lúc nước sôi.'),
+	(23, 6, N'Vớt Ngồng tỏi ra bát nước lạnh'),
+	(23, 7, N'Tiếp tục vớt Ngồng tỏi ra để khô ráo nước.'),
+	(23, 8, N'Cho tôm khô vào chảo rang đến khi giòn'),
+	(23, 9, N'Tôm đã rang giòn thì đổ ra giá lắc qua lắc lại để những cái cấn vụn bong ra. Khéo léo nhặt tôm ra ngoài,còn phần cấn dụng ra từ tôm thì bỏ đi.'),
+	(23, 10,N'Cho Bát Gia Vị vào chảo đun nóng(để lửa nhỏ kẻo cháy hết gia vị)'),
+	(23, 11,N'Cho Bát Gia Vị vào chảo đun nóng,tiếp đến cho tôm và ngồng tỏi vào đảo đều. Cuối cùng cho dầu vừng và hạt vừng vào đảo qua rồi tắt bếp.'),
+	(23, 12,N'Tôm giòn cộng tỏi ko đắng khi ăn có vị cay hơi ngọt❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤ Bếp Nhà Choi UnSu Chúc Quý Vị Ngon Miệng'),
+
+	(24, 1, N'Miến ngâm nước lạnh xong nhúng nhanh qua nước nước 70 độ rồi với ra cho tiếp vào nước lạnh rửa lại. Cho vào tô cho 1 ít dầu ăn vào trộm đều để đó cho miến lát xào k bị nát và dính'),
+	(24, 2, N'Cà rốt nạo sợi, hành mộc nhĩ xắt khúc. Lòng mề rửa sạch, bóp muối chanh cho ra hết bẩn.'),
+	(24, 3, N'Giá đỗ ngâm muối rửa sạch vớt ra. Cho lòng mề vào xào gần chín thì cho hạt nêm, giá đỗ, cà rốt, nấm mèo vào đảo đều, cho chút nước mắm, mì chính xong cho miến vào đảo. Cuối cùng cho hành lá, một chút tiêu vào đảo lại là được. Sợi miến rất ngon và k nát tí nào')
+GO
 
 
+update CTSP set Buoclam=
+
+select * from CTSP
+
+delete CTSP where masp=22
 GO
 
 SELECT * FROM CTSP WHERE MaSP=1 ORDER BY STT

@@ -47,7 +47,7 @@ namespace Recipe.Views
             }
             else
             {
-                subnets = sp.Where(i => i.TenSP.Contains(keyword));
+                subnets = sp.Where(i => i.TenSP.ToLower().Contains(keyword.ToLower()));
             }
             return subnets;
         }
@@ -57,11 +57,11 @@ namespace Recipe.Views
             /// danh sách danh muc hiện tại chua dùng tới
             //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
             //soluong san pham được tìm thấy
-           
-            int soluong = search_keyword(keyword).Count<SanPham>();
+            list = search_keyword(keyword);
+            int soluong = list.Count();
             //binding 
-            ProductsSearch.ItemsSource = search_keyword(keyword);
-            Quality.Text = soluong + " Công Thức Nấu Ăn ĐƯợc Tìm Thấy";
+            ProductsSearch.ItemsSource = list;
+            Quality.Text = soluong + " Công Thức Nấu Ăn Được Tìm Thấy";
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -90,21 +90,16 @@ namespace Recipe.Views
             }
         }
 
-        BindingList<SanPham> _list = new BindingList<SanPham>();
+       
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             keyword = SearchBox.Text;
-            // Khi rỗng trả về toàn bộ danh sách món ăn
-            if (keyword == "")
-            {
-                ProductsSearch.ItemsSource = _list;
-            }
-            else
-            {
-                // Tìm kiếm danh sách với keyword tương ứng
-                ProductsSearch.ItemsSource = search_keyword(keyword);
-            } 
+            list = search_keyword(keyword);
+            int soluong = list.Count();
+            // Tìm kiếm danh sách với keyword tương ứng
+            ProductsSearch.ItemsSource = list;
+            Quality.Text = soluong + " Công Thức Nấu Ăn Được Tìm Thấy";
         }
 
         private void BtnProduct_Click(object sender, RoutedEventArgs e)
@@ -136,6 +131,9 @@ namespace Recipe.Views
             }
             product.Edit();
             MainWindow.FavoriteCount = MainWindow._listLike.Count;
+        }
+
+            }
         }
     }
 }

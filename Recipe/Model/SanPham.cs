@@ -199,7 +199,7 @@ namespace Recipe.Model
 
         public void Edit()
         {
-            string sql = $"update Table SanPham set yeuthich={_yeuthich} where masp={_masp}";
+            string sql = $"update SanPham set yeuthich={_yeuthich} where masp={_masp}";
             Connection.Execute_SQL(sql);
         }
     }
