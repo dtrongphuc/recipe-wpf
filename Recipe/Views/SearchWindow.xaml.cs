@@ -93,44 +93,21 @@ namespace Recipe.Views
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string value = SearchBox.Text;
+            keyword = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
-            if (value == "")
+            if (keyword == "")
             {
                 ProductsSearch.ItemsSource = _list;
             }
             else
             {
                 // Tìm kiếm danh sách với keyword tương ứng
-                var keyword = SearchBox.Text;
-                BindingList<SanPham> sp = new BindingList<SanPham>();
-                int lastindex = Get_ListObject.Get_CountALLSP();
-                Get_ListObject page = new Get_ListObject();
-                sp = page.Get_AllSP(1, lastindex);
-                var subnet = sp.Where(i => i.TenSP.Contains(keyword));
+                // Products.ItemsSource = null;
+                // Nếu không có kết quả thì ẩn phân trang            
+                ProductsSearch.ItemsSource = search_keyword(keyword);
+            } 
 
             }
-        }
-
-
-        private void BtnProduct_Click(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            var selected = btn.DataContext;
-            SanPham product = (SanPham)selected;
-            var detailScreen = new DetailsWindow(product);
-            this.Hide();
-            detailScreen.ShowDialog();
-            this.Show();
-        }
-
-        private void BtnFavorite_Click(object sender, RoutedEventArgs e)
-        {
-            e.Handled = true;
-            var btn = (Button)sender;
-            var selected = btn.DataContext;
-            SanPham product = (SanPham)selected;
-            //product.YeuThich = !product.YeuThich;
         }
     }
 }
