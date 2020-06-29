@@ -26,7 +26,7 @@ namespace Recipe
     public partial class MainWindow : Window
     {
         BindingList<SanPham> _list = new BindingList<SanPham>();
-        BindingList<SanPham> _listLike = new BindingList<SanPham>();
+        BindingList<SanPham> _listLike;
 
         Get_ListObject GetControl = new Get_ListObject();
 
@@ -151,7 +151,8 @@ namespace Recipe
             var btn = (Button)sender;
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
-            product.YeuThich = !product.YeuThich;
+            SanPham itemFound = _listLike.Single(x => x.MaSP == product.MaSP);
+            itemFound.YeuThich = !itemFound.YeuThich;
             FavoriteCount = _listLike.Count;
         }
 
@@ -159,8 +160,10 @@ namespace Recipe
         {
             string value = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
+            this.Hide();
             var screen = new SearchWindow(value);
             screen.ShowDialog();
+            this.Show();
         }
 
         // Pagination
@@ -224,13 +227,12 @@ namespace Recipe
             }
         }
 
-        private void themmonan_Click(object sender, MouseButtonEventArgs e)
+        private void Add_Click(object sender, MouseButtonEventArgs e)
         {
+            this.Hide();
             var screen = new AddWindow();
-            if (screen.ShowDialog() == true)
-            {
-                Console.Write("1");
-            }
+            screen.ShowDialog();
+            this.Show();
         }
     }
 }

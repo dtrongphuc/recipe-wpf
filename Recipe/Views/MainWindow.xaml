@@ -309,8 +309,8 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Thêm Món ăn"
-                            FontSize="20" 
-                            MouseLeftButtonDown="themmonan_Click"/>
+                            FontSize="20"
+                            MouseLeftButtonDown="Add_Click" />
 
                     </StackPanel>
                     <StackPanel
@@ -359,7 +359,6 @@
                     LastChildFill="True">
                     <Grid DockPanel.Dock="Right">
                         <Button
-                            
                             Width="56"
                             Height="40"
                             Margin="0,0,26,0"
@@ -370,8 +369,7 @@
                             Click="BtnSearch_Click"
                             Foreground="#000"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                            ToolTip="Tìm kiếm"
-                            >
+                            ToolTip="Tìm kiếm">
                             <materialDesign:PackIcon Kind="Magnify">
                                 <materialDesign:PackIcon.LayoutTransform>
                                     <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="1.4" ScaleY="1.4" />
