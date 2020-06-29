@@ -438,3 +438,4 @@ update sanpham set MADM
 SELECT IDENT_CURRENT('SanPham') as LastID
 
 select  * from SanPham
+update Table SanPham set yeuthich=? where masp=?

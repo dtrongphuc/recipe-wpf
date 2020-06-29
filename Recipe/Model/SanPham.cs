@@ -197,6 +197,10 @@ namespace Recipe.Model
             Connection.Execute_SQL(sql);
         }
 
-        
+        public void Edit()
+        {
+            string sql = $"update Table SanPham set yeuthich={_yeuthich} where masp={_masp}";
+            Connection.Execute_SQL(sql);
+        }
     }
 }
