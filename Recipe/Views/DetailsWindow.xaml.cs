@@ -78,7 +78,7 @@ namespace Recipe.Views
             sp.Find(_myproduct.MaSP);
             ImageCarousel.ItemsSource = sp.hinhanh;
             Ingredients.ItemsSource = GetIngredients();
-            Steps.ItemsSource = sp.buoclam;
+            
         }
 
         private List<string> GetIngredients()
@@ -105,7 +105,7 @@ namespace Recipe.Views
             var btn = (Button)sender;
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
-            product.YeuThich = true;
+            product.YeuThich = 1;
             MessageBox.Show("Thêm thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }

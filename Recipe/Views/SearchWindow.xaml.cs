@@ -48,6 +48,7 @@ namespace Recipe.Views
                 // Tìm kiếm danh sách với keyword tương ứng
                 // Products.ItemsSource = null;
                 // Nếu không có kết quả thì ẩn phân trang 
+               
                 subnets = sp.Where(i => i.TenSP.Contains(keyword));
 
                 ///phan trang
@@ -64,9 +65,11 @@ namespace Recipe.Views
             /// danh sách danh muc hiện tại chua dùng tới
             //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
             //soluong san pham được tìm thấy
+           
             int soluong = search_keyword(keyword).Count<SanPham>();
             //binding 
             ProductsSearch.ItemsSource = search_keyword(keyword);
+            Quality.Text = soluong + " Công Thức Nấu Ăn ĐƯợc Tìm Thấy";
         }
         private void btnShowMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -96,10 +99,10 @@ namespace Recipe.Views
         }
 
         BindingList<SanPham> _list = new BindingList<SanPham>();
-        
+
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-           keyword= SearchBox.Text;
+            string value = SearchBox_1.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
             if (keyword == "")
             {
@@ -113,6 +116,7 @@ namespace Recipe.Views
                 ProductsSearch.ItemsSource = search_keyword(keyword);
             } 
 
+            }
         }
     }
 }

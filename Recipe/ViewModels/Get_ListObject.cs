@@ -65,7 +65,7 @@ namespace Recipe.Model
                 sp.TenSP = row["TenSp"].ToString();
                 sp.Video = row["Video"].ToString();
                 sp.LuotXem = (int)row["LuotXem"];
-                sp.YeuThich = (bool)row["yeuThich"];
+                sp.YeuThich = (int)row["yeuThich"];
                 sp.MoTa = row["MoTa"].ToString();
                 sp.AnhDaiDien = "/" + row["AnhDaiDien"].ToString();
                 sp.NguyenLieu = row["NguyenLieu"].ToString();
@@ -90,7 +90,7 @@ namespace Recipe.Model
                 sp.TenSP = row["TenSp"].ToString();
                 sp.Video = row["Video"].ToString();
                 sp.LuotXem = (int)row["LuotXem"];
-                sp.YeuThich = (bool)row["yeuThich"];
+                sp.YeuThich = (int)row["yeuThich"];
                 sp.MoTa = row["MoTa"].ToString();
                 sp.AnhDaiDien = "/" + row["AnhDaiDien"].ToString();
                 sp.NguyenLieu = row["NguyenLieu"].ToString();
@@ -129,7 +129,7 @@ namespace Recipe.Model
                 sp.TenSP = row["TenSp"].ToString();
                 sp.Video = row["Video"].ToString();
                 sp.LuotXem = (int)row["LuotXem"];
-                sp.YeuThich = (bool)row["yeuThich"];
+                sp.YeuThich = (int)row["yeuThich"];
                 sp.MoTa = row["MoTa"].ToString();
                 sp.AnhDaiDien = "/" + row["AnhDaiDien"].ToString();
                 sp.NguyenLieu = row["NguyenLieu"].ToString();

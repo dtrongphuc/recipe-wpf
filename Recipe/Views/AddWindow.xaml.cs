@@ -178,19 +178,19 @@ namespace Recipe.Views
 
            
             ////Các bước làm được thêm vào _stepList
-            List<TextBox> childrenOfSteps = AllChildren(Steps);
-            DetailSP ctsp = new DetailSP();
-            for(int i=1;i<=childrenOfSteps.Count;i++)
-            {
-                ctsp.STT.Add(i.ToString());
-                ctsp.buoclam.Add(childrenOfSteps[i - 1].Text);
-            }
-            //// List ảnh các bước làm _stepImageList
-            ctsp.hinhanh = _stepImageList;
+            //List<TextBox> childrenOfSteps = AllChildren(Steps);
+            //DetailSP ctsp = new DetailSP();
+            //for(int i=1;i<=childrenOfSteps.Count;i++)
+            //{
+            //    ctsp.STT.Add(i.ToString());
+            //    ctsp.buoclam.Add(childrenOfSteps[i - 1].Text);
+            //}
+            ////// List ảnh các bước làm _stepImageList
+            //ctsp.hinhanh = _stepImageList;
 
-            ////thêm ctsp vào database
-            ctsp.Add();
-            DialogResult = true;
+            //////thêm ctsp vào database
+            //ctsp.Add();
+            //DialogResult = true;
         }
     }
 }

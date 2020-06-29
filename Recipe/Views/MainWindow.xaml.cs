@@ -151,8 +151,7 @@ namespace Recipe
             var btn = (Button)sender;
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
-            SanPham itemFound = _listLike.Single(x => x.MaSP == product.MaSP);
-            itemFound.YeuThich = !itemFound.YeuThich;
+            //product.YeuThich = !product.YeuThich;
             FavoriteCount = _listLike.Count;
         }
 
