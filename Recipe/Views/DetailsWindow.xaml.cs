@@ -24,14 +24,27 @@ namespace Recipe.Views
     public partial class DetailsWindow : Window
     {
         private SanPham _myproduct { get; set; }
+
         public int CarouselItemCount = 1;
+        private int _currentElement = 0;
+
         public DetailsWindow(SanPham product)
         {
             InitializeComponent();
             _myproduct = product;
         }
 
-        private int _currentElement = 0;
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Detail.DataContext = _myproduct;
+            DetailSP sp = new DetailSP();
+            sp.Find(_myproduct.MaSP);
+            CarouselItemCount = sp.hinhanh.Count;
+            ImageCarousel.ItemsSource = sp.hinhanh;
+            Ingredients.ItemsSource = GetIngredients();
+            Steps.ItemsSource = sp.stepdo;
+        }
+
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             if (_currentElement < CarouselItemCount - 1)
@@ -59,31 +72,7 @@ namespace Recipe.Views
             animation.To = -550 * _currentElement;
             storyboard.Begin();
         }
-
-        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            if (sender is ListBox && !e.Handled)
-            {
-                e.Handled = true;
-                var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta);
-                eventArg.RoutedEvent = UIElement.MouseWheelEvent;
-                eventArg.Source = sender;
-                var parent = ((Control)sender).Parent as UIElement;
-                parent.RaiseEvent(eventArg);
-            }
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Detail.DataContext = _myproduct;
-            DetailSP sp = new DetailSP();
-            sp.Find(_myproduct.MaSP);
-            CarouselItemCount = sp.hinhanh.Count;
-            ImageCarousel.ItemsSource = sp.hinhanh;
-            Ingredients.ItemsSource = GetIngredients();
-            Steps.ItemsSource = sp.stepdo;
-        }
-
+        
         private List<string> GetIngredients()
         {
             List<string> list = new List<string>();
@@ -104,10 +93,16 @@ namespace Recipe.Views
             var btn = (Button)sender;
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
+            if(product.YeuThich == 0)
+            {
+                MainWindow._listLike.Insert(0, product);
+                product.Edit();
+            }
             product.YeuThich = 1;
             MessageBox.Show("Thêm thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        // Hyperlink
         private void HandleRequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
             string navigateUri = hl.NavigateUri.ToString();
@@ -116,6 +111,19 @@ namespace Recipe.Views
             // the scheme is HTTP, etc.
             Process.Start(new ProcessStartInfo(navigateUri));
             e.Handled = true;
+        }
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (sender is ListBox && !e.Handled)
+            {
+                e.Handled = true;
+                var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta);
+                eventArg.RoutedEvent = UIElement.MouseWheelEvent;
+                eventArg.Source = sender;
+                var parent = ((Control)sender).Parent as UIElement;
+                parent.RaiseEvent(eventArg);
+            }
         }
     }
 }

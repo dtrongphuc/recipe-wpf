@@ -24,6 +24,9 @@ namespace Recipe.Views
     public partial class SearchWindow : Window
     {
         public IEnumerable<SanPham> list;
+        List<DanhMuc> listDM;
+
+        Get_ListObject page = new Get_ListObject();
 
         public string keyword { get; set; }
         private int _type = 0;
@@ -40,7 +43,20 @@ namespace Recipe.Views
             _type = type;
         }
 
-        Get_ListObject page = new Get_ListObject();
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            CategoryList.ItemsSource = GetListCategoryName();
+            if (_type == 1)
+            {
+                list = search_keyword(keyword);
+            }
+            else
+            {
+                list = SearchCategories(keyword);
+            }
+            UpdateQuantity();
+        }
+
         public IEnumerable<SanPham> search_keyword(string keyword)
         {
             IEnumerable<SanPham> subnets = null;
@@ -64,7 +80,6 @@ namespace Recipe.Views
             //}
             return subnets;
         }
-        List<DanhMuc> listDM;
         public BindingList<SanPham> SearchCategories(string tendm)
         {
             var DanhMuc = listDM.Single(x => x.TenDM == tendm);
@@ -80,19 +95,6 @@ namespace Recipe.Views
                 l.Add(item.TenDM);
             }
             return l;
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            CategoryList.ItemsSource = GetListCategoryName();
-            if(_type == 1)
-            {
-                list = search_keyword(keyword);
-            } else
-            {
-                list = SearchCategories(keyword);
-            }
-            UpdateQuantity();
         }
 
         private void UpdateQuantity()
