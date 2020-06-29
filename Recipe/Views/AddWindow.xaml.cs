@@ -176,13 +176,16 @@ namespace Recipe.Views
             //thêm đối tượng sp vào database
             sp.Add();
 
-           
-            ////Các bước làm được thêm vào _stepList
+
+            //Các bước làm được thêm vào _stepList
             //List<TextBox> childrenOfSteps = AllChildren(Steps);
             //DetailSP ctsp = new DetailSP();
-            //for(int i=1;i<=childrenOfSteps.Count;i++)
+            
+            
+            //for (int i = 1; i <= childrenOfSteps.Count; i++)
             //{
-            //    ctsp.STT.Add(i.ToString());
+            //    StepDo stp = new StepDo();
+            //    stp.stepdo.Add(i.ToString());
             //    ctsp.buoclam.Add(childrenOfSteps[i - 1].Text);
             //}
             ////// List ảnh các bước làm _stepImageList
