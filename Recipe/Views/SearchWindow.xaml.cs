@@ -23,10 +23,11 @@ namespace Recipe.Views
     /// </summary>
     public partial class SearchWindow : Window
     {
-        public BindingList<SanPham> list;
+        public IEnumerable<SanPham> list;
 
         public string keyword { get; set; }
         private int _type = 0;
+        public int soluong = 0;
         /// <summary>
         /// 
         /// </summary>
@@ -40,14 +41,14 @@ namespace Recipe.Views
         }
 
         Get_ListObject page = new Get_ListObject();
-        public BindingList<SanPham> search_keyword(string keyword)
+        public IEnumerable<SanPham> search_keyword(string keyword)
         {
-            BindingList<SanPham> subnets = null;
+            IEnumerable<SanPham> subnets = null;
+            //BindingList<SanPham> l = new BindingList<SanPham>();
             //lấy tất cả các sản phẩm
-            BindingList<SanPham> sp = new BindingList<SanPham>();
             int lastindex = Get_ListObject.Get_CountALLSP();
-            
-            sp = page.Get_AllSP(1, lastindex);
+
+            BindingList<SanPham> sp = page.Get_AllSP(1, lastindex);
 
             if (keyword == "")
             {
@@ -55,17 +56,19 @@ namespace Recipe.Views
             }
             else
             {
-                subnets = (BindingList<SanPham>)sp.Where(i => i.TenSP.ToLower() == keyword.ToLower());
+                subnets = sp.Where(i => i.TenSP.ToLower().Contains(keyword.ToLower()));
             }
+            //foreach(var item in subnets)
+            //{
+            //    l.Add(item);
+            //}
             return subnets;
         }
         List<DanhMuc> listDM;
         public BindingList<SanPham> SearchCategories(string tendm)
         {
-            BindingList<SanPham> l = new BindingList<SanPham>();
             var DanhMuc = listDM.Single(x => x.TenDM == tendm);
-            l = page.Get_SPInDM(DanhMuc.MaDM);
-            return l;
+            return page.Get_SPInDM(DanhMuc.MaDM);
         }
 
         private List<string> GetListCategoryName()
@@ -81,9 +84,6 @@ namespace Recipe.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            /// danh sách danh muc hiện tại chua dùng tới
-            //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
-            //soluong san pham được tìm thấy
             CategoryList.ItemsSource = GetListCategoryName();
             if(_type == 1)
             {
@@ -92,11 +92,16 @@ namespace Recipe.Views
             {
                 list = SearchCategories(keyword);
             }
-            int soluong = list.Count();
-            //binding 
-            ProductsSearch.ItemsSource = list;
-            Quantity.Text = soluong + " Công thức nấu ăn được tìm thấy";
+            UpdateQuantity();
         }
+
+        private void UpdateQuantity()
+        {
+            soluong = list.Count();
+            Quantity.Text = soluong + " Công thức nấu ăn được tìm thấy";
+            ProductsSearch.ItemsSource = list;
+        }
+
         private void BtnShowMenu_Click(object sender, RoutedEventArgs e)
         {
             ShowHideMenu("sbShowLeftMenu", BtnMenuHide, btnMenuShow, Menu);
@@ -128,10 +133,7 @@ namespace Recipe.Views
         {
             keyword = SearchBox.Text;
             list = search_keyword(keyword);
-            int soluong = list.Count();
-            // Tìm kiếm danh sách với keyword tương ứng
-            ProductsSearch.ItemsSource = list;
-            Quantity.Text = soluong + " Công thức nấu ăn được tìm thấy";
+            UpdateQuantity();
         }
 
         private void BtnProduct_Click(object sender, RoutedEventArgs e)
@@ -169,6 +171,7 @@ namespace Recipe.Views
         {
             string value = (sender as ComboBox).SelectedItem as string;
             list = SearchCategories(value);
+            UpdateQuantity();
         }
 
         private void Add_Click(object sender, MouseButtonEventArgs e)

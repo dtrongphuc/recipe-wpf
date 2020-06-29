@@ -53,7 +53,7 @@ namespace Recipe.Model
             {
                 _listdm = value;
                 PropertyChanged?.Invoke(
-                    this, new PropertyChangedEventArgs("ListSP"));
+                    this, new PropertyChangedEventArgs("ListDM"));
             }
         }
 

@@ -74,6 +74,7 @@
             <Setter Property="BorderThickness" Value="0.5" />
             <Setter Property="Margin" Value="8,10" />
             <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resource/Images/Icons/camera.png" Stretch="UniformToFill" />

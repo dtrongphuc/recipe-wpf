@@ -110,7 +110,7 @@ namespace Recipe.Model
                     Numbers.Add(CurrentPage - i);
                 }
             }
-            j = 5 - Numbers.Count;
+            j = (ToltalPage >= 5) ? 5 - Numbers.Count : ToltalPage - Numbers.Count;
             if (ToltalPage - CurrentPage <= 2)
             {
                 j = (ToltalPage - CurrentPage) + 1;
