@@ -69,7 +69,6 @@ namespace Recipe
         {
             this.Show();
             _list = Pages.GetSPPagination(Pages.CurrentPage);
-            List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
             if (config.ToLower() == "true")
@@ -79,12 +78,24 @@ namespace Recipe
             }
             //mon ăn yêu thich.
             _listLike = GetControl.Get_AllSPLike();
-            CategoryList.ItemsSource = listDM;
+            CategoryList.ItemsSource = GetListCategoryName();
             FavoriteCount = _listLike.Count;
             FavoriteCarousel.ItemsSource = _listLike;
             Products.ItemsSource = _list;
             SetStylePagination();
             PaginationNumber.ItemsSource = PageStyleList;
+        }
+
+        List<DanhMuc> listDM;
+        private List<string> GetListCategoryName()
+        {
+            listDM = Get_ListObject.Get_AllDM();
+            List<string> l = new List<string>();
+            foreach(var item in listDM)
+            {
+                l.Add(item.TenDM);
+            }
+            return l;
         }
 
         List<PaginationStyle> PageStyleList;
@@ -169,7 +180,7 @@ namespace Recipe
             string value = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
             this.Hide();
-            var screen = new SearchWindow(value);
+            var screen = new SearchWindow(value, 1);
             screen.ShowDialog();
             this.Show();
         }
@@ -245,7 +256,39 @@ namespace Recipe
 
         private void OnChangeCategory(object sender, SelectionChangedEventArgs e)
         {
-            string text = (sender as ComboBox).SelectedItem as string;
+            string value = (sender as ComboBox).SelectedItem as string;
+            this.Hide();
+            var screen = new SearchWindow(value, 2);
+            screen.ShowDialog();
+            this.Show();
+        }
+
+        private void Favorite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            StackPanel current = (StackPanel)sender;
+            var selected = current.DataContext;
+            SanPham product = (SanPham)selected;
+            var detailScreen = new DetailsWindow(product);
+            this.Hide();
+            detailScreen.ShowDialog();
+            this.Show();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if(this.ActualWidth >= 1310)
+            {
+                Pages.record1page = 10;
+            } else
+            {
+                Pages.record1page = 8;
+            }
+            UpdatePagination();
+        }
+
+        private void ReturnHome(object sender, MouseButtonEventArgs e)
+        {
+
         }
 
         private void LienHe_Click(object sender, MouseButtonEventArgs e)

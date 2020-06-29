@@ -716,6 +716,7 @@
     <Resource Include="Resource\Images\Product\BL_ThitHeoXaoKimChi_1.jpg" />
     <Resource Include="Resource\Images\Product\BL_ThitHeoXaoKimChi_2.jpg" />
     <Resource Include="Resource\Images\Product\BL_ThitHeoXaoKimChi_3.jpg" />
+    <Resource Include="Resource\Images\Icons\add.png" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

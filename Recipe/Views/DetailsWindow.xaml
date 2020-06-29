@@ -191,7 +191,8 @@
                                         Padding="35,0,0,0"
                                         HorizontalAlignment="Left"
                                         VerticalContentAlignment="Center"
-                                        Content="Lượt xem: " />
+                                        Content="Lượt xem: "
+                                        FontSize="15" />
                                     <Label
                                         VerticalContentAlignment="Center"
                                         Content="{Binding LuotXem}"
@@ -293,8 +294,6 @@
                     </Border>
                 </DockPanel>
             </Grid>
-
-
             <DockPanel Margin="24,0" HorizontalAlignment="Center">
                 <Button
                     Margin="0,0,-58,0"
@@ -354,8 +353,8 @@
                     <materialDesign:PackIcon Kind="ChevronRight" />
                 </Button>
             </DockPanel>
+            <!--  INGREDIENTS  -->
             <StackPanel Width="800" Margin="0,20,0,0">
-                <!--  INGREDIENTS  -->
                 <Label
                     Content="Nguyên liệu"
                     FontSize="30"
@@ -409,7 +408,6 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
                 <!--  STEPS  -->
                 <Label
                     Content="Các bước thực hiện"
@@ -467,6 +465,25 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="Video hướng dẫn chi tiết: "
+                        FontSize="20"
+                        FontWeight="ExtraBold" />
+                    <TextBlock
+                        Width="auto"
+                        VerticalAlignment="Center"
+                        FontSize="16">
+                        <Hyperlink
+                            Name="hl"
+                            NavigateUri="{Binding Video}"
+                            RequestNavigate="HandleRequestNavigate"
+                            TargetName="_top">
+                            Click
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

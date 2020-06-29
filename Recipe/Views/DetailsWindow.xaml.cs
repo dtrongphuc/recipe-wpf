@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using Recipe.Model;
 using MaterialDesignThemes.Wpf;
+using System.Diagnostics;
 
 namespace Recipe.Views
 {
@@ -105,6 +106,16 @@ namespace Recipe.Views
             SanPham product = (SanPham)selected;
             product.YeuThich = 1;
             MessageBox.Show("Thêm thành công", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void HandleRequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            string navigateUri = hl.NavigateUri.ToString();
+            // if the URI somehow came from an untrusted source, make sure to
+            // validate it before calling Process.Start(), e.g. check to see
+            // the scheme is HTTP, etc.
+            Process.Start(new ProcessStartInfo(navigateUri));
+            e.Handled = true;
         }
     }
 }
