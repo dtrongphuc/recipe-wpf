@@ -163,10 +163,16 @@ namespace Recipe.Views
             //them vao chổ sp
             SanPham sp = new SanPham();
             sp.AnhDaiDien = _avatarName;
-            sp.TenSP = ProductName.Text;
-            sp.MoTa = ProductIntro.Text;
+            if(ProductName.Text.Trim() != "")
+            {
+                sp.TenSP = ProductName.Text.Trim();
+            }
+            if(ProductIntro.Text.Trim() != "")
+            {
+                sp.MoTa = ProductIntro.Text.Trim();
+            }
             sp.MaDM =(Categories.SelectedIndex +1).ToString();
-            sp.ThoiGian = Time.Text;
+            sp.ThoiGian = Time.Text.Trim();
             List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
             foreach (var element in childrenOfIngredients)
             {

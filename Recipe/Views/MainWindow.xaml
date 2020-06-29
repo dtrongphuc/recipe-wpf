@@ -281,34 +281,48 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Home"
+                            Cursor="Hand"
                             FontSize="20" />
                         <Border
                             Height="1"
                             Margin="10,0"
                             BorderBrush="#FFD1D1D1"
                             BorderThickness="1" />
-                        <Label
+                        <ComboBox
+                            Name="CategoryList"
+                            MaxWidth="200"
+                            Margin="10,0"
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
-                            Content="Danh Mục"
-                            FontSize="20" />
+                            materialDesign:HintAssist.Hint="Danh Mục"
+                            materialDesign:HintAssist.HintOpacity="1"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            FontSize="20"
+                            Foreground="#DD000000"
+                            IsReadOnly="True"
+                            SelectedItem="">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <ComboBoxItem
+                                        Content="{Binding TenDM}"
+                                        Cursor="Hand"
+                                        Selected="OnChangeCategory" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                         <Border
                             Height="1"
                             Margin="10,0"
                             BorderBrush="#FFD1D1D1"
                             BorderThickness="1" />
-                        <Label
-                            Padding="0,12,0,12"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            Content="Món ăn nhiều đề cử"
-                            FontSize="20" />
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Thêm Món ăn"
+                            Cursor="Hand"
                             FontSize="20"
                             MouseLeftButtonDown="Add_Click" />
 

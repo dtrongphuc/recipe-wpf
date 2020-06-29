@@ -68,6 +68,7 @@ namespace Recipe
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _list = Pages.GetSPPagination(Pages.CurrentPage);
+            //List<string> listDM = GetCategoryName();
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
@@ -80,6 +81,7 @@ namespace Recipe
 
             //mon ăn yêu thich.
             _listLike = GetControl.Get_AllSPLike();
+            CategoryList.ItemsSource = listDM;
             FavoriteCount = _listLike.Count;
             FavoriteCarousel.ItemsSource = _listLike;
             Products.ItemsSource = _list;
@@ -241,6 +243,11 @@ namespace Recipe
             var screen = new AddWindow();
             screen.ShowDialog();
             this.Show();
+        }
+
+        private void OnChangeCategory(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

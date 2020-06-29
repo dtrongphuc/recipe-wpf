@@ -84,7 +84,7 @@
 
     <Grid>
         <ScrollViewer>
-            <StackPanel Width="806">
+            <StackPanel Width="806" Margin="0,20,0,20">
                 <Button
                     Width="400"
                     Height="265"
@@ -189,7 +189,7 @@
                         Padding="10,0,0,0"
                         VerticalAlignment="Center"
                         materialDesign:HintAssist.Foreground="#F75C03"
-                        materialDesign:HintAssist.Hint="Thời gian hoàn thành"
+                        materialDesign:HintAssist.Hint="Số phút hoàn thành"
                         materialDesign:TextFieldAssist.UnderlineBrush="#F75C03"
                         Background="#d4d4d4"
                         BorderThickness="0"
