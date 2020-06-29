@@ -164,33 +164,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\image.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resource\Images\american.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resource\Images\Details\add-list.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resource\Images\Details\image.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resource\Images\Details\star-color.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resource\Images\Details\star.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resource\Images\cakho.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resource\Images\banner.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -205,7 +178,6 @@
     </Resource>
     <Resource Include="Resource\Images\Icons\camera.png" />
     <Resource Include="Resource\Images\Icons\Nhap.png" />
-    <Resource Include="Resource\Images\Icons\add.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-left.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-right.png" />
     <Resource Include="Resource\Images\backgroud.jpg" />
@@ -701,20 +673,48 @@
     <None Include="Resource\Images\Product\BL_VitKhoGung_7.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Resource Include="Resource\Images\Product\Avatar_MienXao.jpg" />
-    <Resource Include="Resource\Images\Product\Avatar_NgongToiXaoTom.jpg" />
-    <Resource Include="Resource\Images\Product\BL_MienXao_1.jpg" />
-    <Resource Include="Resource\Images\Product\BL_MienXao_2.jpg" />
-    <Resource Include="Resource\Images\Product\BL_MienXao_3.jpg" />
-    <Resource Include="Resource\Images\Product\BL_MienXao_4.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_1.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_2.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_3.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_4.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_5.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_6.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_7.jpg" />
-    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_8.jpg" />
+    <None Include="Resource\Images\Product\Avatar_MienXao.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Avatar_NgongToiXaoTom.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\BL_MienXao_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\BL_MienXao_2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\BL_MienXao_3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\BL_MienXao_4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
