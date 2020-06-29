@@ -245,7 +245,7 @@ namespace Recipe
 
         private void OnChangeCategory(object sender, SelectionChangedEventArgs e)
         {
-
+            string text = (sender as ComboBox).SelectedItem as string;
         }
     }
 }

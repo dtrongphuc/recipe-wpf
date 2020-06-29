@@ -305,7 +305,7 @@
                             SelectionChanged="OnChangeCategory">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <ComboBoxItem Content="{Binding TenDM}" Cursor="Hand" />
+                                    <ComboBoxItem Background="Red" Content="{Binding TenDM}" />
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>

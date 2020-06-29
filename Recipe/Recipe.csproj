@@ -164,23 +164,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\Images\banner.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resource\Images\strawberry-grain.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resource\Images\img-fruit-bowl.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resource\Images\img-strawberry.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Resource\Images\banner.jpg" />
+    <Resource Include="Resource\Images\strawberry-grain.png" />
+    <Resource Include="Resource\Images\img-fruit-bowl.png" />
+    <Resource Include="Resource\Images\img-strawberry.png" />
     <Resource Include="Resource\Images\Icons\camera.png" />
     <Resource Include="Resource\Images\Icons\Nhap.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-left.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-right.png" />
-    <Resource Include="Resource\Images\backgroud.jpg" />
+    <Resource Include="Resource\Images\background.jpg" />
     <None Include="Resource\Images\Product\Avatar_CaChienXu.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
