@@ -250,13 +250,13 @@ namespace Recipe
 
         private void LienHe_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về SỰ Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về Sự Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
 
         private void GopY_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về SỰ Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về Sự Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
     }
