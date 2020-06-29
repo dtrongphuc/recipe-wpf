@@ -13,6 +13,7 @@
     Background="{DynamicResource MaterialDesignPaper}"
     FontFamily="{DynamicResource MaterialDesignFont}"
     Loaded="Window_Loaded"
+    SizeChanged="Window_SizeChanged"
     TextElement.FontSize="13"
     TextElement.FontWeight="Regular"
     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -26,13 +27,6 @@
             <Setter Property="Width" Value="108" />
             <Setter Property="Height" Value="108" />
             <Setter Property="Margin" Value="32,0,32,0" />
-        </Style>
-        <Style x:Key="hover" TargetType="TextBlock">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="#3A9691" />
-                </Trigger>
-            </Style.Triggers>
         </Style>
         <!--  SCROLLBAR  -->
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
@@ -229,8 +223,6 @@
             </DoubleAnimation>
         </Storyboard>
 
-        <Storyboard x:Key="OnSearch" />
-
         <Storyboard x:Key="CarouselStoryboardFavorite">
             <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Duration="0:0:0.4">
                 <DoubleAnimation.EasingFunction>
@@ -239,11 +231,6 @@
             </DoubleAnimation>
         </Storyboard>
     </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource OnSearch}" />
-        </EventTrigger>
-    </Window.Triggers>
     <Grid>
         <!--  LEFT MENU  -->
         <Grid
@@ -282,12 +269,14 @@
                             VerticalContentAlignment="Center"
                             Content="Home"
                             Cursor="Hand"
-                            FontSize="20" />
+                            FontSize="20"
+                            MouseLeftButtonDown="ReturnHome" />
                         <Border
                             Height="1"
                             Margin="10,0"
                             BorderBrush="#FFD1D1D1"
                             BorderThickness="1" />
+
                         <ComboBox
                             Name="CategoryList"
                             MaxWidth="200"
@@ -302,13 +291,9 @@
                             FontSize="20"
                             Foreground="#DD000000"
                             IsReadOnly="True"
-                            SelectionChanged="OnChangeCategory">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <ComboBoxItem Background="Red" Content="{Binding TenDM}" />
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                            ItemsSource="{Binding TenDM}"
+                            SelectionChanged="OnChangeCategory" />
+
                         <Border
                             Height="1"
                             Margin="10,0"
@@ -515,7 +500,7 @@
                                     </ListView.ItemContainerStyle>
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Cursor="Hand">
+                                            <StackPanel Cursor="Hand" MouseLeftButtonDown="Favorite_MouseLeftButtonDown">
                                                 <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="{Binding TenSP}">
                                                     <Ellipse.Fill>
                                                         <ImageBrush ImageSource="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}" Stretch="UniformToFill" />

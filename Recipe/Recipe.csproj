@@ -707,6 +707,7 @@
     <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_8.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Resource\Images\Icons\add.png" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

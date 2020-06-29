@@ -21,7 +21,17 @@ namespace Recipe.Model
                     this, new PropertyChangedEventArgs("CurrentPage"));
             }
             }
-        public static int record1page = 8;
+        private int _record1page = 8;
+        public int record1page
+        {
+            get { return _record1page; }
+            set
+            {
+                _record1page = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("recod1page"));
+            }
+        }
 
         private int _totalpage = 0;
         public int ToltalPage
@@ -78,7 +88,7 @@ namespace Recipe.Model
             CurrentPage = _curr;
             Sum_record = Get_ListObject.Get_CountALLSP();
             CalculateTotalPage();
-            int sotranghienhanh = (CurrentPage - 1) * PaginationObject.record1page;
+            int sotranghienhanh = (CurrentPage - 1) * record1page;
             List = GetCtrl.Get_AllSP(sotranghienhanh, record1page);
             //listsp = Get_ListObject.Get_AllSP(sotranghienhanh, record1page);
             return List;
@@ -86,6 +96,7 @@ namespace Recipe.Model
 
         public List<int> GetPaginaitonNumbers()
         {
+            CalculateTotalPage();
             List<int> Numbers = new List<int>();
             int j = 2;
             if (ToltalPage - CurrentPage < 2)

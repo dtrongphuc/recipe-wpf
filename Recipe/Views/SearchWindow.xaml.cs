@@ -1,5 +1,6 @@
 ﻿using Recipe.Model;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
@@ -22,23 +23,30 @@ namespace Recipe.Views
     /// </summary>
     public partial class SearchWindow : Window
     {
-        public IEnumerable<SanPham> list;
+        public BindingList<SanPham> list;
 
         public string keyword { get; set; }
-
-        public SearchWindow(string _keyword)
+        private int _type = 0;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="_keyword">từ khoá tìm kiếm</param>
+        /// <param name="type">loại tìm kiếm ( 1-tên sản phẩm, 2-tên danh mục)</param>
+        public SearchWindow(string _keyword, int type)
         {
             InitializeComponent();
             keyword = _keyword;
+            _type = type;
         }
 
-        public IEnumerable<SanPham> search_keyword(string keyword)
+        Get_ListObject page = new Get_ListObject();
+        public BindingList<SanPham> search_keyword(string keyword)
         {
-            IEnumerable<SanPham> subnets = null;
+            BindingList<SanPham> subnets = null;
             //lấy tất cả các sản phẩm
             BindingList<SanPham> sp = new BindingList<SanPham>();
             int lastindex = Get_ListObject.Get_CountALLSP();
-            Get_ListObject page = new Get_ListObject();
+            
             sp = page.Get_AllSP(1, lastindex);
 
             if (keyword == "")
@@ -47,9 +55,28 @@ namespace Recipe.Views
             }
             else
             {
-                subnets = sp.Where(i => i.TenSP.ToLower().Contains(keyword.ToLower()));
+                subnets = (BindingList<SanPham>)sp.Where(i => i.TenSP.ToLower() == keyword.ToLower());
             }
             return subnets;
+        }
+        List<DanhMuc> listDM;
+        public BindingList<SanPham> SearchCategories(string tendm)
+        {
+            BindingList<SanPham> l = new BindingList<SanPham>();
+            var DanhMuc = listDM.Single(x => x.TenDM == tendm);
+            l = page.Get_SPInDM(DanhMuc.MaDM);
+            return l;
+        }
+
+        private List<string> GetListCategoryName()
+        {
+            listDM = Get_ListObject.Get_AllDM();
+            List<string> l = new List<string>();
+            foreach (var item in listDM)
+            {
+                l.Add(item.TenDM);
+            }
+            return l;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -57,20 +84,27 @@ namespace Recipe.Views
             /// danh sách danh muc hiện tại chua dùng tới
             //List<SanPham> _listdm = Get_ListObject.Get_SPInDM("1");
             //soluong san pham được tìm thấy
-            list = search_keyword(keyword);
+            CategoryList.ItemsSource = GetListCategoryName();
+            if(_type == 1)
+            {
+                list = search_keyword(keyword);
+            } else
+            {
+                list = SearchCategories(keyword);
+            }
             int soluong = list.Count();
             //binding 
             ProductsSearch.ItemsSource = list;
-            Quality.Text = soluong + " Công Thức Nấu Ăn Được Tìm Thấy";
+            Quantity.Text = soluong + " Công thức nấu ăn được tìm thấy";
         }
-        private void btnShowMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnShowMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbShowLeftMenu", btnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbShowLeftMenu", BtnMenuHide, btnMenuShow, Menu);
         }
 
-        private void btnHideMenu_Click(object sender, RoutedEventArgs e)
+        private void BtnHideMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbHideLeftMenu", btnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, btnMenuShow, Menu);
         }
 
         private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, Grid pnl)
@@ -90,8 +124,6 @@ namespace Recipe.Views
             }
         }
 
-       
-
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             keyword = SearchBox.Text;
@@ -99,7 +131,7 @@ namespace Recipe.Views
             int soluong = list.Count();
             // Tìm kiếm danh sách với keyword tương ứng
             ProductsSearch.ItemsSource = list;
-            Quality.Text = soluong + " Công Thức Nấu Ăn Được Tìm Thấy";
+            Quantity.Text = soluong + " Công thức nấu ăn được tìm thấy";
         }
 
         private void BtnProduct_Click(object sender, RoutedEventArgs e)
@@ -133,12 +165,21 @@ namespace Recipe.Views
             MainWindow.FavoriteCount = MainWindow._listLike.Count;
         }
 
-        private void Lienhe_CLick(object sender, MouseButtonEventArgs e)
+        private void OnChangeCategory(object sender, SelectionChangedEventArgs e)
         {
-
+            string value = (sender as ComboBox).SelectedItem as string;
+            list = SearchCategories(value);
         }
 
-        private void Home_CLick(object sender, MouseButtonEventArgs e)
+        private void Add_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.Hide();
+            var screen = new AddWindow();
+            screen.ShowDialog();
+            this.Show();
+        }
+
+        private void ReturnHome(object sender, MouseButtonEventArgs e)
         {
 
         }

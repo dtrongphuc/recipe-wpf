@@ -13,7 +13,6 @@ namespace Recipe.Model
      public class Get_ListObject : INotifyPropertyChanged
     {
         private BindingList<SanPham> _list { get; set; } = new BindingList<SanPham>();
-
         public BindingList<SanPham> List
         {
             get
@@ -29,7 +28,6 @@ namespace Recipe.Model
         }
 
         private BindingList<SanPham> _listlike { get; set; } = new BindingList<SanPham>();
-
         public BindingList<SanPham> ListLike
         {
             get
@@ -41,6 +39,21 @@ namespace Recipe.Model
                 _listlike = value;
                 PropertyChanged?.Invoke(
                     this, new PropertyChangedEventArgs("ListLike"));
+            }
+        }
+
+        private BindingList<SanPham> _listdm { get; set; } = new BindingList<SanPham>();
+        public BindingList<SanPham> ListDM
+        {
+            get
+            {
+                return _listdm;
+            }
+            set
+            {
+                _listdm = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("ListSP"));
             }
         }
 
@@ -117,9 +130,9 @@ namespace Recipe.Model
             return list;
         }
 
-        public static List<SanPham> Get_SPInDM(string id)
+        public BindingList<SanPham> Get_SPInDM(string id)
         {
-            List<SanPham> _list = new List<SanPham>();
+            ListDM.Clear();
             string sql = $"select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM={id}";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
@@ -136,9 +149,9 @@ namespace Recipe.Model
                 sp.SoThanhPhan = (int)row["SoThanhPhan"];
                 sp.ThoiGian = row["ThoiGian"].ToString();
                 sp.TenDM = row["TenDM"].ToString();
-                _list.Add(sp);
+                ListDM.Add(sp);
             }
-            return _list;
+            return ListDM;
         }
     }
 }

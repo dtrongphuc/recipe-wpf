@@ -95,13 +95,13 @@
             <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth3">
                 <DockPanel LastChildFill="True">
                     <Button
-                        Name="btnMenuHide"
+                        Name="BtnMenuHide"
                         Margin="0,15,0,0"
                         HorizontalAlignment="Right"
                         Background="#00000000"
                         BorderBrush="Transparent"
                         BorderThickness="0"
-                        Click="btnHideMenu_Click"
+                        Click="BtnHideMenu_Click"
                         DockPanel.Dock="Top"
                         Foreground="#F75C03">
                         <materialDesign:PackIcon
@@ -120,21 +120,45 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Home"
-                            FontSize="20" 
-                            Name="Home"
-                            MouseLeftButtonDown="Home_CLick"/>
+                            Cursor="Hand"
+                            FontSize="20"
+                            MouseLeftButtonDown="ReturnHome" />
+                        <Border
+                            Height="1"
+                            Margin="10,0"
+                            BorderBrush="#FFD1D1D1"
+                            BorderThickness="1" />
+
+                        <ComboBox
+                            Name="CategoryList"
+                            MaxWidth="200"
+                            Margin="10,0"
+                            Padding="0,12,0,12"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            materialDesign:HintAssist.Hint="Danh Mục"
+                            materialDesign:HintAssist.HintOpacity="1"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            FontSize="20"
+                            Foreground="#DD000000"
+                            IsReadOnly="True"
+                            ItemsSource="{Binding TenDM}"
+                            SelectionChanged="OnChangeCategory" />
+
+                        <Border
+                            Height="1"
+                            Margin="10,0"
+                            BorderBrush="#FFD1D1D1"
+                            BorderThickness="1" />
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
-                            Content="Danh Mục"
-                            FontSize="20" />
-                        <Label
-                            Padding="0,12,0,12"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            Content="Món ăn nhiều đề cử"
-                            FontSize="20" />
+                            Content="Thêm Món ăn"
+                            Cursor="Hand"
+                            FontSize="20"
+                            MouseLeftButtonDown="Add_Click" />
 
                     </StackPanel>
                     <StackPanel
@@ -146,9 +170,12 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Liên Hệ"
-                            FontSize="20" 
-                            Name="Lienhe"
-                            MouseLeftButtonDown="Lienhe_CLick"/>
+                            FontSize="20" />
+                        <Border
+                            Height="1"
+                            Margin="10,0"
+                            BorderBrush="#FFD1D1D1"
+                            BorderThickness="1" />
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
@@ -204,7 +231,7 @@
                     Background="#00000000"
                     BorderBrush="Transparent"
                     BorderThickness="0"
-                    Click="btnShowMenu_Click"
+                    Click="BtnShowMenu_Click"
                     DockPanel.Dock="Left"
                     Foreground="#FFF">
                     <materialDesign:PackIcon
@@ -234,146 +261,143 @@
             </DockPanel>
 
             <TextBlock
-                Name="Quality"
+                Name="Quantity"
                 Grid.Row="1"
                 Padding="0,15,0,0"
                 FontSize="20"
                 FontWeight="Medium"
-                Text="35.690 công thức nấu ăn được đề xuất"
                 TextAlignment="center" />
 
             <!--</ScrollViewer>-->
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
                 <Grid x:Name="GridMain">
                     <materialDesign:Card
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Margin="26,0,26,30"
-                    Padding="0,10"
-                    UniformCornerRadius="4">
-                    <ListView
-                        Name="ProductsSearch"
-                        Grid.Row="1"
-                        HorizontalAlignment="Center"
-                        ScrollViewer.CanContentScroll="False"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel />
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.Template>
-                            <ControlTemplate>
-                                <ItemsPresenter />
-                            </ControlTemplate>
-                        </ListView.Template>
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <ContentPresenter />
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Button
-                                    x:Name="item"
-                                    Width="240"
-                                    Height="360"
-                                    Margin="4,10"
-                                    Padding="0"
-                                    Panel.ZIndex="99"
-                                    Background="Transparent"
-                                    BorderThickness="0"
-                                    
-                                    ClipToBounds="True"
-                                    Style="{StaticResource MaterialDesignRaisedAccentButton}">
-                                    <materialDesign:Card
-                                        Width="220"
-                                        Padding="-1,0"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                                        materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
-                                        UniformCornerRadius="4">
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="220" />
-                                                <RowDefinition Height="64" />
-                                                <RowDefinition Height="60" />
-                                            </Grid.RowDefinitions>
-                                            <Image
-                                                Height="220"
-                                                HorizontalAlignment="Center"
-                                                RenderOptions.BitmapScalingMode="HighQuality"
-                                                RenderTransformOrigin="0.5 0.5"
-                                                Source="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}"
-                                                Stretch="UniformToFill" />
-                                            <TextBlock
-                                                Grid.Row="1"
-                                                Width="160"
-                                                Height="58"
-                                                Margin="0,10,0,0"
-                                                Padding="8"
-                                                HorizontalAlignment="Left"
-                                                FontSize="16"
-                                                FontWeight="Bold"
-                                                Foreground="#FF3E3E3E"
-                                                Text="{Binding TenSP}"
-                                                TextTrimming="CharacterEllipsis"
-                                                TextWrapping="Wrap" />
-                                            <Button
-                                                Grid.Row="1"
-                                                Width="24"
-                                                Height="24"
-                                                Margin="8"
-                                                HorizontalAlignment="Right"
-                                                VerticalAlignment="Center"
-                                                Panel.ZIndex="100"
-                                                materialDesign:RippleAssist.IsCentered="True"
-                                              
-                                                Style="{StaticResource FavoriteBtn}"
-                                                ToolTip="Yêu thích">
-                                                <materialDesign:PackIcon Kind="Heart">
-                                                    <materialDesign:PackIcon.LayoutTransform>
-                                                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
-                                                    </materialDesign:PackIcon.LayoutTransform>
-                                                </materialDesign:PackIcon>
-                                            </Button>
-                                            <TextBlock
-                                                Grid.Row="2"
-                                                Width="160"
-                                                Height="48"
-                                                Margin="0,6"
-                                                Padding="8,0,0,8"
-                                                HorizontalAlignment="Left"
-                                                FontSize="14"
-                                                Foreground="#FF646464"
-                                                Text="{Binding TenDM}"
-                                                TextTrimming="CharacterEllipsis"
-                                                TextWrapping="Wrap" />
-                                            <Label
-                                                Grid.Row="2"
-                                                Width="40"
-                                                Height="40"
-                                                Margin="8"
-                                                HorizontalAlignment="Right"
-                                                VerticalAlignment="Center"
-                                                HorizontalContentAlignment="Right"
-                                                Content="{Binding LuotXem}"
-                                                FontSize="12"
-                                                Foreground="#919191" />
-                                        </Grid>
-                                    </materialDesign:Card>
-                                </Button>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </materialDesign:Card>
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="26,0,26,30"
+                        Padding="0,10"
+                        UniformCornerRadius="4">
+                        <ListView
+                            Name="ProductsSearch"
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            ScrollViewer.CanContentScroll="False"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.Template>
+                                <ControlTemplate>
+                                    <ItemsPresenter />
+                                </ControlTemplate>
+                            </ListView.Template>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Button
+                                        x:Name="item"
+                                        Width="240"
+                                        Height="360"
+                                        Margin="4,10"
+                                        Padding="0"
+                                        Panel.ZIndex="99"
+                                        Background="Transparent"
+                                        BorderThickness="0"
+                                        ClipToBounds="True"
+                                        Style="{StaticResource MaterialDesignRaisedAccentButton}">
+                                        <materialDesign:Card
+                                            Width="220"
+                                            Padding="-1,0"
+                                            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                            materialDesign:ShadowAssist.ShadowEdges="Bottom, Right, Left"
+                                            UniformCornerRadius="4">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="220" />
+                                                    <RowDefinition Height="64" />
+                                                    <RowDefinition Height="60" />
+                                                </Grid.RowDefinitions>
+                                                <Image
+                                                    Height="220"
+                                                    HorizontalAlignment="Center"
+                                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                                    RenderTransformOrigin="0.5 0.5"
+                                                    Source="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}"
+                                                    Stretch="UniformToFill" />
+                                                <TextBlock
+                                                    Grid.Row="1"
+                                                    Width="160"
+                                                    Height="58"
+                                                    Margin="0,10,0,0"
+                                                    Padding="8"
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="16"
+                                                    FontWeight="Bold"
+                                                    Foreground="#FF3E3E3E"
+                                                    Text="{Binding TenSP}"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    TextWrapping="Wrap" />
+                                                <Button
+                                                    Grid.Row="1"
+                                                    Width="24"
+                                                    Height="24"
+                                                    Margin="8"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Panel.ZIndex="100"
+                                                    materialDesign:RippleAssist.IsCentered="True"
+                                                    Style="{StaticResource FavoriteBtn}"
+                                                    ToolTip="Yêu thích">
+                                                    <materialDesign:PackIcon Kind="Heart">
+                                                        <materialDesign:PackIcon.LayoutTransform>
+                                                            <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
+                                                        </materialDesign:PackIcon.LayoutTransform>
+                                                    </materialDesign:PackIcon>
+                                                </Button>
+                                                <TextBlock
+                                                    Grid.Row="2"
+                                                    Width="160"
+                                                    Height="48"
+                                                    Margin="0,6"
+                                                    Padding="8,0,0,8"
+                                                    HorizontalAlignment="Left"
+                                                    FontSize="14"
+                                                    Foreground="#FF646464"
+                                                    Text="{Binding TenDM}"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    TextWrapping="Wrap" />
+                                                <Label
+                                                    Grid.Row="2"
+                                                    Width="40"
+                                                    Height="40"
+                                                    Margin="8"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalContentAlignment="Right"
+                                                    Content="{Binding LuotXem}"
+                                                    FontSize="12"
+                                                    Foreground="#919191" />
+                                            </Grid>
+                                        </materialDesign:Card>
+                                    </Button>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </materialDesign:Card>
                 </Grid>
             </ScrollViewer>
         </Grid>
