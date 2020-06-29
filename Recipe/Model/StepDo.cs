@@ -8,15 +8,15 @@ namespace Recipe
 {
     public class StepDo
     {
-        public List<string>  step{ get; set; }
-        public List<string> Do { get; set; }
+        public string  step{ get; set; }
+        public string Do { get; set; }
 
         public StepDo()
         {
-            step = new List<string>() ;
-            Do = new List<string>();
+            step = "" ;
+            Do = "";
         }
-        public StepDo(List<string> _stt, List<string> _buoclam)
+        public StepDo(string _stt, string _buoclam)
         {
             step = _stt;
             Do = _buoclam;           

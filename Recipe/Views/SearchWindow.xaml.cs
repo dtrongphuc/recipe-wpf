@@ -24,6 +24,7 @@ namespace Recipe.Views
     {
         public IEnumerable<SanPham> list;
         public string keyword { get; set; }
+
         public SearchWindow(string _keyword)
         {
             InitializeComponent();
@@ -45,17 +46,7 @@ namespace Recipe.Views
             }
             else
             {
-                // Tìm kiếm danh sách với keyword tương ứng
-                // Products.ItemsSource = null;
-                // Nếu không có kết quả thì ẩn phân trang 
-               
                 subnets = sp.Where(i => i.TenSP.Contains(keyword));
-
-                ///phan trang
-                //if (sp.Count < 8)
-                //{
-                //    this.Pagination.Visibility = Visibility.Hidden;
-                //}               
             }
             return subnets;
         }
@@ -116,7 +107,7 @@ namespace Recipe.Views
                 ProductsSearch.ItemsSource = search_keyword(keyword);
             } 
 
+            }
         }
-        
     }
 }

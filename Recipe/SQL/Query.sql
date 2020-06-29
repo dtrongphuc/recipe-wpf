@@ -435,3 +435,6 @@ select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MA
 select *from sanpham
 
 update sanpham set MADM
+SELECT IDENT_CURRENT('SanPham') as LastID
+
+select  * from SanPham

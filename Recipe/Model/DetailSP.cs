@@ -11,7 +11,7 @@ namespace Recipe.Model
     public class DetailSP
     {
         public string masp { get; set; }
-        List<StepDo> stepdo { get; set; }
+        public List<StepDo> stepdo { get; set; }
         public List<string> hinhanh { get; set; }
 
         public DetailSP()
@@ -35,8 +35,8 @@ namespace Recipe.Model
             {
                 StepDo stp = new StepDo();
                 masp = row["MaSP"].ToString();               
-                stp.step.Add(row["STT"].ToString());
-                stp.Do.Add(row["Buoclam"].ToString());
+                stp.step=(row["STT"].ToString());
+                stp.Do=(row["Buoclam"].ToString());
                 stepdo.Add(stp);
             }
             string sql2 = $"select* from HinhAnh where MaSP = {id}";
@@ -47,19 +47,19 @@ namespace Recipe.Model
             }
         }
 
-        //public void Add()
-        //{
-        //    string sql = "SELECT IDENT_CURRENT('{SanPham}') as LastID";
-        //    masp = Connection.GetCount_Data(sql).ToString(); 
-        //    for (int  i= 1; i <= STT.Count(); i++)
-        //    {
-        //        sql = $"INSERT INTO CTSP VALUES ({masp}, {i}, N'{buoclam[i-1]}')";
-        //        Connection.Execute_SQL(sql);
-        //        sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i-1]}')";
-        //        Connection.Execute_SQL(sql);
-        //    }
+        public void Add()
+        {
+            string sql = "select  count(MaSP) from SanPham";
+            masp = Connection.GetCount_Data(sql).ToString();
+            for (int i = 1; i <= stepdo.Count(); i++)
+            {
+                sql = $"INSERT INTO CTSP VALUES ({masp}, {i}, N'{stepdo[i - 1].Do}')";
+                Connection.Execute_SQL(sql);
+                sql = $"INSERT INTO HinhAnh VALUES ({masp}, '{hinhanh[i - 1]}')";
+                Connection.Execute_SQL(sql);
+            }
 
-            
-        //}
+
+        }
     }
 }

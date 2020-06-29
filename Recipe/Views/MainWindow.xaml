@@ -149,7 +149,7 @@
             TargetType="Button">
             <Setter Property="Foreground" Value="#FF979797" />
             <Style.Triggers>
-                <DataTrigger Binding="{Binding YeuThich}" Value="True">
+                <DataTrigger Binding="{Binding YeuThich}" Value="1">
                     <Setter Property="Foreground" Value="Red" />
                 </DataTrigger>
             </Style.Triggers>

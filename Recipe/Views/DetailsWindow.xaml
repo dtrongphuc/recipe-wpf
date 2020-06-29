@@ -309,6 +309,7 @@
                 <ListView
                     Name="ImageCarousel"
                     Width="550"
+                    BorderThickness="0"
                     PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -327,7 +328,11 @@
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="550" Height="300">
+                            <Border
+                                Width="550"
+                                Height="300"
+                                BorderBrush="#FF666666"
+                                BorderThickness="0.5">
                                 <Border.Background>
                                     <ImageBrush
                                         ImageSource="{Binding Path=., Converter={StaticResource pathConverter}}"
@@ -446,7 +451,7 @@
                                         FontWeight="SemiBold" />
                                     <Label
                                         VerticalAlignment="Center"
-                                        Content="{Binding}"
+                                        Content="{Binding step}"
                                         FontSize="20"
                                         FontWeight="SemiBold" />
                                 </StackPanel>
@@ -454,7 +459,7 @@
                                     Margin="6,12,0,0"
                                     VerticalAlignment="Center"
                                     FontSize="16"
-                                    Text="{Binding}"
+                                    Text="{Binding Do}"
                                     TextWrapping="Wrap" />
                             </StackPanel>
                         </DataTemplate>

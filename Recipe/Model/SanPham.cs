@@ -195,7 +195,6 @@ namespace Recipe.Model
             string sql;        
             sql = $"INSERT INTO SanPham VALUES ({MaDM}, N'{_tensp}', '{this._video}',{this._luotxem}, 0, N'{_mota}', '{_anhdaidien}',N'{_nguyenlieu}', {_sothanhphan}, '{_thoigian}')";
             Connection.Execute_SQL(sql);
-
         }
 
     }
