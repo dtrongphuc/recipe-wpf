@@ -24,6 +24,7 @@ namespace Recipe.Views
     {
         public IEnumerable<SanPham> list;
         public string keyword { get; set; }
+
         public SearchWindow(string _keyword)
         {
             InitializeComponent();
@@ -121,6 +122,27 @@ namespace Recipe.Views
                 var subnet = sp.Where(i => i.TenSP.Contains(keyword));
 
             }
+        }
+
+
+        private void BtnProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            var detailScreen = new DetailsWindow(product);
+            this.Hide();
+            detailScreen.ShowDialog();
+            this.Show();
+        }
+
+        private void BtnFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            var btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            //product.YeuThich = !product.YeuThich;
         }
     }
 }

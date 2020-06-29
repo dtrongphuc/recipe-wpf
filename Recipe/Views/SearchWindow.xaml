@@ -22,28 +22,16 @@
     mc:Ignorable="d">
     <Window.Resources>
         <e:RelativeToAbsoluteConverter x:Key="pathConverter" />
-
-        <Style x:Key="BorderControl" TargetType="Border">
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="BorderBrush" Value="#000" />
-            <Setter Property="CornerRadius" Value="50" />
-            <Setter Property="Width" Value="32" />
-            <Setter Property="Height" Value="32" />
-        </Style>
-        <Style x:Key="ControlBtn" TargetType="Button">
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="FontWeight" Value="UltraBold" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Width" Value="32" />
-            <Setter Property="Height" Value="32" />
-        </Style>
-        <Style x:Key="CircleFavorite" TargetType="Ellipse">
-            <Setter Property="Width" Value="108" />
-            <Setter Property="Height" Value="108" />
-            <Setter Property="Margin" Value="32,0,32,0" />
+        <Style
+            x:Key="FavoriteBtn"
+            BasedOn="{StaticResource MaterialDesignIconForegroundButton}"
+            TargetType="Button">
+            <Setter Property="Foreground" Value="#FF979797" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding YeuThich}" Value="True">
+                    <Setter Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <Storyboard x:Key="sbShowLeftMenu">
@@ -179,7 +167,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
-                <RowDefinition Height="32.8" />
+                <RowDefinition Height="50" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <DockPanel
@@ -242,13 +230,13 @@
             </DockPanel>
 
             <TextBlock
+                Name="Quality"
                 Grid.Row="1"
                 Padding="0,15,0,0"
-                FontSize="15"
+                FontSize="20"
                 FontWeight="Medium"
                 Text="35.690 công thức nấu ăn được đề xuất"
-                TextAlignment="center" 
-                Name="Quality"/>
+                TextAlignment="center" />
 
             <!--</ScrollViewer>-->
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
@@ -260,6 +248,7 @@
                     UniformCornerRadius="4">
                     <ListView
                         Name="ProductsSearch"
+                        Grid.Row="1"
                         HorizontalAlignment="Center"
                         ScrollViewer.CanContentScroll="False"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -294,8 +283,10 @@
                                     Height="360"
                                     Margin="4,10"
                                     Padding="0"
+                                    Panel.ZIndex="99"
                                     Background="Transparent"
                                     BorderThickness="0"
+                                    Click="BtnProduct_Click"
                                     ClipToBounds="True"
                                     Style="{StaticResource MaterialDesignRaisedAccentButton}">
                                     <materialDesign:Card
@@ -337,10 +328,12 @@
                                                 Margin="8"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Center"
+                                                Panel.ZIndex="100"
                                                 materialDesign:RippleAssist.IsCentered="True"
-                                                Style="{StaticResource MaterialDesignIconForegroundButton}"
+                                                Click="BtnFavorite_Click"
+                                                Style="{StaticResource FavoriteBtn}"
                                                 ToolTip="MaterialDesignIconForegroundButton">
-                                                <materialDesign:PackIcon Foreground="Red" Kind="Heart">
+                                                <materialDesign:PackIcon Kind="Heart">
                                                     <materialDesign:PackIcon.LayoutTransform>
                                                         <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.6" ScaleY="0.6" />
                                                     </materialDesign:PackIcon.LayoutTransform>
@@ -375,12 +368,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-
-
-
                 </materialDesign:Card>
             </ScrollViewer>
         </Grid>
-        <!--  HEADER  -->
     </Grid>
 </Window>
