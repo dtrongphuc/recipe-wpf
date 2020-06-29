@@ -701,6 +701,20 @@
     <None Include="Resource\Images\Product\BL_VitKhoGung_7.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Resource\Images\Product\Avatar_MienXao.jpg" />
+    <Resource Include="Resource\Images\Product\Avatar_NgongToiXaoTom.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MienXao_1.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MienXao_2.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MienXao_3.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MienXao_4.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_1.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_2.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_3.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_4.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_5.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_6.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_7.jpg" />
+    <Resource Include="Resource\Images\Product\Bl_NgongToiXaoTom_8.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
