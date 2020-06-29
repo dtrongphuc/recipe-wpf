@@ -11,23 +11,21 @@ namespace Recipe.Model
     public class DetailSP
     {
         public string masp { get; set; }
-        public List<string> STT { get; set; }
-        public List<string> buoclam { get; set; }
+        List<StepDo> stepdo { get; set; }
         public List<string> hinhanh { get; set; }
 
         public DetailSP()
         {
-            STT = new List<string>();
-            buoclam = new List<string>();
+            stepdo = new List<StepDo>();
             hinhanh = new List<string>();
         }
 
-        public DetailSP(List<string> _stt, List<string> _buoclam, List<string> _hinhanh)
-        {
-            STT = _stt;
-            buoclam = _buoclam;
-            hinhanh = _hinhanh;
-        }
+        //chưa làm
+        //public DetailSP(List<string> _stt, List<string> _buoclam, List<string> _hinhanh)
+        //{
+        //    stepdo = new List<StepDo>();
+        //    hinhanh = _hinhanh;
+        //}
 
         public void Find(string id)
         {
@@ -35,9 +33,10 @@ namespace Recipe.Model
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)
             {
-                masp = row["MaSP"].ToString();
-                STT.Add(row["STT"].ToString());
-                buoclam.Add(row["Buoclam"].ToString());
+                StepDo stp = new StepDo();
+                masp = row["MaSP"].ToString();               
+                stp.step.Add(row["STT"].ToString());
+                stp.Do.Add(row["Buoclam"].ToString());
             }
             string sql2 = $"select* from HinhAnh where MaSP = {id}";
             DataTable dt2 = Connection.GetALL_Data(sql2);
