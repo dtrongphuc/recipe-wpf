@@ -24,6 +24,7 @@ namespace Recipe.Views
     {
         public IEnumerable<SanPham> list;
         public string keyword { get; set; }
+
         public SearchWindow(string _keyword)
         {
             InitializeComponent();
@@ -142,7 +143,6 @@ namespace Recipe.Views
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
             //product.YeuThich = !product.YeuThich;
-            FavoriteCount = _listLike.Count;
         }
     }
 }
