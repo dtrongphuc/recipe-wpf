@@ -70,8 +70,8 @@ namespace Recipe.Model
             }
         }
 
-        private bool _yeuthich;
-        public bool YeuThich
+        private int _yeuthich;
+        public int YeuThich
         {
             get { return _yeuthich; }
             set
@@ -159,7 +159,7 @@ namespace Recipe.Model
             TenSP = "";
             Video = "";
             LuotXem = 0;
-            YeuThich = false;
+            YeuThich = 0;
             MoTa = "";
             AnhDaiDien = "";
             NguyenLieu = "";
@@ -168,7 +168,7 @@ namespace Recipe.Model
             TenDM = "";
         }
 
-        public SanPham(string masp,string tendm, string tensp, string video,int luotxem,bool yeuthich,string mota, string anhdaidien,string nguyenlieu,int sothanhphan,string thoigian)
+        public SanPham(string masp,string tendm, string tensp, string video,int luotxem,int yeuthich,string mota, string anhdaidien,string nguyenlieu,int sothanhphan,string thoigian)
         {
             MaSP = masp;
             TenSP = tensp;
