@@ -37,6 +37,7 @@ namespace Recipe.Model
                 masp = row["MaSP"].ToString();               
                 stp.step.Add(row["STT"].ToString());
                 stp.Do.Add(row["Buoclam"].ToString());
+                stepdo.Add(stp);
             }
             string sql2 = $"select* from HinhAnh where MaSP = {id}";
             DataTable dt2 = Connection.GetALL_Data(sql2);
