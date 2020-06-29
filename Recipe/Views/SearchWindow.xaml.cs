@@ -135,11 +135,17 @@ namespace Recipe.Views
 
         private void Lienhe_CLick(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về SỰ Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Home_CLick(object sender, MouseButtonEventArgs e)
         {
+            DialogResult = true;
+        }
+
+        private void GopY_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về SỰ Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
 
         }
     }

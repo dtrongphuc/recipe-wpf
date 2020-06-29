@@ -333,6 +333,9 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Liên Hệ"
+                            Cursor="Hand"
+                            Name="LienHe"
+                            MouseLeftButtonDown="LienHe_Click"
                             FontSize="20" />
                         <Border
                             Height="1"
@@ -344,6 +347,9 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Góp ý"
+                            Cursor="Hand"
+                            Name="GopY"
+                            MouseLeftButtonDown="GopY_Click"
                             FontSize="20" />
                     </StackPanel>
 

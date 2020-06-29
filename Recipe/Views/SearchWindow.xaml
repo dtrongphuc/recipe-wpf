@@ -122,6 +122,7 @@
                             Content="Home"
                             FontSize="20" 
                             Name="Home"
+                            Cursor="Hand"
                             MouseLeftButtonDown="Home_CLick"/>
                         <Label
                             Padding="0,12,0,12"
@@ -148,13 +149,17 @@
                             Content="Liên Hệ"
                             FontSize="20" 
                             Name="Lienhe"
+                            Cursor="Hand"
                             MouseLeftButtonDown="Lienhe_CLick"/>
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Góp ý"
-                            FontSize="20" />
+                            FontSize="20"
+                            Cursor="Hand"
+                            Name="Gopy"
+                            MouseLeftButtonDown="GopY_Click"/>
                     </StackPanel>
 
                 </DockPanel>
