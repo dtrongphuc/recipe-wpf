@@ -466,10 +466,57 @@ VALUES
 	(24, 3, N'Giá đỗ ngâm muối rửa sạch vớt ra. Cho lòng mề vào xào gần chín thì cho hạt nêm, giá đỗ, cà rốt, nấm mèo vào đảo đều, cho chút nước mắm, mì chính xong cho miến vào đảo. Cuối cùng cho hành lá, một chút tiêu vào đảo lại là được. Sợi miến rất ngon và k nát tí nào')
 GO
 
+UPDATE SanPham 
+SET 
+	TenSp = N'Mực xào chua ngọt',
+	Video = 'youtube.com/watch?v=Ew35BJSvCFs',
+	LuotXem = 1005,
+	yeuThich = 0,
+	MoTa = N'Mực xào chua ngọt với những bước làm cực dễ dưới đây sẽ là một lựa chọn bạn không thể bỏ qua khi muốn đổi vị cho cả nhà trong những dịp đặc biệt.',
+	AnhDaiDien = 'Resource/Images/Product/Avatar_MucXao.jpg',
+	NguyenLieu = N'Mực ống: 300gr \n Ớt chuông xanh và đỏ: 2 trái (mỗi màu 1 trái) \n Dưa leo: 1 trái \n Dứa: 1/3 trái \n Cà chua: 1 trái \n Hành tây: 1 củ \n Cần tây: 1 cây \n Tỏi: 1 củ \n Hạt nêm, đường, muối,tiêu xay…',
+	SoThanhPhan = 9,
+	ThoiGian = 30
+WHERE MaSP = 21
+
+UPDATE SanPham 
+SET 
+	TenSp = N'Thịt heo xào kim chi giá đỗ',
+	Video = 'https://www.youtube.com/watch?v=XDRc7XFVla4',
+	LuotXem = 2005,
+	yeuThich = 1,
+	MoTa = N'Trong những ngày se lạnh thì thưởng thức cơm nóng với thịt xào kim chi nóng hổi thì hợp vô cùng. Với cách xào thịt ngon này phần thịt sẽ thêm đậm đà, từng miếng từng miếng thơm nức mũi đượm vị chua cay của kim chi rất “bắt” cơm. Món ăn kết hợp hoàn hảo giữa kim chi nóng và giá đỗ tính hàn giúp cân bằng vị giác, vừa có chua, cay lại vừa có cái ngọt giòn kéo lại khiến người thưởng thức không khỏi thích thú. Không chỉ ăn với cơm, thịt xào kim chi dùng kèm với cơm cháy hay bún trộn cũng không kém phần ngon miệng đâu đấy.',
+	AnhDaiDien = 'Resource/Images/Product/Avatar_ThitHeoXaoKimChi.jpg',
+	NguyenLieu = N'Thịt ba chỉ 200 gr \n Giá đỗ 50 gr \n Hành tây 1 củ \n Dầu mè 1/2 muỗng canh \n Dầu ăn \n Kim chi cải thảo 100 gr \n Tỏi băm 1/2 muỗng canh \n Nước tương 2 muỗng canh \n Đường trắng 1/2 muỗng canh',
+	SoThanhPhan = 8,
+	ThoiGian = 35
+WHERE MaSP = 22
+
+INSERT INTO CTSP 
+VALUES
+(21, 1, N'Cho chảo lên bếp, chờ chảo nóng thì cho 2 muỗng dầu ăn vào, tráng đều mặt chảo. Khi dầu nóng già thì cho 1 muỗng tỏi băm vào phi thơm cho mực vào xào khoảng 3 – 4 phút là mực chín tới thì trút mực ra đĩa.'),
+(21, 2, N'Cũng cái chảo lúc nãy , cũng phi thơm hành tỏi rồi cho ớt chuông và dưa leo khoảng 2 phút thì cho tiếp thơm và hành tây vào, tiếp tục đảo đều tay.Tiếp đến bỏ mực lúc nãy vào, nêm thêm 1 muỗng hạt nêm, 2 muỗng đường, 1/2 muỗng cafe muối, 1 muỗng giấm, 1 muỗng tương ớt, 1 muỗng tương cà, 1/2 muỗng nước tương, 1/3 muỗng cafe tiêu xay vào và đảo đều và tắt bếp.'),
+(21, 3, N'Cuối cùng, cho tất cả ra đĩa, dọn lên ăn kèm với cơm nóng rất là ngon.'),
+
+(22, 1, N'Hành tây cắt nhỏ. Tỏi bóc vỏ lụa, bằm nhuyễn. Thịt rửa sạch, thái miếng mỏng.'),
+(22, 2, N'Cho thịt ra bát, thêm các thành phần gia vị trong phần ướp thịt vào trộn đều. Ướp thịt trong 15 phút cho thấm. Đun sôi nồi nước, cho giá đỗ vào trụng sơ rồi vớt ra cho ráo.'),
+(22, 3, N'Làm nóng chảo trên lửa lớn với 1 muỗng canh dầu. Trút thịt vào đảo đều cho đến khi thịt đổi màu thì gạt thịt ra đĩa, để riêng. Làm nóng 1 chảo khác với 1 muỗng canh dầu, cho tỏi và hành vào phi thơm.'),
+(22, 4, N'Trút thịt xào vào, thêm kim chi thái nhỏ vào xào trong 2-3 phút cho đến khi thịt chín hoàn toàn. Sau cùng, cho giá đỗ vào đảo chung, nêm nước tương cho vừa miệng rồi tắt bếp.')
+
+--HINH ANH
+INSERT INTO HinhAnh VALUES
+(21, 'Resource/Images/Product/BL_MucXao_1.jpg'),
+(21, 'Resource/Images/Product/BL_MucXao_2.jpg'),
+(21, 'Resource/Images/Product/BL_MucXao_3.jpg'),
+(21, 'Resource/Images/Product/BL_MucXao_4.jpg'),
+
+(22, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_1.jpg'),
+(22, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_2.jpg'),
+(22, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_3.jpg')
 
 update CTSP set Buoclam=
 
-select * from CTSP
+select * from Hinhanh
 
 delete CTSP where masp=22
 GO
