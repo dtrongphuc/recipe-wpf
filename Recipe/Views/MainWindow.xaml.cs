@@ -26,7 +26,7 @@ namespace Recipe
     public partial class MainWindow : Window
     {
         BindingList<SanPham> _list = new BindingList<SanPham>();
-        BindingList<SanPham> _listLike = new BindingList<SanPham>();
+        BindingList<SanPham> _listLike;
 
         Get_ListObject GetControl = new Get_ListObject();
 
@@ -226,13 +226,12 @@ namespace Recipe
             }
         }
 
-        private void themmonan_Click(object sender, MouseButtonEventArgs e)
+        private void Add_Click(object sender, MouseButtonEventArgs e)
         {
+            this.Hide();
             var screen = new AddWindow();
-            if (screen.ShowDialog() == true)
-            {
-                Console.Write("1");
-            }
+            screen.ShowDialog();
+            this.Show();
         }
     }
 }
