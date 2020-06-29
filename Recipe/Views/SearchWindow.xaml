@@ -181,7 +181,10 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Góp ý"
-                            FontSize="20" />
+                            FontSize="20"
+                            Cursor="Hand"
+                            Name="Gopy"
+                            MouseLeftButtonDown="GopY_Click"/>
                     </StackPanel>
 
                 </DockPanel>
