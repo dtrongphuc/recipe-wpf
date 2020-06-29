@@ -122,5 +122,27 @@ namespace Recipe.Views
 
             }
         }
+
+
+        private void BtnProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            var detailScreen = new DetailsWindow(product);
+            this.Hide();
+            detailScreen.ShowDialog();
+            this.Show();
+        }
+
+        private void BtnFavorite_Click(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+            var btn = (Button)sender;
+            var selected = btn.DataContext;
+            SanPham product = (SanPham)selected;
+            //product.YeuThich = !product.YeuThich;
+            FavoriteCount = _listLike.Count;
+        }
     }
 }

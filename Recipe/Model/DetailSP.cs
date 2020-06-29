@@ -11,7 +11,7 @@ namespace Recipe.Model
     public class DetailSP
     {
         public string masp { get; set; }
-        List<StepDo> stepdo { get; set; }
+        public List<StepDo> stepdo { get; set; }
         public List<string> hinhanh { get; set; }
 
         public DetailSP()
