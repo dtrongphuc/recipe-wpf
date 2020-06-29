@@ -102,7 +102,7 @@ namespace Recipe.Views
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string value = SearchBox_1.Text;
+            keyword = SearchBox.Text;
             // Khi rỗng trả về toàn bộ danh sách món ăn
             if (keyword == "")
             {
@@ -116,7 +116,7 @@ namespace Recipe.Views
                 ProductsSearch.ItemsSource = search_keyword(keyword);
             } 
 
-            }
         }
+        
     }
 }
