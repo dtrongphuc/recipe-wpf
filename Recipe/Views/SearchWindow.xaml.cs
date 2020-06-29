@@ -46,7 +46,7 @@ namespace Recipe.Views
             }
             else
             {
-                subnets = sp.Where(i => i.TenSP.Contains(keyword));
+                subnets = sp.Where(i => i.TenSP.ToLower().Contains(keyword.ToLower()));
             }
             return subnets;
         }
@@ -109,5 +109,5 @@ namespace Recipe.Views
 
             }
         }
-    }
+    
 }

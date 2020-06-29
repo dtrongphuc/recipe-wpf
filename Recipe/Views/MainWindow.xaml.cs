@@ -160,6 +160,7 @@ namespace Recipe
                 product.YeuThich = 1;
                 _listLike.Insert(0, product);
             }
+            product.Edit();
             FavoriteCount = _listLike.Count;
         }
 
