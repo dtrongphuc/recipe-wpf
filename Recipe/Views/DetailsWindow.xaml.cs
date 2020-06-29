@@ -23,6 +23,7 @@ namespace Recipe.Views
     public partial class DetailsWindow : Window
     {
         private SanPham _myproduct { get; set; }
+        public int CarouselItemCount = 1;
         public DetailsWindow(SanPham product)
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace Recipe.Views
         private int _currentElement = 0;
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
-            if (_currentElement < 10)
+            if (_currentElement < CarouselItemCount - 1)
             {
                 _currentElement++;
                 AnimateCarousel();
@@ -76,6 +77,7 @@ namespace Recipe.Views
             Detail.DataContext = _myproduct;
             DetailSP sp = new DetailSP();
             sp.Find(_myproduct.MaSP);
+            CarouselItemCount = sp.hinhanh.Count;
             ImageCarousel.ItemsSource = sp.hinhanh;
             Ingredients.ItemsSource = GetIngredients();
             Steps.ItemsSource = sp.stepdo;
@@ -84,18 +86,11 @@ namespace Recipe.Views
         private List<string> GetIngredients()
         {
             List<string> list = new List<string>();
-            string[] data = _myproduct.NguyenLieu.Split('-');
+            string[] data = _myproduct.NguyenLieu.Split(new[] { "\\n" }, StringSplitOptions.None);
             foreach(var item in data)
             {
                 list.Add(item.Trim());
             }
-            return list;
-        }
-
-        private List<string> GetStep()
-        {
-            List<string> list = new List<string>();
-
             return list;
         }
 
