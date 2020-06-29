@@ -302,13 +302,10 @@
                             FontSize="20"
                             Foreground="#DD000000"
                             IsReadOnly="True"
-                            SelectedItem="">
+                            SelectionChanged="OnChangeCategory">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <ComboBoxItem
-                                        Content="{Binding TenDM}"
-                                        Cursor="Hand"
-                                        Selected="OnChangeCategory" />
+                                    <ComboBoxItem Content="{Binding TenDM}" Cursor="Hand" />
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
                         </ComboBox>

@@ -59,6 +59,5 @@ namespace Recipe.Views
             var content_wellcome = _content[(_rng.Next(0, _content.Count - 1))];
             ContentWellcome.DataContext = content_wellcome;
         }
-
     }
 }

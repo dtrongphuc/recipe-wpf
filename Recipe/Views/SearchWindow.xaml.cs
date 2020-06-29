@@ -133,7 +133,14 @@ namespace Recipe.Views
             MainWindow.FavoriteCount = MainWindow._listLike.Count;
         }
 
-            }
+        private void Lienhe_CLick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Home_CLick(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

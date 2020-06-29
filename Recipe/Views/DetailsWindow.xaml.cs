@@ -89,7 +89,10 @@ namespace Recipe.Views
             string[] data = _myproduct.NguyenLieu.Split(new[] { "\\n" }, StringSplitOptions.None);
             foreach(var item in data)
             {
-                list.Add(item.Trim());
+                if(item.Trim() != "")
+                {
+                    list.Add(item.Trim());
+                }
             }
             return list;
         }

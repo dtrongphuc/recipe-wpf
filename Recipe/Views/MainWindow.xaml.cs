@@ -67,8 +67,8 @@ namespace Recipe
         PaginationObject Pages = new PaginationObject();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Show();
             _list = Pages.GetSPPagination(Pages.CurrentPage);
-            //List<string> listDM = GetCategoryName();
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
 
             var config = ConfigurationManager.AppSettings["ShowSplash"];
@@ -77,8 +77,6 @@ namespace Recipe
                 var screen = new Views.SplashWindow();
                 screen.ShowDialog();
             }
-            this.Show();
-
             //mon ăn yêu thich.
             _listLike = GetControl.Get_AllSPLike();
             CategoryList.ItemsSource = listDM;
@@ -245,7 +243,7 @@ namespace Recipe
             this.Show();
         }
 
-        private void OnChangeCategory(object sender, RoutedEventArgs e)
+        private void OnChangeCategory(object sender, SelectionChangedEventArgs e)
         {
 
         }

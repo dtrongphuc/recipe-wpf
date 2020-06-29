@@ -171,6 +171,7 @@ namespace Recipe.Views
             {
                 sp.MoTa = ProductIntro.Text.Trim();
             }
+            sp.Video = ProductVideo.Text;
             sp.MaDM =(Categories.SelectedIndex +1).ToString();
             sp.ThoiGian = Time.Text.Trim();
             List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
