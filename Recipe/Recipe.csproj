@@ -707,6 +707,15 @@
     <None Include="Resource\Images\Product\Bl_NgongToiXaoTom_8.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Resource\Images\Product\Avatar_MucXao.jpg" />
+    <Resource Include="Resource\Images\Product\Avatar_ThitHeoXaoKimChi.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MucXao_1.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MucXao_2.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MucXao_3.jpg" />
+    <Resource Include="Resource\Images\Product\BL_MucXao_4.jpg" />
+    <Resource Include="Resource\Images\Product\BL_ThitHeoXaoKimChi_1.jpg" />
+    <Resource Include="Resource\Images\Product\BL_ThitHeoXaoKimChi_2.jpg" />
+    <Resource Include="Resource\Images\Product\BL_ThitHeoXaoKimChi_3.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

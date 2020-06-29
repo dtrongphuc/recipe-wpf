@@ -431,39 +431,39 @@ GO
 
 INSERT INTO HinhAnh
 VALUES
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_1.jpg'),
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_2.jpg'),
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_3.jpg'),
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_4.jpg'),
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_5.jpg'), 
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_6.jpg'),
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_7.jpg'),
-	(23, 'Resource/Images/Product/Bl_NgongToiXaoTom_8.jpg'),
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_1.jpg'),
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_2.jpg'),
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_3.jpg'),
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_4.jpg'),
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_5.jpg'), 
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_6.jpg'),
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_7.jpg'),
+	(21, 'Resource/Images/Product/Bl_NgongToiXaoTom_8.jpg'),
 	
-	(24, 'Resource/Images/Product/BL_MienXao_1.jpg'),
-	(24, 'Resource/Images/Product/BL_MienXao_2.jpg'),
-	(24, 'Resource/Images/Product/BL_MienXao_3.jpg'),
-	(24, 'Resource/Images/Product/BL_MienXao_4.jpg')
+	(22, 'Resource/Images/Product/BL_MienXao_1.jpg'),
+	(22, 'Resource/Images/Product/BL_MienXao_2.jpg'),
+	(22, 'Resource/Images/Product/BL_MienXao_3.jpg'),
+	(22, 'Resource/Images/Product/BL_MienXao_4.jpg')
 GO
 
 INSERT INTO CTSP --cac bước làm
 VALUES
-	(23, 1, N'Ngồng tỏi xào tôm khô Nguyên Liệu _ 150g ngồng tỏi _ 50g tôm khô Giá Vị _ 1thìa nước tương _ 1thìa tỏi băm _  2 thìa nước đường _ 3 thìa tương ớt _  1 thìa dầu ớt (có thể thay bằng dầu ăn) _Trộn tất cả gia vị đã ghi ở trên lại với nhau (Bát Gia Vị) Giá vị cho vào cuối cùng _  1 thìa dầu vừng _ 1thìa vừng'),
-	(23, 2, N'Tôm khô cho vào bát nước ngâm 2~3phút,rồi vớt ra rửa lại 1~2 lần cho sạch bụi và cát. Để tôm vào giá cho khô ráo nước'),
-	(23, 3, N'Ngồng tỏi rửa sạch, xắt dài 2~3cm.'),
-	(23, 4, N'Đun nồi nước sôi cho vào 1thìa muối'),
-	(23, 5, N'Tiếp đến cho Ngồng tỏi vào luộc 3phút tính từ lúc nước sôi.'),
-	(23, 6, N'Vớt Ngồng tỏi ra bát nước lạnh'),
-	(23, 7, N'Tiếp tục vớt Ngồng tỏi ra để khô ráo nước.'),
-	(23, 8, N'Cho tôm khô vào chảo rang đến khi giòn'),
-	(23, 9, N'Tôm đã rang giòn thì đổ ra giá lắc qua lắc lại để những cái cấn vụn bong ra. Khéo léo nhặt tôm ra ngoài,còn phần cấn dụng ra từ tôm thì bỏ đi.'),
-	(23, 10,N'Cho Bát Gia Vị vào chảo đun nóng(để lửa nhỏ kẻo cháy hết gia vị)'),
-	(23, 11,N'Cho Bát Gia Vị vào chảo đun nóng,tiếp đến cho tôm và ngồng tỏi vào đảo đều. Cuối cùng cho dầu vừng và hạt vừng vào đảo qua rồi tắt bếp.'),
-	(23, 12,N'Tôm giòn cộng tỏi ko đắng khi ăn có vị cay hơi ngọt❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤ Bếp Nhà Choi UnSu Chúc Quý Vị Ngon Miệng'),
+	(21, 1, N'Ngồng tỏi xào tôm khô Nguyên Liệu _ 150g ngồng tỏi _ 50g tôm khô Giá Vị _ 1thìa nước tương _ 1thìa tỏi băm _  2 thìa nước đường _ 3 thìa tương ớt _  1 thìa dầu ớt (có thể thay bằng dầu ăn) _Trộn tất cả gia vị đã ghi ở trên lại với nhau (Bát Gia Vị) Giá vị cho vào cuối cùng _  1 thìa dầu vừng _ 1thìa vừng'),
+	(21, 2, N'Tôm khô cho vào bát nước ngâm 2~3phút,rồi vớt ra rửa lại 1~2 lần cho sạch bụi và cát. Để tôm vào giá cho khô ráo nước'),
+	(21, 3, N'Ngồng tỏi rửa sạch, xắt dài 2~3cm.'),
+	(21, 4, N'Đun nồi nước sôi cho vào 1thìa muối'),
+	(21, 5, N'Tiếp đến cho Ngồng tỏi vào luộc 3phút tính từ lúc nước sôi.'),
+	(21, 6, N'Vớt Ngồng tỏi ra bát nước lạnh'),
+	(21, 7, N'Tiếp tục vớt Ngồng tỏi ra để khô ráo nước.'),
+	(21, 8, N'Cho tôm khô vào chảo rang đến khi giòn'),
+	(21, 9, N'Tôm đã rang giòn thì đổ ra giá lắc qua lắc lại để những cái cấn vụn bong ra. Khéo léo nhặt tôm ra ngoài,còn phần cấn dụng ra từ tôm thì bỏ đi.'),
+	(21, 10,N'Cho Bát Gia Vị vào chảo đun nóng(để lửa nhỏ kẻo cháy hết gia vị)'),
+	(21, 11,N'Cho Bát Gia Vị vào chảo đun nóng,tiếp đến cho tôm và ngồng tỏi vào đảo đều. Cuối cùng cho dầu vừng và hạt vừng vào đảo qua rồi tắt bếp.'),
+	(21, 12,N'Tôm giòn cộng tỏi ko đắng khi ăn có vị cay hơi ngọt❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤ Bếp Nhà Choi UnSu Chúc Quý Vị Ngon Miệng'),
 
-	(24, 1, N'Miến ngâm nước lạnh xong nhúng nhanh qua nước nước 70 độ rồi với ra cho tiếp vào nước lạnh rửa lại. Cho vào tô cho 1 ít dầu ăn vào trộm đều để đó cho miến lát xào k bị nát và dính'),
-	(24, 2, N'Cà rốt nạo sợi, hành mộc nhĩ xắt khúc. Lòng mề rửa sạch, bóp muối chanh cho ra hết bẩn.'),
-	(24, 3, N'Giá đỗ ngâm muối rửa sạch vớt ra. Cho lòng mề vào xào gần chín thì cho hạt nêm, giá đỗ, cà rốt, nấm mèo vào đảo đều, cho chút nước mắm, mì chính xong cho miến vào đảo. Cuối cùng cho hành lá, một chút tiêu vào đảo lại là được. Sợi miến rất ngon và k nát tí nào')
+	(22, 1, N'Miến ngâm nước lạnh xong nhúng nhanh qua nước nước 70 độ rồi với ra cho tiếp vào nước lạnh rửa lại. Cho vào tô cho 1 ít dầu ăn vào trộm đều để đó cho miến lát xào k bị nát và dính'),
+	(22, 2, N'Cà rốt nạo sợi, hành mộc nhĩ xắt khúc. Lòng mề rửa sạch, bóp muối chanh cho ra hết bẩn.'),
+	(22, 3, N'Giá đỗ ngâm muối rửa sạch vớt ra. Cho lòng mề vào xào gần chín thì cho hạt nêm, giá đỗ, cà rốt, nấm mèo vào đảo đều, cho chút nước mắm, mì chính xong cho miến vào đảo. Cuối cùng cho hành lá, một chút tiêu vào đảo lại là được. Sợi miến rất ngon và k nát tí nào')
 GO
 
 UPDATE SanPham 
@@ -477,7 +477,7 @@ SET
 	NguyenLieu = N'Mực ống: 300gr \n Ớt chuông xanh và đỏ: 2 trái (mỗi màu 1 trái) \n Dưa leo: 1 trái \n Dứa: 1/3 trái \n Cà chua: 1 trái \n Hành tây: 1 củ \n Cần tây: 1 cây \n Tỏi: 1 củ \n Hạt nêm, đường, muối,tiêu xay…',
 	SoThanhPhan = 9,
 	ThoiGian = 30
-WHERE MaSP = 21
+WHERE MaSP = 24
 
 UPDATE SanPham 
 SET 
@@ -490,33 +490,38 @@ SET
 	NguyenLieu = N'Thịt ba chỉ 200 gr \n Giá đỗ 50 gr \n Hành tây 1 củ \n Dầu mè 1/2 muỗng canh \n Dầu ăn \n Kim chi cải thảo 100 gr \n Tỏi băm 1/2 muỗng canh \n Nước tương 2 muỗng canh \n Đường trắng 1/2 muỗng canh',
 	SoThanhPhan = 8,
 	ThoiGian = 35
-WHERE MaSP = 22
+WHERE MaSP = 25
 
 INSERT INTO CTSP 
 VALUES
-(21, 1, N'Cho chảo lên bếp, chờ chảo nóng thì cho 2 muỗng dầu ăn vào, tráng đều mặt chảo. Khi dầu nóng già thì cho 1 muỗng tỏi băm vào phi thơm cho mực vào xào khoảng 3 – 4 phút là mực chín tới thì trút mực ra đĩa.'),
-(21, 2, N'Cũng cái chảo lúc nãy , cũng phi thơm hành tỏi rồi cho ớt chuông và dưa leo khoảng 2 phút thì cho tiếp thơm và hành tây vào, tiếp tục đảo đều tay.Tiếp đến bỏ mực lúc nãy vào, nêm thêm 1 muỗng hạt nêm, 2 muỗng đường, 1/2 muỗng cafe muối, 1 muỗng giấm, 1 muỗng tương ớt, 1 muỗng tương cà, 1/2 muỗng nước tương, 1/3 muỗng cafe tiêu xay vào và đảo đều và tắt bếp.'),
-(21, 3, N'Cuối cùng, cho tất cả ra đĩa, dọn lên ăn kèm với cơm nóng rất là ngon.'),
+--(24, 1, N'Cho chảo lên bếp, chờ chảo nóng thì cho 2 muỗng dầu ăn vào, tráng đều mặt chảo. Khi dầu nóng già thì cho 1 muỗng tỏi băm vào phi thơm cho mực vào xào khoảng 3 – 4 phút là mực chín tới thì trút mực ra đĩa.'),
+(24, 2, N'Cũng cái chảo lúc nãy , cũng phi thơm hành tỏi rồi cho ớt chuông và dưa leo khoảng 2 phút thì cho tiếp thơm và hành tây vào, tiếp tục đảo đều tay.Tiếp đến bỏ mực lúc nãy vào, nêm thêm 1 muỗng hạt nêm, 2 muỗng đường, 1/2 muỗng cafe muối, 1 muỗng giấm, 1 muỗng tương ớt, 1 muỗng tương cà, 1/2 muỗng nước tương, 1/3 muỗng cafe tiêu xay vào và đảo đều và tắt bếp.'),
+(24, 3, N'Cuối cùng, cho tất cả ra đĩa, dọn lên ăn kèm với cơm nóng rất là ngon.'),
 
-(22, 1, N'Hành tây cắt nhỏ. Tỏi bóc vỏ lụa, bằm nhuyễn. Thịt rửa sạch, thái miếng mỏng.'),
-(22, 2, N'Cho thịt ra bát, thêm các thành phần gia vị trong phần ướp thịt vào trộn đều. Ướp thịt trong 15 phút cho thấm. Đun sôi nồi nước, cho giá đỗ vào trụng sơ rồi vớt ra cho ráo.'),
-(22, 3, N'Làm nóng chảo trên lửa lớn với 1 muỗng canh dầu. Trút thịt vào đảo đều cho đến khi thịt đổi màu thì gạt thịt ra đĩa, để riêng. Làm nóng 1 chảo khác với 1 muỗng canh dầu, cho tỏi và hành vào phi thơm.'),
-(22, 4, N'Trút thịt xào vào, thêm kim chi thái nhỏ vào xào trong 2-3 phút cho đến khi thịt chín hoàn toàn. Sau cùng, cho giá đỗ vào đảo chung, nêm nước tương cho vừa miệng rồi tắt bếp.')
+(25, 1, N'Hành tây cắt nhỏ. Tỏi bóc vỏ lụa, bằm nhuyễn. Thịt rửa sạch, thái miếng mỏng.'),
+(25, 2, N'Cho thịt ra bát, thêm các thành phần gia vị trong phần ướp thịt vào trộn đều. Ướp thịt trong 15 phút cho thấm. Đun sôi nồi nước, cho giá đỗ vào trụng sơ rồi vớt ra cho ráo.'),
+(25, 3, N'Làm nóng chảo trên lửa lớn với 1 muỗng canh dầu. Trút thịt vào đảo đều cho đến khi thịt đổi màu thì gạt thịt ra đĩa, để riêng. Làm nóng 1 chảo khác với 1 muỗng canh dầu, cho tỏi và hành vào phi thơm.'),
+(25, 4, N'Trút thịt xào vào, thêm kim chi thái nhỏ vào xào trong 2-3 phút cho đến khi thịt chín hoàn toàn. Sau cùng, cho giá đỗ vào đảo chung, nêm nước tương cho vừa miệng rồi tắt bếp.')
 
+
+update CTSP
+set 
+	Buoclam=N'Cho chảo lên bếp, chờ chảo nóng thì cho 2 muỗng dầu ăn vào, tráng đều mặt chảo. Khi dầu nóng già thì cho 1 muỗng tỏi băm vào phi thơm cho mực vào xào khoảng 3 – 4 phút là mực chín tới thì trút mực ra đĩa.'
+	where MaSP=24 and STT=1
 --HINH ANH
 INSERT INTO HinhAnh VALUES
-(21, 'Resource/Images/Product/BL_MucXao_1.jpg'),
-(21, 'Resource/Images/Product/BL_MucXao_2.jpg'),
-(21, 'Resource/Images/Product/BL_MucXao_3.jpg'),
-(21, 'Resource/Images/Product/BL_MucXao_4.jpg'),
+(24, 'Resource/Images/Product/BL_MucXao_1.jpg'),
+(24, 'Resource/Images/Product/BL_MucXao_2.jpg'),
+(24, 'Resource/Images/Product/BL_MucXao_3.jpg'),
+(24, 'Resource/Images/Product/BL_MucXao_4.jpg'),
 
-(22, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_1.jpg'),
-(22, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_2.jpg'),
-(22, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_3.jpg')
+(25, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_1.jpg'),
+(25, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_2.jpg'),
+(25, 'Resource/Images/Product/BL_ThitHeoXaoKimChi_3.jpg')
 
 update CTSP set Buoclam=
 
-select * from Hinhanh
+select * from CTSP
 
 delete CTSP where masp=22
 GO
