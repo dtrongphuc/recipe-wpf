@@ -171,6 +171,7 @@ namespace Recipe.Model
         public SanPham(string masp,string tendm, string tensp, string video,int luotxem,int yeuthich,string mota, string anhdaidien,string nguyenlieu,int sothanhphan,string thoigian)
         {
             MaSP = masp;
+            TenDM = tendm;
             TenSP = tensp;
             Video = video;
             LuotXem = luotxem;
@@ -184,11 +185,6 @@ namespace Recipe.Model
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public void Find(string id)
-        {
-
-        }
 
         public void Add ()
         {

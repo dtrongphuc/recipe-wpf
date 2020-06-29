@@ -279,9 +279,13 @@ namespace Recipe
             if(this.ActualWidth >= 1310)
             {
                 Pages.record1page = 10;
-            } else
+            } else if(this.ActualWidth >= 1100)
             {
                 Pages.record1page = 8;
+            } else if(this.ActualWidth >= 800)
+            {
+                Pages.record1page = 6;
+                FavoriteCarousel.Width = 516;
             }
             UpdatePagination();
         }

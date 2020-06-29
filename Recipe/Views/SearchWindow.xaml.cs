@@ -183,5 +183,10 @@ namespace Recipe.Views
         {
 
         }
+
+        private void GopY_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
