@@ -120,7 +120,9 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Home"
-                            FontSize="20" />
+                            FontSize="20" 
+                            Name="Home"
+                            MouseLeftButtonDown="Home_CLick"/>
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
@@ -144,7 +146,9 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Liên Hệ"
-                            FontSize="20" />
+                            FontSize="20" 
+                            Name="Lienhe"
+                            MouseLeftButtonDown="Lienhe_CLick"/>
                         <Label
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
@@ -240,7 +244,8 @@
 
             <!--</ScrollViewer>-->
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
-                <materialDesign:Card
+                <Grid x:Name="GridMain">
+                    <materialDesign:Card
                     Grid.Row="2"
                     Grid.Column="0"
                     Margin="26,0,26,30"
@@ -369,6 +374,7 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </materialDesign:Card>
+                </Grid>
             </ScrollViewer>
         </Grid>
     </Grid>
