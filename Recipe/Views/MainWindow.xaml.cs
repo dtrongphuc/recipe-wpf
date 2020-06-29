@@ -151,7 +151,15 @@ namespace Recipe
             var btn = (Button)sender;
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
-            //product.YeuThich = !product.YeuThich;
+            if(product.YeuThich == 1)
+            {
+                product.YeuThich = 0;
+                _listLike.Remove(product);
+            } else
+            {
+                product.YeuThich = 1;
+                _listLike.Add(product);
+            }
             FavoriteCount = _listLike.Count;
         }
 

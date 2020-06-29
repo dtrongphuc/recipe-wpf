@@ -46,17 +46,7 @@ namespace Recipe.Views
             }
             else
             {
-                // Tìm kiếm danh sách với keyword tương ứng
-                // Products.ItemsSource = null;
-                // Nếu không có kết quả thì ẩn phân trang 
-               
                 subnets = sp.Where(i => i.TenSP.Contains(keyword));
-
-                ///phan trang
-                //if (sp.Count < 8)
-                //{
-                //    this.Pagination.Visibility = Visibility.Hidden;
-                //}               
             }
             return subnets;
         }
@@ -112,8 +102,6 @@ namespace Recipe.Views
             else
             {
                 // Tìm kiếm danh sách với keyword tương ứng
-                // Products.ItemsSource = null;
-                // Nếu không có kết quả thì ẩn phân trang
                 var keyword = SearchBox.Text;
                 BindingList<SanPham> sp = new BindingList<SanPham>();
                 int lastindex = Get_ListObject.Get_CountALLSP();
