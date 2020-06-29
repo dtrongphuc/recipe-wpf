@@ -286,7 +286,7 @@
                                     Panel.ZIndex="99"
                                     Background="Transparent"
                                     BorderThickness="0"
-                                    Click="BtnProduct_Click"
+                                    
                                     ClipToBounds="True"
                                     Style="{StaticResource MaterialDesignRaisedAccentButton}">
                                     <materialDesign:Card
@@ -330,7 +330,7 @@
                                                 VerticalAlignment="Center"
                                                 Panel.ZIndex="100"
                                                 materialDesign:RippleAssist.IsCentered="True"
-                                                Click="BtnFavorite_Click"
+                                              
                                                 Style="{StaticResource FavoriteBtn}"
                                                 ToolTip="MaterialDesignIconForegroundButton">
                                                 <materialDesign:PackIcon Kind="Heart">

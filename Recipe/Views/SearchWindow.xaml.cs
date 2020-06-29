@@ -107,7 +107,8 @@ namespace Recipe.Views
                 ProductsSearch.ItemsSource = search_keyword(keyword);
             } 
 
-            }
+            
         }
+
     }
 }

@@ -32,13 +32,14 @@ namespace Recipe.Views
 
         List<string> _content = new List<string>()
         {
-            //"Mỗi ngày một món ăn cho gia đình thêm vui ^^",
-            //"Nhớ cẩn thận khi nấu nướng nhé các chị nhà ta!!",
-            //"Gia đình là trên hết <3",
-            //"Thử làm nội trợ một ngày đi nào các anh -.-",
+            "Mỗi ngày một món ăn cho gia đình thêm vui ^^",
+            "Nhớ cẩn thận khi nấu nướng nhé các chị nhà ta ☺♥!!",
+            "Gia đình là trên hết <3",
+            "Thử làm nội trợ một ngày đi nào các anh -.-",
             "Nhớ đeo khẩu trang khi ra ngoài trong mùa Covid - 19 nhé!!",
-            "Món của vợ là nhất 😋"
-
+            "Món của vợ là nhất 😋",
+            "Vào chia sẻ món nhà mình với mọi người nào <3",
+            ""
         };
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
@@ -55,7 +56,8 @@ namespace Recipe.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Random _rng = new Random();
-            ContentWellcome.DataContext = _content[(_rng.Next(0, _content.Count - 1))];
+            var content_wellcome = _content[(_rng.Next(0, _content.Count - 1))];
+            ContentWellcome.DataContext = content_wellcome;
         }
 
     }
