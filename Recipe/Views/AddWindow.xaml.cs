@@ -160,7 +160,7 @@ namespace Recipe.Views
                 MessageBox.Show("Bạn chưa thêm ảnh đại diện cho món ăn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             } else if (ProductName.Text.Trim() == "" | ProductName.Text.Trim() == "" | ProductVideo.Text.Trim() == "" |
-                Time.Text.Trim() == "" | ingredients.Count < 1 | st.Count < 1 | _stepImageList.Count < 1)
+                Time.Text.Trim() == "" | ingredients.Count < 1 | st.Count < 1 | Categories.SelectedIndex < 0 | _stepImageList.Count < 1)
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho món ăn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
