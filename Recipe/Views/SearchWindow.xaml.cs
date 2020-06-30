@@ -196,5 +196,10 @@ namespace Recipe.Views
         {
             MessageBox.Show("Chức năng đang được xây dựng, xin lỗi vì sự bất tiện này.", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void Modal_Click(object sender, MouseButtonEventArgs e)
+        {
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, btnMenuShow, Menu);
+        }
     }
 }

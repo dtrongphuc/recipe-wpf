@@ -122,12 +122,12 @@ namespace Recipe
 
         private void BtnShowMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbShowLeftMenu", BtnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbShowLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
         }
 
         private void BtnHideMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, btnMenuShow, Menu);
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
         }
 
         private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, Grid pnl)
@@ -213,11 +213,19 @@ namespace Recipe
 
         private void OnChangeCategory(object sender, SelectionChangedEventArgs e)
         {
-            string value = (sender as ComboBox).SelectedItem as string;
-            this.Hide();
-            var screen = new SearchWindow(value, 2);
-            screen.ShowDialog();
-            this.Show();
+            var cb = (sender as ComboBox);
+            if(cb.SelectedIndex == -1)
+            {
+                e.Handled = true;
+            } else
+            {
+                string value = cb.SelectedItem as string;
+                this.Hide();
+                var screen = new SearchWindow(value, 2);
+                screen.ShowDialog();
+                CategoryList.SelectedIndex = -1;
+                this.Show();
+            }
         }
 
         private void Favorite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -307,6 +315,9 @@ namespace Recipe
             UpdatePagination();
         }
 
-        
+        private void Modal_Click(object sender, MouseButtonEventArgs e)
+        {
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
+        }
     }
 }
