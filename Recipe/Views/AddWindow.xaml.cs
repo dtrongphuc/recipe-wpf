@@ -113,16 +113,14 @@ namespace Recipe.Views
             Steps.Children.Add(newDockPanel);
         }
 
-        string _avatarName = "";
+        string _fileAvatar;
         private void BtnAddAvatar(object sender, RoutedEventArgs e)
         {
             var screen = new OpenFileDialog();
             if (screen.ShowDialog() == true)
             {
-                string file = screen.FileName;
-                var info = new FileInfo(file);
-                _avatarName = info.Name;
-                var bitmap = new BitmapImage(new Uri(file, UriKind.Absolute));
+                string _fileAvatar = screen.FileName;
+                var bitmap = new BitmapImage(new Uri(_fileAvatar, UriKind.Absolute));
                 AvatarImage.Visibility = Visibility.Hidden;
                 Header.Visibility = Visibility.Hidden;
                 AddAvatar.ImageSource = bitmap;
@@ -155,15 +153,19 @@ namespace Recipe.Views
             // Tên món ăn: ProductName.Text
             // Mô tả: ProductIntro.Text
             // Danh mục: Categories.SelectedItem; (xem lại)
-            
+
             // Thời gian nấu: Time.Text
             // Nguyên liệu được thêm vào _ingredientList
-           
-
+            //tạo 1 file hình ảnh
+            var info = new FileInfo(_fileAvatar);
             //them vao chổ sp
             SanPham sp = new SanPham();
-            sp.AnhDaiDien = "Resource/Images/Product/"+_avatarName;
-            if(ProductName.Text.Trim() != "")
+            sp.AnhDaiDien = "Resource/Images/Product/"+ info.Name;
+            //copy vào file
+            var folderfile = AppDomain.CurrentDomain.BaseDirectory;
+            info.CopyTo($"{folderfile}Images\\{info.Name}");
+
+            if (ProductName.Text.Trim() != "")
             {
                 sp.TenSP = ProductName.Text.Trim();
             }
@@ -197,6 +199,12 @@ namespace Recipe.Views
                 ctsp.stepdo.Add(stp);
             }
             //// List ảnh các bước làm _stepImageList
+            foreach(string av in _stepImageList)
+            {
+                var info1 = new FileInfo(_fileAvatar);
+                var folderfile1 = AppDomain.CurrentDomain.BaseDirectory;
+                info.CopyTo($"{folderfile}Images\\{info1.Name}");
+            }
             ctsp.hinhanh = _stepImageList;
 
             ////thêm ctsp vào database
