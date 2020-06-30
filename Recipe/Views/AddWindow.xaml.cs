@@ -141,7 +141,7 @@ namespace Recipe.Views
             {
                 string file = screen.FileName;
                 var info = new FileInfo(file);
-                _stepImageName = info.Name;
+                _stepImageName = "Resource/Images/Product/"+ info.Name;
                 var ib = new ImageBrush();
                 ib.ImageSource = new BitmapImage(new Uri(file, UriKind.Absolute));
                 es.Background = ib;
@@ -162,7 +162,7 @@ namespace Recipe.Views
 
             //them vao chổ sp
             SanPham sp = new SanPham();
-            sp.AnhDaiDien = _avatarName;
+            sp.AnhDaiDien = "Resource/Images/Product/"+_avatarName;
             if(ProductName.Text.Trim() != "")
             {
                 sp.TenSP = ProductName.Text.Trim();
@@ -181,7 +181,7 @@ namespace Recipe.Views
             }
             sp.SoThanhPhan = childrenOfIngredients.Count;
             ///thêm đối tượng sp vào database
-            sp.Add();
+            //sp.Add();
 
 
             ///Các bước làm được thêm vào _stepList
