@@ -186,12 +186,12 @@ namespace Recipe.Views
 
         private void ReturnHome(object sender, MouseButtonEventArgs e)
         {
-
+            DialogResult = true;
         }
 
-        private void GopY_Click(object sender, MouseButtonEventArgs e)
+        private void Infomation_Click(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("Chức năng đang được xây dựng, xin lỗi vì sự bất tiện này.", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

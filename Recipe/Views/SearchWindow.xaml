@@ -166,25 +166,28 @@
                         VerticalAlignment="Bottom"
                         DockPanel.Dock="Bottom">
                         <Label
+                            Name="LienHe"
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Liên Hệ"
-                            FontSize="20" />
+                            Cursor="Hand"
+                            FontSize="20"
+                            MouseLeftButtonDown="Infomation_Click" />
                         <Border
                             Height="1"
                             Margin="10,0"
                             BorderBrush="#FFD1D1D1"
                             BorderThickness="1" />
                         <Label
+                            Name="GopY"
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Góp ý"
-                            FontSize="20"
                             Cursor="Hand"
-                            Name="Gopy"
-                            MouseLeftButtonDown="GopY_Click"/>
+                            FontSize="20"
+                            MouseLeftButtonDown="Infomation_Click" />
                     </StackPanel>
 
                 </DockPanel>
@@ -220,6 +223,7 @@
                         BorderThickness="1"
                         Click="BtnSearch_Click"
                         Foreground="#000"
+                        IsDefault="True"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         ToolTip="Search">
                         <materialDesign:PackIcon Kind="Magnify">
@@ -263,17 +267,23 @@
                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" />
             </DockPanel>
 
-            <TextBlock
-                Name="Quantity"
+
+            <materialDesign:Card
                 Grid.Row="1"
                 Padding="0,15,0,0"
-                FontSize="20"
-                FontWeight="Medium"
-                TextAlignment="center" />
+                Panel.ZIndex="10"
+                materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                materialDesign:ShadowAssist.ShadowEdges="Bottom">
+                <TextBlock
+                    Name="Quantity"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    TextAlignment="center" />
+            </materialDesign:Card>
 
             <!--</ScrollViewer>-->
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
-                <Grid x:Name="GridMain">
+                <Grid x:Name="GridMain" Margin="0,16,0,0">
                     <materialDesign:Card
                         Grid.Row="2"
                         Grid.Column="0"

@@ -183,6 +183,7 @@ namespace Recipe
             this.Hide();
             var screen = new SearchWindow(value, 1);
             screen.ShowDialog();
+            SearchBox.Text = "";
             this.Show();
         }
 
@@ -252,16 +253,9 @@ namespace Recipe
 
         }
 
-        private void LienHe_Click(object sender, MouseButtonEventArgs e)
+        private void Infomation_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về Sự Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-
-        }
-
-        private void GopY_Click(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Chức Năng Đang Được Xây Dựng, Xin Lổi Về Sự Bất Tiện Này", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            MessageBox.Show("Chức năng đang được xây dựng, xin lỗi vì sự bất tiện này.", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         // Pagination

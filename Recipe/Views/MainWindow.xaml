@@ -314,28 +314,28 @@
                         VerticalAlignment="Bottom"
                         DockPanel.Dock="Bottom">
                         <Label
+                            Name="LienHe"
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Liên Hệ"
                             Cursor="Hand"
-                            Name="LienHe"
-                            MouseLeftButtonDown="LienHe_Click"
-                            FontSize="20" />
+                            FontSize="20"
+                            MouseLeftButtonDown="Infomation_Click" />
                         <Border
                             Height="1"
                             Margin="10,0"
                             BorderBrush="#FFD1D1D1"
                             BorderThickness="1" />
                         <Label
+                            Name="GopY"
                             Padding="0,12,0,12"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Content="Góp ý"
                             Cursor="Hand"
-                            Name="GopY"
-                            MouseLeftButtonDown="GopY_Click"
-                            FontSize="20" />
+                            FontSize="20"
+                            MouseLeftButtonDown="Infomation_Click" />
                     </StackPanel>
 
                 </DockPanel>
@@ -370,6 +370,7 @@
                             BorderThickness="1"
                             Click="BtnSearch_Click"
                             Foreground="#000"
+                            IsDefault="True"
                             Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             ToolTip="Tìm kiếm">
                             <materialDesign:PackIcon Kind="Magnify">
@@ -507,7 +508,11 @@
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Cursor="Hand" MouseLeftButtonDown="Favorite_MouseLeftButtonDown">
-                                                <Ellipse Style="{StaticResource CircleFavorite}" ToolTip="{Binding TenSP}">
+                                                <Ellipse
+                                                    RenderOptions.BitmapScalingMode="Linear"
+                                                    Stroke="#000"
+                                                    Style="{StaticResource CircleFavorite}"
+                                                    ToolTip="{Binding TenSP}">
                                                     <Ellipse.Fill>
                                                         <ImageBrush ImageSource="{Binding AnhDaiDien, Converter={StaticResource pathConverter}}" Stretch="UniformToFill" />
                                                     </Ellipse.Fill>
