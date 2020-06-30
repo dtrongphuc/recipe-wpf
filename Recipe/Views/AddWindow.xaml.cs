@@ -78,6 +78,8 @@ namespace Recipe.Views
         }
 
         private int _currentStep = 1;
+        FileInfo _stepFile;
+        List<FileInfo> _stepImageList = new List<FileInfo>();
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
         {
             Style GridStyle = this.FindResource("leftCount") as Style;
@@ -119,7 +121,7 @@ namespace Recipe.Views
             var screen = new OpenFileDialog();
             if (screen.ShowDialog() == true)
             {
-                string _fileAvatar = screen.FileName;
+                 _fileAvatar = screen.FileName;
                 var bitmap = new BitmapImage(new Uri(_fileAvatar, UriKind.Absolute));
                 AvatarImage.Visibility = Visibility.Hidden;
                 Header.Visibility = Visibility.Hidden;
@@ -127,9 +129,6 @@ namespace Recipe.Views
             }
         }
 
-        string _stepImageName = "";
-        List<string> _stepImageList = new List<string>();
-        List<string> _stepList = new List<string>();
         private void AddStepImage_Click(object sender, MouseButtonEventArgs e)
         {
             var element = e.Source as FrameworkElement;
@@ -138,17 +137,24 @@ namespace Recipe.Views
             if (screen.ShowDialog() == true)
             {
                 string file = screen.FileName;
-                var info = new FileInfo(file);
-                _stepImageName = "Resource/Images/Product/"+ info.Name;
+                _stepFile = new FileInfo(file);
                 var ib = new ImageBrush();
                 ib.ImageSource = new BitmapImage(new Uri(file, UriKind.Absolute));
                 es.Background = ib;
             }
-            _stepImageList.Add(_stepImageName);
+            // Them anh cuoi cung duoc chon vao list
+            if(_stepImageList.Count != _currentStep - 1)
+            {
+                _stepImageList.RemoveAt(_currentStep - 1);
+            }
+            _stepImageList.Add(_stepFile);
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+            FileInfo info;
+            var folderfile = AppDomain.CurrentDomain.BaseDirectory;
+            var newname="";
             // Ảnh đại diện: _avatarFile
             // Tên món ăn: ProductName.Text
             // Mô tả: ProductIntro.Text
@@ -157,14 +163,14 @@ namespace Recipe.Views
             // Thời gian nấu: Time.Text
             // Nguyên liệu được thêm vào _ingredientList
             //tạo 1 file hình ảnh
-            var info = new FileInfo(_fileAvatar);
+            info = new FileInfo(_fileAvatar);
+            newname = $"{Guid.NewGuid()}{info.Extension}";
+            //copy vào file           
+            info.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
+
             //them vao chổ sp
             SanPham sp = new SanPham();
-            sp.AnhDaiDien = "Resource/Images/Product/"+ info.Name;
-            //copy vào file
-            var folderfile = AppDomain.CurrentDomain.BaseDirectory;
-            info.CopyTo($"{folderfile}Images\\{info.Name}");
-
+            sp.AnhDaiDien = "Resource/Images/Product/" + newname;
             if (ProductName.Text.Trim() != "")
             {
                 sp.TenSP = ProductName.Text.Trim();
@@ -183,7 +189,7 @@ namespace Recipe.Views
             }
             sp.SoThanhPhan = childrenOfIngredients.Count;
             ///thêm đối tượng sp vào database
-            //sp.Add();
+            sp.Add();
 
 
             ///Các bước làm được thêm vào _stepList
@@ -199,13 +205,13 @@ namespace Recipe.Views
                 ctsp.stepdo.Add(stp);
             }
             //// List ảnh các bước làm _stepImageList
-            foreach(string av in _stepImageList)
-            {
-                var info1 = new FileInfo(_fileAvatar);
-                var folderfile1 = AppDomain.CurrentDomain.BaseDirectory;
-                info.CopyTo($"{folderfile}Images\\{info1.Name}");
+            foreach(var av in _stepImageList)
+            {               
+                newname = $"{Guid.NewGuid()}{av.Extension}";
+                av.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
+                string path = $"Resource/Images/Product/{newname}";
+                ctsp.hinhanh.Add(path);
             }
-            ctsp.hinhanh = _stepImageList;
 
             ////thêm ctsp vào database
             ctsp.Add();
