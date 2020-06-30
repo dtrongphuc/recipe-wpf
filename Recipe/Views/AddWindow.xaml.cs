@@ -211,7 +211,7 @@ namespace Recipe.Views
                 {
                     if(element.Text.Trim() != "")
                     {
-                        sp.NguyenLieu += element.Text + "\n";
+                        sp.NguyenLieu += element.Text + "\\n";
                     }
                 }
                 sp.SoThanhPhan = childrenOfIngredients.Count;
