@@ -25,11 +25,6 @@ namespace Recipe.Views
             InitializeComponent();
         }
 
-        //var _content = new string[]
-        //{
-
-        //};
-
         List<string> _content = new List<string>()
         {
             "Mỗi ngày một món ăn cho gia đình thêm vui ^^",
@@ -39,6 +34,11 @@ namespace Recipe.Views
             "Nhớ đeo khẩu trang khi ra ngoài trong mùa Covid - 19 nhé!!",
             "Món của vợ là nhất 😋",
             "Vào chia sẻ món nhà mình với mọi người nào <3",
+            "Khi nắn các viên thịt, hãy ấn một lỗ tròn ở giữa, thịt sẽ chín nhanh, đều và ngon hơn.",
+            "Rửa dao bằng nước nóng trước khi cắt bánh sẽ hạn chế tình trạng bánh dính vào lưỡi dao.",
+            "Buộc dây thun vào chuôi dao để chống trơn.",
+            "Khía một vài đường trên chiếc xúc xích sẽ làm xúc xích chín đều từ trong ra ngoài",
+            "Bọc rau bằng giấy bạc sẽ giúp rau tươi lâu hơn."
         };
 
         private void OKButton_Click(object sender, RoutedEventArgs e)

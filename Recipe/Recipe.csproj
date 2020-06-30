@@ -172,7 +172,6 @@
     <Resource Include="Resource\Images\Icons\Nhap.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-left.png" />
     <Resource Include="Resource\Images\Icons\arrow-end-right.png" />
-    <Resource Include="Resource\Images\background.jpg" />
     <None Include="Resource\Images\Product\Avatar_CaChienXu.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -735,6 +734,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Resource\Images\Icons\add.png" />
+    <Resource Include="Resource\Images\background.jpg" />
     <Content Include="SQL\QLMonAn.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
