@@ -22,12 +22,18 @@ namespace Recipe.Views
     /// </summary>
     public partial class AddWindow : Window
     {
+        private List<string> _categoryList = new List<string>();
+        List<FileInfo> _stepImageList = new List<FileInfo>();
+
+        FileInfo _stepFile;
+        private int _currentStep = 1;
+        string _fileAvatar;
+
+
         public AddWindow()
         {
             InitializeComponent();
         }
-
-        private List<string> _categoryList = new List<string>();
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             List<DanhMuc> listDM = Get_ListObject.Get_AllDM();
@@ -36,21 +42,6 @@ namespace Recipe.Views
                 _categoryList.Add(element.TenDM);
             }
             Categories.ItemsSource = _categoryList;
-
-            //SanPham sp = new SanPham();
-            //////set dữ liệu liên quan den san pham vào đây.
-
-
-
-            //////kết thúc set dữ liệu.
-            //sp.Add();
-            //DetailSP dtsp = new DetailSP();
-            //////set dữ liệu liên quan den chi tiet san pham ( bao gom so thu tu, buoc lam, hinh anh tung buoc lam )
-            //////tao ra 3 list 
-
-            //////ket thuc set du lieu
-            //dtsp.Add();
-
         }
 
         private List<TextBox> AllChildren(DependencyObject parent)
@@ -68,7 +59,6 @@ namespace Recipe.Views
             return list;
         }
 
-        List<string> _ingredientList = new List<string>();
         private void BtnAddIngredientsField_Click(object sender, RoutedEventArgs e)
         {
             Style style = this.FindResource("ingredientBox") as Style;
@@ -77,9 +67,7 @@ namespace Recipe.Views
             Ingredients.Children.Add(newTextbox);
         }
 
-        private int _currentStep = 1;
-        FileInfo _stepFile;
-        List<FileInfo> _stepImageList = new List<FileInfo>();
+        
         private void BtnAddStepField_Click(object sender, RoutedEventArgs e)
         {
             Style GridStyle = this.FindResource("leftCount") as Style;
@@ -94,34 +82,49 @@ namespace Recipe.Views
             var newTextBox = new TextBox();
             var newDockPanel = new DockPanel();
             var newStackPanel = new StackPanel();
+            var newStackPanelChild = new StackPanel();
             var newBorderImage = new Border();
+            //var newBorderImage1 = new Border();
+            //var newBorderImage2 = new Border();
+            //var newBorderImage3 = new Border();
 
             newGrid.Style = GridStyle;
             newEllipse.Style = EllipseStyle;
             newLabel.Style = CountStyle;
             newTextBox.Style = stepBoxStyle;
             newBorderImage.Style = ImageAddStyle;
+            //newborderimage1.style = imageaddstyle;
+            //newBorderImage2.Style = ImageAddStyle;
+            //newBorderImage3.Style = ImageAddStyle;
+
+            newStackPanelChild.Orientation = Orientation.Horizontal;
 
             newLabel.Content = ++_currentStep;
             newBorderImage.MouseLeftButtonDown += AddStepImage_Click;
+            //newBorderImage1.MouseLeftButtonDown += AddStepImage_Click;
+            //newBorderImage2.MouseLeftButtonDown += AddStepImage_Click;
+            //newBorderImage3.MouseLeftButtonDown += AddStepImage_Click;
 
             newGrid.Children.Add(newEllipse);
             newGrid.Children.Add(newLabel);
             newStackPanel.Children.Add(newTextBox);
-            newStackPanel.Children.Add(newBorderImage);
+            newStackPanelChild.Children.Add(newBorderImage);
+            //newStackPanelChild.Children.Add(newBorderImage1);
+            //newStackPanelChild.Children.Add(newBorderImage2);
+            //newStackPanelChild.Children.Add(newBorderImage3);
+            newStackPanel.Children.Add(newStackPanelChild);
             newDockPanel.Children.Add(newGrid);
             newDockPanel.Children.Add(newStackPanel);
 
             Steps.Children.Add(newDockPanel);
         }
 
-        string _fileAvatar;
         private void BtnAddAvatar(object sender, RoutedEventArgs e)
         {
             var screen = new OpenFileDialog();
             if (screen.ShowDialog() == true)
             {
-                 _fileAvatar = screen.FileName;
+                _fileAvatar = screen.FileName;
                 var bitmap = new BitmapImage(new Uri(_fileAvatar, UriKind.Absolute));
                 AvatarImage.Visibility = Visibility.Hidden;
                 Header.Visibility = Visibility.Hidden;
@@ -142,7 +145,7 @@ namespace Recipe.Views
                 ib.ImageSource = new BitmapImage(new Uri(file, UriKind.Absolute));
                 es.Background = ib;
             }
-            // Them anh cuoi cung duoc chon vao list
+            // Thêm ảnh cuối cùng được chọn
             if(_stepImageList.Count != _currentStep - 1)
             {
                 _stepImageList.RemoveAt(_currentStep - 1);
@@ -150,72 +153,97 @@ namespace Recipe.Views
             _stepImageList.Add(_stepFile);
         }
 
+        private bool ConditionCheck(List<TextBox> ingredients, List<TextBox> st)
+        {
+            if(_fileAvatar == null)
+            {
+                MessageBox.Show("Bạn chưa thêm ảnh đại diện cho món ăn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            } else if (ProductName.Text.Trim() == "" | ProductName.Text.Trim() == "" | ProductVideo.Text.Trim() == "" |
+                Time.Text.Trim() == "" | ingredients.Count < 1 | st.Count < 1 | _stepImageList.Count < 1)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin cho món ăn!", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+            return true;
+        }
+
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            FileInfo info;
+            List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
+            List<TextBox> childrenOfSteps = AllChildren(Steps);
+            FileInfo info = null;
             var folderfile = AppDomain.CurrentDomain.BaseDirectory;
-            var newname="";
-            // Ảnh đại diện: _avatarFile
+            var newname = "";
+            // Ảnh đại diện: _fileAvatar
             // Tên món ăn: ProductName.Text
             // Mô tả: ProductIntro.Text
             // Danh mục: Categories.SelectedItem; (xem lại)
 
             // Thời gian nấu: Time.Text
-            // Nguyên liệu được thêm vào _ingredientList
-            //tạo 1 file hình ảnh
-            info = new FileInfo(_fileAvatar);
-            newname = $"{Guid.NewGuid()}{info.Extension}";
-            //copy vào file           
-            info.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
+            // Nguyên liệu được thêm vào childrenOfIngredients
 
-            //them vao chổ sp
-            SanPham sp = new SanPham();
-            sp.AnhDaiDien = "Resource/Images/Product/" + newname;
-            if (ProductName.Text.Trim() != "")
+            // Kiểm tra dữ liệu
+            if (ConditionCheck(childrenOfIngredients, childrenOfSteps))
             {
-                sp.TenSP = ProductName.Text.Trim();
-            }
-            if(ProductIntro.Text.Trim() != "")
-            {
-                sp.MoTa = ProductIntro.Text.Trim();
-            }
-            sp.Video = ProductVideo.Text;
-            sp.MaDM =(Categories.SelectedIndex +1).ToString();
-            sp.ThoiGian = Time.Text.Trim();
-            List<TextBox> childrenOfIngredients = AllChildren(Ingredients);
-            foreach (var element in childrenOfIngredients)
-            {
-                sp.NguyenLieu += element.Text +"\n";
-            }
-            sp.SoThanhPhan = childrenOfIngredients.Count;
-            ///thêm đối tượng sp vào database
-            sp.Add();
+                info = new FileInfo(_fileAvatar);
 
+                newname = $"{Guid.NewGuid()}{info.Extension}";
+                //copy vào file           
+                info.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
 
-            ///Các bước làm được thêm vào _stepList
-            List<TextBox> childrenOfSteps = AllChildren(Steps);
-            DetailSP ctsp = new DetailSP();
+                //them vao chổ sp
+                SanPham sp = new SanPham();
+                sp.AnhDaiDien = "Resource/Images/Product/" + newname;
+                if (ProductName.Text.Trim() != "")
+                {
+                    sp.TenSP = ProductName.Text.Trim();
+                }
+                if (ProductIntro.Text.Trim() != "")
+                {
+                    sp.MoTa = ProductIntro.Text.Trim();
+                }
+                sp.Video = ProductVideo.Text;
+                sp.MaDM = (Categories.SelectedIndex + 1).ToString();
+                sp.ThoiGian = Time.Text.Trim();
+                
+                foreach (var element in childrenOfIngredients)
+                {
+                    if(element.Text.Trim() != "")
+                    {
+                        sp.NguyenLieu += element.Text + "\n";
+                    }
+                }
+                sp.SoThanhPhan = childrenOfIngredients.Count;
+                ///thêm đối tượng sp vào database
+                sp.Add();
 
+                DetailSP ctsp = new DetailSP();
 
-            for (int i = 1; i <= childrenOfSteps.Count; i++)
-            {
-                StepDo stp = new StepDo();
-                stp.step=(i.ToString());
-                stp.Do=(childrenOfSteps[i - 1].Text);
-                ctsp.stepdo.Add(stp);
+                for (int i = 1; i <= childrenOfSteps.Count; i++)
+                {
+                    StepDo stp = new StepDo();
+                    stp.step = (i.ToString());
+                    stp.Do = (childrenOfSteps[i - 1].Text);
+                    ctsp.stepdo.Add(stp);
+                }
+
+                //// List ảnh các bước làm _stepImageList
+                foreach (var av in _stepImageList)
+                {
+                    if(av.Name != null)
+                    {
+                        newname = $"{Guid.NewGuid()}{av.Extension}";
+                        av.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
+                        string path = $"Resource/Images/Product/{newname}";
+                        ctsp.hinhanh.Add(path);
+                    }
+                }
+
+                ////thêm ctsp vào database
+                ctsp.Add();
+                DialogResult = true;
             }
-            //// List ảnh các bước làm _stepImageList
-            foreach(var av in _stepImageList)
-            {               
-                newname = $"{Guid.NewGuid()}{av.Extension}";
-                av.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
-                string path = $"Resource/Images/Product/{newname}";
-                ctsp.hinhanh.Add(path);
-            }
-
-            ////thêm ctsp vào database
-            ctsp.Add();
-            DialogResult = true;
         }
     }
 }

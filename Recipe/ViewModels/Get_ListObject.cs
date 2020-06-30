@@ -42,8 +42,20 @@ namespace Recipe.Model
             }
         }
 
-        public List<SanPham> ListDM { get; set; } = new List<SanPham>();
-
+        private BindingList<SanPham> _listdm { get; set; } = new BindingList<SanPham>();
+        public BindingList<SanPham> ListDM
+        {
+            get
+            {
+                return _listdm;
+            }
+            set
+            {
+                _listdm = value;
+                PropertyChanged?.Invoke(
+                    this, new PropertyChangedEventArgs("ListDM"));
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         public static int Get_CountALLSP()
@@ -117,8 +129,9 @@ namespace Recipe.Model
             return list;
         }
 
-        public List<SanPham> Get_SPInDM(string id)
+        public BindingList<SanPham> Get_SPInDM(string id)
         {
+            ListDM.Clear();
             string sql = $"select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM={id}";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)

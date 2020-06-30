@@ -27,7 +27,7 @@ namespace Recipe
     {
         BindingList<SanPham> _list = new BindingList<SanPham>();
         public static BindingList<SanPham> _listLike;
-        List<DanhMuc> listDM;
+        public static List<DanhMuc> listDM;
         List<PaginationStyle> PageStyleList;
 
         PaginationObject Pages = new PaginationObject();
@@ -35,6 +35,7 @@ namespace Recipe
 
         private int _currentElement = 0;
         public static int FavoriteCount = 0;
+        public static int selected = -1;
 
         public MainWindow()
         {
@@ -130,6 +131,11 @@ namespace Recipe
             ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
         }
 
+        private void Modal_Click(object sender, MouseButtonEventArgs e)
+        {
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
+        }
+
         private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, Grid pnl)
         {
             Storyboard sb = Resources[Storyboard] as Storyboard;
@@ -210,6 +216,10 @@ namespace Recipe
             this.Hide();
             var screen = new AddWindow();
             screen.ShowDialog();
+            if(screen.DialogResult == true)
+            {
+                _list.ResetBindings();
+            }
             this.Show();
         }
 
@@ -222,6 +232,7 @@ namespace Recipe
             } else
             {
                 string value = cb.SelectedItem as string;
+                selected = cb.SelectedIndex;
                 this.Hide();
                 var screen = new SearchWindow(value, 2);
                 screen.ShowDialog();
@@ -317,11 +328,6 @@ namespace Recipe
         {
             Pages.CurrentPage = Pages.ToltalPage;
             UpdatePagination();
-        }
-
-        private void Modal_Click(object sender, MouseButtonEventArgs e)
-        {
-            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
         }
     }
 }

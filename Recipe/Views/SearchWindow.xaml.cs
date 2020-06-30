@@ -24,7 +24,7 @@ namespace Recipe.Views
     public partial class SearchWindow : Window
     {
         public IEnumerable<SanPham> list;
-        List<DanhMuc> listDM;
+        public IEnumerable<SanPham> subnets;
 
         Get_ListObject page = new Get_ListObject();
 
@@ -52,6 +52,7 @@ namespace Recipe.Views
             }
             else
             {
+                CategoryList.SelectedIndex = MainWindow.selected;
                 list = SearchCategories(keyword);
             }
             UpdateQuantity();
@@ -59,7 +60,6 @@ namespace Recipe.Views
 
         public IEnumerable<SanPham> search_keyword(string keyword)
         {
-            IEnumerable<SanPham> subnets = null;
             //BindingList<SanPham> l = new BindingList<SanPham>();
             //lấy tất cả các sản phẩm
             int lastindex = Get_ListObject.Get_CountALLSP();
@@ -74,23 +74,19 @@ namespace Recipe.Views
             {
                 subnets = sp.Where(i => i.TenSP.ToLower().Contains(keyword.ToLower()));
             }
-            //foreach(var item in subnets)
-            //{
-            //    l.Add(item);
-            //}
             return subnets;
         }
-        public List<SanPham> SearchCategories(string tendm)
+        public BindingList<SanPham> SearchCategories(string tendm)
         {
-            var DanhMuc = listDM.Single(x => x.TenDM == tendm);
+            var DanhMuc = MainWindow.listDM.Single(x => x.TenDM == tendm);
             return page.Get_SPInDM(DanhMuc.MaDM);
         }
 
         private List<string> GetListCategoryName()
         {
-            listDM = Get_ListObject.Get_AllDM();
+            MainWindow.listDM = Get_ListObject.Get_AllDM();
             List<string> l = new List<string>();
-            foreach (var item in listDM)
+            foreach (var item in MainWindow.listDM)
             {
                 l.Add(item.TenDM);
             }
