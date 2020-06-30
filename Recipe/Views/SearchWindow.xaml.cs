@@ -80,7 +80,7 @@ namespace Recipe.Views
             //}
             return subnets;
         }
-        public BindingList<SanPham> SearchCategories(string tendm)
+        public List<SanPham> SearchCategories(string tendm)
         {
             var DanhMuc = listDM.Single(x => x.TenDM == tendm);
             return page.Get_SPInDM(DanhMuc.MaDM);
@@ -134,8 +134,11 @@ namespace Recipe.Views
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             keyword = SearchBox.Text;
-            list = search_keyword(keyword);
-            UpdateQuantity();
+            if(keyword != "")
+            {
+                list = search_keyword(keyword);
+                UpdateQuantity();
+            }
         }
 
         private void BtnProduct_Click(object sender, RoutedEventArgs e)
@@ -144,7 +147,7 @@ namespace Recipe.Views
             var selected = btn.DataContext;
             SanPham product = (SanPham)selected;
             var detailScreen = new DetailsWindow(product);
-            this.Hide();
+            //this.Hide();
             detailScreen.ShowDialog();
             this.Show();
         }

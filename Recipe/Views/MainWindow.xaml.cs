@@ -180,11 +180,14 @@ namespace Recipe
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             string value = SearchBox.Text;
-            this.Hide();
-            var screen = new SearchWindow(value, 1);
-            screen.ShowDialog();
-            SearchBox.Text = "";
-            this.Show();
+            if(value.Trim() != "")
+            {
+                this.Hide();
+                var screen = new SearchWindow(value, 1);
+                screen.ShowDialog();
+                SearchBox.Text = "";
+                this.Show();
+            }
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

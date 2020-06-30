@@ -42,20 +42,7 @@ namespace Recipe.Model
             }
         }
 
-        private BindingList<SanPham> _listdm { get; set; } = new BindingList<SanPham>();
-        public BindingList<SanPham> ListDM
-        {
-            get
-            {
-                return _listdm;
-            }
-            set
-            {
-                _listdm = value;
-                PropertyChanged?.Invoke(
-                    this, new PropertyChangedEventArgs("ListDM"));
-            }
-        }
+        public List<SanPham> ListDM { get; set; } = new List<SanPham>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -130,9 +117,8 @@ namespace Recipe.Model
             return list;
         }
 
-        public BindingList<SanPham> Get_SPInDM(string id)
+        public List<SanPham> Get_SPInDM(string id)
         {
-            ListDM.Clear();
             string sql = $"select * from SanPham as sp join DanhMuc as dm on dm.MaDM = sp.MaDm  where dm.MADM={id}";
             DataTable dt = Connection.GetALL_Data(sql);
             foreach(DataRow row in dt.Rows)

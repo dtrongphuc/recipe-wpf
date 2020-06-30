@@ -219,8 +219,8 @@ VALUES
 	(5, 'Resource/Images/Product/BL_UcGaXao_8.jpg'),
 	(5, 'Resource/Images/Product/BL_UcGaXao_9.jpg'),
 
-	(6, 'Resource/Images/BL_ComChienThaiLan_1.jpg'),
-	(6, 'Resource/Images/BL_ComChienThaiLan_2.jpg'),
+	(6, 'Resource/Images/Product/BL_ComChienThaiLan_1.jpg'),
+	(6, 'Resource/Images/Product/BL_ComChienThaiLan_2.jpg'),
 
 	(7, 'Resource/Images/Product/BL_CanhGaChienNcMam_1.jpg'),
 	(7, 'Resource/Images/Product/BL_CanhGaChienNcMam_2.jpg'),
