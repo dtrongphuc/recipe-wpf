@@ -543,4 +543,4 @@ SELECT IDENT_CURRENT('SanPham') as LastID
 select  * from SanPham
 update Table SanPham set yeuthich=? where masp=?
 
-select  * from sanPham
+select  * from sanPham order luotxem

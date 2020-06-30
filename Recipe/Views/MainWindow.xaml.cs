@@ -156,6 +156,8 @@ namespace Recipe
             this.Hide();
             detailScreen.ShowDialog();
             this.Show();
+            product.LuotXem++;
+            product.EditView();
         }
 
         private void BtnFavorite_Click(object sender, RoutedEventArgs e)
@@ -237,6 +239,8 @@ namespace Recipe
             this.Hide();
             detailScreen.ShowDialog();
             this.Show();
+            product.LuotXem++;
+            product.EditView();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
