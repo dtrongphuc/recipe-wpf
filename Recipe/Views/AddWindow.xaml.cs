@@ -82,21 +82,37 @@ namespace Recipe.Views
             var newTextBox = new TextBox();
             var newDockPanel = new DockPanel();
             var newStackPanel = new StackPanel();
+            var newStackPanelChild = new StackPanel();
             var newBorderImage = new Border();
+            //var newBorderImage1 = new Border();
+            //var newBorderImage2 = new Border();
+            //var newBorderImage3 = new Border();
 
             newGrid.Style = GridStyle;
             newEllipse.Style = EllipseStyle;
             newLabel.Style = CountStyle;
             newTextBox.Style = stepBoxStyle;
             newBorderImage.Style = ImageAddStyle;
+            //newborderimage1.style = imageaddstyle;
+            //newBorderImage2.Style = ImageAddStyle;
+            //newBorderImage3.Style = ImageAddStyle;
+
+            newStackPanelChild.Orientation = Orientation.Horizontal;
 
             newLabel.Content = ++_currentStep;
             newBorderImage.MouseLeftButtonDown += AddStepImage_Click;
+            //newBorderImage1.MouseLeftButtonDown += AddStepImage_Click;
+            //newBorderImage2.MouseLeftButtonDown += AddStepImage_Click;
+            //newBorderImage3.MouseLeftButtonDown += AddStepImage_Click;
 
             newGrid.Children.Add(newEllipse);
             newGrid.Children.Add(newLabel);
             newStackPanel.Children.Add(newTextBox);
-            newStackPanel.Children.Add(newBorderImage);
+            newStackPanelChild.Children.Add(newBorderImage);
+            //newStackPanelChild.Children.Add(newBorderImage1);
+            //newStackPanelChild.Children.Add(newBorderImage2);
+            //newStackPanelChild.Children.Add(newBorderImage3);
+            newStackPanel.Children.Add(newStackPanelChild);
             newDockPanel.Children.Add(newGrid);
             newDockPanel.Children.Add(newStackPanel);
 
@@ -193,7 +209,10 @@ namespace Recipe.Views
                 
                 foreach (var element in childrenOfIngredients)
                 {
-                    sp.NguyenLieu += element.Text + "\n";
+                    if(element.Text.Trim() != "")
+                    {
+                        sp.NguyenLieu += element.Text + "\n";
+                    }
                 }
                 sp.SoThanhPhan = childrenOfIngredients.Count;
                 ///thêm đối tượng sp vào database
@@ -212,10 +231,13 @@ namespace Recipe.Views
                 //// List ảnh các bước làm _stepImageList
                 foreach (var av in _stepImageList)
                 {
-                    newname = $"{Guid.NewGuid()}{av.Extension}";
-                    av.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
-                    string path = $"Resource/Images/Product/{newname}";
-                    ctsp.hinhanh.Add(path);
+                    if(av.Name != null)
+                    {
+                        newname = $"{Guid.NewGuid()}{av.Extension}";
+                        av.CopyTo($"{folderfile}Resource\\Images\\Product\\{newname}");
+                        string path = $"Resource/Images/Product/{newname}";
+                        ctsp.hinhanh.Add(path);
+                    }
                 }
 
                 ////thêm ctsp vào database

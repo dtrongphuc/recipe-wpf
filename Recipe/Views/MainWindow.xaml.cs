@@ -214,6 +214,10 @@ namespace Recipe
             this.Hide();
             var screen = new AddWindow();
             screen.ShowDialog();
+            if(screen.DialogResult == true)
+            {
+                _list.ResetBindings();
+            }
             this.Show();
         }
 
