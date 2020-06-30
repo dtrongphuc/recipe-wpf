@@ -454,6 +454,12 @@
                                         Content="{Binding step}"
                                         FontSize="20"
                                         FontWeight="SemiBold" />
+                                    <Label
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Left"
+                                        Content=":"
+                                        FontSize="20"
+                                        FontWeight="SemiBold" />
                                 </StackPanel>
                                 <TextBlock
                                     Margin="6,12,0,0"

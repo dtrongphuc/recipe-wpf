@@ -131,6 +131,11 @@ namespace Recipe
             ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
         }
 
+        private void Modal_Click(object sender, MouseButtonEventArgs e)
+        {
+            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
+        }
+
         private void ShowHideMenu(string Storyboard, Button btnHide, Button btnShow, Grid pnl)
         {
             Storyboard sb = Resources[Storyboard] as Storyboard;
@@ -315,11 +320,6 @@ namespace Recipe
         {
             Pages.CurrentPage = Pages.ToltalPage;
             UpdatePagination();
-        }
-
-        private void Modal_Click(object sender, MouseButtonEventArgs e)
-        {
-            ShowHideMenu("sbHideLeftMenu", BtnMenuHide, BtnMenuShow, Menu);
         }
     }
 }

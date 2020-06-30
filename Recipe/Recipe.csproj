@@ -89,7 +89,7 @@
     <Compile Include="Model\Connection.cs" />
     <Compile Include="Model\DanhMuc.cs" />
     <Compile Include="Model\DetailSP.cs" />
-    <Compile Include="Model\PaginationStyle.cs" />
+    <Compile Include="ViewModels\PaginationStyle.cs" />
     <Compile Include="Model\StepDo.cs" />
     <Compile Include="ViewModels\Get_ListObject.cs" />
     <Compile Include="Model\PaginationObject.cs" />
