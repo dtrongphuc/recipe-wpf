@@ -330,6 +330,7 @@
                                         Panel.ZIndex="99"
                                         Background="Transparent"
                                         BorderThickness="0"
+                                        Click="BtnProduct_Click"
                                         ClipToBounds="True"
                                         Style="{StaticResource MaterialDesignRaisedAccentButton}">
                                         <materialDesign:Card
